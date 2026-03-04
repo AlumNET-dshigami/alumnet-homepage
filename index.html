@@ -1,0 +1,2358 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AlumNET株式会社 | AI × HR で採用の常識を変える</title>
+<meta name="description" content="AlumNETは、AI採用支援ツール「CHRO」と大手HR出身380名のプロ人材で、採用コスト削減・アルムナイ活用・エンゲージメント向上を実現します。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B3E;
+    --navy-mid: #152752;
+    --navy-light: #1E3A6E;
+    --gold: #C9A84C;
+    --gold-light: #E8C96C;
+    --teal: #2A7F8F;
+    --teal-light: #3AABB9;
+    --white: #FFFFFF;
+    --off-white: #F6F4EF;
+    --gray-light: #E8E6E0;
+    --gray-mid: #9B9B9B;
+    --text-dark: #1A1A2E;
+    --text-mid: #444466;
+    --accent-blue: #4A7CFF;
+    --accent-purple: #7B5CFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ========== NAVIGATION ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(13, 27, 62, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--gold); }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
+    display: block;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(13,27,62,0.98);
+    z-index: 1001;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+  .mobile-menu.active { display: flex; }
+  .mobile-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .btn-primary {
+    margin-top: 16px;
+  }
+
+  /* ========== HERO ========== */
+  #hero {
+    min-height: 100vh;
+    background: var(--navy);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  #particle-canvas {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-gradient {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(ellipse, rgba(74,124,255,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-gradient-2 {
+    position: absolute;
+    bottom: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    padding-top: 72px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(74,124,255,0.12);
+    border: 1px solid rgba(74,124,255,0.3);
+    border-radius: 100px;
+    padding: 8px 20px 8px 12px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    animation: pulse 2s infinite;
+  }
+
+  .hero-badge-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .hero-badge-text strong {
+    color: var(--accent-blue);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.45;
+    margin-bottom: 28px;
+    animation: fadeUp 0.8s ease 0.1s both;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--gold), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(14px, 1.8vw, 18px);
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9;
+    max-width: 620px;
+    margin-bottom: 48px;
+    font-weight: 300;
+    animation: fadeUp 0.8s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s ease 0.3s both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    padding: 16px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--white);
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    padding: 15px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.25s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 64px;
+    margin-top: 80px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    animation: fadeUp 0.8s ease 0.4s both;
+  }
+
+  .hero-stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    font-weight: 300;
+  }
+
+  /* ========== TRUST BAR ========== */
+  #trust-bar {
+    background: var(--off-white);
+    padding: 40px 48px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+
+  .trust-bar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .trust-bar-label {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--gray-mid);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    font-weight: 500;
+  }
+
+  .trust-bar-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    flex-wrap: wrap;
+  }
+
+  .trust-logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    opacity: 0.25;
+    letter-spacing: 0.1em;
+    transition: opacity 0.3s;
+  }
+  .trust-logo:hover { opacity: 0.5; }
+
+  /* ========== AI SHOWCASE ========== */
+  #ai-showcase {
+    background: var(--white);
+    padding: 120px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ai-showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .ai-showcase-visual {
+    background: var(--navy);
+    border-radius: 8px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+  }
+
+  .ai-showcase-visual::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,124,255,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,124,255,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  .ai-terminal {
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-terminal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .ai-terminal-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .ai-terminal-title {
+    font-family: 'Inter', monospace;
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+    margin-left: 8px;
+  }
+
+  .ai-chat-msg {
+    margin-bottom: 20px;
+  }
+
+  .ai-chat-msg-label {
+    font-family: 'Inter', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .ai-chat-msg-label.human { color: var(--gold); }
+  .ai-chat-msg-label.ai { color: var(--accent-blue); }
+
+  .ai-chat-msg-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-weight: 300;
+  }
+
+  .ai-chat-msg-text.human-bg {
+    background: rgba(201,168,76,0.08);
+    border-left: 2px solid var(--gold);
+  }
+
+  .ai-chat-msg-text.ai-bg {
+    background: rgba(74,124,255,0.08);
+    border-left: 2px solid var(--accent-blue);
+  }
+
+  .ai-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .ai-metric {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+  }
+
+  .ai-metric-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--accent-blue);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .ai-metric-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+  }
+
+  .ai-showcase-text h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .ai-showcase-text h2 em {
+    font-style: normal;
+    color: var(--accent-blue);
+  }
+
+  .ai-feature-list {
+    list-style: none;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .ai-feature-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .ai-feature-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(74,124,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .ai-feature-content h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .ai-feature-content p {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ========== SECTION COMMONS ========== */
+  section { padding: 120px 48px; }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-eyebrow-text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(26px, 3.5vw, 42px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .section-title-white { color: var(--white); }
+
+  .section-lead {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 2;
+    max-width: 640px;
+    font-weight: 300;
+  }
+
+  .section-lead-white { color: rgba(255,255,255,0.65); }
+
+  /* ========== CHALLENGE SECTION ========== */
+  #challenge { background: var(--off-white); }
+
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 72px;
+  }
+
+  .challenge-card {
+    background: var(--white);
+    padding: 48px 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .challenge-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 64px rgba(13,27,62,0.10);
+    z-index: 1;
+  }
+
+  .challenge-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .challenge-card:hover::before { opacity: 1; }
+
+  .challenge-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 700;
+    color: var(--gray-light);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .challenge-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+
+  .challenge-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  /* ========== PHILOSOPHY ========== */
+  #philosophy {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .philosophy-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .philosophy-content { position: relative; z-index: 1; }
+
+  .philosophy-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 96px;
+  }
+
+  .philosophy-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .philosophy-flow::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--accent-blue), var(--gold), transparent);
+    opacity: 0.4;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  .flow-dot {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--navy-light);
+    border: 1px solid rgba(201,168,76,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+
+  .flow-step:hover .flow-dot {
+    border-color: var(--gold);
+    background: rgba(201,168,76,0.1);
+  }
+
+  .flow-dot-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .flow-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .flow-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ========== SERVICES ========== */
+  #services { background: var(--white); }
+
+  .services-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 80px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .service-card {
+    background: var(--off-white);
+    padding: 52px 48px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    transition: all 0.3s;
+  }
+
+  .service-card:hover { background: var(--navy); }
+  .service-card:hover .service-num { color: rgba(201,168,76,0.2); }
+  .service-card:hover .service-badge { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+  .service-card:hover .service-title { color: var(--white); }
+  .service-card:hover .service-text { color: rgba(255,255,255,0.55); }
+  .service-card:hover .service-tags li { color: rgba(255,255,255,0.4); }
+  .service-card:hover .service-tags li::before { color: var(--gold); }
+
+  .service-card-featured {
+    background: var(--navy);
+    grid-column: span 2;
+  }
+  .service-card-featured .service-num { color: rgba(201,168,76,0.15); }
+  .service-card-featured .service-badge { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+  .service-card-featured .service-title { color: var(--white); }
+  .service-card-featured .service-text { color: rgba(255,255,255,0.55); }
+  .service-card-featured .service-tags li { color: rgba(255,255,255,0.4); }
+  .service-card-featured .service-tags li::before { color: var(--gold); }
+  .service-card-featured .service-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+  .service-card-ai {
+    background: linear-gradient(135deg, #0D1B3E, #152752);
+    grid-column: span 2;
+    border: 1px solid rgba(74,124,255,0.2);
+  }
+  .service-card-ai .service-num { color: rgba(74,124,255,0.15); }
+  .service-card-ai .service-badge {
+    background: rgba(74,124,255,0.15);
+    color: var(--accent-blue);
+    border: 1px solid rgba(74,124,255,0.3);
+  }
+  .service-card-ai .service-title { color: var(--white); }
+  .service-card-ai .service-text { color: rgba(255,255,255,0.55); }
+  .service-card-ai .service-tags li { color: rgba(255,255,255,0.4); }
+  .service-card-ai .service-tags li::before { color: var(--accent-blue); }
+  .service-card-ai .service-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+  .service-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: rgba(13,27,62,0.06);
+    line-height: 1;
+    position: absolute;
+    top: 24px; right: 36px;
+    transition: color 0.3s;
+  }
+
+  .service-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    background: rgba(13,27,62,0.08);
+    color: var(--navy-light);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+  }
+
+  .service-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    transition: color 0.3s;
+  }
+
+  .service-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+  }
+
+  .service-tags {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .service-tags li {
+    font-size: 12px;
+    color: var(--gray-mid);
+    transition: color 0.3s;
+  }
+
+  .service-tags li::before {
+    content: '\2014\00a0';
+    color: var(--teal);
+    transition: color 0.3s;
+  }
+
+  /* ========== RESULTS ========== */
+  #results {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .results-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74,124,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74,124,255,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .results-content { position: relative; z-index: 1; }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 64px;
+  }
+
+  .result-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 48px 32px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .result-card:hover {
+    background: rgba(74,124,255,0.06);
+    border-color: rgba(74,124,255,0.2);
+    transform: translateY(-4px);
+  }
+
+  .result-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .result-num.gold { color: var(--gold); }
+  .result-num.blue { color: var(--accent-blue); }
+
+  .result-unit {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.5;
+  }
+
+  .result-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-bottom: 8px;
+  }
+
+  .result-detail {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+  }
+
+  /* ========== STRENGTHS ========== */
+  #strengths { background: var(--off-white); }
+
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 72px;
+  }
+
+  .strength-block {
+    padding: 52px;
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+  }
+
+  .strength-block-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+
+  .strength-block-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .strength-large-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 88px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .strength-large-num span {
+    font-size: 36px;
+    color: var(--gold);
+  }
+
+  .alumni-origins {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .alumni-origin-item {
+    background: var(--white);
+    padding: 28px 32px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .alumni-origin-company {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--navy-light);
+    margin-bottom: 8px;
+  }
+
+  .alumni-origin-count {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .alumni-origin-count span {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--gray-mid);
+    margin-left: 4px;
+  }
+
+  /* ========== COMPARISON ========== */
+  #comparison {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comparison-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+
+  .comparison-content { position: relative; z-index: 1; }
+
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+    margin-top: 64px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .comp-header {
+    padding: 20px 24px;
+    background: rgba(255,255,255,0.04);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.5);
+  }
+
+  .comp-header-highlight {
+    background: rgba(201,168,76,0.12);
+    color: var(--gold);
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .comp-cell {
+    padding: 22px 24px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+  }
+
+  .comp-cell-label {
+    font-weight: 500;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .comp-cell-highlight {
+    background: rgba(201,168,76,0.06);
+    color: var(--gold-light);
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .comp-cell-center { text-align: center; }
+
+  .comp-mark-good { color: #4CAF88; font-size: 16px; }
+  .comp-mark-bad { color: rgba(255,255,255,0.25); font-size: 16px; }
+  .comp-mark-mid { color: rgba(201,168,76,0.6); font-size: 16px; }
+
+  /* ========== FLOW ========== */
+  #flow { background: var(--white); }
+
+  .flow-list {
+    margin-top: 72px;
+    position: relative;
+  }
+
+  .flow-list::before {
+    content: '';
+    position: absolute;
+    left: 39px;
+    top: 40px;
+    bottom: 40px;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--gold), var(--accent-blue));
+  }
+
+  .flow-item {
+    display: flex;
+    gap: 48px;
+    margin-bottom: 56px;
+    position: relative;
+  }
+
+  .flow-item:last-child { margin-bottom: 0; }
+
+  .flow-step-num {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .flow-step-num span {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .flow-item-body { padding-top: 18px; }
+
+  .flow-item-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .flow-item-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  /* ========== MVV ========== */
+  #mvv { background: var(--off-white); }
+
+  .mvv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    margin-top: 72px;
+  }
+
+  .mvv-card {
+    background: var(--white);
+    padding: 56px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .mvv-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .mvv-heading {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .mvv-text {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  .mvv-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--accent-blue));
+  }
+
+  /* ========== CTA SECTION ========== */
+  #cta-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #152752 50%, var(--navy) 100%);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+  .cta-glow-1 { top: -200px; left: -100px; background: var(--accent-blue); }
+  .cta-glow-2 { bottom: -200px; right: -100px; background: var(--gold); }
+
+  .cta-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cta-inner h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .cta-inner h2 em {
+    font-style: normal;
+    background: linear-gradient(135deg, var(--gold), var(--accent-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .cta-inner p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    line-height: 2;
+    margin-bottom: 48px;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  /* ========== CONTACT ========== */
+  #contact {
+    background: var(--navy);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .contact-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .contact-lead {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 2;
+    margin-bottom: 56px;
+    font-weight: 300;
+  }
+
+  .contact-box {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 56px 48px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+    text-align: center;
+  }
+
+  .contact-box-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.25em;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .contact-box-text {
+    font-size: 14px;
+    color: rgba(255,255,255,0.55);
+    line-height: 2;
+    margin-bottom: 40px;
+    font-weight: 300;
+  }
+
+  .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+    padding-top: 48px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .contact-info-item { text-align: center; }
+
+  .contact-info-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.35);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .contact-info-value {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 300;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #060D1F;
+    padding: 56px 48px 32px;
+    border-top: 1px solid rgba(201,168,76,0.1);
+  }
+
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 56px;
+  }
+
+  .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .footer-logo span { color: var(--gold); }
+
+  .footer-tagline {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 64px;
+  }
+
+  .footer-nav-group-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .footer-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav-links a:hover { color: rgba(255,255,255,0.8); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 11px;
+    color: rgba(255,255,255,0.25);
+    text-decoration: none;
+  }
+
+  /* ========== FLOATING CTA ========== */
+  .floating-cta {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 16px 28px;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+    transition: all 0.3s;
+    transform: translateY(120px);
+    opacity: 0;
+  }
+
+  .floating-cta.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .floating-cta:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(201,168,76,0.5);
+  }
+
+  .floating-cta svg { flex-shrink: 0; }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .gold-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px 0 40px;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    section { padding: 80px 24px; }
+    #ai-showcase { padding: 80px 24px; }
+    #cta-section { padding: 80px 24px; }
+    footer { padding: 48px 24px 24px; }
+    .hero-content { padding: 0 24px; padding-top: 72px; }
+    .challenge-grid { grid-template-columns: 1fr; }
+    .philosophy-header { grid-template-columns: 1fr; gap: 40px; }
+    .philosophy-flow { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .philosophy-flow::before { display: none; }
+    .services-intro { grid-template-columns: 1fr; gap: 40px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card-featured { grid-column: span 1; }
+    .service-card-featured .service-content { grid-template-columns: 1fr; gap: 32px; }
+    .service-card-ai { grid-column: span 1; }
+    .service-card-ai .service-content { grid-template-columns: 1fr; gap: 32px; }
+    .strengths-grid { grid-template-columns: 1fr; gap: 40px; }
+    .mvv-grid { grid-template-columns: 1fr; }
+    .comparison-grid { display: none; }
+    .results-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 32px; }
+    .ai-showcase-grid { grid-template-columns: 1fr; gap: 48px; }
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { gap: 32px; flex-wrap: wrap; }
+    #trust-bar { padding: 32px 24px; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    .contact-info { flex-direction: column; gap: 24px; }
+    .alumni-origins { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+    .floating-cta { bottom: 16px; right: 16px; padding: 14px 24px; font-size: 13px; }
+    .trust-bar-logos { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="nav-logo">Alum<span>NET</span></a>
+  <ul class="nav-links">
+    <li><a href="#ai-showcase">AI × HR</a></li>
+    <li><a href="#challenge">課題認識</a></li>
+    <li><a href="#services">サービス</a></li>
+    <li><a href="#results">導入効果</a></li>
+    <li><a href="#strengths">私たちの強み</a></li>
+    <li><a href="#flow">ご相談の流れ</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="nav-cta">無料相談</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#ai-showcase" onclick="toggleMenu()">AI × HR</a>
+  <a href="#challenge" onclick="toggleMenu()">課題認識</a>
+  <a href="#services" onclick="toggleMenu()">サービス</a>
+  <a href="#results" onclick="toggleMenu()">導入効果</a>
+  <a href="#strengths" onclick="toggleMenu()">私たちの強み</a>
+  <a href="#flow" onclick="toggleMenu()">ご相談の流れ</a>
+  <a href="#mvv" onclick="toggleMenu()">MVV</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;">無料相談はこちら</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <canvas id="particle-canvas"></canvas>
+  <div class="hero-gradient"></div>
+  <div class="hero-gradient-2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span class="hero-badge-text"><strong>AI-Powered</strong> HR Reconnection Infrastructure</span>
+    </div>
+    <h1 class="hero-title">
+      <em>AI × HR</em>で、<br>
+      採用の常識を変える。
+    </h1>
+    <p class="hero-subtitle">
+      独自AI「CHRO」と大手HR出身380名のプロ人材が、<br>
+      採用コスト80%削減・アルムナイ資産化・エンゲージメント向上を同時に実現。<br>
+      退職者・辞退者との関係を「資産」に変える、新しいHRインフラです。
+    </p>
+    <div class="hero-actions">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary">無料相談・資料請求
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#ai-showcase" class="btn-secondary">AIデモを見る</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-number">80<span style="font-size:22px; color:rgba(255,255,255,0.5);">%</span></div>
+        <div class="hero-stat-label">採用NONコア業務削減</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">380<span style="font-size:22px; color:rgba(255,255,255,0.5);">名</span></div>
+        <div class="hero-stat-label">大手HRアルムナイ登録</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">7<span style="font-size:22px; color:rgba(255,255,255,0.5);">領域</span></div>
+        <div class="hero-stat-label">HR統合サービス</div>
+      </div>
+      <div>
+        <div class="hero-stat-number">0<span style="font-size:22px; color:rgba(255,255,255,0.5);">円</span></div>
+        <div class="hero-stat-label">初期費用・相談料</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div id="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-bar-label">メンバーの出身企業</div>
+    <div class="trust-bar-logos">
+      <span class="trust-logo">PASONA</span>
+      <span class="trust-logo">PERSOL</span>
+      <span class="trust-logo">RECRUIT</span>
+      <span class="trust-logo">JAC</span>
+    </div>
+  </div>
+</div>
+
+<!-- AI SHOWCASE -->
+<section id="ai-showcase">
+  <div class="ai-showcase-grid">
+    <div class="ai-showcase-visual reveal">
+      <div class="ai-terminal">
+        <div class="ai-terminal-header">
+          <div class="ai-terminal-dot" style="background:#FF5F56;"></div>
+          <div class="ai-terminal-dot" style="background:#FFBD2E;"></div>
+          <div class="ai-terminal-dot" style="background:#27C93F;"></div>
+          <span class="ai-terminal-title">CHRO AI Assistant</span>
+        </div>
+        <div class="ai-chat-msg">
+          <div class="ai-chat-msg-label human">Human — 人事担当者</div>
+          <div class="ai-chat-msg-text human-bg">SaaS企業のバックエンドエンジニア（シニア）を採用したい。スカウト文を作成して。</div>
+        </div>
+        <div class="ai-chat-msg">
+          <div class="ai-chat-msg-label ai">CHRO — AI採用アシスタント</div>
+          <div class="ai-chat-msg-text ai-bg">
+            候補者のGitHub活動とQiita記事を分析しました。<br><br>
+            この方はGoでのマイクロサービス構築経験が豊富で、OSSコントリビューション歴もあります。以下の3パターンのスカウト文を生成しました...<br><br>
+            <span style="color:var(--accent-blue);">&#9632; パターンA: 技術的チャレンジ訴求</span><br>
+            <span style="color:var(--gold);">&#9632; パターンB: チーム・文化訴求</span><br>
+            <span style="color:var(--teal-light);">&#9632; パターンC: キャリアパス訴求</span>
+          </div>
+        </div>
+      </div>
+      <div class="ai-metrics">
+        <div class="ai-metric">
+          <div class="ai-metric-num">3x</div>
+          <div class="ai-metric-label">返信率向上</div>
+        </div>
+        <div class="ai-metric">
+          <div class="ai-metric-num">80%</div>
+          <div class="ai-metric-label">作業時間削減</div>
+        </div>
+        <div class="ai-metric">
+          <div class="ai-metric-num">10人</div>
+          <div class="ai-metric-label">HRプロの叡智</div>
+        </div>
+        <div class="ai-metric">
+          <div class="ai-metric-num">24/7</div>
+          <div class="ai-metric-label">稼働可能</div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-showcase-text reveal">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">AI × HR Innovation</span>
+      </div>
+      <h2>HR特化AI <em>「CHRO」</em>が、<br>採用の80%を自動化。</h2>
+      <div class="gold-divider"></div>
+      <p class="section-lead">大手HRプロフェッショナル10名の採用ノウハウ・判断基準・文章スキルを学習した独自AI。求人作成からスカウト、書類選考、面接準備まで、採用工程のNONコア業務を劇的に削減します。</p>
+      <ul class="ai-feature-list">
+        <li class="ai-feature-item">
+          <div class="ai-feature-icon">&#9997;</div>
+          <div class="ai-feature-content">
+            <h4>1to1スカウト文の自動生成</h4>
+            <p>候補者のプロフィールを分析し、パーソナライズされたスカウト文を複数パターン生成</p>
+          </div>
+        </li>
+        <li class="ai-feature-item">
+          <div class="ai-feature-icon">&#128269;</div>
+          <div class="ai-feature-content">
+            <h4>書類選考・面接準備の半自動化</h4>
+            <p>職務経歴書の要点抽出、面接質問の自動生成、候補者スコアリングを支援</p>
+          </div>
+        </li>
+        <li class="ai-feature-item">
+          <div class="ai-feature-icon">&#128202;</div>
+          <div class="ai-feature-content">
+            <h4>採用データの可視化・分析</h4>
+            <p>採用KPI、チャネル別効果、歩留まり分析をリアルタイムダッシュボードで提供</p>
+          </div>
+        </li>
+        <li class="ai-feature-item">
+          <div class="ai-feature-icon">&#129302;</div>
+          <div class="ai-feature-content">
+            <h4>AI面接官・候補者アトラクト</h4>
+            <p>面接ガイドの自動生成、候補者への魅力的なフォローアップメッセージを作成</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CHALLENGE -->
+<section id="challenge">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Current Issues</span>
+    </div>
+    <h2 class="section-title">御社の採用は、<br>「消耗」していませんか。</h2>
+    <div class="gold-divider"></div>
+    <p class="section-lead">多くの企業が、採用コストの増大・候補者との関係断絶・人材の流出という同じ構造的問題を繰り返しています。その根本は「採用を点で捉えていること」にあります。</p>
+    <div class="challenge-grid reveal">
+      <div class="challenge-card">
+        <div class="challenge-num">01</div>
+        <h3 class="challenge-title">候補者との関係が<br>採用終了と同時に途切れる</h3>
+        <p class="challenge-text">内定辞退者・選考辞退者・面接候補者との接点は採用活動終了後に消滅し、次期採用では再度コストをかけてゼロから母集団を形成するサイクルが繰り返されています。</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">02</div>
+        <h3 class="challenge-title">退職者を「損失」として<br>処理してしまっている</h3>
+        <p class="challenge-text">退職者は企業文化・業務・人脈を熟知した最高のタレントです。しかし多くの企業では退職後の関係設計が存在せず、再雇用・リファラル・ブランド伝播の機会を取りこぼし続けています。</p>
+      </div>
+      <div class="challenge-card">
+        <div class="challenge-num">03</div>
+        <h3 class="challenge-title">採用コストが上昇し続け、<br>内製化の出口が見えない</h3>
+        <p class="challenge-text">媒体費・エージェント手数料・工数コストは年々増加し、一方で採用品質の向上は頭打ちになっています。AIと専門人材の組み合わせによる構造的コスト削減と品質向上の両立が急務です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="philosophy-bg"></div>
+  <div class="container philosophy-content">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Our Approach</span>
+    </div>
+    <div class="philosophy-header reveal">
+      <div>
+        <h2 class="section-title section-title-white">採用は「点」ではなく、<br><span style="color:var(--gold);">長期タレント資産</span>として設計する。</h2>
+      </div>
+      <div>
+        <p class="section-lead section-lead-white">AlumNETのアプローチは「HR再接続インフラの構築」です。候補者との最初の接点から、入社・定着・退職・アルムナイ化まで、人材との関係を資産として継続的に蓄積・活用するモデルを企業ごとに設計します。AIの力で採用コストをゼロに近づけることが最終目標です。</p>
+      </div>
+    </div>
+    <div class="philosophy-flow reveal">
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">01</span></div>
+        <div class="flow-name">潜在接点<br>形成</div>
+        <div class="flow-sub">スカウト・求人・<br>AI-NETによる<br>母集団設計</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">02</span></div>
+        <div class="flow-name">採用・<br>選考設計</div>
+        <div class="flow-sub">Talent-NETによる<br>RPO・面接代行・<br>KPI設計</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">03</span></div>
+        <div class="flow-name">定着・<br>エンゲージ</div>
+        <div class="flow-sub">Engage-NETによる<br>外部メンター・<br>離職予兆把握</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">04</span></div>
+        <div class="flow-name">退職・<br>再就職支援</div>
+        <div class="flow-sub">Exit-NETによる<br>退職者の<br>ファン化設計</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">05</span></div>
+        <div class="flow-name">アルムナイ<br>資産化</div>
+        <div class="flow-sub">Alum-NETによる<br>カムバック・<br>リファラル活用</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="services-intro">
+      <div>
+        <div class="section-eyebrow">
+          <div class="section-eyebrow-line"></div>
+          <span class="section-eyebrow-text">Services</span>
+        </div>
+        <h2 class="section-title">AI × プロ人材で、<br>HRの全工程を<br>統合的に支援する。</h2>
+      </div>
+      <div>
+        <p class="section-lead">各サービスは独立して利用可能ですが、本来の価値は統合設計にあります。課題フェーズに応じた段階的な導入から、全領域一括支援まで対応します。</p>
+      </div>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card service-card-ai">
+        <div class="service-num">01</div>
+        <div class="service-content">
+          <div>
+            <div class="service-badge">AI-NET</div>
+            <h3 class="service-title">AI採用支援<br>— 採用工程の80%を自動化</h3>
+            <p class="service-text">独自開発のHR特化AI「CHRO（クロ）」を活用し、求人作成・スカウト文生成・書類選考・面接準備・アトラクトを半自動化。HRプロ10名の叡智を結集したAIにより、NONコア業務を80%削減し人的リソースをコア業務に集中させます。</p>
+          </div>
+          <ul class="service-tags">
+            <li>採用ペルソナ設計・求人票ブラッシュアップ</li>
+            <li>1to1スカウト文の自動生成</li>
+            <li>書類選考・面接準備の半自動化</li>
+            <li>AI面接官・候補者アトラクト支援</li>
+            <li>採用KPIダッシュボード自動構築</li>
+            <li>HRプロ10名の判断基準をAIに搭載</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card service-card-featured">
+        <div class="service-num">06</div>
+        <div class="service-content">
+          <div>
+            <div class="service-badge">Alum-NET</div>
+            <h3 class="service-title">アルムナイ支援<br>— コミュニティ設計から再雇用まで</h3>
+            <p class="service-text">退職者を「失った人材」としてではなく、企業の長期資産として再定義します。SlackやFacebook等を活用したアルムナイコミュニティの運営設計、カムバック採用・リファラル採用の導線構築、イベント設計からデータ活用まで一気通貫で支援します。</p>
+          </div>
+          <ul class="service-tags">
+            <li>アルムナイコミュニティ設計・運営</li>
+            <li>カムバック採用（再雇用）導線構築</li>
+            <li>ファストパス制度の設計</li>
+            <li>リファラル採用の仕組み化</li>
+            <li>コミュニティイベント企画・実施</li>
+            <li>アルムナイデータの活用設計</li>
+          </ul>
+        </div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-badge">Talent-NET</div>
+        <h3 class="service-title">採用代行支援（RPO）<br>— 戦略から実務まで</h3>
+        <p class="service-text">採用計画策定・母集団形成・書類選考・面接代行・エージェントコントロール・クロージングまで、採用活動の全工程またはご指定工程を代行します。</p>
+        <ul class="service-tags">
+          <li>採用計画・KPI設計</li>
+          <li>母集団形成・スカウト運用</li>
+          <li>面接代行・クロージング支援</li>
+          <li>エージェントコントロール</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-badge">Engage-NET</div>
+        <h3 class="service-title">エンゲージメント向上<br>— 離職を構造的に防ぐ</h3>
+        <p class="service-text">外部メンターによる1on1代行、マネジメント育成、組織課題の定性・定量分析を通じ、離職予兆を早期に把握し対処します。</p>
+        <ul class="service-tags">
+          <li>外部メンター1on1の設計・実施</li>
+          <li>マネジメント育成プログラム</li>
+          <li>離職予兆の可視化・レポート</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-badge">Exit-NET</div>
+        <h3 class="service-title">再就職支援<br>— 退職者のファン化設計</h3>
+        <p class="service-text">退職者へのキャリア面談・副業マッチング・転職支援を通じ、企業との良好な関係を維持したままオフボーディングを実現します。</p>
+        <ul class="service-tags">
+          <li>キャリアカウンセリング</li>
+          <li>副業・業務委託マッチング</li>
+          <li>退職後ブランディング設計</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-badge">HDM-NET</div>
+        <h3 class="service-title">人事データ活用支援<br>— 意思決定をデータで支える</h3>
+        <p class="service-text">採用・定着・離職要因の定量・定性データをLooker Studio・スプレッドシート・独自CRMで可視化します。</p>
+        <ul class="service-tags">
+          <li>採用KPI・BI ダッシュボード構築</li>
+          <li>HRシステム活用診断・最適化</li>
+          <li>人的資本の可視化設計</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-num">07</div>
+        <div class="service-badge">Strategy-NET</div>
+        <h3 class="service-title">人事戦略支援<br>— 経営視点のHR設計</h3>
+        <p class="service-text">採用戦略策定・評価制度設計・給与制度設計など、HR全般の戦略コンサルティングを提供します。</p>
+        <ul class="service-tags">
+          <li>採用戦略策定</li>
+          <li>評価・等級・給与制度設計</li>
+          <li>面接官トレーニング設計</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-bg"></div>
+  <div class="container results-content">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Expected Results</span>
+    </div>
+    <h2 class="section-title section-title-white">AI × プロ人材が生む、<br>具体的な成果。</h2>
+    <div class="gold-divider"></div>
+    <p class="section-lead section-lead-white">AlumNETのAI採用支援ツール「CHRO」と大手HR出身のプロ人材が連携することで、以下のような効果が期待できます。</p>
+    <div class="results-grid reveal">
+      <div class="result-card">
+        <div class="result-num blue">80<span class="result-unit">%</span></div>
+        <div class="result-label">採用NONコア業務を削減</div>
+        <div class="result-detail">スカウト文生成・書類選考・<br>面接準備をAIが自動化</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num gold">3<span class="result-unit">倍</span></div>
+        <div class="result-label">スカウト返信率の向上</div>
+        <div class="result-detail">候補者分析に基づく<br>パーソナライズドメッセージ</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num blue">50<span class="result-unit">%</span></div>
+        <div class="result-label">採用コストの削減</div>
+        <div class="result-detail">AI活用＋アルムナイ経由の<br>リファラル・カムバック採用</div>
+      </div>
+      <div class="result-card">
+        <div class="result-num gold">0<span class="result-unit">円</span></div>
+        <div class="result-label">初期費用・相談料</div>
+        <div class="result-detail">課題整理・要件定義から<br>ご提案まで完全無償</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STRENGTHS -->
+<section id="strengths">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Why AlumNET</span>
+    </div>
+    <h2 class="section-title">大手HRのアルムナイのみで<br>構成された、実務型コンサルティング。</h2>
+    <div class="gold-divider"></div>
+    <div class="strengths-grid">
+      <div class="reveal">
+        <div style="margin-bottom:48px;">
+          <div class="strength-large-num">380<span>名</span></div>
+          <p style="font-size:13px; color:var(--text-mid); font-weight:300; line-height:1.9; max-width:380px;">PASONA・PERSOL・RECRUIT・JACという国内最大手人材サービスの卒業生のみで構成。戦略立案から採用実務・AI活用まで、即戦力の専門人材が貴社の課題に直接対応します。</p>
+        </div>
+        <div class="alumni-origins">
+          <div class="alumni-origin-item">
+            <div class="alumni-origin-company">PASONA</div>
+            <div class="alumni-origin-count">200<span>名</span></div>
+          </div>
+          <div class="alumni-origin-item">
+            <div class="alumni-origin-company">PERSOL</div>
+            <div class="alumni-origin-count">100<span>名</span></div>
+          </div>
+          <div class="alumni-origin-item">
+            <div class="alumni-origin-company">RECRUIT</div>
+            <div class="alumni-origin-count">50<span>名</span></div>
+          </div>
+          <div class="alumni-origin-item">
+            <div class="alumni-origin-company">JAC</div>
+            <div class="alumni-origin-count">30<span>名</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="strength-block" style="margin-bottom:24px;">
+          <h4 class="strength-block-title">「作業代行」ではなく<br>「設計と内製化支援」</h4>
+          <p class="strength-block-text">外注依存を生むのではなく、貴社内にノウハウを蓄積し、採用力を内製化できる状態を目指して支援します。業務委託型・アドバイザリー型の柔軟な契約形態で対応します。</p>
+        </div>
+        <div class="strength-block" style="margin-bottom:24px;">
+          <h4 class="strength-block-title">人＋AIの「最適な組み合わせ」で<br>スピードと精度を両立</h4>
+          <p class="strength-block-text">完全自動化ではなく、AI補助×人間の意思決定という設計により、採用バイアスの削減・スピード向上・品質担保を同時に実現します。</p>
+        </div>
+        <div class="strength-block">
+          <h4 class="strength-block-title">初期費用不要。契約成立まで<br>料金は一切発生しません。</h4>
+          <p class="strength-block-text">お問い合わせから課題整理・要件定義・ご提案まで、費用は発生しません。スモールスタートにも対応しており、段階的な導入が可能です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section id="comparison">
+  <div class="comparison-bg"></div>
+  <div class="container comparison-content">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Comparison</span>
+    </div>
+    <h2 class="section-title section-title-white">他の選択肢との違い。</h2>
+    <div class="gold-divider"></div>
+    <div class="comparison-grid reveal">
+      <div class="comp-header">比較項目</div>
+      <div class="comp-header comp-header-highlight">AlumNET</div>
+      <div class="comp-header">正社員採用</div>
+      <div class="comp-header">外注（RPO等）</div>
+      <div class="comp-header">コンサルティング</div>
+      <div class="comp-cell comp-cell-label">初期費用</div>
+      <div class="comp-cell comp-cell-highlight">不要</div>
+      <div class="comp-cell comp-cell-center">不要</div>
+      <div class="comp-cell comp-cell-center">不要〜変動</div>
+      <div class="comp-cell comp-cell-center">高額が多い</div>
+      <div class="comp-cell comp-cell-label">契約形態</div>
+      <div class="comp-cell comp-cell-highlight">業務委託（柔軟）</div>
+      <div class="comp-cell comp-cell-center">雇用契約</div>
+      <div class="comp-cell comp-cell-center">業務委託</div>
+      <div class="comp-cell comp-cell-center">準委任・請負</div>
+      <div class="comp-cell comp-cell-label">ノウハウ蓄積</div>
+      <div class="comp-cell comp-cell-highlight"><span class="comp-mark-good">&#9678;</span> 内製化支援込み</div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-good">&#9675;</span></div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&#9651;</span> 属人性が強い</div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-mid">&#9651;</span></div>
+      <div class="comp-cell comp-cell-label">AI活用</div>
+      <div class="comp-cell comp-cell-highlight"><span class="comp-mark-good">&#9678;</span> 独自AI搭載</div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-mid">&#9651;</span> サービスによる</div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
+      <div class="comp-cell comp-cell-label">アルムナイ設計</div>
+      <div class="comp-cell comp-cell-highlight"><span class="comp-mark-good">&#9678;</span> 専門領域</div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
+      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
+      <div class="comp-cell comp-cell-label">ランニングコスト</div>
+      <div class="comp-cell comp-cell-highlight">人材報酬＋手数料のみ</div>
+      <div class="comp-cell comp-cell-center">人件費＋諸コスト</div>
+      <div class="comp-cell comp-cell-center">人件費＋手数料</div>
+      <div class="comp-cell comp-cell-center">コンサル報酬</div>
+    </div>
+  </div>
+</section>
+
+<!-- MVV -->
+<section id="mvv">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Mission / Vision / Value</span>
+    </div>
+    <h2 class="section-title">私たちの存在意義。</h2>
+    <div class="mvv-grid reveal">
+      <div class="mvv-card">
+        <div class="mvv-label">Mission</div>
+        <h3 class="mvv-heading">人と企業の<br>「その後」に価値を生み出す</h3>
+        <p class="mvv-text">採用・退職・転職といった節目を、単なる終わりとして処理するのではなく、次の価値を生む起点として再設計します。</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-label">Vision</div>
+        <h3 class="mvv-heading">HRの<br>再接続インフラになる</h3>
+        <p class="mvv-text">企業と人材の間に生まれる「断絶」を構造的に解消するインフラを構築します。退職者・辞退者・候補者との関係を永続的に維持します。</p>
+      </div>
+      <div class="mvv-card">
+        <div class="mvv-label">Value</div>
+        <h3 class="mvv-heading">つながりを活かす<br>人とAIで「もう一度」をつくる</h3>
+        <p class="mvv-text">多様性を力に変え、人間の判断力とAIの処理能力を最適に組み合わせます。「もう一度」という再接続の価値を信じ続けます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section id="cta-section">
+  <div class="cta-glow cta-glow-1"></div>
+  <div class="cta-glow cta-glow-2"></div>
+  <div class="cta-inner">
+    <div class="section-eyebrow" style="justify-content:center;">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Get Started</span>
+      <div class="section-eyebrow-line"></div>
+    </div>
+    <h2>採用を<em>「資産」</em>に変える<br>第一歩を、今すぐ。</h2>
+    <p>初回のご相談は完全無償。課題が明確でない段階でも歓迎します。<br>まずは御社の採用課題をお聞かせください。</p>
+    <div class="cta-buttons">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:18px 40px;">
+        無料相談・資料請求
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="tel:08043745167" class="btn-secondary">お電話でのご相談</a>
+    </div>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section id="flow">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Process</span>
+    </div>
+    <h2 class="section-title">ご相談から契約まで、<br>スピーディーに進行します。</h2>
+    <p class="section-lead" style="margin-bottom:0;">正式申込前から課題整理・要件定義を無償で実施します。費用は契約成立後に発生します。</p>
+    <div class="flow-list reveal">
+      <div class="flow-item">
+        <div class="flow-step-num"><span>01</span></div>
+        <div class="flow-item-body">
+          <h3 class="flow-item-title">課題抽出・要件定義</h3>
+          <p class="flow-item-text">採用課題・組織課題の優先順位を整理し、業務範囲の要件定義を実施します。この段階では費用は一切発生しません。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step-num"><span>02</span></div>
+        <div class="flow-item-body">
+          <h3 class="flow-item-title">規約へのご同意（電子署名）</h3>
+          <p class="flow-item-text">個人情報の取り扱いに関する弊社利用規約へ電子署名にてご同意いただきます。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step-num"><span>03</span></div>
+        <div class="flow-item-body">
+          <h3 class="flow-item-title">キックオフ</h3>
+          <p class="flow-item-text">貴社の目標・期間・マイルストーンをプロジェクト担当者と共に設計します。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step-num"><span>04</span></div>
+        <div class="flow-item-body">
+          <h3 class="flow-item-title">ご提案・人材の顔合わせ</h3>
+          <p class="flow-item-text">要件に最適な人材をご提案し、業務内容・期間・体制を具体的にご確認いただけます。</p>
+        </div>
+      </div>
+      <div class="flow-item">
+        <div class="flow-step-num"><span>05</span></div>
+        <div class="flow-item-body">
+          <h3 class="flow-item-title">各条件の最終合意・ご契約</h3>
+          <p class="flow-item-text">条件の最終調整後、合意に基づいて契約書を締結します。ここから初めて費用が発生します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-bg"></div>
+  <div class="container">
+    <div class="contact-inner reveal">
+      <div class="section-eyebrow" style="justify-content:center;">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Contact</span>
+        <div class="section-eyebrow-line"></div>
+      </div>
+      <h2 class="contact-title">まず、話を聞かせてください。</h2>
+      <p class="contact-lead">採用課題・アルムナイ設計・AI活用・組織設計など、どのようなテーマでも構いません。初回のご相談は完全無償です。</p>
+      <div class="contact-box">
+        <p class="contact-box-label">Contact Form</p>
+        <p class="contact-box-text">下記ボタンよりお問い合わせフォームへお進みください。<br>初回のご相談は完全無償です。課題が明確でない段階でも歓迎します。</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:20px 48px; display:inline-flex;">
+          お問い合わせフォームへ進む
+          <svg style="margin-left:10px; flex-shrink:0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value">080-4374-5167</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email (取締役 宅和)</div>
+          <div class="contact-info-value">ntakuwa@alum-net.co.jp</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email (石神)</div>
+          <div class="contact-info-value">dishigami@alum-net.co.jp</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">Alum<span>NET</span></div>
+        <div class="footer-tagline">AI × HR で採用の常識を変える</div>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <div class="footer-nav-group-title">Services</div>
+          <ul class="footer-nav-links">
+            <li><a href="#services">AI-NET（AI採用支援）</a></li>
+            <li><a href="#services">Talent-NET（採用代行）</a></li>
+            <li><a href="#services">Engage-NET（エンゲージメント）</a></li>
+            <li><a href="#services">Exit-NET（再就職支援）</a></li>
+            <li><a href="#services">HDM-NET（データ活用）</a></li>
+            <li><a href="#services">Alum-NET（アルムナイ支援）</a></li>
+            <li><a href="#services">Strategy-NET（人事戦略）</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-nav-group-title">Company</div>
+          <ul class="footer-nav-links">
+            <li><a href="#mvv">Mission / Vision / Value</a></li>
+            <li><a href="#strengths">私たちの強み</a></li>
+            <li><a href="#flow">ご相談の流れ</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 AlumNET株式会社. All Rights Reserved.</div>
+      <div class="footer-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING CTA -->
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="floating-cta" id="floatingCta">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  無料相談する
+</a>
+
+<script>
+  // Particle animation
+  (function() {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+    let w, h;
+    function resize() {
+      const hero = document.getElementById('hero');
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+    }
+    function createParticles() {
+      particles = [];
+      const count = Math.min(Math.floor(w * h / 12000), 80);
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * w, y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 2 + 1
+        });
+      }
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 150) {
+            ctx.beginPath();
+            ctx.strokeStyle = 'rgba(74,124,255,' + (0.08 * (1 - dist / 150)) + ')';
+            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(74,124,255,0.4)';
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      });
+      requestAnimationFrame(draw);
+    }
+    resize(); createParticles(); draw();
+    window.addEventListener('resize', () => { resize(); createParticles(); });
+  })();
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => { entry.target.classList.add('visible'); }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav & floating CTA
+  const nav = document.querySelector('nav');
+  const floatingCta = document.getElementById('floatingCta');
+  window.addEventListener('scroll', () => {
+    nav.style.height = window.scrollY > 60 ? '60px' : '72px';
+    if (window.scrollY > window.innerHeight * 0.8) {
+      floatingCta.classList.add('visible');
+    } else {
+      floatingCta.classList.remove('visible');
+    }
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  }
+</script>
+</body>
+</html>
