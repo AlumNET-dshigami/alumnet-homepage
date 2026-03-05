@@ -1561,6 +1561,280 @@
     .results-grid { grid-template-columns: 1fr; }
     .floating-cta { bottom: 16px; right: 16px; padding: 14px 24px; font-size: 13px; }
     .trust-bar-logos { gap: 32px; }
+    .recruit-ai-grid { grid-template-columns: 1fr; }
+    .recruit-ai-mockup { min-height: 300px; }
+    .recruit-ai-features { grid-template-columns: 1fr; }
+  }
+
+  /* ========== RECRUIT AI SECTION ========== */
+  #recruit-ai {
+    background: linear-gradient(135deg, #0a0f1e 0%, #0D1B3E 40%, #152752 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #recruit-ai::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 600px 400px at 20% 50%, rgba(74,124,255,0.08), transparent),
+      radial-gradient(ellipse 500px 300px at 80% 30%, rgba(201,168,76,0.06), transparent);
+    pointer-events: none;
+  }
+
+  .recruit-ai-inner { position: relative; z-index: 1; }
+
+  .recruit-ai-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+
+  .recruit-ai-mockup {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(74,124,255,0.05);
+    position: relative;
+  }
+
+  .recruit-ai-mockup-header {
+    background: rgba(0,0,0,0.3);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .recruit-ai-mockup-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .recruit-ai-mockup-dot:nth-child(1) { background: #FF5F57; }
+  .recruit-ai-mockup-dot:nth-child(2) { background: #FEBC2E; }
+  .recruit-ai-mockup-dot:nth-child(3) { background: #28C840; }
+
+  .recruit-ai-mockup-url {
+    margin-left: 12px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.35);
+    font-family: 'Inter', monospace;
+  }
+
+  .recruit-ai-mockup-body {
+    padding: 24px;
+    display: flex;
+    gap: 16px;
+    min-height: 340px;
+  }
+
+  .recruit-ai-sidebar {
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .recruit-ai-sidebar-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .recruit-ai-sidebar-ver {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    margin-bottom: 16px;
+  }
+
+  .recruit-ai-sidebar-cat {
+    font-size: 9px;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 12px;
+    margin-bottom: 6px;
+  }
+
+  .recruit-ai-sidebar-item {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    padding: 5px 8px;
+    border-radius: 4px;
+    cursor: default;
+    transition: all 0.2s;
+  }
+
+  .recruit-ai-sidebar-item.active {
+    background: rgba(74,124,255,0.15);
+    color: var(--accent-blue);
+  }
+
+  .recruit-ai-main {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 20px;
+  }
+
+  .recruit-ai-main-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+
+  .recruit-ai-main-field {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 10px;
+  }
+
+  .recruit-ai-main-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+  }
+
+  .recruit-ai-main-value {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .recruit-ai-main-btn {
+    display: inline-block;
+    background: var(--accent-blue);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    margin-top: 12px;
+  }
+
+  .recruit-ai-text h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .recruit-ai-text h2 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .recruit-ai-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9;
+    margin-bottom: 36px;
+  }
+
+  .recruit-ai-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .recruit-ai-feat {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+  }
+
+  .recruit-ai-feat-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .recruit-ai-feat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .recruit-ai-feat-sub {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    margin-top: 2px;
+  }
+
+  .recruit-ai-cta-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .recruit-ai-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    color: var(--white);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(74,124,255,0.3);
+  }
+
+  .recruit-ai-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(74,124,255,0.4);
+  }
+
+  .recruit-ai-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 24px;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    transition: all 0.3s;
+  }
+
+  .recruit-ai-btn-secondary:hover {
+    border-color: rgba(255,255,255,0.3);
+    color: var(--white);
+  }
+
+  .recruit-ai-badge {
+    display: inline-block;
+    background: rgba(74,124,255,0.12);
+    color: var(--accent-blue);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+    margin-bottom: 20px;
   }
 </style>
 </head>
@@ -1573,6 +1847,7 @@
     <li><a href="#ai-showcase">AI × HR</a></li>
     <li><a href="#challenge">課題認識</a></li>
     <li><a href="#services">サービス</a></li>
+    <li><a href="#recruit-ai">Recruit AI</a></li>
     <li><a href="#results">導入効果</a></li>
     <li><a href="#strengths">私たちの強み</a></li>
     <li><a href="#flow">ご相談の流れ</a></li>
@@ -1932,6 +2207,98 @@
   </div>
 </section>
 
+<!-- RECRUIT AI PRODUCT -->
+<section id="recruit-ai">
+  <div class="container recruit-ai-inner">
+    <div class="recruit-ai-grid reveal">
+      <div class="recruit-ai-mockup">
+        <div class="recruit-ai-mockup-header">
+          <div class="recruit-ai-mockup-dot"></div>
+          <div class="recruit-ai-mockup-dot"></div>
+          <div class="recruit-ai-mockup-dot"></div>
+          <span class="recruit-ai-mockup-url">recruit-ai-bice.vercel.app</span>
+        </div>
+        <div class="recruit-ai-mockup-body">
+          <div class="recruit-ai-sidebar">
+            <div class="recruit-ai-sidebar-title">Recruit AI</div>
+            <div class="recruit-ai-sidebar-ver">v3.0 / 2026</div>
+            <div class="recruit-ai-sidebar-cat">戦略・計画</div>
+            <div class="recruit-ai-sidebar-item active">📊 採用計画策定</div>
+            <div class="recruit-ai-sidebar-item">👤 ペルソナ設計</div>
+            <div class="recruit-ai-sidebar-item">💴 給与ベンチマーク</div>
+            <div class="recruit-ai-sidebar-cat">募集・集客</div>
+            <div class="recruit-ai-sidebar-item">📋 求人票作成</div>
+            <div class="recruit-ai-sidebar-item">📧 スカウト文章作成</div>
+            <div class="recruit-ai-sidebar-item">📢 採用広報コンテンツ</div>
+            <div class="recruit-ai-sidebar-cat">選考</div>
+            <div class="recruit-ai-sidebar-item">📄 書類選考支援</div>
+            <div class="recruit-ai-sidebar-item">🎤 面接質問生成</div>
+            <div class="recruit-ai-sidebar-item">⚖️ 面接合否判定</div>
+            <div class="recruit-ai-sidebar-cat">内定・入社</div>
+            <div class="recruit-ai-sidebar-item">🎁 オファーレター</div>
+            <div class="recruit-ai-sidebar-item">🚀 オンボーディング</div>
+          </div>
+          <div class="recruit-ai-main">
+            <div class="recruit-ai-main-title">📊 AI採用計画策定</div>
+            <div class="recruit-ai-main-field">
+              <div class="recruit-ai-main-label">部門・事業部</div>
+              <div class="recruit-ai-main-value">プロダクト開発部</div>
+            </div>
+            <div class="recruit-ai-main-field">
+              <div class="recruit-ai-main-label">募集ポジション一覧</div>
+              <div class="recruit-ai-main-value">シニアフロントエンドエンジニア x2<br>バックエンドエンジニア x1</div>
+            </div>
+            <div class="recruit-ai-main-field">
+              <div class="recruit-ai-main-label">採用期間 / 採用予算</div>
+              <div class="recruit-ai-main-value">2026年4月〜9月 / 500万円</div>
+            </div>
+            <div class="recruit-ai-main-btn">採用計画策定</div>
+          </div>
+        </div>
+      </div>
+      <div class="recruit-ai-text">
+        <div class="recruit-ai-badge">NEW — 自社プロダクト</div>
+        <h2>採用業務を<em>AIで<br>一気通貫</em>支援する。</h2>
+        <p class="recruit-ai-desc">採用計画の策定からペルソナ設計、求人票作成、スカウト文章生成、書類選考、面接質問・合否判定、オファーレターまで — 採用プロセスの全工程を1つのAIツールでカバー。15以上の専門AI機能を搭載しています。</p>
+        <div class="recruit-ai-features">
+          <div class="recruit-ai-feat">
+            <div class="recruit-ai-feat-icon">📊</div>
+            <div>
+              <div class="recruit-ai-feat-label">採用計画策定</div>
+              <div class="recruit-ai-feat-sub">予算・タイムライン・チャネル計画</div>
+            </div>
+          </div>
+          <div class="recruit-ai-feat">
+            <div class="recruit-ai-feat-icon">📋</div>
+            <div>
+              <div class="recruit-ai-feat-label">求人票・スカウト文自動生成</div>
+              <div class="recruit-ai-feat-sub">バイアスチェック機能付き</div>
+            </div>
+          </div>
+          <div class="recruit-ai-feat">
+            <div class="recruit-ai-feat-icon">🎤</div>
+            <div>
+              <div class="recruit-ai-feat-label">面接質問・合否判定</div>
+              <div class="recruit-ai-feat-sub">構造化面接をAIが設計</div>
+            </div>
+          </div>
+          <div class="recruit-ai-feat">
+            <div class="recruit-ai-feat-icon">🎁</div>
+            <div>
+              <div class="recruit-ai-feat-label">オファー〜オンボーディング</div>
+              <div class="recruit-ai-feat-sub">内定後フォローまで一貫対応</div>
+            </div>
+          </div>
+        </div>
+        <div class="recruit-ai-cta-row">
+          <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="recruit-ai-btn-primary">無料でデモを試す →</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" class="recruit-ai-btn-secondary">導入のご相談 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RESULTS -->
 <section id="results">
   <div class="results-bg"></div>
@@ -2226,6 +2593,7 @@
             <li><a href="#services">HDM-NET（データ活用）</a></li>
             <li><a href="#services">Alum-NET（アルムナイ支援）</a></li>
             <li><a href="#services">Strategy-NET（人事戦略）</a></li>
+            <li><a href="https://recruit-ai-bice.vercel.app/" target="_blank">Recruit AI（AI採用ツール）</a></li>
           </ul>
         </div>
         <div>
