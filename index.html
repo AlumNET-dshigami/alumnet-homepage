@@ -1564,16 +1564,17 @@
     .recruit-ai-grid { grid-template-columns: 1fr; }
     .recruit-ai-mockup { min-height: 300px; }
     .recruit-ai-features { grid-template-columns: 1fr; }
+    .products-lineup { grid-template-columns: 1fr; }
   }
 
-  /* ========== RECRUIT AI SECTION ========== */
-  #recruit-ai {
+  /* ========== PRODUCTS SECTION ========== */
+  #products {
     background: linear-gradient(135deg, #0a0f1e 0%, #0D1B3E 40%, #152752 100%);
     position: relative;
     overflow: hidden;
   }
 
-  #recruit-ai::before {
+  #products::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -1583,7 +1584,27 @@
     pointer-events: none;
   }
 
-  .recruit-ai-inner { position: relative; z-index: 1; }
+  .products-inner { position: relative; z-index: 1; }
+
+  .products-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .products-header .section-title-white {
+    font-size: 40px;
+  }
+
+  .products-header .section-title-white em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .products-featured {
+    margin-bottom: 64px;
+  }
 
   .recruit-ai-grid {
     display: grid;
@@ -1836,6 +1857,304 @@
     letter-spacing: 0.05em;
     margin-bottom: 20px;
   }
+
+  /* ========== PRODUCTS LINEUP ========== */
+  .products-lineup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 64px;
+  }
+
+  .product-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  /* Product Card Mockup */
+  .product-card-mockup {
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .product-card-mockup-header {
+    background: rgba(0,0,0,0.3);
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .product-card-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+  }
+  .product-card-dot:nth-child(1) { background: #FF5F57; }
+  .product-card-dot:nth-child(2) { background: #FEBC2E; }
+  .product-card-dot:nth-child(3) { background: #28C840; }
+
+  .product-card-url {
+    margin-left: 10px;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    font-family: 'Inter', monospace;
+  }
+
+  .product-card-mockup-body {
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    min-height: 220px;
+  }
+
+  /* Light-themed body for HR Builder */
+  .product-card-body-light {
+    background: #f8f9fa;
+    flex-direction: column;
+  }
+
+  /* Product Card Text */
+  .product-card-text {
+    padding: 28px;
+  }
+
+  .product-card-badge {
+    display: inline-block;
+    background: rgba(74,124,255,0.12);
+    color: var(--accent-blue);
+    font-size: 10px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 16px;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .product-card-text h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+
+  .product-card-text h3 em {
+    font-style: normal;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .product-card-tagline {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .product-card-features {
+    list-style: none;
+    margin-bottom: 24px;
+    padding: 0;
+  }
+
+  .product-card-features li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .product-card-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-blue);
+    font-weight: 700;
+  }
+
+  .product-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 16px rgba(74,124,255,0.25);
+  }
+
+  .product-card-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(74,124,255,0.35);
+  }
+
+  /* ---- HR System Builder Mockup ---- */
+  .hr-builder-steps {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+  }
+
+  .hr-builder-step {
+    font-size: 9px;
+    padding: 4px 7px;
+    border-radius: 4px;
+    background: #e9ecef;
+    color: #495057;
+    white-space: nowrap;
+  }
+
+  .hr-builder-step.active {
+    background: var(--accent-blue);
+    color: white;
+  }
+
+  .hr-builder-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hr-builder-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin-bottom: 12px;
+  }
+
+  .hr-builder-field {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    height: 32px;
+    margin-bottom: 8px;
+  }
+
+  .hr-builder-field-short {
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    height: 32px;
+    margin-bottom: 8px;
+    width: 60%;
+  }
+
+  .hr-builder-btn {
+    display: inline-block;
+    background: #1a1a2e;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 6px;
+    margin-top: 8px;
+    align-self: flex-end;
+  }
+
+  /* ---- Moneyball TM Mockup ---- */
+  .moneyball-sidebar {
+    width: 110px;
+    flex-shrink: 0;
+    background: rgba(13,27,62,0.8);
+    border-radius: 6px;
+    padding: 12px 8px;
+  }
+
+  .moneyball-sidebar-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 10px;
+    padding-left: 4px;
+  }
+
+  .moneyball-sidebar-item {
+    font-size: 9px;
+    color: rgba(255,255,255,0.5);
+    padding: 5px 6px;
+    border-radius: 4px;
+    margin-bottom: 2px;
+  }
+
+  .moneyball-sidebar-item.active {
+    background: rgba(74,124,255,0.15);
+    color: var(--accent-blue);
+  }
+
+  .moneyball-main {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    padding: 14px;
+  }
+
+  .moneyball-kpi-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .moneyball-kpi {
+    flex: 1;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 10px 6px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.45);
+    text-align: center;
+    border-left: 3px solid transparent;
+  }
+
+  .moneyball-kpi:nth-child(1) { border-left-color: var(--accent-blue); }
+  .moneyball-kpi:nth-child(2) { border-left-color: #28C840; }
+  .moneyball-kpi:nth-child(3) { border-left-color: #FF5F57; }
+
+  .moneyball-kpi span {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 2px;
+  }
+
+  .moneyball-heatmap {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3px;
+  }
+
+  .moneyball-heatmap-cell {
+    height: 18px;
+    border-radius: 3px;
+    opacity: 0.7;
+  }
+
+  /* Responsive for Products Lineup */
+  @media (max-width: 1024px) {
+    .products-lineup { gap: 24px; }
+    .product-card-mockup-body { min-height: 180px; }
+  }
+
+  @media (max-width: 768px) {
+    .products-lineup { grid-template-columns: 1fr; }
+    .products-header .section-title-white { font-size: 30px; }
+    .moneyball-sidebar { width: 90px; }
+  }
 </style>
 </head>
 <body>
@@ -1847,7 +2166,7 @@
     <li><a href="#ai-showcase">AI × HR</a></li>
     <li><a href="#challenge">課題認識</a></li>
     <li><a href="#services">サービス</a></li>
-    <li><a href="#recruit-ai">Recruit AI</a></li>
+    <li><a href="#products">Products</a></li>
     <li><a href="#results">導入効果</a></li>
     <li><a href="#strengths">私たちの強み</a></li>
     <li><a href="#flow">ご相談の流れ</a></li>
@@ -1865,6 +2184,7 @@
   <a href="#ai-showcase" onclick="toggleMenu()">AI × HR</a>
   <a href="#challenge" onclick="toggleMenu()">課題認識</a>
   <a href="#services" onclick="toggleMenu()">サービス</a>
+  <a href="#products" onclick="toggleMenu()">Products</a>
   <a href="#results" onclick="toggleMenu()">導入効果</a>
   <a href="#strengths" onclick="toggleMenu()">私たちの強み</a>
   <a href="#flow" onclick="toggleMenu()">ご相談の流れ</a>
@@ -2207,9 +2527,23 @@
   </div>
 </section>
 
-<!-- RECRUIT AI PRODUCT -->
-<section id="recruit-ai">
-  <div class="container recruit-ai-inner">
+<!-- PRODUCTS -->
+<section id="products">
+  <div id="recruit-ai"></div>
+  <div class="container products-inner">
+
+    <!-- Section Header -->
+    <div class="products-header reveal">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Our Products</span>
+      </div>
+      <h2 class="section-title section-title-white">AIが変える、<br>HR業務の<em>すべて</em>。</h2>
+      <p class="section-lead section-lead-white">AlumNETが開発する3つの自社プロダクト。<br>採用・評価・タレントマネジメントの各領域をAIで革新します。</p>
+    </div>
+
+    <!-- Featured: Recruit AI -->
+    <div class="products-featured">
     <div class="recruit-ai-grid reveal">
       <div class="recruit-ai-mockup">
         <div class="recruit-ai-mockup-header">
@@ -2296,6 +2630,113 @@
         </div>
       </div>
     </div>
+    </div><!-- /products-featured -->
+
+    <!-- Product Lineup -->
+    <div class="products-lineup reveal">
+
+      <!-- HR System Builder -->
+      <div class="product-card">
+        <div class="product-card-mockup">
+          <div class="product-card-mockup-header">
+            <div class="product-card-dot"></div>
+            <div class="product-card-dot"></div>
+            <div class="product-card-dot"></div>
+            <span class="product-card-url">hr-system-builder.vercel.app</span>
+          </div>
+          <div class="product-card-mockup-body product-card-body-light">
+            <div class="hr-builder-steps">
+              <div class="hr-builder-step active">① 企業情報</div>
+              <div class="hr-builder-step">② MVV設計</div>
+              <div class="hr-builder-step">③ 等級制度</div>
+              <div class="hr-builder-step">④ 評価制度</div>
+              <div class="hr-builder-step">⑤ 報酬制度</div>
+              <div class="hr-builder-step">⑥ シミュレーション</div>
+              <div class="hr-builder-step">⑦ 出力</div>
+            </div>
+            <div class="hr-builder-main">
+              <div class="hr-builder-title">人事評価制度ビルダー</div>
+              <div class="hr-builder-field"></div>
+              <div class="hr-builder-field"></div>
+              <div class="hr-builder-field-short"></div>
+              <div class="hr-builder-btn">制度設計を始める →</div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <div class="product-card-badge">NEW — 自社プロダクト</div>
+          <h3>人事評価制度<em>ビルダー</em></h3>
+          <p class="product-card-tagline">コンサルタントに依頼することなく、自社オリジナルの人事評価制度をゼロから設計できるWebアプリ。</p>
+          <ul class="product-card-features">
+            <li>社員500名以下の企業向け</li>
+            <li>最短2時間で制度の骨格を設計</li>
+            <li>7ステップのウィザード形式</li>
+          </ul>
+          <a href="https://hr-system-builder.vercel.app/" target="_blank" class="product-card-cta">無料で試す →</a>
+        </div>
+      </div>
+
+      <!-- Moneyball TM -->
+      <div class="product-card">
+        <div class="product-card-mockup">
+          <div class="product-card-mockup-header">
+            <div class="product-card-dot"></div>
+            <div class="product-card-dot"></div>
+            <div class="product-card-dot"></div>
+            <span class="product-card-url">moneyball-talent...streamlit.app</span>
+          </div>
+          <div class="product-card-mockup-body">
+            <div class="moneyball-sidebar">
+              <div class="moneyball-sidebar-title">⚾ Moneyball TM</div>
+              <div class="moneyball-sidebar-item active">📊 ダッシュボード</div>
+              <div class="moneyball-sidebar-item">👤 個人分析</div>
+              <div class="moneyball-sidebar-item">💰 人材価値分析</div>
+              <div class="moneyball-sidebar-item">👥 チーム分析</div>
+              <div class="moneyball-sidebar-item">💎 潜在人材の発掘</div>
+              <div class="moneyball-sidebar-item">🎯 採用シミュレーション</div>
+              <div class="moneyball-sidebar-item">📈 予測分析</div>
+            </div>
+            <div class="moneyball-main">
+              <div class="moneyball-kpi-row">
+                <div class="moneyball-kpi"><span>0.69</span>全社TVS</div>
+                <div class="moneyball-kpi"><span>35</span>Hidden Gem</div>
+                <div class="moneyball-kpi"><span>2</span>退職リスク</div>
+              </div>
+              <div class="moneyball-heatmap">
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.7)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.3)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.3)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.2)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.6)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.3)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.6)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <div class="product-card-badge">NEW — 自社プロダクト</div>
+          <h3>Moneyball <em>TM</em></h3>
+          <p class="product-card-tagline">データ駆動型タレントマネジメント。野球のセイバーメトリクスの発想を人材領域に応用。</p>
+          <ul class="product-card-features">
+            <li>TVSスコアで人材価値を可視化</li>
+            <li>Hidden Gem（潜在人材）を自動発掘</li>
+            <li>退職リスク予測 &amp; 採用シミュレーション</li>
+          </ul>
+          <a href="https://moneyball-talent-ftq74m8tz22vktmcnng94k.streamlit.app/" target="_blank" class="product-card-cta">無料で試す →</a>
+        </div>
+      </div>
+
+    </div><!-- /products-lineup -->
+
   </div>
 </section>
 
@@ -2594,6 +3035,8 @@
             <li><a href="#services">Alum-NET（アルムナイ支援）</a></li>
             <li><a href="#services">Strategy-NET（人事戦略）</a></li>
             <li><a href="https://recruit-ai-bice.vercel.app/" target="_blank">Recruit AI（AI採用ツール）</a></li>
+            <li><a href="https://hr-system-builder.vercel.app/" target="_blank">人事評価制度ビルダー</a></li>
+            <li><a href="https://moneyball-talent-ftq74m8tz22vktmcnng94k.streamlit.app/" target="_blank">Moneyball TM（タレントマネジメント）</a></li>
           </ul>
         </div>
         <div>
