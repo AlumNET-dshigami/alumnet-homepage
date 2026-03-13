@@ -189,6 +189,20 @@
     margin: 0 auto;
     padding: 0 48px;
     padding-top: 72px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-right {
+    animation: fadeUp 0.8s ease 0.4s both;
   }
 
   .hero-badge {
@@ -1530,7 +1544,8 @@
     #ai-showcase { padding: 80px 24px; }
     #cta-section { padding: 80px 24px; }
     footer { padding: 48px 24px 24px; }
-    .hero-content { padding: 0 24px; padding-top: 72px; }
+    .hero-content { padding: 0 24px; padding-top: 72px; grid-template-columns: 1fr; }
+    .hero-right { margin-top: 32px; }
     .challenge-grid { grid-template-columns: 1fr; }
     .philosophy-header { grid-template-columns: 1fr; gap: 40px; }
     .philosophy-flow { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1602,8 +1617,8 @@
     -webkit-text-fill-color: transparent;
   }
 
-  .products-featured {
-    margin-bottom: 64px;
+  .products-lineup-3col {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
   .recruit-ai-grid {
@@ -1922,16 +1937,16 @@
 
   /* Product Card Text */
   .product-card-text {
-    padding: 28px;
+    padding: 32px;
   }
 
   .product-card-badge {
     display: inline-block;
     background: rgba(74,124,255,0.12);
     color: var(--accent-blue);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
-    padding: 4px 12px;
+    padding: 6px 14px;
     border-radius: 16px;
     letter-spacing: 0.05em;
     margin-bottom: 16px;
@@ -1939,11 +1954,11 @@
 
   .product-card-text h3 {
     font-family: 'Noto Serif JP', serif;
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
     color: var(--white);
     line-height: 1.4;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .product-card-text h3 em {
@@ -1954,23 +1969,23 @@
   }
 
   .product-card-tagline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.8;
-    margin-bottom: 16px;
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.9;
+    margin-bottom: 20px;
   }
 
   .product-card-features {
     list-style: none;
-    margin-bottom: 24px;
+    margin-bottom: 28px;
     padding: 0;
   }
 
   .product-card-features li {
-    font-size: 12px;
-    color: rgba(255,255,255,0.7);
-    padding: 4px 0;
-    padding-left: 20px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    padding: 5px 0;
+    padding-left: 22px;
     position: relative;
   }
 
@@ -1985,14 +2000,14 @@
   .product-card-cta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 8px;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
     color: var(--white);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    padding: 10px 24px;
-    border-radius: 6px;
+    padding: 14px 28px;
+    border-radius: 8px;
     transition: all 0.3s;
     box-shadow: 0 4px 16px rgba(74,124,255,0.25);
   }
@@ -2147,11 +2162,12 @@
   /* Responsive for Products Lineup */
   @media (max-width: 1024px) {
     .products-lineup { gap: 24px; }
+    .products-lineup-3col { grid-template-columns: 1fr 1fr; }
     .product-card-mockup-body { min-height: 180px; }
   }
 
   @media (max-width: 768px) {
-    .products-lineup { grid-template-columns: 1fr; }
+    .products-lineup { grid-template-columns: 1fr !important; }
     .products-header .section-title-white { font-size: 30px; }
     .moneyball-sidebar { width: 90px; }
   }
@@ -2163,10 +2179,8 @@
 <nav>
   <a href="#" class="nav-logo">Alum<span>NET</span></a>
   <ul class="nav-links">
-    <li><a href="#ai-showcase">AI × HR</a></li>
-    <li><a href="#challenge">課題認識</a></li>
+    <li><a href="#products">AI Products</a></li>
     <li><a href="#services">サービス</a></li>
-    <li><a href="#products">Products</a></li>
     <li><a href="#results">導入効果</a></li>
     <li><a href="#strengths">私たちの強み</a></li>
     <li><a href="#flow">ご相談の流れ</a></li>
@@ -2181,10 +2195,8 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#ai-showcase" onclick="toggleMenu()">AI × HR</a>
-  <a href="#challenge" onclick="toggleMenu()">課題認識</a>
+  <a href="#products" onclick="toggleMenu()">AI Products</a>
   <a href="#services" onclick="toggleMenu()">サービス</a>
-  <a href="#products" onclick="toggleMenu()">Products</a>
   <a href="#results" onclick="toggleMenu()">導入効果</a>
   <a href="#strengths" onclick="toggleMenu()">私たちの強み</a>
   <a href="#flow" onclick="toggleMenu()">ご相談の流れ</a>
@@ -2199,41 +2211,88 @@
   <div class="hero-gradient"></div>
   <div class="hero-gradient-2"></div>
   <div class="hero-content">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
-      <span class="hero-badge-text"><strong>AI-Powered</strong> HR Reconnection Infrastructure</span>
+    <!-- LEFT: Text & CTA -->
+    <div class="hero-left">
+      <div class="hero-badge">
+        <div class="hero-badge-dot"></div>
+        <span class="hero-badge-text"><strong>AI-Native</strong> HR Platform</span>
+      </div>
+      <h1 class="hero-title">
+        <em>AIで、</em><br>採用の全工程を<br>自動化する。
+      </h1>
+      <p class="hero-subtitle">
+        採用計画から面接、オファーレターまで。<br>
+        15以上のAI機能で採用プロセスを一気通貫支援。<br>
+        大手HR出身380名のプロ人材と共に、採用の常識を変える。
+      </p>
+      <div class="hero-actions">
+        <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="btn-primary">Recruit AI を試す
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" class="btn-secondary">導入のご相談 →</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-number">15<span style="font-size:22px; color:rgba(255,255,255,0.5);">+</span></div>
+          <div class="hero-stat-label">AI機能を搭載</div>
+        </div>
+        <div>
+          <div class="hero-stat-number">80<span style="font-size:22px; color:rgba(255,255,255,0.5);">%</span></div>
+          <div class="hero-stat-label">業務工数を削減</div>
+        </div>
+        <div>
+          <div class="hero-stat-number">380<span style="font-size:22px; color:rgba(255,255,255,0.5);">名</span></div>
+          <div class="hero-stat-label">HR出身プロ人材</div>
+        </div>
+      </div>
     </div>
-    <h1 class="hero-title">
-      <em>AI × HR</em>で、<br>
-      採用の常識を変える。
-    </h1>
-    <p class="hero-subtitle">
-      独自AI「CHRO」と大手HR出身380名のプロ人材が、<br>
-      採用コスト80%削減・アルムナイ資産化・エンゲージメント向上を同時に実現。<br>
-      退職者・辞退者との関係を「資産」に変える、新しいHRインフラです。
-    </p>
-    <div class="hero-actions">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary">無料相談・資料請求
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-      <a href="#ai-showcase" class="btn-secondary">AIデモを見る</a>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hero-stat-number">80<span style="font-size:22px; color:rgba(255,255,255,0.5);">%</span></div>
-        <div class="hero-stat-label">採用NONコア業務削減</div>
-      </div>
-      <div>
-        <div class="hero-stat-number">380<span style="font-size:22px; color:rgba(255,255,255,0.5);">名</span></div>
-        <div class="hero-stat-label">大手HRアルムナイ登録</div>
-      </div>
-      <div>
-        <div class="hero-stat-number">7<span style="font-size:22px; color:rgba(255,255,255,0.5);">領域</span></div>
-        <div class="hero-stat-label">HR統合サービス</div>
-      </div>
-      <div>
-        <div class="hero-stat-number">0<span style="font-size:22px; color:rgba(255,255,255,0.5);">円</span></div>
-        <div class="hero-stat-label">初期費用・相談料</div>
+
+    <!-- RIGHT: Recruit AI Mockup -->
+    <div class="hero-right">
+      <div class="recruit-ai-mockup">
+        <div class="recruit-ai-mockup-header">
+          <div class="recruit-ai-mockup-dot"></div>
+          <div class="recruit-ai-mockup-dot"></div>
+          <div class="recruit-ai-mockup-dot"></div>
+          <span class="recruit-ai-mockup-url">recruit-ai-bice.vercel.app</span>
+        </div>
+        <div class="recruit-ai-mockup-body">
+          <div class="recruit-ai-sidebar">
+            <div class="recruit-ai-sidebar-title">Recruit AI</div>
+            <div class="recruit-ai-sidebar-ver">v3.0 / 2026</div>
+            <div class="recruit-ai-sidebar-cat">戦略・計画</div>
+            <div class="recruit-ai-sidebar-item active">📊 採用計画策定</div>
+            <div class="recruit-ai-sidebar-item">👤 ペルソナ設計</div>
+            <div class="recruit-ai-sidebar-item">💴 給与ベンチマーク</div>
+            <div class="recruit-ai-sidebar-cat">募集・集客</div>
+            <div class="recruit-ai-sidebar-item">📋 求人票作成</div>
+            <div class="recruit-ai-sidebar-item">📧 スカウト文章作成</div>
+            <div class="recruit-ai-sidebar-item">📢 採用広報コンテンツ</div>
+            <div class="recruit-ai-sidebar-cat">選考</div>
+            <div class="recruit-ai-sidebar-item">📄 書類選考支援</div>
+            <div class="recruit-ai-sidebar-item">🎤 面接質問生成</div>
+            <div class="recruit-ai-sidebar-item">⚖️ 面接合否判定</div>
+            <div class="recruit-ai-sidebar-cat">内定・入社</div>
+            <div class="recruit-ai-sidebar-item">🎁 オファーレター</div>
+            <div class="recruit-ai-sidebar-item">🚀 オンボーディング</div>
+          </div>
+          <div class="recruit-ai-main">
+            <div class="recruit-ai-main-title">📊 AI採用計画策定</div>
+            <div class="recruit-ai-main-field">
+              <div class="recruit-ai-main-label">部門・事業部</div>
+              <div class="recruit-ai-main-value">プロダクト開発部</div>
+            </div>
+            <div class="recruit-ai-main-field">
+              <div class="recruit-ai-main-label">募集ポジション一覧</div>
+              <div class="recruit-ai-main-value">シニアフロントエンドエンジニア x2<br>バックエンドエンジニア x1</div>
+            </div>
+            <div class="recruit-ai-main-field">
+              <div class="recruit-ai-main-label">採用期間 / 採用予算</div>
+              <div class="recruit-ai-main-value">2026年4月〜9月 / 500万円</div>
+            </div>
+            <div class="recruit-ai-main-btn">採用計画策定</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -2542,98 +2601,53 @@
       <p class="section-lead section-lead-white">AlumNETが開発する3つの自社プロダクト。<br>採用・評価・タレントマネジメントの各領域をAIで革新します。</p>
     </div>
 
-    <!-- Featured: Recruit AI -->
-    <div class="products-featured">
-    <div class="recruit-ai-grid reveal">
-      <div class="recruit-ai-mockup">
-        <div class="recruit-ai-mockup-header">
-          <div class="recruit-ai-mockup-dot"></div>
-          <div class="recruit-ai-mockup-dot"></div>
-          <div class="recruit-ai-mockup-dot"></div>
-          <span class="recruit-ai-mockup-url">recruit-ai-bice.vercel.app</span>
-        </div>
-        <div class="recruit-ai-mockup-body">
-          <div class="recruit-ai-sidebar">
-            <div class="recruit-ai-sidebar-title">Recruit AI</div>
-            <div class="recruit-ai-sidebar-ver">v3.0 / 2026</div>
-            <div class="recruit-ai-sidebar-cat">戦略・計画</div>
-            <div class="recruit-ai-sidebar-item active">📊 採用計画策定</div>
-            <div class="recruit-ai-sidebar-item">👤 ペルソナ設計</div>
-            <div class="recruit-ai-sidebar-item">💴 給与ベンチマーク</div>
-            <div class="recruit-ai-sidebar-cat">募集・集客</div>
-            <div class="recruit-ai-sidebar-item">📋 求人票作成</div>
-            <div class="recruit-ai-sidebar-item">📧 スカウト文章作成</div>
-            <div class="recruit-ai-sidebar-item">📢 採用広報コンテンツ</div>
-            <div class="recruit-ai-sidebar-cat">選考</div>
-            <div class="recruit-ai-sidebar-item">📄 書類選考支援</div>
-            <div class="recruit-ai-sidebar-item">🎤 面接質問生成</div>
-            <div class="recruit-ai-sidebar-item">⚖️ 面接合否判定</div>
-            <div class="recruit-ai-sidebar-cat">内定・入社</div>
-            <div class="recruit-ai-sidebar-item">🎁 オファーレター</div>
-            <div class="recruit-ai-sidebar-item">🚀 オンボーディング</div>
-          </div>
-          <div class="recruit-ai-main">
-            <div class="recruit-ai-main-title">📊 AI採用計画策定</div>
-            <div class="recruit-ai-main-field">
-              <div class="recruit-ai-main-label">部門・事業部</div>
-              <div class="recruit-ai-main-value">プロダクト開発部</div>
-            </div>
-            <div class="recruit-ai-main-field">
-              <div class="recruit-ai-main-label">募集ポジション一覧</div>
-              <div class="recruit-ai-main-value">シニアフロントエンドエンジニア x2<br>バックエンドエンジニア x1</div>
-            </div>
-            <div class="recruit-ai-main-field">
-              <div class="recruit-ai-main-label">採用期間 / 採用予算</div>
-              <div class="recruit-ai-main-value">2026年4月〜9月 / 500万円</div>
-            </div>
-            <div class="recruit-ai-main-btn">採用計画策定</div>
-          </div>
-        </div>
-      </div>
-      <div class="recruit-ai-text">
-        <div class="recruit-ai-badge">NEW — 自社プロダクト</div>
-        <h2>採用業務を<em>AIで<br>一気通貫</em>支援する。</h2>
-        <p class="recruit-ai-desc">採用計画の策定からペルソナ設計、求人票作成、スカウト文章生成、書類選考、面接質問・合否判定、オファーレターまで — 採用プロセスの全工程を1つのAIツールでカバー。15以上の専門AI機能を搭載しています。</p>
-        <div class="recruit-ai-features">
-          <div class="recruit-ai-feat">
-            <div class="recruit-ai-feat-icon">📊</div>
-            <div>
-              <div class="recruit-ai-feat-label">採用計画策定</div>
-              <div class="recruit-ai-feat-sub">予算・タイムライン・チャネル計画</div>
-            </div>
-          </div>
-          <div class="recruit-ai-feat">
-            <div class="recruit-ai-feat-icon">📋</div>
-            <div>
-              <div class="recruit-ai-feat-label">求人票・スカウト文自動生成</div>
-              <div class="recruit-ai-feat-sub">バイアスチェック機能付き</div>
-            </div>
-          </div>
-          <div class="recruit-ai-feat">
-            <div class="recruit-ai-feat-icon">🎤</div>
-            <div>
-              <div class="recruit-ai-feat-label">面接質問・合否判定</div>
-              <div class="recruit-ai-feat-sub">構造化面接をAIが設計</div>
-            </div>
-          </div>
-          <div class="recruit-ai-feat">
-            <div class="recruit-ai-feat-icon">🎁</div>
-            <div>
-              <div class="recruit-ai-feat-label">オファー〜オンボーディング</div>
-              <div class="recruit-ai-feat-sub">内定後フォローまで一貫対応</div>
-            </div>
-          </div>
-        </div>
-        <div class="recruit-ai-cta-row">
-          <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="recruit-ai-btn-primary">無料でデモを試す →</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" class="recruit-ai-btn-secondary">導入のご相談 →</a>
-        </div>
-      </div>
-    </div>
-    </div><!-- /products-featured -->
+    <!-- 3-Column Product Cards -->
+    <div class="products-lineup products-lineup-3col reveal">
 
-    <!-- Product Lineup -->
-    <div class="products-lineup reveal">
+      <!-- Recruit AI Card -->
+      <div class="product-card">
+        <div class="product-card-mockup">
+          <div class="product-card-mockup-header">
+            <div class="product-card-dot"></div>
+            <div class="product-card-dot"></div>
+            <div class="product-card-dot"></div>
+            <span class="product-card-url">recruit-ai-bice.vercel.app</span>
+          </div>
+          <div class="product-card-mockup-body">
+            <div class="moneyball-sidebar" style="background:rgba(13,27,62,0.8);">
+              <div class="moneyball-sidebar-title" style="font-size:10px;">Recruit AI</div>
+              <div class="moneyball-sidebar-item active">📊 採用計画</div>
+              <div class="moneyball-sidebar-item">📋 求人票作成</div>
+              <div class="moneyball-sidebar-item">📧 スカウト文</div>
+              <div class="moneyball-sidebar-item">🎤 面接質問</div>
+              <div class="moneyball-sidebar-item">🎁 オファーレター</div>
+            </div>
+            <div class="moneyball-main">
+              <div style="font-size:12px;font-weight:600;color:white;margin-bottom:10px;">📊 AI採用計画策定</div>
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:8px;margin-bottom:6px;">
+                <div style="font-size:8px;color:rgba(255,255,255,0.35);">部門</div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.7);">プロダクト開発部</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:8px;margin-bottom:6px;">
+                <div style="font-size:8px;color:rgba(255,255,255,0.35);">ポジション</div>
+                <div style="font-size:10px;color:rgba(255,255,255,0.7);">エンジニア x3</div>
+              </div>
+              <div style="display:inline-block;background:var(--accent-blue);color:white;font-size:9px;padding:5px 14px;border-radius:4px;margin-top:4px;">採用計画策定</div>
+            </div>
+          </div>
+        </div>
+        <div class="product-card-text">
+          <div class="product-card-badge">FLAGSHIP</div>
+          <h3>Recruit <em>AI</em></h3>
+          <p class="product-card-tagline">採用プロセスの全工程を1つのAIツールでカバー。15以上の専門AI機能を搭載。</p>
+          <ul class="product-card-features">
+            <li>採用計画〜オンボーディングまで一気通貫</li>
+            <li>スカウト文・求人票をAIが自動生成</li>
+            <li>面接質問・合否判定をAIが設計</li>
+          </ul>
+          <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="product-card-cta">無料で試す →</a>
+        </div>
+      </div>
 
       <!-- HR System Builder -->
       <div class="product-card">
