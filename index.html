@@ -8,21 +8,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --navy: #0D1B3E;
-    --navy-mid: #152752;
-    --navy-light: #1E3A6E;
-    --gold: #C9A84C;
-    --gold-light: #E8C96C;
+    --navy: #0B2B26;
+    --navy-mid: #123D35;
+    --navy-light: #1A5244;
+    --gold: #2EC4B6;
+    --gold-light: #4EDDD0;
     --teal: #2A7F8F;
     --teal-light: #3AABB9;
     --white: #FFFFFF;
-    --off-white: #F6F4EF;
-    --gray-light: #E8E6E0;
-    --gray-mid: #9B9B9B;
-    --text-dark: #1A1A2E;
-    --text-mid: #444466;
-    --accent-blue: #4A7CFF;
-    --accent-purple: #7B5CFF;
+    --off-white: #F4F9F8;
+    --gray-light: #E0EBE8;
+    --gray-mid: #8A9B97;
+    --text-dark: #0B2B26;
+    --text-mid: #3A5550;
+    --accent-blue: #2EC4B6;
+    --accent-purple: #20A89A;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -115,7 +115,7 @@
     display: none;
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(13,27,62,0.98);
+    background: rgba(11,43,38,0.98);
     z-index: 1001;
     flex-direction: column;
     align-items: center;
@@ -150,8 +150,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(46,196,182,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.04) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -168,7 +168,7 @@
     right: -10%;
     width: 700px;
     height: 700px;
-    background: radial-gradient(ellipse, rgba(74,124,255,0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(46,196,182,0.15) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -178,7 +178,7 @@
     left: -5%;
     width: 500px;
     height: 500px;
-    background: radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 70%);
+    background: radial-gradient(ellipse, rgba(46,196,182,0.08) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -209,8 +209,8 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(74,124,255,0.12);
-    border: 1px solid rgba(74,124,255,0.3);
+    background: rgba(46,196,182,0.12);
+    border: 1px solid rgba(46,196,182,0.3);
     border-radius: 100px;
     padding: 8px 20px 8px 12px;
     margin-bottom: 32px;
@@ -297,7 +297,7 @@
   .btn-primary:hover {
     background: var(--gold-light);
     transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(201,168,76,0.25);
+    box-shadow: 0 8px 32px rgba(46,196,182,0.25);
   }
 
   .btn-secondary {
@@ -460,7 +460,7 @@
 
   .challenge-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 24px 64px rgba(13,27,62,0.10);
+    box-shadow: 0 24px 64px rgba(11,43,38,0.10);
     z-index: 1;
   }
 
@@ -513,8 +513,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(46,196,182,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.03) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
@@ -560,7 +560,7 @@
     height: 80px;
     border-radius: 50%;
     background: var(--navy-light);
-    border: 1px solid rgba(201,168,76,0.3);
+    border: 1px solid rgba(46,196,182,0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -572,7 +572,7 @@
 
   .flow-step:hover .flow-dot {
     border-color: var(--gold);
-    background: rgba(201,168,76,0.1);
+    background: rgba(46,196,182,0.1);
   }
 
   .flow-dot-num {
@@ -624,8 +624,8 @@
   }
 
   .service-card:hover { background: var(--navy); }
-  .service-card:hover .service-num { color: rgba(201,168,76,0.2); }
-  .service-card:hover .service-badge { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+  .service-card:hover .service-num { color: rgba(46,196,182,0.2); }
+  .service-card:hover .service-badge { background: rgba(46,196,182,0.15); color: var(--gold-light); }
   .service-card:hover .service-title { color: var(--white); }
   .service-card:hover .service-text { color: rgba(255,255,255,0.55); }
   .service-card:hover .service-tags li { color: rgba(255,255,255,0.4); }
@@ -635,8 +635,8 @@
     background: var(--navy);
     grid-column: span 2;
   }
-  .service-card-featured .service-num { color: rgba(201,168,76,0.15); }
-  .service-card-featured .service-badge { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+  .service-card-featured .service-num { color: rgba(46,196,182,0.15); }
+  .service-card-featured .service-badge { background: rgba(46,196,182,0.15); color: var(--gold-light); }
   .service-card-featured .service-title { color: var(--white); }
   .service-card-featured .service-text { color: rgba(255,255,255,0.55); }
   .service-card-featured .service-tags li { color: rgba(255,255,255,0.4); }
@@ -649,7 +649,7 @@
     font-family: 'Playfair Display', serif;
     font-size: 64px;
     font-weight: 700;
-    color: rgba(13,27,62,0.06);
+    color: rgba(11,43,38,0.06);
     line-height: 1;
     position: absolute;
     top: 24px; right: 36px;
@@ -663,7 +663,7 @@
     letter-spacing: 0.2em;
     text-transform: uppercase;
     padding: 6px 16px;
-    background: rgba(13,27,62,0.08);
+    background: rgba(11,43,38,0.08);
     color: var(--navy-light);
     border-radius: 2px;
     margin-bottom: 20px;
@@ -719,8 +719,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(74,124,255,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(74,124,255,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(46,196,182,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.04) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -742,8 +742,8 @@
   }
 
   .result-card:hover {
-    background: rgba(74,124,255,0.06);
-    border-color: rgba(74,124,255,0.2);
+    background: rgba(46,196,182,0.06);
+    border-color: rgba(46,196,182,0.2);
     transform: translateY(-4px);
   }
 
@@ -871,8 +871,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
+      linear-gradient(rgba(46,196,182,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.03) 1px, transparent 1px);
     background-size: 80px 80px;
   }
 
@@ -895,7 +895,7 @@
   }
 
   .comp-header-highlight {
-    background: rgba(201,168,76,0.12);
+    background: rgba(46,196,182,0.12);
     color: var(--gold);
     border-bottom: 2px solid var(--gold);
   }
@@ -914,7 +914,7 @@
   }
 
   .comp-cell-highlight {
-    background: rgba(201,168,76,0.06);
+    background: rgba(46,196,182,0.06);
     color: var(--gold-light);
     font-weight: 500;
     text-align: center;
@@ -924,7 +924,7 @@
 
   .comp-mark-good { color: #4CAF88; font-size: 16px; }
   .comp-mark-bad { color: rgba(255,255,255,0.25); font-size: 16px; }
-  .comp-mark-mid { color: rgba(201,168,76,0.6); font-size: 16px; }
+  .comp-mark-mid { color: rgba(46,196,182,0.6); font-size: 16px; }
 
   /* ========== FLOW ========== */
   #flow { background: var(--white); }
@@ -1044,7 +1044,7 @@
 
   /* ========== CTA SECTION ========== */
   #cta-section {
-    background: linear-gradient(135deg, var(--navy) 0%, #152752 50%, var(--navy) 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, #123D35 50%, var(--navy) 100%);
     padding: 100px 48px;
     position: relative;
     overflow: hidden;
@@ -1113,8 +1113,8 @@
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      linear-gradient(rgba(46,196,182,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.04) 1px, transparent 1px);
     background-size: 64px 64px;
   }
 
@@ -1197,7 +1197,7 @@
   footer {
     background: #060D1F;
     padding: 56px 48px 32px;
-    border-top: 1px solid rgba(201,168,76,0.1);
+    border-top: 1px solid rgba(46,196,182,0.1);
   }
 
   .footer-inner { max-width: 1200px; margin: 0 auto; }
@@ -1297,7 +1297,7 @@
     padding: 16px 28px;
     border-radius: 100px;
     text-decoration: none;
-    box-shadow: 0 8px 32px rgba(201,168,76,0.4);
+    box-shadow: 0 8px 32px rgba(46,196,182,0.4);
     transition: all 0.3s;
     transform: translateY(120px);
     opacity: 0;
@@ -1311,7 +1311,7 @@
   .floating-cta:hover {
     background: var(--gold-light);
     transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(201,168,76,0.5);
+    box-shadow: 0 12px 40px rgba(46,196,182,0.5);
   }
 
   .floating-cta svg { flex-shrink: 0; }
@@ -1383,7 +1383,7 @@
 
   /* ========== PRODUCTS SECTION ========== */
   #products {
-    background: linear-gradient(135deg, #0a0f1e 0%, #0D1B3E 40%, #152752 100%);
+    background: linear-gradient(135deg, #071F1B 0%, #0B2B26 40%, #123D35 100%);
     position: relative;
     overflow: hidden;
   }
@@ -1393,8 +1393,8 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 600px 400px at 20% 50%, rgba(74,124,255,0.08), transparent),
-      radial-gradient(ellipse 500px 300px at 80% 30%, rgba(201,168,76,0.06), transparent);
+      radial-gradient(ellipse 600px 400px at 20% 50%, rgba(46,196,182,0.08), transparent),
+      radial-gradient(ellipse 500px 300px at 80% 30%, rgba(46,196,182,0.06), transparent);
     pointer-events: none;
   }
 
@@ -1433,7 +1433,7 @@
     border-radius: 16px;
     padding: 0;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(74,124,255,0.05);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(46,196,182,0.05);
     position: relative;
   }
 
@@ -1507,7 +1507,7 @@
   }
 
   .recruit-ai-sidebar-item.active {
-    background: rgba(74,124,255,0.15);
+    background: rgba(46,196,182,0.15);
     color: var(--accent-blue);
   }
 
@@ -1633,12 +1633,12 @@
     padding: 14px 32px;
     border-radius: 8px;
     transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(74,124,255,0.3);
+    box-shadow: 0 4px 20px rgba(46,196,182,0.3);
   }
 
   .recruit-ai-btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(74,124,255,0.4);
+    box-shadow: 0 8px 30px rgba(46,196,182,0.4);
   }
 
   .recruit-ai-btn-secondary {
@@ -1662,7 +1662,7 @@
 
   .recruit-ai-badge {
     display: inline-block;
-    background: rgba(74,124,255,0.12);
+    background: rgba(46,196,182,0.12);
     color: var(--accent-blue);
     font-size: 11px;
     font-weight: 600;
@@ -1741,7 +1741,7 @@
 
   .product-card-badge {
     display: inline-block;
-    background: rgba(74,124,255,0.12);
+    background: rgba(46,196,182,0.12);
     color: var(--accent-blue);
     font-size: 12px;
     font-weight: 600;
@@ -1808,12 +1808,12 @@
     padding: 14px 28px;
     border-radius: 8px;
     transition: all 0.3s;
-    box-shadow: 0 4px 16px rgba(74,124,255,0.25);
+    box-shadow: 0 4px 16px rgba(46,196,182,0.25);
   }
 
   .product-card-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(74,124,255,0.35);
+    box-shadow: 0 8px 24px rgba(46,196,182,0.35);
   }
 
   /* ---- HR System Builder Mockup ---- */
@@ -1884,7 +1884,7 @@
   .moneyball-sidebar {
     width: 110px;
     flex-shrink: 0;
-    background: rgba(13,27,62,0.8);
+    background: rgba(11,43,38,0.8);
     border-radius: 6px;
     padding: 12px 8px;
   }
@@ -1906,7 +1906,7 @@
   }
 
   .moneyball-sidebar-item.active {
-    background: rgba(74,124,255,0.15);
+    background: rgba(46,196,182,0.15);
     color: var(--accent-blue);
   }
 
@@ -2215,7 +2215,7 @@
             <span class="product-card-url">recruit-ai-bice.vercel.app</span>
           </div>
           <div class="product-card-mockup-body">
-            <div class="moneyball-sidebar" style="background:rgba(13,27,62,0.8);">
+            <div class="moneyball-sidebar" style="background:rgba(11,43,38,0.8);">
               <div class="moneyball-sidebar-title" style="font-size:10px;">Recruit AI</div>
               <div class="moneyball-sidebar-item active">📊 採用計画</div>
               <div class="moneyball-sidebar-item">📋 求人票作成</div>
@@ -2318,21 +2318,21 @@
                 <div class="moneyball-kpi"><span>2</span>退職リスク</div>
               </div>
               <div class="moneyball-heatmap">
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.7)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.3)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.3)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.2)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.6)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.3)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.6)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(74,124,255,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.7)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.3)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.3)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.2)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.6)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.3)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.6)"></div>
+                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
               </div>
             </div>
           </div>
@@ -2374,7 +2374,7 @@
                 <div style="font-size:8px;color:rgba(255,255,255,0.35);margin-bottom:4px;">求人テンプレート</div>
                 <div style="font-size:10px;color:rgba(255,255,255,0.6);">SaaS企業 シニアエンジニア</div>
               </div>
-              <div style="background:rgba(74,124,255,0.15);border:1px solid rgba(74,124,255,0.3);border-radius:4px;padding:10px;">
+              <div style="background:rgba(46,196,182,0.15);border:1px solid rgba(46,196,182,0.3);border-radius:4px;padding:10px;">
                 <div style="font-size:8px;color:var(--accent-blue);margin-bottom:4px;">AI生成スカウト文</div>
                 <div style="font-size:9px;color:rgba(255,255,255,0.5);line-height:1.6;">田中様のGoでのマイクロサービス構築経験に注目し...</div>
               </div>
@@ -2833,7 +2833,7 @@
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < 150) {
             ctx.beginPath();
-            ctx.strokeStyle = 'rgba(74,124,255,' + (0.08 * (1 - dist / 150)) + ')';
+            ctx.strokeStyle = 'rgba(46,196,182,' + (0.08 * (1 - dist / 150)) + ')';
             ctx.lineWidth = 0.5;
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
@@ -2843,7 +2843,7 @@
       }
       particles.forEach(p => {
         ctx.beginPath();
-        ctx.fillStyle = 'rgba(74,124,255,0.4)';
+        ctx.fillStyle = 'rgba(46,196,182,0.4)';
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.fill();
         p.x += p.vx; p.y += p.vy;
