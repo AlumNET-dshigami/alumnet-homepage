@@ -1346,8 +1346,9 @@
     section { padding: 80px 24px; }
     #cta-section { padding: 80px 24px; }
     footer { padding: 48px 24px 24px; }
-    .hero-content { padding: 0 24px; padding-top: 72px; grid-template-columns: 1fr; }
-    .hero-right { margin-top: 32px; }
+    #hero { min-height: auto; }
+    .hero-content { padding: 0 24px; padding-top: 80px; grid-template-columns: 1fr; }
+    .hero-right { margin-top: 32px; max-width: 600px; }
     .challenge-grid { grid-template-columns: 1fr; }
     .philosophy-header { grid-template-columns: 1fr; gap: 40px; }
     .philosophy-flow { grid-template-columns: 1fr 1fr; gap: 40px; }
@@ -1369,16 +1370,46 @@
   @media (max-width: 640px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    /* Hero mobile optimization */
+    #hero { min-height: auto; padding-bottom: 48px; }
+    .hero-content { padding: 0 16px; padding-top: 80px; gap: 32px; }
+    .hero-title { font-size: 32px; margin-bottom: 16px; }
+    .hero-subtitle { font-size: 14px; margin-bottom: 32px; }
+    .hero-badge { margin-bottom: 20px; padding: 6px 14px 6px 10px; }
+    .hero-badge-text { font-size: 12px; }
+    .hero-actions { flex-direction: column; gap: 12px; }
+    .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 14px 24px; font-size: 14px; }
+    .hero-stats { gap: 16px; margin-top: 40px; padding-top: 32px; flex-wrap: wrap; }
+    .hero-stat-number { font-size: 28px; }
+    .hero-stat-label { font-size: 12px; }
+    /* Hero mockup: hide sidebar on mobile, show compact version */
+    .recruit-ai-mockup-body { min-height: auto; padding: 16px; flex-direction: column; }
+    .recruit-ai-sidebar { display: none; }
+    .recruit-ai-main { width: 100%; }
+    .hero-right { margin-top: 16px; }
+    /* General mobile */
+    section { padding: 64px 16px; }
+    .section-title { font-size: 26px !important; }
+    .section-lead { font-size: 14px; }
     .contact-info { flex-direction: column; gap: 24px; }
     .alumni-origins { grid-template-columns: 1fr; }
     .results-grid { grid-template-columns: 1fr; }
     .floating-cta { bottom: 16px; right: 16px; padding: 14px 24px; font-size: 15px; }
     .trust-bar-logos { gap: 32px; }
     .recruit-ai-grid { grid-template-columns: 1fr; }
-    .recruit-ai-mockup { min-height: 300px; }
     .recruit-ai-features { grid-template-columns: 1fr; }
-    .products-lineup { grid-template-columns: 1fr; }
+    .products-lineup { grid-template-columns: 1fr !important; }
+    /* Products cards mobile */
+    .product-card-mockup-body { min-height: 160px; }
+    .moneyball-sidebar { width: 80px; font-size: 9px; }
+    /* Services mobile */
+    .service-card { padding: 36px 24px; }
+    .service-card-featured .service-content { grid-template-columns: 1fr; gap: 24px; }
+    .service-title { font-size: 20px; }
+    /* Philosophy flow mobile */
+    .philosophy-flow { grid-template-columns: 1fr; gap: 24px; }
+    /* Strengths mobile */
+    .strength-large-num { font-size: 64px; }
   }
 
   /* ========== PRODUCTS SECTION ========== */
