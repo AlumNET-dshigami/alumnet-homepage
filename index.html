@@ -52,15 +52,16 @@
   }
 
   .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--white);
-    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
     text-decoration: none;
+    gap: 0;
   }
 
-  .nav-logo span { color: var(--gold); }
+  .nav-logo svg {
+    height: 32px;
+    width: auto;
+  }
 
   .nav-links {
     display: flex;
@@ -1210,14 +1211,13 @@
   }
 
   .footer-logo {
-    font-family: 'Playfair Display', serif;
-    font-size: 24px;
-    font-weight: 700;
-    color: var(--white);
     margin-bottom: 16px;
   }
 
-  .footer-logo span { color: var(--gold); }
+  .footer-logo svg {
+    height: 36px;
+    width: auto;
+  }
 
   .footer-tagline {
     font-size: 14px;
@@ -2007,7 +2007,21 @@
 
 <!-- NAVIGATION -->
 <nav>
-  <a href="#" class="nav-logo">Alum<span>NET</span></a>
+  <a href="#" class="nav-logo">
+    <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
+      <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
+      <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
+      <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
+      <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
+      <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
+      <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
+      <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
+      <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
+      <text x="62" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+      <text x="130" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+    </svg>
+  </a>
   <ul class="nav-links">
     <li><a href="#products">AI Products</a></li>
     <li><a href="#services">サービス</a></li>
@@ -2785,7 +2799,21 @@
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo">Alum<span>NET</span></div>
+        <div class="footer-logo">
+          <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
+            <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
+            <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
+            <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
+            <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
+            <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
+            <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
+            <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
+            <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
+            <text x="62" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+            <text x="130" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+          </svg>
+        </div>
         <div class="footer-tagline">AI × HR で採用の常識を変える</div>
       </div>
       <div class="footer-nav">
