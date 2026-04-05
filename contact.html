@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>無料相談 | AlumNET株式会社</title>
+<meta name="description" content="AlumNETの無料相談。採用・人事の課題をお聞かせください。RPO、CHRO代行、HRTech導入支援など、大手HR出身のプロフェッショナルが最適な解決策をご提案します。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B2B26;
+    --navy-mid: #123D35;
+    --navy-light: #1A5244;
+    --gold: #2EC4B6;
+    --gold-light: #4EDDD0;
+    --teal: #2A7F8F;
+    --teal-light: #3AABB9;
+    --white: #FFFFFF;
+    --off-white: #F4F9F8;
+    --gray-light: #E0EBE8;
+    --gray-mid: #8A9B97;
+    --text-dark: #0B2B26;
+    --text-mid: #3A5550;
+    --accent-blue: #2EC4B6;
+    --accent-purple: #20A89A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ========== NAVIGATION ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(11, 43, 38, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(46, 196, 182, 0.2);
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0;
+  }
+
+  .nav-logo svg { height: 32px; width: auto; }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  /* Hamburger */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
+  }
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    transition: all 0.3s;
+    display: block;
+  }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(11,43,38,0.98);
+    z-index: 1001;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+  .mobile-menu.active { display: flex; }
+  .mobile-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-menu .btn-primary { margin-top: 16px; }
+
+  /* ========== BUTTONS ========== */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    padding: 16px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(46,196,182,0.25);
+  }
+
+  /* ========== HERO ========== */
+  .contact-hero {
+    min-height: 480px;
+    background: var(--navy);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 120px 48px 80px;
+  }
+
+  .contact-hero-grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(46,196,182,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .contact-hero-gradient {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(ellipse, rgba(46,196,182,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .contact-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .contact-hero-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .contact-hero-eyebrow-text {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .contact-hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .contact-hero-lead {
+    font-size: clamp(14px, 1.6vw, 16px);
+    color: rgba(255,255,255,0.6);
+    line-height: 2;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ========== FEATURES ========== */
+  .features-section {
+    background: var(--off-white);
+    padding: 80px 48px;
+  }
+
+  .features-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+  }
+
+  .feature-card {
+    background: var(--white);
+    padding: 44px 36px;
+    border-radius: 2px;
+    border: 1px solid var(--gray-light);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(11,43,38,0.08);
+  }
+
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(46,196,182,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+
+  .feature-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+
+  .feature-desc {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  /* ========== FORM SECTION ========== */
+  .form-section {
+    padding: 100px 48px;
+    background: var(--white);
+  }
+
+  .form-container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .form-section-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .form-section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .form-section-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .form-section-eyebrow-text {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .form-section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  .gold-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 24px auto 0;
+  }
+
+  /* Form elements */
+  .form-group {
+    margin-bottom: 28px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    letter-spacing: 0.04em;
+  }
+
+  .form-required {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--gold);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    letter-spacing: 0.06em;
+  }
+
+  .form-optional {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-mid);
+    border: 1px solid var(--gray-light);
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-left: 8px;
+    letter-spacing: 0.06em;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--gray-light);
+    border-radius: 2px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 15px;
+    color: var(--text-dark);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(46,196,182,0.12);
+  }
+
+  .form-input.error,
+  .form-select.error,
+  .form-textarea.error {
+    border-color: #E53E3E;
+    box-shadow: 0 0 0 3px rgba(229,62,62,0.1);
+  }
+
+  .form-error-msg {
+    font-size: 13px;
+    color: #E53E3E;
+    margin-top: 6px;
+    display: none;
+  }
+
+  .form-error-msg.visible {
+    display: block;
+  }
+
+  .form-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238A9B97' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+  }
+
+  .form-textarea {
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-submit-area {
+    text-align: center;
+    margin-top: 44px;
+  }
+
+  .form-submit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.06em;
+    padding: 18px 64px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    min-width: 280px;
+  }
+
+  .form-submit-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(46,196,182,0.25);
+  }
+
+  .form-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .form-privacy-note {
+    font-size: 13px;
+    color: var(--gray-mid);
+    margin-top: 20px;
+    line-height: 1.8;
+  }
+
+  /* Success message */
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 64px 24px;
+  }
+
+  .form-success.visible {
+    display: block;
+  }
+
+  .form-success-icon {
+    width: 72px;
+    height: 72px;
+    background: rgba(46,196,182,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 28px;
+  }
+
+  .form-success-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+
+  .form-success-text {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 2;
+    font-weight: 300;
+  }
+
+  /* ========== FAQ / EXAMPLES ========== */
+  .examples-section {
+    background: var(--navy);
+    padding: 100px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .examples-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(46,196,182,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,196,182,0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .examples-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .examples-header {
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .examples-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .examples-eyebrow-line {
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .examples-eyebrow-text {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .examples-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1.5;
+  }
+
+  .examples-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .examples-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .examples-item:first-child {
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .examples-item-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(46,196,182,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .examples-item-text {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .examples-cta {
+    text-align: center;
+    margin-top: 56px;
+  }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #060D1F;
+    padding: 56px 48px 32px;
+    border-top: 1px solid rgba(46,196,182,0.1);
+  }
+
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 56px;
+  }
+
+  .footer-logo { margin-bottom: 16px; }
+  .footer-logo svg { height: 36px; width: auto; }
+
+  .footer-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+
+  .footer-nav {
+    display: flex;
+    gap: 64px;
+  }
+
+  .footer-nav-group-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .footer-nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-nav-links a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-nav-links a:hover { color: rgba(255,255,255,0.8); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-copy {
+    font-size: 15px;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+
+  .footer-links a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.25);
+    text-decoration: none;
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .contact-hero { padding: 100px 24px 64px; }
+    .features-section { padding: 64px 24px; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .form-section { padding: 72px 24px; }
+    .examples-section { padding: 72px 24px; }
+    footer { padding: 48px 24px 24px; }
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { gap: 32px; flex-wrap: wrap; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .contact-hero { padding: 96px 16px 56px; min-height: auto; }
+    .contact-hero-title { font-size: 28px; }
+    .features-section { padding: 48px 16px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .form-section { padding: 56px 16px; }
+    .form-row { grid-template-columns: 1fr; }
+    .form-submit-btn { width: 100%; min-width: auto; }
+    .examples-section { padding: 56px 16px; }
+    .examples-item { gap: 14px; }
+    .examples-item-text { font-size: 14px; }
+    footer { padding: 40px 16px 20px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
+      <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
+      <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
+      <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
+      <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
+      <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
+      <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
+      <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
+      <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
+      <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+      <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">サービス</a></li>
+    <li><a href="index.html#results">実績</a></li>
+    <li><a href="index.html#strengths">強み</a></li>
+    <li><a href="download.html">資料DL</a></li>
+    <li><a href="index.html#contact">お問い合わせ</a></li>
+    <li><a href="contact.html" class="nav-cta">無料相談</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#services" onclick="toggleMenu()">サービス</a>
+  <a href="index.html#results" onclick="toggleMenu()">実績</a>
+  <a href="index.html#strengths" onclick="toggleMenu()">強み</a>
+  <a href="download.html" onclick="toggleMenu()">資料DL</a>
+  <a href="index.html#contact" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="contact.html" class="btn-primary" style="margin-top:8px;">無料相談はこちら</a>
+</div>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="contact-hero-grid-bg"></div>
+  <div class="contact-hero-gradient"></div>
+  <div class="contact-hero-inner">
+    <div class="contact-hero-eyebrow">
+      <div class="contact-hero-eyebrow-line"></div>
+      <span class="contact-hero-eyebrow-text">Free Consultation</span>
+      <div class="contact-hero-eyebrow-line"></div>
+    </div>
+    <h1 class="contact-hero-title">まず、話を聞かせてください。</h1>
+    <p class="contact-hero-lead">
+      課題が明確でなくても構いません。<br>
+      御社の状況をお聞かせいただければ、<br>
+      最適なアプローチをご提案いたします。
+    </p>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="features-grid reveal">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3 class="feature-title">初回相談無料</h3>
+      <p class="feature-desc">課題が明確でない段階でもOK。<br>まずは現状をお聞かせください。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <h3 class="feature-title">最短翌営業日対応</h3>
+      <p class="feature-desc">お問い合わせから迅速にご連絡。<br>スピード感を大切にしています。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h3 class="feature-title">押し売りなし</h3>
+      <p class="feature-desc">御社に最適な提案のみ。<br>不要なサービスはお勧めしません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="form">
+  <div class="form-container">
+    <div class="form-section-header">
+      <div class="form-section-eyebrow">
+        <div class="form-section-eyebrow-line"></div>
+        <span class="form-section-eyebrow-text">Contact Form</span>
+        <div class="form-section-eyebrow-line"></div>
+      </div>
+      <h2 class="form-section-title">無料相談のお申し込み</h2>
+      <div class="gold-divider"></div>
+    </div>
+
+    <form id="contactForm" novalidate>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">
+            会社名
+            <span class="form-required">必須</span>
+          </label>
+          <input type="text" name="company" class="form-input" placeholder="例: 株式会社ABC" required>
+          <div class="form-error-msg" data-for="company">会社名を入力してください</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            部署名
+            <span class="form-optional">任意</span>
+          </label>
+          <input type="text" name="department" class="form-input" placeholder="例: 人事部">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">
+            お名前
+            <span class="form-required">必須</span>
+          </label>
+          <input type="text" name="name" class="form-input" placeholder="例: 山田 太郎" required>
+          <div class="form-error-msg" data-for="name">お名前を入力してください</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            メールアドレス
+            <span class="form-required">必須</span>
+          </label>
+          <input type="email" name="email" class="form-input" placeholder="例: taro@example.com" required>
+          <div class="form-error-msg" data-for="email">正しいメールアドレスを入力してください</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">
+            電話番号
+            <span class="form-optional">任意</span>
+          </label>
+          <input type="tel" name="phone" class="form-input" placeholder="例: 03-1234-5678">
+        </div>
+        <div class="form-group">
+          <label class="form-label">
+            従業員数
+            <span class="form-optional">任意</span>
+          </label>
+          <select name="employees" class="form-select">
+            <option value="">選択してください</option>
+            <option value="~50">~50名</option>
+            <option value="51-100">51-100名</option>
+            <option value="101-300">101-300名</option>
+            <option value="301-1000">301-1000名</option>
+            <option value="1001~">1001名以上</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">
+          ご相談内容
+          <span class="form-optional">任意</span>
+        </label>
+        <select name="service" class="form-select">
+          <option value="">選択してください</option>
+          <option value="RPO">RPO（採用代行）</option>
+          <option value="CHRO">CHRO代行</option>
+          <option value="HRTech">HRTech導入</option>
+          <option value="jinzai">人材紹介立ち上げ</option>
+          <option value="scout">スカウト代行</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">
+          自由記述
+          <span class="form-optional">任意</span>
+        </label>
+        <textarea name="message" class="form-textarea" placeholder="ご相談の背景や具体的な課題などをご自由にお書きください"></textarea>
+      </div>
+
+      <div class="form-submit-area">
+        <button type="submit" class="form-submit-btn" id="submitBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+          送信する
+        </button>
+        <p class="form-privacy-note">
+          送信いただいた情報は、ご相談対応の目的にのみ使用いたします。<br>
+          1営業日以内に担当者よりご連絡いたします。
+        </p>
+      </div>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="form-success-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h3 class="form-success-title">ありがとうございます</h3>
+      <p class="form-success-text">
+        お問い合わせを受け付けました。<br>
+        1営業日以内に担当者よりご連絡いたします。<br>
+        しばらくお待ちください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EXAMPLES -->
+<section class="examples-section">
+  <div class="examples-bg"></div>
+  <div class="examples-inner">
+    <div class="examples-header">
+      <div class="examples-eyebrow">
+        <div class="examples-eyebrow-line"></div>
+        <span class="examples-eyebrow-text">Common Cases</span>
+        <div class="examples-eyebrow-line"></div>
+      </div>
+      <h2 class="examples-title">よくあるご相談例</h2>
+    </div>
+
+    <ul class="examples-list reveal">
+      <li class="examples-item">
+        <div class="examples-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <p class="examples-item-text">採用担当が足りず、兼任で回している</p>
+      </li>
+      <li class="examples-item">
+        <div class="examples-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <p class="examples-item-text">人事制度が属人化していて改善したい</p>
+      </li>
+      <li class="examples-item">
+        <div class="examples-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <p class="examples-item-text">HRTechツールを導入したが活用できていない</p>
+      </li>
+      <li class="examples-item">
+        <div class="examples-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <p class="examples-item-text">人材紹介事業を立ち上げたい</p>
+      </li>
+      <li class="examples-item">
+        <div class="examples-item-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <p class="examples-item-text">スカウト業務を効率化したい</p>
+      </li>
+    </ul>
+
+    <div class="examples-cta">
+      <a href="#form" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
+        無料相談を申し込む
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
+            <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
+            <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
+            <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
+            <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
+            <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
+            <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
+            <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
+            <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
+            <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+            <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+          </svg>
+        </div>
+        <div class="footer-tagline">HR戦略パートナー</div>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <div class="footer-nav-group-title">Services</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#services">RPO（採用代行）</a></li>
+            <li><a href="index.html#services">CHRO代行</a></li>
+            <li><a href="index.html#services">HRTech導入支援</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-nav-group-title">Technology</div>
+          <ul class="footer-nav-links">
+            <li><a href="https://recruit-ai-bice.vercel.app/" target="_blank">Recruit AI</a></li>
+            <li><a href="https://hr-system-builder.vercel.app/" target="_blank">HR評価制度ビルダー</a></li>
+            <li><a href="https://caper-talent-manager.vercel.app/" target="_blank">TalentBoard</a></li>
+            <li><a href="https://scoutpilot.app/" target="_blank">ScoutPilot</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-nav-group-title">Company</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#results">実績</a></li>
+            <li><a href="index.html#strengths">強み</a></li>
+            <li><a href="download.html">資料ダウンロード</a></li>
+            <li><a href="contact.html">無料相談</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 AlumNET株式会社. All Rights Reserved.</div>
+      <div class="footer-links">
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">利用規約</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => { entry.target.classList.add('visible'); }, i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.height = window.scrollY > 60 ? '60px' : '72px';
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Mobile menu
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  }
+
+  // Form validation & submission
+  (function() {
+    const form = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('formSuccess');
+
+    function validateEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    function showError(fieldName, show) {
+      const input = form.querySelector('[name="' + fieldName + '"]');
+      const errorMsg = form.querySelector('[data-for="' + fieldName + '"]');
+      if (input && errorMsg) {
+        if (show) {
+          input.classList.add('error');
+          errorMsg.classList.add('visible');
+        } else {
+          input.classList.remove('error');
+          errorMsg.classList.remove('visible');
+        }
+      }
+    }
+
+    // Real-time validation on blur
+    form.querySelectorAll('.form-input[required]').forEach(function(input) {
+      input.addEventListener('blur', function() {
+        var name = this.getAttribute('name');
+        if (name === 'email') {
+          showError(name, !validateEmail(this.value.trim()));
+        } else {
+          showError(name, !this.value.trim());
+        }
+      });
+      input.addEventListener('input', function() {
+        var name = this.getAttribute('name');
+        if (name === 'email') {
+          if (validateEmail(this.value.trim())) showError(name, false);
+        } else {
+          if (this.value.trim()) showError(name, false);
+        }
+      });
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Validate
+      var valid = true;
+      var company = form.querySelector('[name="company"]').value.trim();
+      var name = form.querySelector('[name="name"]').value.trim();
+      var email = form.querySelector('[name="email"]').value.trim();
+
+      if (!company) { showError('company', true); valid = false; } else { showError('company', false); }
+      if (!name) { showError('name', true); valid = false; } else { showError('name', false); }
+      if (!email || !validateEmail(email)) { showError('email', true); valid = false; } else { showError('email', false); }
+
+      if (!valid) {
+        // Scroll to first error
+        var firstError = form.querySelector('.form-input.error');
+        if (firstError) {
+          firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          firstError.focus();
+        }
+        return;
+      }
+
+      // Disable button
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送信中...';
+
+      // Collect form data
+      var formData = new FormData(form);
+
+      // Submit via Formspree
+      fetch('https://formspree.io/f/xrgwbvjp', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(response) {
+        if (response.ok) {
+          form.style.display = 'none';
+          successMsg.classList.add('visible');
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          throw new Error('送信に失敗しました');
+        }
+      })
+      .catch(function(error) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送信する';
+        alert('送信に失敗しました。お手数ですが、しばらく経ってから再度お試しください。');
+      });
+    });
+  })();
+</script>
+</body>
+</html>
