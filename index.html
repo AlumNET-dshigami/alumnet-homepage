@@ -363,6 +363,78 @@
     line-height: 1.7;
   }
 
+  /* ========== HERO CTA BANNER ========== */
+  .hero-cta-banner {
+    background: linear-gradient(135deg, #f0f4f3 0%, #e8f5e9 40%, #c8e6c9 70%, #ff8a65 100%);
+    padding: 40px 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+  .hero-cta-banner-card {
+    flex: 1;
+    max-width: 480px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hero-cta-banner-card:hover {
+    transform: translateY(-3px);
+  }
+  .hero-cta-card-dl {
+    background: var(--white);
+    border: 2px solid #4CAF50;
+    border-radius: 60px;
+    padding: 28px 40px;
+    position: relative;
+  }
+  .hero-cta-card-dl:hover {
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
+  }
+  .hero-cta-card-consult {
+    background: linear-gradient(135deg, #FF7043, #FF5722);
+    border-radius: 20px;
+    padding: 28px 40px;
+    position: relative;
+  }
+  .hero-cta-card-consult:hover {
+    box-shadow: 0 8px 24px rgba(255, 87, 34, 0.3);
+  }
+  .hero-cta-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 16px;
+    border-radius: 20px;
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .hero-cta-badge-green {
+    background: #4CAF50;
+    color: white;
+  }
+  .hero-cta-badge-orange {
+    background: #FFF3E0;
+    color: #E65100;
+    border: 1px solid #FFB74D;
+  }
+  .hero-cta-card-dl .hero-cta-label {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
+  }
+  .hero-cta-card-consult .hero-cta-label {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: 0.02em;
+  }
+
   /* ========== TRUST BAR ========== */
   #trust-bar {
     background: var(--off-white);
@@ -1243,6 +1315,10 @@
   }
 
   @media (max-width: 640px) {
+    .hero-cta-banner { flex-direction: column; padding: 24px 16px; gap: 20px; }
+    .hero-cta-card-dl, .hero-cta-card-consult { padding: 22px 24px; }
+    .hero-cta-card-dl .hero-cta-label { font-size: 16px; }
+    .hero-cta-card-consult .hero-cta-label { font-size: 18px; }
     .nav-links { display: none; }
     .hamburger { display: flex; }
     #hero { min-height: auto; padding-bottom: 48px; }
@@ -1361,6 +1437,18 @@
     </div>
   </div>
 </section>
+
+<!-- HERO CTA BANNER -->
+<div class="hero-cta-banner">
+  <a href="#" class="hero-cta-banner-card hero-cta-card-dl">
+    <span class="hero-cta-badge hero-cta-badge-green">詳しく知りたい</span>
+    <span class="hero-cta-label">サービス資料ダウンロード</span>
+  </a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="hero-cta-banner-card hero-cta-card-consult">
+    <span class="hero-cta-badge hero-cta-badge-orange">簡単入力1分</span>
+    <span class="hero-cta-label">今すぐ無料相談する</span>
+  </a>
+</div>
 
 <!-- TRUST BAR -->
 <div id="trust-bar">
@@ -1642,7 +1730,7 @@
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">01</span></div>
         <div class="flow-name">お問い合わせ</div>
-        <div class="flow-sub">フォームまたは<br>お電話で</div>
+        <div class="flow-sub">フォームから<br>お気軽に</div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">02</span></div>
@@ -1709,16 +1797,6 @@
           お問い合わせフォームへ進む
           <svg style="margin-left:10px; flex-shrink:0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
-      </div>
-      <div class="contact-info">
-        <div class="contact-info-item">
-          <div class="contact-info-label">Email</div>
-          <div class="contact-info-value">info@alumnet.co.jp</div>
-        </div>
-        <div class="contact-info-item">
-          <div class="contact-info-label">Phone</div>
-          <div class="contact-info-value">080-4374-5167</div>
-        </div>
       </div>
     </div>
   </div>
