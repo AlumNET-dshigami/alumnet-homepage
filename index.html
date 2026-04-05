@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AlumNET株式会社 | AI × HR で採用の常識を変える</title>
-<meta name="description" content="AlumNETは、AI採用支援ツール「CHRO」と大手HR出身380名のプロ人材で、採用コスト削減・アルムナイ活用・エンゲージメント向上を実現します。">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>AlumNET株式会社 | 採用の上流から、一緒に設計する。</title>
+<meta name="description" content="AlumNETは、RPO・CHRO代行・HRTech導入支援を通じて、大手HR出身380名のプロフェッショナルが御社の人事部門の一員として伴走するHR戦略パートナーです。">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #0B2B26;
@@ -210,32 +210,20 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    background: rgba(46,196,182,0.12);
-    border: 1px solid rgba(46,196,182,0.3);
-    border-radius: 100px;
-    padding: 8px 20px 8px 12px;
+    background: rgba(46,196,182,0.10);
+    border: 1px solid rgba(46,196,182,0.25);
+    border-radius: 4px;
+    padding: 8px 20px;
     margin-bottom: 32px;
     animation: fadeUp 0.8s ease both;
   }
 
-  .hero-badge-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--accent-blue);
-    animation: pulse 2s infinite;
-  }
-
   .hero-badge-text {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.8);
-  }
-
-  .hero-badge-text strong {
-    color: var(--accent-blue);
+    letter-spacing: 0.06em;
+    color: var(--gold-light);
   }
 
   @keyframes pulse {
@@ -245,27 +233,19 @@
 
   .hero-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: clamp(36px, 5vw, 64px);
+    font-size: clamp(36px, 5vw, 56px);
     font-weight: 600;
     color: var(--white);
-    line-height: 1.45;
+    line-height: 1.5;
     margin-bottom: 28px;
     animation: fadeUp 0.8s ease 0.1s both;
   }
 
-  .hero-title em {
-    font-style: normal;
-    background: linear-gradient(135deg, var(--gold), var(--accent-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
   .hero-subtitle {
-    font-size: clamp(14px, 1.8vw, 18px);
+    font-size: clamp(14px, 1.8vw, 17px);
     color: rgba(255,255,255,0.65);
-    line-height: 1.9;
-    max-width: 620px;
+    line-height: 2;
+    max-width: 580px;
     margin-bottom: 48px;
     font-weight: 300;
     animation: fadeUp 0.8s ease 0.2s both;
@@ -322,29 +302,65 @@
     color: var(--gold);
   }
 
-  .hero-stats {
-    display: flex;
-    gap: 64px;
-    margin-top: 80px;
-    padding-top: 48px;
-    border-top: 1px solid rgba(255,255,255,0.08);
+  /* Hero service mini-cards */
+  .hero-cards {
+    position: relative;
+    height: 480px;
     animation: fadeUp 0.8s ease 0.4s both;
   }
 
-  .hero-stat-number {
-    font-family: 'Playfair Display', serif;
-    font-size: 42px;
-    font-weight: 700;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 8px;
+  .hero-card {
+    position: absolute;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 32px 28px;
+    width: 280px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
-  .hero-stat-label {
-    font-size: 14px;
+  .hero-card:hover {
+    transform: translateY(-8px) !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .hero-card:nth-child(1) {
+    top: 0; left: 0;
+    z-index: 3;
+  }
+  .hero-card:nth-child(2) {
+    top: 140px; left: 40px;
+    z-index: 2;
+  }
+  .hero-card:nth-child(3) {
+    top: 280px; left: 80px;
+    z-index: 1;
+  }
+
+  .hero-card-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+
+  .hero-card-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+
+  .hero-card-desc {
+    font-size: 13px;
     color: rgba(255,255,255,0.5);
-    letter-spacing: 0.1em;
-    font-weight: 300;
+    line-height: 1.7;
   }
 
   /* ========== TRUST BAR ========== */
@@ -387,9 +403,6 @@
     transition: opacity 0.3s;
   }
   .trust-logo:hover { opacity: 0.5; }
-
-  /* ========== AI SHOWCASE ========== */
-  /* AI Showcase section removed — consolidated into hero & Products */
 
   /* ========== SECTION COMMONS ========== */
   section { padding: 120px 48px; }
@@ -441,17 +454,17 @@
 
   .section-lead-white { color: rgba(255,255,255,0.65); }
 
-  /* ========== CHALLENGE SECTION ========== */
-  #challenge { background: var(--off-white); }
+  /* ========== PAIN POINTS ========== */
+  #pain-points { background: var(--off-white); }
 
-  .challenge-grid {
+  .pain-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2px;
     margin-top: 72px;
   }
 
-  .challenge-card {
+  .pain-card {
     background: var(--white);
     padding: 48px 40px;
     position: relative;
@@ -459,13 +472,13 @@
     transition: transform 0.3s, box-shadow 0.3s;
   }
 
-  .challenge-card:hover {
+  .pain-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 24px 64px rgba(11,43,38,0.10);
     z-index: 1;
   }
 
-  .challenge-card::before {
+  .pain-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
@@ -476,18 +489,15 @@
     transition: opacity 0.3s;
   }
 
-  .challenge-card:hover::before { opacity: 1; }
+  .pain-card:hover::before { opacity: 1; }
 
-  .challenge-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    font-weight: 700;
-    color: var(--gray-light);
-    line-height: 1;
+  .pain-icon {
+    font-size: 36px;
     margin-bottom: 20px;
+    display: block;
   }
 
-  .challenge-title {
+  .pain-title {
     font-family: 'Noto Serif JP', serif;
     font-size: 18px;
     font-weight: 600;
@@ -496,107 +506,29 @@
     line-height: 1.6;
   }
 
-  .challenge-text {
-    font-size: 15px;
-    color: var(--text-mid);
-    line-height: 1.9;
-    font-weight: 300;
-  }
-
-  /* ========== PHILOSOPHY ========== */
-  #philosophy {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .philosophy-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(46,196,182,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(46,196,182,0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-  }
-
-  .philosophy-content { position: relative; z-index: 1; }
-
-  .philosophy-header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-    margin-bottom: 96px;
-  }
-
-  .philosophy-flow {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 0;
-    position: relative;
-  }
-
-  .philosophy-flow::before {
-    content: '';
-    position: absolute;
-    top: 40px;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), var(--accent-blue), var(--gold), transparent);
-    opacity: 0.4;
-  }
-
-  .flow-step {
-    display: flex;
-    flex-direction: column;
+  .pain-solution {
+    display: inline-flex;
     align-items: center;
-    text-align: center;
-    padding: 0 12px;
-    position: relative;
-  }
-
-  .flow-dot {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--navy-light);
-    border: 1px solid rgba(46,196,182,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s;
-  }
-
-  .flow-step:hover .flow-dot {
-    border-color: var(--gold);
-    background: rgba(46,196,182,0.1);
-  }
-
-  .flow-dot-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
     color: var(--gold);
+    margin-top: 16px;
+    padding: 8px 16px;
+    background: rgba(46,196,182,0.08);
+    border-radius: 4px;
   }
 
-  .flow-name {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 8px;
-    line-height: 1.4;
+  .pain-link {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
   }
-
-  .flow-sub {
-    font-size: 15px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-    font-weight: 300;
-  }
+  .pain-link:hover { color: var(--gold); }
 
   /* ========== SERVICES ========== */
   #services { background: var(--white); }
@@ -609,66 +541,48 @@
     margin-bottom: 80px;
   }
 
-  .services-grid {
+  .service-fullcard {
+    background: var(--off-white);
+    padding: 0;
+    margin-bottom: 2px;
+    overflow: hidden;
+    transition: all 0.3s;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .service-fullcard-inner {
+    padding: 56px 52px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2px;
-  }
-
-  .service-card {
-    background: var(--off-white);
-    padding: 52px 48px;
+    gap: 48px;
     position: relative;
-    overflow: hidden;
-    cursor: default;
-    transition: all 0.3s;
   }
 
-  .service-card:hover { background: var(--navy); }
-  .service-card:hover .service-num { color: rgba(46,196,182,0.2); }
-  .service-card:hover .service-badge { background: rgba(46,196,182,0.15); color: var(--gold-light); }
-  .service-card:hover .service-title { color: var(--white); }
-  .service-card:hover .service-text { color: rgba(255,255,255,0.55); }
-  .service-card:hover .service-tags li { color: rgba(255,255,255,0.4); }
-  .service-card:hover .service-tags li::before { color: var(--gold); }
-
-  .service-card-featured {
-    background: var(--navy);
-    grid-column: span 2;
-  }
-  .service-card-featured .service-num { color: rgba(46,196,182,0.15); }
-  .service-card-featured .service-badge { background: rgba(46,196,182,0.15); color: var(--gold-light); }
-  .service-card-featured .service-title { color: var(--white); }
-  .service-card-featured .service-text { color: rgba(255,255,255,0.55); }
-  .service-card-featured .service-tags li { color: rgba(255,255,255,0.4); }
-  .service-card-featured .service-tags li::before { color: var(--gold); }
-  .service-card-featured .service-content { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-
-  /* service-card-ai removed — AI services consolidated into Products section */
+  .service-fullcard:nth-child(odd) { background: var(--off-white); }
+  .service-fullcard:nth-child(even) { background: var(--white); }
 
   .service-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 64px;
+    font-family: 'Inter', sans-serif;
+    font-size: 72px;
     font-weight: 700;
-    color: rgba(11,43,38,0.06);
+    color: rgba(11,43,38,0.05);
     line-height: 1;
     position: absolute;
-    top: 24px; right: 36px;
-    transition: color 0.3s;
+    top: 32px; right: 40px;
   }
 
   .service-badge {
     display: inline-block;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     padding: 6px 16px;
-    background: rgba(11,43,38,0.08);
-    color: var(--navy-light);
-    border-radius: 2px;
+    background: rgba(46,196,182,0.12);
+    color: var(--teal);
+    border-radius: 4px;
     margin-bottom: 20px;
-    transition: all 0.3s;
   }
 
   .service-title {
@@ -678,7 +592,6 @@
     color: var(--navy);
     margin-bottom: 16px;
     line-height: 1.5;
-    transition: color 0.3s;
   }
 
   .service-text {
@@ -687,36 +600,32 @@
     line-height: 1.9;
     font-weight: 300;
     margin-bottom: 24px;
-    transition: color 0.3s;
   }
 
   .service-tags {
     list-style: none;
     display: flex;
-    flex-direction: column;
-    gap: 6px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .service-tags li {
-    font-size: 14px;
-    color: var(--gray-mid);
-    transition: color 0.3s;
+    font-size: 13px;
+    color: var(--text-mid);
+    padding: 6px 14px;
+    background: rgba(11,43,38,0.04);
+    border-radius: 4px;
+    border: 1px solid rgba(11,43,38,0.06);
   }
 
-  .service-tags li::before {
-    content: '\2014\00a0';
-    color: var(--teal);
-    transition: color 0.3s;
-  }
-
-  /* ========== RESULTS ========== */
+  /* ========== CASE STUDIES ========== */
   #results {
     background: var(--navy);
     position: relative;
     overflow: hidden;
   }
 
-  .results-bg {
+  .case-studies-bg {
     position: absolute;
     inset: 0;
     background-image:
@@ -725,57 +634,80 @@
     background-size: 64px 64px;
   }
 
-  .results-content { position: relative; z-index: 1; }
+  .case-studies-content { position: relative; z-index: 1; }
 
-  .results-grid {
+  .case-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
     margin-top: 64px;
   }
 
-  .result-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    padding: 48px 32px;
-    text-align: center;
+  .case-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 40px 32px;
     transition: all 0.3s;
   }
 
-  .result-card:hover {
+  .case-card:hover {
     background: rgba(46,196,182,0.06);
     border-color: rgba(46,196,182,0.2);
     transform: translateY(-4px);
   }
 
-  .result-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 56px;
+  .case-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+
+  .case-industry {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .case-type {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 4px 12px;
+    background: rgba(46,196,182,0.12);
+    color: var(--gold);
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+
+  .case-metric {
+    margin-bottom: 16px;
+  }
+
+  .case-metric-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 36px;
     font-weight: 700;
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .result-num.gold { color: var(--gold); }
-  .result-num.blue { color: var(--accent-blue); }
-
-  .result-unit {
-    font-size: 18px;
-    font-weight: 400;
-    opacity: 0.5;
+    color: var(--gold);
+    line-height: 1.2;
   }
 
-  .result-label {
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
+  .case-metric-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+  }
+
+  .case-detail {
+    font-size: 14px;
+    color: rgba(255,255,255,0.4);
     line-height: 1.6;
-    font-weight: 300;
-    margin-bottom: 8px;
-  }
-
-  .result-detail {
-    font-size: 15px;
-    color: rgba(255,255,255,0.3);
-    line-height: 1.5;
   }
 
   /* ========== STRENGTHS ========== */
@@ -812,7 +744,7 @@
   }
 
   .strength-large-num {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 88px;
     font-weight: 700;
     color: var(--navy);
@@ -847,7 +779,7 @@
   }
 
   .alumni-origin-count {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Inter', sans-serif;
     font-size: 36px;
     font-weight: 700;
     color: var(--navy);
@@ -861,186 +793,141 @@
     margin-left: 4px;
   }
 
-  /* ========== COMPARISON ========== */
-  #comparison {
-    background: var(--navy);
-    position: relative;
-    overflow: hidden;
+  /* ========== PRODUCTS ========== */
+  #products {
+    background: var(--white);
+    border-top: 1px solid var(--gray-light);
   }
 
-  .comparison-bg {
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(46,196,182,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(46,196,182,0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
+  .products-header {
+    margin-bottom: 20px;
   }
 
-  .comparison-content { position: relative; z-index: 1; }
-
-  .comparison-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-    margin-top: 64px;
-    border: 1px solid rgba(255,255,255,0.08);
-  }
-
-  .comp-header {
-    padding: 20px 24px;
-    background: rgba(255,255,255,0.04);
+  .products-lead {
     font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .comp-header-highlight {
-    background: rgba(46,196,182,0.12);
-    color: var(--gold);
-    border-bottom: 2px solid var(--gold);
-  }
-
-  .comp-cell {
-    padding: 22px 24px;
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 15px;
-    color: rgba(255,255,255,0.55);
+    color: var(--text-mid);
+    line-height: 2;
+    max-width: 640px;
     font-weight: 300;
-  }
-
-  .comp-cell-label {
-    font-weight: 500;
-    color: rgba(255,255,255,0.8);
-  }
-
-  .comp-cell-highlight {
-    background: rgba(46,196,182,0.06);
-    color: var(--gold-light);
-    font-weight: 500;
-    text-align: center;
-  }
-
-  .comp-cell-center { text-align: center; }
-
-  .comp-mark-good { color: #4CAF88; font-size: 16px; }
-  .comp-mark-bad { color: rgba(255,255,255,0.25); font-size: 16px; }
-  .comp-mark-mid { color: rgba(46,196,182,0.6); font-size: 16px; }
-
-  /* ========== FLOW ========== */
-  #flow { background: var(--white); }
-
-  .flow-list {
-    margin-top: 72px;
-    position: relative;
-  }
-
-  .flow-list::before {
-    content: '';
-    position: absolute;
-    left: 39px;
-    top: 40px;
-    bottom: 40px;
-    width: 1px;
-    background: linear-gradient(to bottom, var(--gold), var(--accent-blue));
-  }
-
-  .flow-item {
-    display: flex;
-    gap: 48px;
     margin-bottom: 56px;
-    position: relative;
   }
 
-  .flow-item:last-child { margin-bottom: 0; }
-
-  .flow-step-num {
-    flex-shrink: 0;
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: var(--navy);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 1;
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
   }
 
-  .flow-step-num span {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--gold);
+  .product-simple-card {
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    padding: 36px 32px;
+    transition: all 0.3s;
   }
 
-  .flow-item-body { padding-top: 18px; }
+  .product-simple-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(11,43,38,0.08);
+    border-color: var(--gold);
+  }
 
-  .flow-item-title {
+  .product-simple-title {
     font-family: 'Noto Serif JP', serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     color: var(--navy);
     margin-bottom: 10px;
   }
 
-  .flow-item-text {
-    font-size: 15px;
+  .product-simple-desc {
+    font-size: 14px;
     color: var(--text-mid);
-    line-height: 1.9;
-    font-weight: 300;
-    max-width: 560px;
-  }
-
-  /* ========== MVV ========== */
-  #mvv { background: var(--off-white); }
-
-  .mvv-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2px;
-    margin-top: 72px;
-  }
-
-  .mvv-card {
-    background: var(--white);
-    padding: 56px 48px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .mvv-label {
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: 0.3em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 28px;
-  }
-
-  .mvv-heading {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.6;
+    line-height: 1.8;
     margin-bottom: 20px;
-  }
-
-  .mvv-text {
-    font-size: 15px;
-    color: var(--text-mid);
-    line-height: 2;
     font-weight: 300;
   }
 
-  .mvv-card::after {
+  .product-simple-link {
+    font-size: 14px;
+    color: var(--teal);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+  }
+  .product-simple-link:hover { color: var(--gold); }
+
+  /* ========== FLOW ========== */
+  #flow { background: var(--off-white); }
+
+  .flow-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    margin-top: 72px;
+    position: relative;
+  }
+
+  .flow-steps::before {
     content: '';
     position: absolute;
-    bottom: 0; left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--accent-blue));
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--accent-blue), var(--gold), transparent);
+    opacity: 0.4;
+  }
+
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 12px;
+    position: relative;
+  }
+
+  .flow-dot {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 1px solid rgba(46,196,182,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+  }
+
+  .flow-step:hover .flow-dot {
+    border-color: var(--gold);
+    background: var(--navy-light);
+  }
+
+  .flow-dot-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold);
+  }
+
+  .flow-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .flow-sub {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    font-weight: 300;
   }
 
   /* ========== CTA SECTION ========== */
@@ -1078,14 +965,6 @@
     color: var(--white);
     line-height: 1.5;
     margin-bottom: 20px;
-  }
-
-  .cta-inner h2 em {
-    font-style: normal;
-    background: linear-gradient(135deg, var(--gold), var(--accent-blue));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 
   .cta-inner p {
@@ -1348,20 +1227,16 @@
     footer { padding: 48px 24px 24px; }
     #hero { min-height: auto; }
     .hero-content { padding: 0 24px; padding-top: 80px; grid-template-columns: 1fr; }
-    .hero-right { margin-top: 32px; max-width: 600px; }
-    .challenge-grid { grid-template-columns: 1fr; }
-    .philosophy-header { grid-template-columns: 1fr; gap: 40px; }
-    .philosophy-flow { grid-template-columns: 1fr 1fr; gap: 40px; }
-    .philosophy-flow::before { display: none; }
+    .hero-cards { height: auto; position: static; display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .hero-card { position: static; width: 100%; }
+    .pain-grid { grid-template-columns: 1fr; }
     .services-intro { grid-template-columns: 1fr; gap: 40px; }
-    .services-grid { grid-template-columns: 1fr; }
-    .service-card-featured { grid-column: span 1; }
-    .service-card-featured .service-content { grid-template-columns: 1fr; gap: 32px; }
+    .service-fullcard-inner { grid-template-columns: 1fr; gap: 32px; }
+    .case-grid { grid-template-columns: 1fr 1fr; }
     .strengths-grid { grid-template-columns: 1fr; gap: 40px; }
-    .mvv-grid { grid-template-columns: 1fr; }
-    .comparison-grid { display: none; }
-    .results-grid { grid-template-columns: 1fr 1fr; }
-    .hero-stats { gap: 32px; }
+    .products-grid { grid-template-columns: 1fr 1fr; }
+    .flow-steps { grid-template-columns: 1fr 1fr; gap: 40px; }
+    .flow-steps::before { display: none; }
     .footer-top { flex-direction: column; gap: 40px; }
     .footer-nav { gap: 32px; flex-wrap: wrap; }
     #trust-bar { padding: 32px 24px; }
@@ -1370,636 +1245,27 @@
   @media (max-width: 640px) {
     .nav-links { display: none; }
     .hamburger { display: flex; }
-    /* Hero mobile optimization */
     #hero { min-height: auto; padding-bottom: 48px; }
     .hero-content { padding: 0 16px; padding-top: 80px; gap: 32px; }
     .hero-title { font-size: 32px; margin-bottom: 16px; }
     .hero-subtitle { font-size: 14px; margin-bottom: 32px; }
-    .hero-badge { margin-bottom: 20px; padding: 6px 14px 6px 10px; }
+    .hero-badge { margin-bottom: 20px; padding: 6px 14px; }
     .hero-badge-text { font-size: 12px; }
     .hero-actions { flex-direction: column; gap: 12px; }
     .btn-primary, .btn-secondary { width: 100%; justify-content: center; padding: 14px 24px; font-size: 14px; }
-    .hero-stats { gap: 16px; margin-top: 40px; padding-top: 32px; flex-wrap: wrap; }
-    .hero-stat-number { font-size: 28px; }
-    .hero-stat-label { font-size: 12px; }
-    /* Hero mockup: hide sidebar on mobile, show compact version */
-    .recruit-ai-mockup-body { min-height: auto; padding: 16px; flex-direction: column; }
-    .recruit-ai-sidebar { display: none; }
-    .recruit-ai-main { width: 100%; }
-    .hero-right { margin-top: 16px; }
-    /* General mobile */
     section { padding: 64px 16px; }
     .section-title { font-size: 26px !important; }
     .section-lead { font-size: 14px; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .case-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .flow-steps { grid-template-columns: 1fr; gap: 24px; }
     .contact-info { flex-direction: column; gap: 24px; }
     .alumni-origins { grid-template-columns: 1fr; }
-    .results-grid { grid-template-columns: 1fr; }
     .floating-cta { bottom: 16px; right: 16px; padding: 14px 24px; font-size: 15px; }
     .trust-bar-logos { gap: 32px; }
-    .recruit-ai-grid { grid-template-columns: 1fr; }
-    .recruit-ai-features { grid-template-columns: 1fr; }
-    .products-lineup { grid-template-columns: 1fr !important; }
-    /* Products cards mobile */
-    .product-card-mockup-body { min-height: 160px; }
-    .moneyball-sidebar { width: 80px; font-size: 9px; }
-    /* Services mobile */
-    .service-card { padding: 36px 24px; }
-    .service-card-featured .service-content { grid-template-columns: 1fr; gap: 24px; }
-    .service-title { font-size: 20px; }
-    /* Philosophy flow mobile */
-    .philosophy-flow { grid-template-columns: 1fr; gap: 24px; }
-    /* Strengths mobile */
     .strength-large-num { font-size: 64px; }
-  }
-
-  /* ========== PRODUCTS SECTION ========== */
-  #products {
-    background: linear-gradient(135deg, #071F1B 0%, #0B2B26 40%, #123D35 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  #products::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 600px 400px at 20% 50%, rgba(46,196,182,0.08), transparent),
-      radial-gradient(ellipse 500px 300px at 80% 30%, rgba(46,196,182,0.06), transparent);
-    pointer-events: none;
-  }
-
-  .products-inner { position: relative; z-index: 1; }
-
-  .products-header {
-    text-align: center;
-    margin-bottom: 64px;
-  }
-
-  .products-header .section-title-white {
-    font-size: 40px;
-  }
-
-  .products-header .section-title-white em {
-    font-style: normal;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .products-lineup-3col {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .recruit-ai-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-  }
-
-  .recruit-ai-mockup {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    padding: 0;
-    overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 40px rgba(46,196,182,0.05);
-    position: relative;
-  }
-
-  .recruit-ai-mockup-header {
-    background: rgba(0,0,0,0.3);
-    padding: 12px 20px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .recruit-ai-mockup-dot {
-    width: 10px; height: 10px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.15);
-  }
-  .recruit-ai-mockup-dot:nth-child(1) { background: #FF5F57; }
-  .recruit-ai-mockup-dot:nth-child(2) { background: #FEBC2E; }
-  .recruit-ai-mockup-dot:nth-child(3) { background: #28C840; }
-
-  .recruit-ai-mockup-url {
-    margin-left: 12px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.35);
-    font-family: 'Inter', monospace;
-  }
-
-  .recruit-ai-mockup-body {
-    padding: 24px;
-    display: flex;
-    gap: 16px;
-    min-height: 340px;
-  }
-
-  .recruit-ai-sidebar {
-    width: 140px;
-    flex-shrink: 0;
-  }
-
-  .recruit-ai-sidebar-title {
-    font-family: 'Inter', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 4px;
-  }
-
-  .recruit-ai-sidebar-ver {
-    font-size: 14px;
-    color: rgba(255,255,255,0.3);
-    margin-bottom: 16px;
-  }
-
-  .recruit-ai-sidebar-cat {
-    font-size: 9px;
-    color: rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 12px;
-    margin-bottom: 6px;
-  }
-
-  .recruit-ai-sidebar-item {
-    font-size: 15px;
-    color: rgba(255,255,255,0.5);
-    padding: 5px 8px;
-    border-radius: 4px;
-    cursor: default;
-    transition: all 0.2s;
-  }
-
-  .recruit-ai-sidebar-item.active {
-    background: rgba(46,196,182,0.15);
-    color: var(--accent-blue);
-  }
-
-  .recruit-ai-main {
-    flex: 1;
-    background: rgba(255,255,255,0.03);
-    border-radius: 8px;
-    padding: 20px;
-  }
-
-  .recruit-ai-main-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--white);
-    margin-bottom: 16px;
-  }
-
-  .recruit-ai-main-field {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 6px;
-    padding: 10px 14px;
-    margin-bottom: 10px;
-  }
-
-  .recruit-ai-main-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.35);
-    margin-bottom: 4px;
-  }
-
-  .recruit-ai-main-value {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-  }
-
-  .recruit-ai-main-btn {
-    display: inline-block;
-    background: var(--accent-blue);
-    color: var(--white);
-    font-size: 15px;
-    font-weight: 600;
-    padding: 8px 20px;
-    border-radius: 6px;
-    margin-top: 12px;
-  }
-
-  .recruit-ai-text h2 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 36px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.5;
-    margin-bottom: 24px;
-  }
-
-  .recruit-ai-text h2 em {
-    font-style: normal;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .recruit-ai-desc {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.9;
-    margin-bottom: 36px;
-  }
-
-  .recruit-ai-features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-    margin-bottom: 36px;
-  }
-
-  .recruit-ai-feat {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 14px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 8px;
-  }
-
-  .recruit-ai-feat-icon {
-    font-size: 18px;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .recruit-ai-feat-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.85);
-    font-weight: 500;
-    line-height: 1.5;
-  }
-
-  .recruit-ai-feat-sub {
-    font-size: 14px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 2px;
-  }
-
-  .recruit-ai-cta-row {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .recruit-ai-btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    color: var(--white);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 14px 32px;
-    border-radius: 8px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 20px rgba(46,196,182,0.3);
-  }
-
-  .recruit-ai-btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(46,196,182,0.4);
-  }
-
-  .recruit-ai-btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 14px 24px;
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 8px;
-    transition: all 0.3s;
-  }
-
-  .recruit-ai-btn-secondary:hover {
-    border-color: rgba(255,255,255,0.3);
-    color: var(--white);
-  }
-
-  .recruit-ai-badge {
-    display: inline-block;
-    background: rgba(46,196,182,0.12);
-    color: var(--accent-blue);
-    font-size: 15px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 20px;
-    letter-spacing: 0.05em;
-    margin-bottom: 20px;
-  }
-
-  /* ========== PRODUCTS LINEUP ========== */
-  .products-lineup {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    margin-top: 64px;
-  }
-
-  .product-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .product-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  }
-
-  /* Product Card Mockup */
-  .product-card-mockup {
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .product-card-mockup-header {
-    background: rgba(0,0,0,0.3);
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .product-card-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-  }
-  .product-card-dot:nth-child(1) { background: #FF5F57; }
-  .product-card-dot:nth-child(2) { background: #FEBC2E; }
-  .product-card-dot:nth-child(3) { background: #28C840; }
-
-  .product-card-url {
-    margin-left: 10px;
-    font-size: 14px;
-    color: rgba(255,255,255,0.3);
-    font-family: 'Inter', monospace;
-  }
-
-  .product-card-mockup-body {
-    padding: 16px;
-    display: flex;
-    gap: 12px;
-    min-height: 220px;
-  }
-
-  /* Light-themed body for HR Builder */
-  .product-card-body-light {
-    background: #f8f9fa;
-    flex-direction: column;
-  }
-
-  /* Product Card Text */
-  .product-card-text {
-    padding: 32px;
-  }
-
-  .product-card-badge {
-    display: inline-block;
-    background: rgba(46,196,182,0.12);
-    color: var(--accent-blue);
-    font-size: 14px;
-    font-weight: 600;
-    padding: 6px 14px;
-    border-radius: 16px;
-    letter-spacing: 0.05em;
-    margin-bottom: 16px;
-  }
-
-  .product-card-text h3 {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--white);
-    line-height: 1.4;
-    margin-bottom: 16px;
-  }
-
-  .product-card-text h3 em {
-    font-style: normal;
-    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .product-card-tagline {
-    font-size: 15px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.9;
-    margin-bottom: 20px;
-  }
-
-  .product-card-features {
-    list-style: none;
-    margin-bottom: 28px;
-    padding: 0;
-  }
-
-  .product-card-features li {
-    font-size: 14px;
-    color: rgba(255,255,255,0.75);
-    padding: 5px 0;
-    padding-left: 22px;
-    position: relative;
-  }
-
-  .product-card-features li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent-blue);
-    font-weight: 700;
-  }
-
-  .product-card-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-    color: var(--white);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 14px 28px;
-    border-radius: 8px;
-    transition: all 0.3s;
-    box-shadow: 0 4px 16px rgba(46,196,182,0.25);
-  }
-
-  .product-card-cta:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(46,196,182,0.35);
-  }
-
-  /* ---- HR System Builder Mockup ---- */
-  .hr-builder-steps {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-  }
-
-  .hr-builder-step {
-    font-size: 9px;
-    padding: 4px 7px;
-    border-radius: 4px;
-    background: #e9ecef;
-    color: #495057;
-    white-space: nowrap;
-  }
-
-  .hr-builder-step.active {
-    background: var(--accent-blue);
-    color: white;
-  }
-
-  .hr-builder-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .hr-builder-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: #1a1a2e;
-    margin-bottom: 12px;
-  }
-
-  .hr-builder-field {
-    background: white;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-    height: 32px;
-    margin-bottom: 8px;
-  }
-
-  .hr-builder-field-short {
-    background: white;
-    border: 1px solid #dee2e6;
-    border-radius: 6px;
-    height: 32px;
-    margin-bottom: 8px;
-    width: 60%;
-  }
-
-  .hr-builder-btn {
-    display: inline-block;
-    background: #1a1a2e;
-    color: white;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 8px 20px;
-    border-radius: 6px;
-    margin-top: 8px;
-    align-self: flex-end;
-  }
-
-  /* ---- Moneyball TM Mockup ---- */
-  .moneyball-sidebar {
-    width: 110px;
-    flex-shrink: 0;
-    background: rgba(11,43,38,0.8);
-    border-radius: 6px;
-    padding: 12px 8px;
-  }
-
-  .moneyball-sidebar-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 10px;
-    padding-left: 4px;
-  }
-
-  .moneyball-sidebar-item {
-    font-size: 9px;
-    color: rgba(255,255,255,0.5);
-    padding: 5px 6px;
-    border-radius: 4px;
-    margin-bottom: 2px;
-  }
-
-  .moneyball-sidebar-item.active {
-    background: rgba(46,196,182,0.15);
-    color: var(--accent-blue);
-  }
-
-  .moneyball-main {
-    flex: 1;
-    background: rgba(255,255,255,0.03);
-    border-radius: 6px;
-    padding: 14px;
-  }
-
-  .moneyball-kpi-row {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .moneyball-kpi {
-    flex: 1;
-    background: rgba(255,255,255,0.04);
-    border-radius: 6px;
-    padding: 10px 6px;
-    font-size: 8px;
-    color: rgba(255,255,255,0.45);
-    text-align: center;
-    border-left: 3px solid transparent;
-  }
-
-  .moneyball-kpi:nth-child(1) { border-left-color: var(--accent-blue); }
-  .moneyball-kpi:nth-child(2) { border-left-color: #28C840; }
-  .moneyball-kpi:nth-child(3) { border-left-color: #FF5F57; }
-
-  .moneyball-kpi span {
-    display: block;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--white);
-    margin-bottom: 2px;
-  }
-
-  .moneyball-heatmap {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 3px;
-  }
-
-  .moneyball-heatmap-cell {
-    height: 18px;
-    border-radius: 3px;
-    opacity: 0.7;
-  }
-
-  /* Responsive for Products Lineup */
-  @media (max-width: 1024px) {
-    .products-lineup { gap: 24px; }
-    .products-lineup-3col { grid-template-columns: 1fr 1fr; }
-    .product-card-mockup-body { min-height: 180px; }
-  }
-
-  @media (max-width: 768px) {
-    .products-lineup { grid-template-columns: 1fr !important; }
-    .products-header .section-title-white { font-size: 30px; }
-    .moneyball-sidebar { width: 90px; }
+    .service-fullcard-inner { padding: 36px 24px; }
   }
 </style>
 </head>
@@ -2018,17 +1284,16 @@
       <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
       <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
       <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
-      <text x="62" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
-      <text x="130" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+      <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+      <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
     </svg>
   </a>
   <ul class="nav-links">
-    <li><a href="#products">AI Products</a></li>
     <li><a href="#services">サービス</a></li>
-    <li><a href="#results">導入効果</a></li>
-    <li><a href="#strengths">私たちの強み</a></li>
-    <li><a href="#flow">ご相談の流れ</a></li>
-    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="nav-cta">無料相談</a></li>
+    <li><a href="#results">実績</a></li>
+    <li><a href="#strengths">強み</a></li>
+    <li><a href="#contact">お問い合わせ</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料相談</a></li>
   </ul>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span>
@@ -2039,13 +1304,11 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#products" onclick="toggleMenu()">AI Products</a>
   <a href="#services" onclick="toggleMenu()">サービス</a>
-  <a href="#results" onclick="toggleMenu()">導入効果</a>
-  <a href="#strengths" onclick="toggleMenu()">私たちの強み</a>
-  <a href="#flow" onclick="toggleMenu()">ご相談の流れ</a>
-  <a href="#mvv" onclick="toggleMenu()">MVV</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;">無料相談はこちら</a>
+  <a href="#results" onclick="toggleMenu()">実績</a>
+  <a href="#strengths" onclick="toggleMenu()">強み</a>
+  <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;">無料相談はこちら</a>
 </div>
 
 <!-- HERO -->
@@ -2058,84 +1321,41 @@
     <!-- LEFT: Text & CTA -->
     <div class="hero-left">
       <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
-        <span class="hero-badge-text"><strong>AI-Native</strong> HR Platform</span>
+        <span class="hero-badge-text">RPO / CHRO代行 / HRTech導入</span>
       </div>
       <h1 class="hero-title">
-        <em>AIで、</em><br>採用の全工程を<br>自動化する。
+        採用の上流から、<br>一緒に設計する。
       </h1>
       <p class="hero-subtitle">
-        採用計画から面接、オファーレターまで。<br>
-        15以上のAI機能で採用プロセスを一気通貫支援。<br>
-        大手HR出身380名のプロ人材と共に、採用の常識を変える。
+        採用戦略の策定から、制度設計、実行支援まで。<br>
+        大手HR出身380名のプロフェッショナルが、<br>
+        御社の人事部門の一員として伴走します。
       </p>
       <div class="hero-actions">
-        <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="btn-primary">Recruit AI を試す
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" class="btn-primary">まずは無料で相談する
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" class="btn-secondary">導入のご相談 →</a>
-      </div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-number">15<span style="font-size:22px; color:rgba(255,255,255,0.5);">+</span></div>
-          <div class="hero-stat-label">AI機能を搭載</div>
-        </div>
-        <div>
-          <div class="hero-stat-number">80<span style="font-size:22px; color:rgba(255,255,255,0.5);">%</span></div>
-          <div class="hero-stat-label">業務工数を削減</div>
-        </div>
-        <div>
-          <div class="hero-stat-number">380<span style="font-size:22px; color:rgba(255,255,255,0.5);">名</span></div>
-          <div class="hero-stat-label">HR出身プロ人材</div>
-        </div>
+        <a href="#services" class="btn-secondary">サービスを見る &rarr;</a>
       </div>
     </div>
 
-    <!-- RIGHT: Recruit AI Mockup -->
+    <!-- RIGHT: Service Mini Cards -->
     <div class="hero-right">
-      <div class="recruit-ai-mockup">
-        <div class="recruit-ai-mockup-header">
-          <div class="recruit-ai-mockup-dot"></div>
-          <div class="recruit-ai-mockup-dot"></div>
-          <div class="recruit-ai-mockup-dot"></div>
-          <span class="recruit-ai-mockup-url">recruit-ai-bice.vercel.app</span>
+      <div class="hero-cards">
+        <div class="hero-card">
+          <div class="hero-card-num">01 &mdash; RPO</div>
+          <div class="hero-card-title">採用プロセス設計・代行</div>
+          <div class="hero-card-desc">採用計画からクロージングまで、採用活動の全工程を設計・代行</div>
         </div>
-        <div class="recruit-ai-mockup-body">
-          <div class="recruit-ai-sidebar">
-            <div class="recruit-ai-sidebar-title">Recruit AI</div>
-            <div class="recruit-ai-sidebar-ver">v3.0 / 2026</div>
-            <div class="recruit-ai-sidebar-cat">戦略・計画</div>
-            <div class="recruit-ai-sidebar-item active">📊 採用計画策定</div>
-            <div class="recruit-ai-sidebar-item">👤 ペルソナ設計</div>
-            <div class="recruit-ai-sidebar-item">💴 給与ベンチマーク</div>
-            <div class="recruit-ai-sidebar-cat">募集・集客</div>
-            <div class="recruit-ai-sidebar-item">📋 求人票作成</div>
-            <div class="recruit-ai-sidebar-item">📧 スカウト文章作成</div>
-            <div class="recruit-ai-sidebar-item">📢 採用広報コンテンツ</div>
-            <div class="recruit-ai-sidebar-cat">選考</div>
-            <div class="recruit-ai-sidebar-item">📄 書類選考支援</div>
-            <div class="recruit-ai-sidebar-item">🎤 面接質問生成</div>
-            <div class="recruit-ai-sidebar-item">⚖️ 面接合否判定</div>
-            <div class="recruit-ai-sidebar-cat">内定・入社</div>
-            <div class="recruit-ai-sidebar-item">🎁 オファーレター</div>
-            <div class="recruit-ai-sidebar-item">🚀 オンボーディング</div>
-          </div>
-          <div class="recruit-ai-main">
-            <div class="recruit-ai-main-title">📊 AI採用計画策定</div>
-            <div class="recruit-ai-main-field">
-              <div class="recruit-ai-main-label">部門・事業部</div>
-              <div class="recruit-ai-main-value">プロダクト開発部</div>
-            </div>
-            <div class="recruit-ai-main-field">
-              <div class="recruit-ai-main-label">募集ポジション一覧</div>
-              <div class="recruit-ai-main-value">シニアフロントエンドエンジニア x2<br>バックエンドエンジニア x1</div>
-            </div>
-            <div class="recruit-ai-main-field">
-              <div class="recruit-ai-main-label">採用期間 / 採用予算</div>
-              <div class="recruit-ai-main-value">2026年4月〜9月 / 500万円</div>
-            </div>
-            <div class="recruit-ai-main-btn">採用計画策定</div>
-          </div>
+        <div class="hero-card">
+          <div class="hero-card-num">02 &mdash; CHRO代行</div>
+          <div class="hero-card-title">人事戦略・制度設計</div>
+          <div class="hero-card-desc">経営と人事をつなぐ戦略パートナーとして、組織の上流から参画</div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-num">03 &mdash; HRTech</div>
+          <div class="hero-card-title">HRTech導入・活用支援</div>
+          <div class="hero-card-desc">ツール選定から運用定着まで、一気通貫でテクノロジー活用を支援</div>
         </div>
       </div>
     </div>
@@ -2155,293 +1375,41 @@
   </div>
 </div>
 
-
-<!-- CHALLENGE -->
-<section id="challenge">
+<!-- PAIN POINTS -->
+<section id="pain-points">
   <div class="container">
     <div class="section-eyebrow">
       <div class="section-eyebrow-line"></div>
-      <span class="section-eyebrow-text">Current Issues</span>
+      <span class="section-eyebrow-text">Pain Points</span>
     </div>
-    <h2 class="section-title">御社の採用は、<br>「消耗」していませんか。</h2>
+    <h2 class="section-title">こんな課題、抱えていませんか？</h2>
     <div class="gold-divider"></div>
-    <p class="section-lead">多くの企業が、採用コストの増大・候補者との関係断絶・人材の流出という同じ構造的問題を繰り返しています。その根本は「採用を点で捉えていること」にあります。</p>
-    <div class="challenge-grid reveal">
-      <div class="challenge-card">
-        <div class="challenge-num">01</div>
-        <h3 class="challenge-title">候補者との関係が<br>採用終了と同時に途切れる</h3>
-        <p class="challenge-text">内定辞退者・選考辞退者・面接候補者との接点は採用活動終了後に消滅し、次期採用では再度コストをかけてゼロから母集団を形成するサイクルが繰り返されています。</p>
+    <div class="pain-grid reveal">
+      <div class="pain-card">
+        <span class="pain-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </span>
+        <h3 class="pain-title">採用担当が足りない。<br>兼任で回している。</h3>
+        <div class="pain-solution">&rarr; RPOで解決</div>
+        <br><a href="#services" class="pain-link">&rarr; このサービスを見る</a>
       </div>
-      <div class="challenge-card">
-        <div class="challenge-num">02</div>
-        <h3 class="challenge-title">退職者を「損失」として<br>処理してしまっている</h3>
-        <p class="challenge-text">退職者は企業文化・業務・人脈を熟知した最高のタレントです。しかし多くの企業では退職後の関係設計が存在せず、再雇用・リファラル・ブランド伝播の機会を取りこぼし続けています。</p>
+      <div class="pain-card">
+        <span class="pain-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M6 8h.01M10 8h.01"/></svg>
+        </span>
+        <h3 class="pain-title">人事制度が属人化。<br>経営と人事が噛み合わない。</h3>
+        <div class="pain-solution">&rarr; CHRO代行で解決</div>
+        <br><a href="#services" class="pain-link">&rarr; このサービスを見る</a>
       </div>
-      <div class="challenge-card">
-        <div class="challenge-num">03</div>
-        <h3 class="challenge-title">採用コストが上昇し続け、<br>内製化の出口が見えない</h3>
-        <p class="challenge-text">媒体費・エージェント手数料・工数コストは年々増加し、一方で採用品質の向上は頭打ちになっています。AIと専門人材の組み合わせによる構造的コスト削減と品質向上の両立が急務です。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PHILOSOPHY -->
-<section id="philosophy">
-  <div class="philosophy-bg"></div>
-  <div class="container philosophy-content">
-    <div class="section-eyebrow">
-      <div class="section-eyebrow-line"></div>
-      <span class="section-eyebrow-text">Our Approach</span>
-    </div>
-    <div class="philosophy-header reveal">
-      <div>
-        <h2 class="section-title section-title-white">採用は「点」ではなく、<br><span style="color:var(--gold);">長期タレント資産</span>として設計する。</h2>
-      </div>
-      <div>
-        <p class="section-lead section-lead-white">AlumNETのアプローチは「HR再接続インフラの構築」です。候補者との最初の接点から、入社・定着・退職・アルムナイ化まで、人材との関係を資産として継続的に蓄積・活用するモデルを企業ごとに設計します。AIの力で採用コストをゼロに近づけることが最終目標です。</p>
+      <div class="pain-card">
+        <span class="pain-icon">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </span>
+        <h3 class="pain-title">HRTechを入れたが、<br>活用できていない。</h3>
+        <div class="pain-solution">&rarr; HRTech導入支援で解決</div>
+        <br><a href="#services" class="pain-link">&rarr; このサービスを見る</a>
       </div>
     </div>
-    <div class="philosophy-flow reveal">
-      <div class="flow-step">
-        <div class="flow-dot"><span class="flow-dot-num">01</span></div>
-        <div class="flow-name">潜在接点<br>形成</div>
-        <div class="flow-sub">スカウト・求人・<br>AI-NETによる<br>母集団設計</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-dot"><span class="flow-dot-num">02</span></div>
-        <div class="flow-name">採用・<br>選考設計</div>
-        <div class="flow-sub">Talent-NETによる<br>RPO・面接代行・<br>KPI設計</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-dot"><span class="flow-dot-num">03</span></div>
-        <div class="flow-name">定着・<br>エンゲージ</div>
-        <div class="flow-sub">Engage-NETによる<br>外部メンター・<br>離職予兆把握</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-dot"><span class="flow-dot-num">04</span></div>
-        <div class="flow-name">退職・<br>再就職支援</div>
-        <div class="flow-sub">Exit-NETによる<br>退職者の<br>ファン化設計</div>
-      </div>
-      <div class="flow-step">
-        <div class="flow-dot"><span class="flow-dot-num">05</span></div>
-        <div class="flow-name">アルムナイ<br>資産化</div>
-        <div class="flow-sub">Alum-NETによる<br>カムバック・<br>リファラル活用</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products">
-  <div id="recruit-ai"></div>
-  <div class="container products-inner">
-
-    <!-- Section Header -->
-    <div class="products-header reveal">
-      <div class="section-eyebrow">
-        <div class="section-eyebrow-line"></div>
-        <span class="section-eyebrow-text">Our Products</span>
-      </div>
-      <h2 class="section-title section-title-white">AIが変える、<br>HR業務の<em>すべて</em>。</h2>
-      <p class="section-lead section-lead-white">AlumNETが開発する4つの自社プロダクト。<br>採用・評価・タレントマネジメントの各領域をAIで革新します。</p>
-    </div>
-
-    <!-- 3-Column Product Cards -->
-    <div class="products-lineup products-lineup-3col reveal">
-
-      <!-- Recruit AI Card -->
-      <div class="product-card">
-        <div class="product-card-mockup">
-          <div class="product-card-mockup-header">
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <span class="product-card-url">recruit-ai-bice.vercel.app</span>
-          </div>
-          <div class="product-card-mockup-body">
-            <div class="moneyball-sidebar" style="background:rgba(11,43,38,0.8);">
-              <div class="moneyball-sidebar-title" style="font-size:10px;">Recruit AI</div>
-              <div class="moneyball-sidebar-item active">📊 採用計画</div>
-              <div class="moneyball-sidebar-item">📋 求人票作成</div>
-              <div class="moneyball-sidebar-item">📧 スカウト文</div>
-              <div class="moneyball-sidebar-item">🎤 面接質問</div>
-              <div class="moneyball-sidebar-item">🎁 オファーレター</div>
-            </div>
-            <div class="moneyball-main">
-              <div style="font-size:12px;font-weight:600;color:white;margin-bottom:10px;">📊 AI採用計画策定</div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:8px;margin-bottom:6px;">
-                <div style="font-size:8px;color:rgba(255,255,255,0.35);">部門</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.7);">プロダクト開発部</div>
-              </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:8px;margin-bottom:6px;">
-                <div style="font-size:8px;color:rgba(255,255,255,0.35);">ポジション</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.7);">エンジニア x3</div>
-              </div>
-              <div style="display:inline-block;background:var(--accent-blue);color:white;font-size:9px;padding:5px 14px;border-radius:4px;margin-top:4px;">採用計画策定</div>
-            </div>
-          </div>
-        </div>
-        <div class="product-card-text">
-          <div class="product-card-badge">FLAGSHIP</div>
-          <h3>Recruit <em>AI</em></h3>
-          <p class="product-card-tagline">採用プロセスの全工程を1つのAIツールでカバー。15以上の専門AI機能を搭載。</p>
-          <ul class="product-card-features">
-            <li>採用計画〜オンボーディングまで一気通貫</li>
-            <li>スカウト文・求人票をAIが自動生成</li>
-            <li>面接質問・合否判定をAIが設計</li>
-          </ul>
-          <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="product-card-cta">無料で試す →</a>
-        </div>
-      </div>
-
-      <!-- HR System Builder -->
-      <div class="product-card">
-        <div class="product-card-mockup">
-          <div class="product-card-mockup-header">
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <span class="product-card-url">hr-system-builder.vercel.app</span>
-          </div>
-          <div class="product-card-mockup-body product-card-body-light">
-            <div class="hr-builder-steps">
-              <div class="hr-builder-step active">① 企業情報</div>
-              <div class="hr-builder-step">② MVV設計</div>
-              <div class="hr-builder-step">③ 等級制度</div>
-              <div class="hr-builder-step">④ 評価制度</div>
-              <div class="hr-builder-step">⑤ 報酬制度</div>
-              <div class="hr-builder-step">⑥ シミュレーション</div>
-              <div class="hr-builder-step">⑦ 出力</div>
-            </div>
-            <div class="hr-builder-main">
-              <div class="hr-builder-title">人事評価制度ビルダー</div>
-              <div class="hr-builder-field"></div>
-              <div class="hr-builder-field"></div>
-              <div class="hr-builder-field-short"></div>
-              <div class="hr-builder-btn">制度設計を始める →</div>
-            </div>
-          </div>
-        </div>
-        <div class="product-card-text">
-          <div class="product-card-badge">NEW — 自社プロダクト</div>
-          <h3>人事評価制度<em>ビルダー</em></h3>
-          <p class="product-card-tagline">コンサルタントに依頼することなく、自社オリジナルの人事評価制度をゼロから設計できるWebアプリ。</p>
-          <ul class="product-card-features">
-            <li>社員500名以下の企業向け</li>
-            <li>最短2時間で制度の骨格を設計</li>
-            <li>7ステップのウィザード形式</li>
-          </ul>
-          <a href="https://hr-system-builder.vercel.app/" target="_blank" class="product-card-cta">無料で試す →</a>
-        </div>
-      </div>
-
-      <!-- TalentBoard -->
-      <div class="product-card">
-        <div class="product-card-mockup">
-          <div class="product-card-mockup-header">
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <span class="product-card-url">caper-talent-manager.vercel.app</span>
-          </div>
-          <div class="product-card-mockup-body">
-            <div class="moneyball-sidebar">
-              <div class="moneyball-sidebar-title">📋 TalentBoard</div>
-              <div class="moneyball-sidebar-item active">📊 ダッシュボード</div>
-              <div class="moneyball-sidebar-item">👤 社員管理</div>
-              <div class="moneyball-sidebar-item">💰 給与管理</div>
-              <div class="moneyball-sidebar-item">🕐 勤怠管理</div>
-              <div class="moneyball-sidebar-item">🎯 評価・目標</div>
-              <div class="moneyball-sidebar-item">📚 スキル・研修</div>
-              <div class="moneyball-sidebar-item">🏢 組織管理</div>
-            </div>
-            <div class="moneyball-main">
-              <div class="moneyball-kpi-row">
-                <div class="moneyball-kpi"><span>248</span>社員数</div>
-                <div class="moneyball-kpi"><span>3.2%</span>離職率</div>
-                <div class="moneyball-kpi"><span>92</span>評価完了</div>
-              </div>
-              <div class="moneyball-heatmap">
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.7)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.8)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.6)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.3)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.7)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.6)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.3)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.7)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.5)"></div>
-                <div class="moneyball-heatmap-cell" style="background:rgba(46,196,182,0.4)"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="product-card-text">
-          <div class="product-card-badge">NEW — 自社プロダクト</div>
-          <h3>Talent<em>Board</em></h3>
-          <p class="product-card-tagline">統合タレントマネジメントプラットフォーム。社員・給与・勤怠・評価を一元管理。</p>
-          <ul class="product-card-features">
-            <li>社員情報・給与・勤怠をワンストップ管理</li>
-            <li>評価・目標設定 &amp; スキル・研修管理</li>
-            <li>組織分析ダッシュボードでリアルタイム可視化</li>
-          </ul>
-          <a href="https://caper-talent-manager.vercel.app/" target="_blank" class="product-card-cta">無料で試す →</a>
-        </div>
-      </div>
-
-      <!-- ScoutPilot -->
-      <div class="product-card">
-        <div class="product-card-mockup">
-          <div class="product-card-mockup-header">
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <div class="product-card-dot"></div>
-            <span class="product-card-url">scoutpilot.app</span>
-          </div>
-          <div class="product-card-mockup-body">
-            <div style="padding:16px;">
-              <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
-                <div style="width:28px;height:28px;background:var(--accent-blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;">✈</div>
-                <div style="font-size:13px;font-weight:600;color:white;">ScoutPilot</div>
-                <div style="font-size:8px;color:rgba(255,255,255,0.35);margin-left:auto;">Chrome Extension</div>
-              </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:10px;margin-bottom:8px;">
-                <div style="font-size:8px;color:rgba(255,255,255,0.35);margin-bottom:4px;">候補者プロフィール</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.6);">田中太郎 / バックエンドエンジニア / Go, Python</div>
-              </div>
-              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:4px;padding:10px;margin-bottom:8px;">
-                <div style="font-size:8px;color:rgba(255,255,255,0.35);margin-bottom:4px;">求人テンプレート</div>
-                <div style="font-size:10px;color:rgba(255,255,255,0.6);">SaaS企業 シニアエンジニア</div>
-              </div>
-              <div style="background:rgba(46,196,182,0.15);border:1px solid rgba(46,196,182,0.3);border-radius:4px;padding:10px;">
-                <div style="font-size:8px;color:var(--accent-blue);margin-bottom:4px;">AI生成スカウト文</div>
-                <div style="font-size:9px;color:rgba(255,255,255,0.5);line-height:1.6;">田中様のGoでのマイクロサービス構築経験に注目し...</div>
-              </div>
-              <div style="display:inline-block;background:var(--accent-blue);color:white;font-size:9px;padding:5px 14px;border-radius:4px;margin-top:8px;">スカウト文を生成</div>
-            </div>
-          </div>
-        </div>
-        <div class="product-card-text">
-          <div class="product-card-badge">NEW — Chrome拡張</div>
-          <h3>Scout<em>Pilot</em></h3>
-          <p class="product-card-tagline">Chromeで完結するAIスカウト文生成ツール。候補者情報から瞬時にパーソナライズドメッセージを作成。</p>
-          <ul class="product-card-features">
-            <li>候補者プロフィールからAIが即座に文面生成</li>
-            <li>求人テンプレート管理 &amp; 使用履歴</li>
-            <li>月20通まで無料、Freeプランあり</li>
-          </ul>
-          <a href="https://scoutpilot.app/" target="_blank" class="product-card-cta">無料で試す →</a>
-        </div>
-      </div>
-
-    </div><!-- /products-lineup -->
-
   </div>
 </section>
 
@@ -2452,118 +1420,121 @@
       <div>
         <div class="section-eyebrow">
           <div class="section-eyebrow-line"></div>
-          <span class="section-eyebrow-text">Professional Services</span>
+          <span class="section-eyebrow-text">Core Services</span>
         </div>
-        <h2 class="section-title">380名のHRプロが、<br>採用の現場を<br>動かす。</h2>
+        <h2 class="section-title">3つの専門領域で、<br>人事課題を根本から解決する。</h2>
       </div>
       <div>
-        <p class="section-lead">大手HR企業出身のプロフェッショナル380名が、RPO・面接官トレーニング・アルムナイ支援・エンゲージメント施策まで、人事の実務を丸ごと支援します。AIプロダクトとの組み合わせで、さらに効果を最大化。</p>
+        <p class="section-lead">コンサルティングの枠を超え、設計から実行まで一貫して伴走。御社に仕組みを残すことを最優先に支援します。</p>
       </div>
     </div>
-    <div class="services-grid reveal">
-      <div class="service-card service-card-featured">
+
+    <!-- Service 1: RPO -->
+    <div class="service-fullcard reveal">
+      <div class="service-fullcard-inner">
         <div class="service-num">01</div>
-        <div class="service-content">
-          <div>
-            <div class="service-badge">Talent-NET</div>
-            <h3 class="service-title">採用代行支援（RPO）<br>— 戦略から実務まで</h3>
-            <p class="service-text">採用計画策定・母集団形成・書類選考・面接代行・エージェントコントロール・クロージングまで、採用活動の全工程またはご指定工程を代行します。大手HR出身のプロ人材が、貴社の採用チームとして機能します。</p>
-          </div>
+        <div>
+          <div class="service-badge">RPO</div>
+          <h3 class="service-title">採用の実務を、丸ごと任せられる。</h3>
+          <p class="service-text">採用計画の策定からクロージングまで、採用プロセス全体を設計・代行。大手HR出身のプロフェッショナルが御社の採用チームとして機能します。</p>
+        </div>
+        <div>
           <ul class="service-tags">
             <li>採用計画・KPI設計</li>
             <li>母集団形成・スカウト運用</li>
-            <li>面接代行・クロージング支援</li>
+            <li>書類選考・面接代行</li>
             <li>エージェントコントロール</li>
-            <li>採用オペレーション最適化</li>
+            <li>オファー・クロージング支援</li>
           </ul>
         </div>
       </div>
-      <div class="service-card service-card-featured">
+    </div>
+
+    <!-- Service 2: CHRO代行 -->
+    <div class="service-fullcard reveal">
+      <div class="service-fullcard-inner">
         <div class="service-num">02</div>
-        <div class="service-content">
-          <div>
-            <div class="service-badge">Strategy-NET</div>
-            <h3 class="service-title">人事戦略・面接官トレーニング<br>— 経営視点のHR設計</h3>
-            <p class="service-text">採用戦略策定・評価制度設計・給与制度設計に加え、面接官トレーニングを提供。構造化面接の導入、評価基準の統一、バイアス排除など、採用品質を根本から底上げします。</p>
-          </div>
+        <div>
+          <div class="service-badge">CHRO代行</div>
+          <h3 class="service-title">経営に直結する、人事の参謀役。</h3>
+          <p class="service-text">人事責任者不在の企業に、外部CHROとして参画。採用戦略から評価制度、組織設計まで、経営と人事をつなぐ戦略パートナーとして伴走します。</p>
+        </div>
+        <div>
           <ul class="service-tags">
             <li>採用戦略策定</li>
             <li>評価・等級・給与制度設計</li>
-            <li>面接官トレーニング設計・実施</li>
-            <li>構造化面接の導入支援</li>
-            <li>採用ブランディング戦略</li>
+            <li>面接官トレーニング</li>
+            <li>エンゲージメント施策</li>
+            <li>組織設計・人員配置</li>
           </ul>
         </div>
       </div>
-      <div class="service-card">
+    </div>
+
+    <!-- Service 3: HRTech -->
+    <div class="service-fullcard reveal">
+      <div class="service-fullcard-inner">
         <div class="service-num">03</div>
-        <div class="service-badge">Alum-NET</div>
-        <h3 class="service-title">アルムナイ支援<br>— コミュニティ設計から再雇用まで</h3>
-        <p class="service-text">退職者を企業の長期資産として再定義。アルムナイコミュニティの運営設計、カムバック採用・リファラル採用の導線構築を一気通貫で支援します。</p>
-        <ul class="service-tags">
-          <li>アルムナイコミュニティ設計・運営</li>
-          <li>カムバック採用（再雇用）導線構築</li>
-          <li>リファラル採用の仕組み化</li>
-          <li>コミュニティイベント企画・実施</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-num">04</div>
-        <div class="service-badge">Engage-NET</div>
-        <h3 class="service-title">エンゲージメント向上<br>— 離職を構造的に防ぐ</h3>
-        <p class="service-text">外部メンターによる1on1代行、マネジメント育成、組織課題の定性・定量分析を通じ、離職予兆を早期に把握し対処します。</p>
-        <ul class="service-tags">
-          <li>外部メンター1on1の設計・実施</li>
-          <li>マネジメント育成プログラム</li>
-          <li>離職予兆の可視化・レポート</li>
-        </ul>
-      </div>
-      <div class="service-card">
-        <div class="service-num">05</div>
-        <div class="service-badge">Exit-NET</div>
-        <h3 class="service-title">再就職支援<br>— 退職者のファン化設計</h3>
-        <p class="service-text">退職者へのキャリア面談・副業マッチング・転職支援を通じ、企業との良好な関係を維持したままオフボーディングを実現します。</p>
-        <ul class="service-tags">
-          <li>キャリアカウンセリング</li>
-          <li>副業・業務委託マッチング</li>
-          <li>退職後ブランディング設計</li>
-        </ul>
+        <div>
+          <div class="service-badge">HRTech</div>
+          <h3 class="service-title">ツール選定から運用定着まで、一気通貫で。</h3>
+          <p class="service-text">HRTechは入れるだけでは意味がない。自社でもAIプロダクトを開発するテクノロジー集団だからこそ、最適なツール選定と運用定着を支援できます。</p>
+        </div>
+        <div>
+          <ul class="service-tags">
+            <li>HRTechツール選定・比較</li>
+            <li>導入プロジェクト管理</li>
+            <li>運用フロー設計・定着支援</li>
+            <li>AI活用提案</li>
+            <li>データ分析・レポーティング</li>
+          </ul>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- RESULTS -->
+<!-- CASE STUDIES -->
 <section id="results">
-  <div class="results-bg"></div>
-  <div class="container results-content">
+  <div class="case-studies-bg"></div>
+  <div class="container case-studies-content">
     <div class="section-eyebrow">
       <div class="section-eyebrow-line"></div>
-      <span class="section-eyebrow-text">Expected Results</span>
+      <span class="section-eyebrow-text">Results</span>
     </div>
-    <h2 class="section-title section-title-white">AI × プロ人材が生む、<br>具体的な成果。</h2>
+    <h2 class="section-title section-title-white">導入企業の成果</h2>
     <div class="gold-divider"></div>
-    <p class="section-lead section-lead-white">AlumNETのAI採用支援ツール「CHRO」と大手HR出身のプロ人材が連携することで、以下のような効果が期待できます。</p>
-    <div class="results-grid reveal">
-      <div class="result-card">
-        <div class="result-num blue">80<span class="result-unit">%</span></div>
-        <div class="result-label">採用NONコア業務を削減</div>
-        <div class="result-detail">スカウト文生成・書類選考・<br>面接準備をAIが自動化</div>
+    <div class="case-grid reveal">
+      <div class="case-card">
+        <div class="case-label">業界</div>
+        <div class="case-industry">IT企業（300名）</div>
+        <div class="case-type">RPO導入</div>
+        <div class="case-metric">
+          <div class="case-metric-value">60%</div>
+          <div class="case-metric-label">採用工数削減</div>
+        </div>
+        <div class="case-detail">採用充足率 85% &rarr; 98%</div>
       </div>
-      <div class="result-card">
-        <div class="result-num gold">3<span class="result-unit">倍</span></div>
-        <div class="result-label">スカウト返信率の向上</div>
-        <div class="result-detail">候補者分析に基づく<br>パーソナライズドメッセージ</div>
+      <div class="case-card">
+        <div class="case-label">業界</div>
+        <div class="case-industry">製造業（500名）</div>
+        <div class="case-type">人事制度設計</div>
+        <div class="case-metric">
+          <div class="case-metric-value">3ヶ月</div>
+          <div class="case-metric-label">制度設計完了</div>
+        </div>
+        <div class="case-detail">離職率 22% &rarr; 12%</div>
       </div>
-      <div class="result-card">
-        <div class="result-num blue">50<span class="result-unit">%</span></div>
-        <div class="result-label">採用コストの削減</div>
-        <div class="result-detail">AI活用＋アルムナイ経由の<br>リファラル・カムバック採用</div>
-      </div>
-      <div class="result-card">
-        <div class="result-num gold">0<span class="result-unit">円</span></div>
-        <div class="result-label">初期費用・相談料</div>
-        <div class="result-detail">課題整理・要件定義から<br>ご提案まで完全無償</div>
+      <div class="case-card">
+        <div class="case-label">業界</div>
+        <div class="case-industry">スタートアップ（50名）</div>
+        <div class="case-type">HRTech導入</div>
+        <div class="case-metric">
+          <div class="case-metric-value">月40h</div>
+          <div class="case-metric-label">管理工数削減</div>
+        </div>
+        <div class="case-detail">ツール定着率 95%</div>
       </div>
     </div>
   </div>
@@ -2576,13 +1547,14 @@
       <div class="section-eyebrow-line"></div>
       <span class="section-eyebrow-text">Why AlumNET</span>
     </div>
-    <h2 class="section-title">大手HRのアルムナイのみで<br>構成された、実務型コンサルティング。</h2>
+    <h2 class="section-title">大手HR出身プロ人材と、テクノロジーの力。</h2>
     <div class="gold-divider"></div>
     <div class="strengths-grid">
       <div class="reveal">
         <div style="margin-bottom:48px;">
           <div class="strength-large-num">380<span>名</span></div>
-          <p style="font-size:15px; color:var(--text-mid); font-weight:300; line-height:1.9; max-width:380px;">PASONA・PERSOL・RECRUIT・JACという国内最大手人材サービスの卒業生のみで構成。戦略立案から採用実務・AI活用まで、即戦力の専門人材が貴社の課題に直接対応します。</p>
+          <p style="font-size:16px; font-weight:600; color:var(--navy); margin-bottom:8px;">大手HR出身プロ人材</p>
+          <p style="font-size:15px; color:var(--text-mid); font-weight:300; line-height:1.9; max-width:380px;">PASONA・PERSOL・RECRUIT・JACという国内最大手人材サービスの卒業生のみで構成。即戦力の専門人材が貴社の課題に直接対応します。</p>
         </div>
         <div class="alumni-origins">
           <div class="alumni-origin-item">
@@ -2605,95 +1577,92 @@
       </div>
       <div class="reveal">
         <div class="strength-block" style="margin-bottom:24px;">
-          <h4 class="strength-block-title">「作業代行」ではなく<br>「設計と内製化支援」</h4>
-          <p class="strength-block-text">外注依存を生むのではなく、貴社内にノウハウを蓄積し、採用力を内製化できる状態を目指して支援します。業務委託型・アドバイザリー型の柔軟な契約形態で対応します。</p>
+          <h4 class="strength-block-title">「設計と内製化支援」<br>&mdash; 作業代行ではなく、御社に仕組みを残す</h4>
+          <p class="strength-block-text">外注依存を生むのではなく、貴社内にノウハウを蓄積し、人事機能を内製化できる状態を目指して支援します。</p>
         </div>
         <div class="strength-block" style="margin-bottom:24px;">
-          <h4 class="strength-block-title">人＋AIの「最適な組み合わせ」で<br>スピードと精度を両立</h4>
-          <p class="strength-block-text">完全自動化ではなく、AI補助×人間の意思決定という設計により、採用バイアスの削減・スピード向上・品質担保を同時に実現します。</p>
+          <h4 class="strength-block-title">「テクノロジー x 人」<br>&mdash; 自社開発AIツールとプロ人材の最適な組み合わせ</h4>
+          <p class="strength-block-text">AI補助と人間の意思決定の組み合わせにより、スピード向上・品質担保を同時に実現します。</p>
         </div>
         <div class="strength-block">
-          <h4 class="strength-block-title">初期費用不要。契約成立まで<br>料金は一切発生しません。</h4>
-          <p class="strength-block-text">お問い合わせから課題整理・要件定義・ご提案まで、費用は発生しません。スモールスタートにも対応しており、段階的な導入が可能です。</p>
+          <h4 class="strength-block-title">「初期費用ゼロ」<br>&mdash; 契約成立まで料金は一切発生しません</h4>
+          <p class="strength-block-text">お問い合わせから課題整理・要件定義・ご提案まで、費用は発生しません。スモールスタートにも対応しています。</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section id="comparison">
-  <div class="comparison-bg"></div>
-  <div class="container comparison-content">
-    <div class="section-eyebrow">
-      <div class="section-eyebrow-line"></div>
-      <span class="section-eyebrow-text">Comparison</span>
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="products-header">
+      <div class="section-eyebrow">
+        <div class="section-eyebrow-line"></div>
+        <span class="section-eyebrow-text">Our Technology</span>
+      </div>
+      <h2 class="section-title">自社開発のHRTechで、<br>サービスの質をさらに高める。</h2>
     </div>
-    <h2 class="section-title section-title-white">他の選択肢との違い。</h2>
-    <div class="gold-divider"></div>
-    <div class="comparison-grid reveal">
-      <div class="comp-header">比較項目</div>
-      <div class="comp-header comp-header-highlight">AlumNET</div>
-      <div class="comp-header">正社員採用</div>
-      <div class="comp-header">外注（RPO等）</div>
-      <div class="comp-header">コンサルティング</div>
-      <div class="comp-cell comp-cell-label">初期費用</div>
-      <div class="comp-cell comp-cell-highlight">不要</div>
-      <div class="comp-cell comp-cell-center">不要</div>
-      <div class="comp-cell comp-cell-center">不要〜変動</div>
-      <div class="comp-cell comp-cell-center">高額が多い</div>
-      <div class="comp-cell comp-cell-label">契約形態</div>
-      <div class="comp-cell comp-cell-highlight">業務委託（柔軟）</div>
-      <div class="comp-cell comp-cell-center">雇用契約</div>
-      <div class="comp-cell comp-cell-center">業務委託</div>
-      <div class="comp-cell comp-cell-center">準委任・請負</div>
-      <div class="comp-cell comp-cell-label">ノウハウ蓄積</div>
-      <div class="comp-cell comp-cell-highlight"><span class="comp-mark-good">&#9678;</span> 内製化支援込み</div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-good">&#9675;</span></div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&#9651;</span> 属人性が強い</div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-mid">&#9651;</span></div>
-      <div class="comp-cell comp-cell-label">AI活用</div>
-      <div class="comp-cell comp-cell-highlight"><span class="comp-mark-good">&#9678;</span> 独自AI搭載</div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-mid">&#9651;</span> サービスによる</div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
-      <div class="comp-cell comp-cell-label">アルムナイ設計</div>
-      <div class="comp-cell comp-cell-highlight"><span class="comp-mark-good">&#9678;</span> 専門領域</div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
-      <div class="comp-cell comp-cell-center"><span class="comp-mark-bad">&times;</span></div>
-      <div class="comp-cell comp-cell-label">ランニングコスト</div>
-      <div class="comp-cell comp-cell-highlight">人材報酬＋手数料のみ</div>
-      <div class="comp-cell comp-cell-center">人件費＋諸コスト</div>
-      <div class="comp-cell comp-cell-center">人件費＋手数料</div>
-      <div class="comp-cell comp-cell-center">コンサル報酬</div>
+    <p class="products-lead">コンサルティングだけでなく、自社でプロダクトも開発。テクノロジーを理解したプロ集団だからこそ、最適なHRTech活用を提案できます。</p>
+    <div class="products-grid reveal">
+      <div class="product-simple-card">
+        <div class="product-simple-title">Recruit AI</div>
+        <p class="product-simple-desc">採用プロセス全工程をAIで支援。計画策定からオファーレターまで15以上の専門AI機能を搭載。</p>
+        <a href="https://recruit-ai-bice.vercel.app/" target="_blank" class="product-simple-link">詳しく見る &rarr;</a>
+      </div>
+      <div class="product-simple-card">
+        <div class="product-simple-title">HR評価制度ビルダー</div>
+        <p class="product-simple-desc">自社オリジナルの評価制度をゼロから設計。7ステップのウィザード形式で最短2時間で骨格を構築。</p>
+        <a href="https://hr-system-builder.vercel.app/" target="_blank" class="product-simple-link">詳しく見る &rarr;</a>
+      </div>
+      <div class="product-simple-card">
+        <div class="product-simple-title">TalentBoard</div>
+        <p class="product-simple-desc">統合タレントマネジメントプラットフォーム。社員・給与・勤怠・評価を一元管理。</p>
+        <a href="https://caper-talent-manager.vercel.app/" target="_blank" class="product-simple-link">詳しく見る &rarr;</a>
+      </div>
+      <div class="product-simple-card">
+        <div class="product-simple-title">ScoutPilot</div>
+        <p class="product-simple-desc">AIスカウト文生成Chrome拡張。候補者情報から瞬時にパーソナライズドメッセージを作成。</p>
+        <a href="https://scoutpilot.app/" target="_blank" class="product-simple-link">詳しく見る &rarr;</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- MVV -->
-<section id="mvv">
+<!-- FLOW -->
+<section id="flow">
   <div class="container">
     <div class="section-eyebrow">
       <div class="section-eyebrow-line"></div>
-      <span class="section-eyebrow-text">Mission / Vision / Value</span>
+      <span class="section-eyebrow-text">Process</span>
     </div>
-    <h2 class="section-title">私たちの存在意義。</h2>
-    <div class="mvv-grid reveal">
-      <div class="mvv-card">
-        <div class="mvv-label">Mission</div>
-        <h3 class="mvv-heading">人と企業の<br>「その後」に価値を生み出す</h3>
-        <p class="mvv-text">採用・退職・転職といった節目を、単なる終わりとして処理するのではなく、次の価値を生む起点として再設計します。</p>
+    <h2 class="section-title">ご相談から運用開始まで。</h2>
+    <div class="gold-divider"></div>
+    <div class="flow-steps reveal">
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">01</span></div>
+        <div class="flow-name">お問い合わせ</div>
+        <div class="flow-sub">フォームまたは<br>お電話で</div>
       </div>
-      <div class="mvv-card">
-        <div class="mvv-label">Vision</div>
-        <h3 class="mvv-heading">HRの<br>再接続インフラになる</h3>
-        <p class="mvv-text">企業と人材の間に生まれる「断絶」を構造的に解消するインフラを構築します。退職者・辞退者・候補者との関係を永続的に維持します。</p>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">02</span></div>
+        <div class="flow-name">ヒアリング</div>
+        <div class="flow-sub">課題整理・<br>要件定義</div>
       </div>
-      <div class="mvv-card">
-        <div class="mvv-label">Value</div>
-        <h3 class="mvv-heading">つながりを活かす<br>人とAIで「もう一度」をつくる</h3>
-        <p class="mvv-text">多様性を力に変え、人間の判断力とAIの処理能力を最適に組み合わせます。「もう一度」という再接続の価値を信じ続けます。</p>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">03</span></div>
+        <div class="flow-name">ご提案</div>
+        <div class="flow-sub">最適なプラン・<br>人材をご提案</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">04</span></div>
+        <div class="flow-name">契約・開始</div>
+        <div class="flow-sub">合意後に契約<br>費用はここから</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-dot"><span class="flow-dot-num">05</span></div>
+        <div class="flow-name">運用・改善</div>
+        <div class="flow-sub">定期レビューで<br>継続的に改善</div>
       </div>
     </div>
   </div>
@@ -2709,63 +1678,14 @@
       <span class="section-eyebrow-text">Get Started</span>
       <div class="section-eyebrow-line"></div>
     </div>
-    <h2>採用を<em>「資産」</em>に変える<br>第一歩を、今すぐ。</h2>
-    <p>初回のご相談は完全無償。課題が明確でない段階でも歓迎します。<br>まずは御社の採用課題をお聞かせください。</p>
+    <h2>まずは、話を聞かせてください。</h2>
+    <p>初回のご相談は完全無償。課題が明確でない段階でも歓迎します。</p>
     <div class="cta-buttons">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:18px 40px;">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:18px 40px;">
         無料相談・資料請求
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-      <a href="tel:08043745167" class="btn-secondary">お電話でのご相談</a>
-    </div>
-  </div>
-</section>
-
-<!-- FLOW -->
-<section id="flow">
-  <div class="container">
-    <div class="section-eyebrow">
-      <div class="section-eyebrow-line"></div>
-      <span class="section-eyebrow-text">Process</span>
-    </div>
-    <h2 class="section-title">ご相談から契約まで、<br>スピーディーに進行します。</h2>
-    <p class="section-lead" style="margin-bottom:0;">正式申込前から課題整理・要件定義を無償で実施します。費用は契約成立後に発生します。</p>
-    <div class="flow-list reveal">
-      <div class="flow-item">
-        <div class="flow-step-num"><span>01</span></div>
-        <div class="flow-item-body">
-          <h3 class="flow-item-title">課題抽出・要件定義</h3>
-          <p class="flow-item-text">採用課題・組織課題の優先順位を整理し、業務範囲の要件定義を実施します。この段階では費用は一切発生しません。</p>
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-step-num"><span>02</span></div>
-        <div class="flow-item-body">
-          <h3 class="flow-item-title">規約へのご同意（電子署名）</h3>
-          <p class="flow-item-text">個人情報の取り扱いに関する弊社利用規約へ電子署名にてご同意いただきます。</p>
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-step-num"><span>03</span></div>
-        <div class="flow-item-body">
-          <h3 class="flow-item-title">キックオフ</h3>
-          <p class="flow-item-text">貴社の目標・期間・マイルストーンをプロジェクト担当者と共に設計します。</p>
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-step-num"><span>04</span></div>
-        <div class="flow-item-body">
-          <h3 class="flow-item-title">ご提案・人材の顔合わせ</h3>
-          <p class="flow-item-text">要件に最適な人材をご提案し、業務内容・期間・体制を具体的にご確認いただけます。</p>
-        </div>
-      </div>
-      <div class="flow-item">
-        <div class="flow-step-num"><span>05</span></div>
-        <div class="flow-item-body">
-          <h3 class="flow-item-title">各条件の最終合意・ご契約</h3>
-          <p class="flow-item-text">条件の最終調整後、合意に基づいて契約書を締結します。ここから初めて費用が発生します。</p>
-        </div>
-      </div>
+      <a href="#" class="btn-secondary">サービス資料を見る</a>
     </div>
   </div>
 </section>
@@ -2781,14 +1701,24 @@
         <div class="section-eyebrow-line"></div>
       </div>
       <h2 class="contact-title">まず、話を聞かせてください。</h2>
-      <p class="contact-lead">採用課題・アルムナイ設計・AI活用・組織設計など、どのようなテーマでも構いません。初回のご相談は完全無償です。</p>
+      <p class="contact-lead">RPO・CHRO代行・HRTech導入・組織設計など、どのようなテーマでも構いません。初回のご相談は完全無償です。</p>
       <div class="contact-box">
         <p class="contact-box-label">Contact Form</p>
         <p class="contact-box-text">下記ボタンよりお問い合わせフォームへお進みください。<br>初回のご相談は完全無償です。課題が明確でない段階でも歓迎します。</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:20px 48px; display:inline-flex;">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:20px 48px; display:inline-flex;">
           お問い合わせフォームへ進む
           <svg style="margin-left:10px; flex-shrink:0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
+      </div>
+      <div class="contact-info">
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value">info@alumnet.co.jp</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value">080-4374-5167</div>
+        </div>
       </div>
     </div>
   </div>
@@ -2810,35 +1740,35 @@
             <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
             <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
             <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
-            <text x="62" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
-            <text x="130" y="30" font-family="'Playfair Display', serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+            <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+            <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
           </svg>
         </div>
-        <div class="footer-tagline">AI × HR で採用の常識を変える</div>
+        <div class="footer-tagline">HR戦略パートナー</div>
       </div>
       <div class="footer-nav">
         <div>
           <div class="footer-nav-group-title">Services</div>
           <ul class="footer-nav-links">
-            <li><a href="#services">AI-NET（AI採用支援）</a></li>
-            <li><a href="#services">Talent-NET（採用代行）</a></li>
-            <li><a href="#services">Engage-NET（エンゲージメント）</a></li>
-            <li><a href="#services">Exit-NET（再就職支援）</a></li>
-            <li><a href="#services">HDM-NET（データ活用）</a></li>
-            <li><a href="#services">Alum-NET（アルムナイ支援）</a></li>
-            <li><a href="#services">Strategy-NET（人事戦略）</a></li>
-            <li><a href="https://recruit-ai-bice.vercel.app/" target="_blank">Recruit AI（AI採用ツール）</a></li>
-            <li><a href="https://hr-system-builder.vercel.app/" target="_blank">人事評価制度ビルダー</a></li>
-            <li><a href="https://caper-talent-manager.vercel.app/" target="_blank">TalentBoard（統合タレントマネジメント）</a></li>
-            <li><a href="https://scoutpilot.app/" target="_blank">ScoutPilot（AIスカウト文生成）</a></li>
+            <li><a href="#services">RPO（採用代行）</a></li>
+            <li><a href="#services">CHRO代行</a></li>
+            <li><a href="#services">HRTech導入支援</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-nav-group-title">Technology</div>
+          <ul class="footer-nav-links">
+            <li><a href="https://recruit-ai-bice.vercel.app/" target="_blank">Recruit AI</a></li>
+            <li><a href="https://hr-system-builder.vercel.app/" target="_blank">HR評価制度ビルダー</a></li>
+            <li><a href="https://caper-talent-manager.vercel.app/" target="_blank">TalentBoard</a></li>
+            <li><a href="https://scoutpilot.app/" target="_blank">ScoutPilot</a></li>
           </ul>
         </div>
         <div>
           <div class="footer-nav-group-title">Company</div>
           <ul class="footer-nav-links">
-            <li><a href="#mvv">Mission / Vision / Value</a></li>
-            <li><a href="#strengths">私たちの強み</a></li>
-            <li><a href="#flow">ご相談の流れ</a></li>
+            <li><a href="#results">実績</a></li>
+            <li><a href="#strengths">強み</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
           </ul>
         </div>
@@ -2855,7 +1785,7 @@
 </footer>
 
 <!-- FLOATING CTA -->
-<a href="https://docs.google.com/forms/d/e/1FAIpQLScVB14bJcG4_kRJWgtPpkE2VUcTO3g0Mzjv4p2PbATsGyrQOw/viewform?pli=1" target="_blank" rel="noopener noreferrer" class="floating-cta" id="floatingCta">
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="floating-cta" id="floatingCta">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
   無料相談する
 </a>
