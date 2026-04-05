@@ -404,7 +404,9 @@
 
   /* ========== HERO CTA BANNER ========== */
   .hero-cta-banner {
-    background: linear-gradient(135deg, #f0f4f3 0%, #e8f5e9 40%, #c8e6c9 70%, #ff8a65 100%);
+    background: var(--off-white);
+    border-top: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
     padding: 40px 48px;
     display: flex;
     justify-content: center;
@@ -423,22 +425,22 @@
   }
   .hero-cta-card-dl {
     background: var(--white);
-    border: 2px solid #4CAF50;
+    border: 2px solid var(--gold);
     border-radius: 60px;
     padding: 28px 40px;
     position: relative;
   }
   .hero-cta-card-dl:hover {
-    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.15);
+    box-shadow: 0 8px 24px rgba(46, 196, 182, 0.2);
   }
   .hero-cta-card-consult {
-    background: linear-gradient(135deg, #FF7043, #FF5722);
-    border-radius: 20px;
+    background: linear-gradient(135deg, var(--navy-light), var(--navy));
+    border-radius: 60px;
     padding: 28px 40px;
     position: relative;
   }
   .hero-cta-card-consult:hover {
-    box-shadow: 0 8px 24px rgba(255, 87, 34, 0.3);
+    box-shadow: 0 8px 24px rgba(11, 43, 38, 0.3);
   }
   .hero-cta-badge {
     display: inline-block;
@@ -453,13 +455,13 @@
     white-space: nowrap;
   }
   .hero-cta-badge-green {
-    background: #4CAF50;
-    color: white;
+    background: var(--gold);
+    color: var(--navy);
   }
   .hero-cta-badge-orange {
-    background: #FFF3E0;
-    color: #E65100;
-    border: 1px solid #FFB74D;
+    background: var(--navy);
+    color: var(--gold);
+    border: 1px solid var(--navy-light);
   }
   .hero-cta-card-dl .hero-cta-label {
     font-size: 20px;
@@ -470,7 +472,7 @@
   .hero-cta-card-consult .hero-cta-label {
     font-size: 22px;
     font-weight: 700;
-    color: white;
+    color: var(--gold);
     letter-spacing: 0.02em;
   }
 
