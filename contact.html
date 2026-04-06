@@ -1190,14 +1190,15 @@
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
 
-      // Collect form data
-      var formData = new FormData(form);
+      // Collect form data as JSON
+      var data = {};
+      new FormData(form).forEach(function(value, key) { data[key] = value; });
 
-      // Submit via Formspree
-      fetch('https://formspree.io/f/xrgwbvjp', {
+      // Submit to Vercel API
+      fetch('https://alumnet-form-api.vercel.app/api/contact', {
         method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
       })
       .then(function(response) {
         if (response.ok) {

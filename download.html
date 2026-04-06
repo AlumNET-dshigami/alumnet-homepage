@@ -1027,17 +1027,16 @@
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
 
-      // Send to Formspree
-      var formData = new FormData();
-      formData.append('company', company);
-      formData.append('name', name);
-      formData.append('email', email);
-      formData.append('resource', resourceInput.value);
-
-      fetch('https://formspree.io/f/xrgwbvjp', {
+      // Send to Vercel API
+      fetch('https://alumnet-form-api.vercel.app/api/download', {
         method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        body: JSON.stringify({
+          company: company,
+          name: name,
+          email: email,
+          resource: resourceInput.value
+        }),
+        headers: { 'Content-Type': 'application/json' }
       })
       .then(function(response) {
         if (response.ok) {
