@@ -1744,6 +1744,224 @@
     width: 18px;
     height: 18px;
   }
+
+  /* ========== SOLUTION MAP ========== */
+  .smap {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .smap-label-row {
+    margin-bottom: 12px;
+    margin-top: 32px;
+  }
+
+  .smap-label-row:first-child {
+    margin-top: 0;
+  }
+
+  .smap-layer-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* Phase flow row */
+  .smap-phases {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 0;
+    align-items: stretch;
+    margin-bottom: 8px;
+  }
+
+  .smap-phase {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(46,196,182,0.3);
+    border-top: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 20px 12px 16px;
+    text-align: center;
+    transition: background 0.3s, border-color 0.3s;
+  }
+
+  .smap-phase:hover {
+    background: rgba(46,196,182,0.1);
+    border-color: var(--gold);
+  }
+
+  .smap-phase-icon {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .smap-phase-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .smap-phase-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .smap-phase-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 4px;
+    white-space: nowrap;
+  }
+
+  .smap-phase-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    white-space: nowrap;
+  }
+
+  .smap-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2px;
+  }
+
+  /* Bar grids (products & services) */
+  .smap-bars {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+  }
+
+  .smap-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    border-radius: 6px;
+    min-height: 44px;
+    flex-wrap: wrap;
+  }
+
+  .smap-bar-name {
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .smap-bar-desc {
+    font-size: 11px;
+    opacity: 0.6;
+    white-space: nowrap;
+  }
+
+  /* Product bars */
+  .smap-bar-product {
+    background: rgba(46,196,182,0.15);
+    border-left: 3px solid var(--gold);
+    color: var(--white);
+  }
+
+  /* Service bars */
+  .smap-bar-service {
+    background: rgba(255,255,255,0.08);
+    border-left: 3px solid rgba(255,255,255,0.4);
+    color: var(--white);
+  }
+
+  .smap-bar-service.smap-bar-light {
+    background: rgba(255,255,255,0.04);
+    border-left-color: rgba(255,255,255,0.25);
+  }
+
+  /* Badges */
+  .smap-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .smap-badge-ai {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .smap-badge-pro {
+    background: rgba(255,255,255,0.2);
+    color: var(--white);
+  }
+
+  /* Solution Map Responsive: Tablet */
+  @media (max-width: 1024px) {
+    .smap-phases {
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      gap: 8px 0;
+    }
+    .smap-phase:nth-child(n+8) {
+      /* second row */
+    }
+    .smap-arrow:nth-child(6) {
+      display: none;
+    }
+    .smap-bars {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .smap-bar {
+      grid-column: 1 / -1 !important;
+    }
+  }
+
+  /* Solution Map Responsive: Mobile */
+  @media (max-width: 640px) {
+    .smap-phases {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .smap-arrow {
+      display: none;
+    }
+    .smap-phase {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto auto;
+      text-align: left;
+      padding: 14px 16px;
+      gap: 0 12px;
+    }
+    .smap-phase-icon {
+      grid-row: 1 / 3;
+      align-self: center;
+      margin-bottom: 0;
+    }
+    .smap-phase-num {
+      display: none;
+    }
+    .smap-phase-name {
+      font-size: 14px;
+      align-self: end;
+    }
+    .smap-phase-sub {
+      align-self: start;
+    }
+    .smap-bar {
+      padding: 10px 14px;
+    }
+    .smap-bar-desc {
+      white-space: normal;
+    }
+  }
 </style>
 </head>
 <body>
@@ -2089,6 +2307,129 @@
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- SOLUTION MAP -->
+<section id="solution-map" style="background: var(--navy); color: var(--white);">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Solution Map</span>
+    </div>
+    <h2 class="section-title section-title-white">HR業務のすべてを、一気通貫で支援する。</h2>
+    <p class="section-lead" style="color: rgba(255,255,255,0.7); margin-bottom: 56px;">採用戦略の策定から退職後のアルムナイ管理まで。自社開発のAIプロダクトと380名のプロフェッショナルを組み合わせ、HRライフサイクル全体をカバーします。</p>
+
+    <div class="smap reveal">
+      <!-- Layer 1: HR Workflow Phases -->
+      <div class="smap-label-row">
+        <span class="smap-layer-label" style="color: var(--gold);">HR Lifecycle</span>
+      </div>
+      <div class="smap-phases">
+        <div class="smap-phase">
+          <div class="smap-phase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="smap-phase-num">01</div>
+          <div class="smap-phase-name">採用戦略</div>
+          <div class="smap-phase-sub">計画・KPI設定</div>
+        </div>
+        <div class="smap-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="smap-phase">
+          <div class="smap-phase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div class="smap-phase-num">02</div>
+          <div class="smap-phase-name">母集団形成</div>
+          <div class="smap-phase-sub">スカウト・求人</div>
+        </div>
+        <div class="smap-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="smap-phase">
+          <div class="smap-phase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="smap-phase-num">03</div>
+          <div class="smap-phase-name">選考・面接</div>
+          <div class="smap-phase-sub">書類・面接</div>
+        </div>
+        <div class="smap-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="smap-phase">
+          <div class="smap-phase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2l3 7h7l-5.5 4 2 7L12 16l-6.5 4 2-7L2 9h7z"/></svg>
+          </div>
+          <div class="smap-phase-num">04</div>
+          <div class="smap-phase-name">内定・入社</div>
+          <div class="smap-phase-sub">クロージング</div>
+        </div>
+        <div class="smap-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="smap-phase">
+          <div class="smap-phase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0v-4a1 1 0 011-1h2a1 1 0 011 1v4m-4 0h4"/></svg>
+          </div>
+          <div class="smap-phase-num">05</div>
+          <div class="smap-phase-name">定着・育成</div>
+          <div class="smap-phase-sub">評価・研修</div>
+        </div>
+        <div class="smap-arrow"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="smap-phase">
+          <div class="smap-phase-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="smap-phase-num">06</div>
+          <div class="smap-phase-name">退職・Alumni</div>
+          <div class="smap-phase-sub">アルムナイ</div>
+        </div>
+      </div>
+
+      <!-- Layer 2: AI Products -->
+      <div class="smap-label-row">
+        <span class="smap-layer-label" style="color: var(--gold);">AI Products</span>
+      </div>
+      <div class="smap-bars smap-bars-products">
+        <div class="smap-bar smap-bar-product" style="grid-column: 1 / 5;">
+          <span class="smap-bar-name">Recruit AI</span>
+          <span class="smap-badge smap-badge-ai">AI</span>
+          <span class="smap-bar-desc">採用プロセス全体を自動化・最適化</span>
+        </div>
+        <div class="smap-bar smap-bar-product" style="grid-column: 2 / 3;">
+          <span class="smap-bar-name">ScoutPilot</span>
+          <span class="smap-badge smap-badge-ai">AI</span>
+          <span class="smap-bar-desc">AIスカウト最適化</span>
+        </div>
+        <div class="smap-bar smap-bar-product" style="grid-column: 5 / 6;">
+          <span class="smap-bar-name">HR Builder</span>
+          <span class="smap-badge smap-badge-ai">AI</span>
+          <span class="smap-bar-desc">評価制度設計</span>
+        </div>
+        <div class="smap-bar smap-bar-product" style="grid-column: 4 / 7;">
+          <span class="smap-bar-name">TalentBoard</span>
+          <span class="smap-badge smap-badge-ai">AI</span>
+          <span class="smap-bar-desc">人材可視化・アルムナイ管理</span>
+        </div>
+      </div>
+
+      <!-- Layer 3: Professional Services -->
+      <div class="smap-label-row">
+        <span class="smap-layer-label" style="color: rgba(255,255,255,0.6);">Professional Services</span>
+      </div>
+      <div class="smap-bars smap-bars-services">
+        <div class="smap-bar smap-bar-service" style="grid-column: 1 / 5;">
+          <span class="smap-bar-name">RPO</span>
+          <span class="smap-badge smap-badge-pro">PRO</span>
+          <span class="smap-bar-desc">採用プロセス代行</span>
+        </div>
+        <div class="smap-bar smap-bar-service smap-bar-full" style="grid-column: 1 / 7;">
+          <span class="smap-bar-name">CHRO代行</span>
+          <span class="smap-badge smap-badge-pro">PRO</span>
+          <span class="smap-bar-desc">人事戦略の全領域をカバー</span>
+        </div>
+        <div class="smap-bar smap-bar-service smap-bar-light" style="grid-column: 1 / 7;">
+          <span class="smap-bar-name">HRTech導入支援</span>
+          <span class="smap-badge smap-badge-pro">PRO</span>
+          <span class="smap-bar-desc">ツール選定から運用定着まで</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
