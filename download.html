@@ -208,165 +208,6 @@
     padding: 80px 48px;
   }
 
-  /* ========== FORM SECTION ========== */
-  .dl-form-section {
-    background: var(--off-white);
-    border: 1px solid var(--gray-light);
-    border-radius: 12px;
-    padding: 48px;
-    margin-bottom: 64px;
-  }
-
-  .dl-form-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 24px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-
-  .dl-form-lead {
-    color: var(--text-mid);
-    font-size: 15px;
-    margin-bottom: 32px;
-    line-height: 1.6;
-  }
-
-  .dl-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-
-  .dl-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .dl-form-group.full-width {
-    grid-column: 1 / -1;
-  }
-
-  .dl-form-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .dl-form-required {
-    background: #E74C3C;
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 2px;
-    letter-spacing: 0.05em;
-  }
-
-  .dl-form-input {
-    padding: 12px 16px;
-    border: 1px solid var(--gray-light);
-    border-radius: 6px;
-    font-size: 15px;
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--white);
-    color: var(--text-dark);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-
-  .dl-form-input:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(46,196,182,0.12);
-  }
-
-  .dl-form-input.error {
-    border-color: #E74C3C;
-    box-shadow: 0 0 0 3px rgba(231,76,60,0.1);
-  }
-
-  .dl-form-error {
-    font-size: 12px;
-    color: #E74C3C;
-    min-height: 16px;
-  }
-
-  .dl-form-submit {
-    grid-column: 1 / -1;
-    margin-top: 8px;
-  }
-
-  .btn-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 16px 32px;
-    background: var(--gold);
-    color: var(--navy);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-  }
-
-  .btn-submit:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-  }
-
-  .btn-submit:active { transform: translateY(0); }
-
-  .btn-submit:disabled {
-    background: var(--gray-mid);
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .btn-submit svg { flex-shrink: 0; }
-
-  /* ========== THANK YOU MESSAGE ========== */
-  .dl-thankyou {
-    display: none;
-    text-align: center;
-    padding: 32px 0;
-  }
-
-  .dl-thankyou.visible { display: block; }
-
-  .dl-thankyou-icon {
-    width: 64px;
-    height: 64px;
-    background: rgba(46,196,182,0.12);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-  }
-
-  .dl-thankyou-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-
-  .dl-thankyou-lead {
-    color: var(--text-mid);
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
   /* ========== RESOURCE CARDS ========== */
   .dl-section-label {
     display: flex;
@@ -471,15 +312,171 @@
     transform: translateY(-1px);
   }
 
-  .dl-card-btn.disabled {
+  .dl-card-btn svg { flex-shrink: 0; width: 16px; height: 16px; }
+
+  /* ========== MODAL OVERLAY ========== */
+  .dl-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+
+  .dl-modal-overlay.active {
+    display: flex;
+  }
+
+  .dl-modal {
+    background: var(--white);
+    border-radius: 12px;
+    max-width: 480px;
+    width: 100%;
+    padding: 40px 36px 36px;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+    animation: modalIn 0.25s ease-out;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: translateY(16px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .dl-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--off-white);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    color: var(--text-mid);
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .dl-modal-close:hover {
+    background: var(--gray-light);
+    color: var(--text-dark);
+  }
+
+  .dl-modal-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .dl-modal-lead {
+    color: var(--text-mid);
+    font-size: 14px;
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .dl-modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .dl-modal-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .dl-modal-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .dl-modal-required {
+    background: #E74C3C;
+    color: var(--white);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .dl-modal-input {
+    padding: 12px 16px;
+    border: 1px solid var(--gray-light);
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--white);
+    color: var(--text-dark);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+
+  .dl-modal-input:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(46,196,182,0.12);
+  }
+
+  .dl-modal-input.error {
+    border-color: #E74C3C;
+    box-shadow: 0 0 0 3px rgba(231,76,60,0.1);
+  }
+
+  .dl-modal-error {
+    font-size: 12px;
+    color: #E74C3C;
+    min-height: 16px;
+  }
+
+  .dl-modal-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 32px;
+    background: var(--gold);
+    color: var(--navy);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 8px;
+  }
+
+  .dl-modal-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .dl-modal-submit:active { transform: translateY(0); }
+
+  .dl-modal-submit:disabled {
     background: var(--gray-mid);
-    color: rgba(255,255,255,0.6);
     cursor: not-allowed;
-    pointer-events: none;
     transform: none;
   }
 
-  .dl-card-btn svg { flex-shrink: 0; width: 16px; height: 16px; }
+  .dl-modal-submit svg { flex-shrink: 0; }
 
   /* ========== FOOTER ========== */
   footer {
@@ -574,7 +571,6 @@
     nav { padding: 0 24px; }
     .page-hero { padding: 120px 24px 60px; }
     .dl-main { padding: 60px 24px; }
-    .dl-form-section { padding: 32px 24px; }
     .dl-cards { grid-template-columns: 1fr 1fr; }
     footer { padding: 48px 24px 24px; }
     .footer-top { flex-direction: column; gap: 40px; }
@@ -588,10 +584,10 @@
     .page-hero-title { font-size: 28px; }
     .page-hero-lead { font-size: 14px; }
     .dl-main { padding: 40px 16px; }
-    .dl-form-section { padding: 24px 16px; }
-    .dl-form { grid-template-columns: 1fr; }
     .dl-cards { grid-template-columns: 1fr; }
     .dl-section-label { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .dl-modal { padding: 32px 20px 28px; }
+    .dl-modal-title { font-size: 19px; }
   }
 </style>
 </head>
@@ -654,54 +650,6 @@
 <!-- MAIN -->
 <div class="dl-main">
 
-  <!-- FORM SECTION -->
-  <div class="dl-form-section" id="formSection">
-    <h2 class="dl-form-title">資料請求フォーム</h2>
-    <p class="dl-form-lead">以下の情報をご入力いただくと、すべての資料をダウンロードいただけます。</p>
-
-    <form id="dlForm" class="dl-form" novalidate>
-      <div class="dl-form-group">
-        <label class="dl-form-label" for="company">
-          会社名 <span class="dl-form-required">必須</span>
-        </label>
-        <input type="text" id="company" name="company" class="dl-form-input" placeholder="例: AlumNET株式会社" required>
-        <span class="dl-form-error" id="companyError"></span>
-      </div>
-
-      <div class="dl-form-group">
-        <label class="dl-form-label" for="name">
-          お名前 <span class="dl-form-required">必須</span>
-        </label>
-        <input type="text" id="name" name="name" class="dl-form-input" placeholder="例: 山田 太郎" required>
-        <span class="dl-form-error" id="nameError"></span>
-      </div>
-
-      <div class="dl-form-group full-width">
-        <label class="dl-form-label" for="email">
-          メールアドレス <span class="dl-form-required">必須</span>
-        </label>
-        <input type="email" id="email" name="email" class="dl-form-input" placeholder="例: taro.yamada@example.com" required>
-        <span class="dl-form-error" id="emailError"></span>
-      </div>
-
-      <div class="dl-form-submit">
-        <button type="submit" class="btn-submit" id="submitBtn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          送信して資料をダウンロード
-        </button>
-      </div>
-    </form>
-
-    <!-- THANK YOU -->
-    <div class="dl-thankyou" id="thankyou">
-      <div class="dl-thankyou-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2EC4B6" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <h3 class="dl-thankyou-title">ありがとうございます</h3>
-      <p class="dl-thankyou-lead">以下の資料をダウンロードいただけます。<br>各資料のボタンをクリックしてPDFをご覧ください。</p>
-    </div>
-  </div>
-
   <!-- LEAD GENERATION RESOURCES -->
   <div class="dl-section-label">
     <span class="dl-section-label-tag">LEAD</span>
@@ -715,10 +663,10 @@
       </div>
       <h3 class="dl-card-title">アルムナイ採用ガイドブック</h3>
       <p class="dl-card-desc">アルムナイ採用の定義・メリット・導入ステップを網羅した完全ガイド</p>
-      <a href="docs/AlumNET_%E3%82%A2%E3%83%AB%E3%83%A0%E3%83%8A%E3%82%A4%E6%8E%A1%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E3%82%A2%E3%83%AB%E3%83%A0%E3%83%8A%E3%82%A4%E6%8E%A1%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF.pdf" data-resource="アルムナイ採用ガイドブック">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
 
     <!-- Card 2: Case Studies -->
@@ -728,10 +676,10 @@
       </div>
       <h3 class="dl-card-title">導入事例集</h3>
       <p class="dl-card-desc">人材紹介立ち上げ・成約実績・育成実績の具体的な事例</p>
-      <a href="docs/AlumNET_%E5%B0%8E%E5%85%A5%E4%BA%8B%E4%BE%8B%E9%9B%86.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E5%B0%8E%E5%85%A5%E4%BA%8B%E4%BE%8B%E9%9B%86.pdf" data-resource="導入事例集">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
 
     <!-- Card 3: Service Comparison -->
@@ -741,10 +689,10 @@
       </div>
       <h3 class="dl-card-title">サービス比較表</h3>
       <p class="dl-card-desc">AlumNETと一般的な人材紹介・RPOとの違いを一目で比較</p>
-      <a href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%AF%94%E8%BC%83%E8%A1%A8.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%AF%94%E8%BC%83%E8%A1%A8.pdf" data-resource="サービス比較表">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
   </div>
 
@@ -761,10 +709,10 @@
       </div>
       <h3 class="dl-card-title">会社案内</h3>
       <p class="dl-card-desc">AlumNET株式会社の概要・MVV・メンバー紹介</p>
-      <a href="docs/AlumNET_%E4%BC%9A%E7%A4%BE%E6%A1%88%E5%86%85.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E4%BC%9A%E7%A4%BE%E6%A1%88%E5%86%85.pdf" data-resource="会社案内">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
 
     <!-- Card 5: Service Introduction -->
@@ -774,10 +722,10 @@
       </div>
       <h3 class="dl-card-title">サービス紹介</h3>
       <p class="dl-card-desc">7つのサービスの詳細・AI活用・実装事例</p>
-      <a href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E7%B4%B9%E4%BB%8B.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E7%B4%B9%E4%BB%8B.pdf" data-resource="サービス紹介">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
 
     <!-- Card 6: Pricing -->
@@ -787,10 +735,10 @@
       </div>
       <h3 class="dl-card-title">料金プラン</h3>
       <p class="dl-card-desc">Agent NET / スカウト代行 / メンバー単価の料金体系</p>
-      <a href="docs/AlumNET_%E6%96%99%E9%87%91%E3%83%97%E3%83%A9%E3%83%B3.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E6%96%99%E9%87%91%E3%83%97%E3%83%A9%E3%83%B3.pdf" data-resource="料金プラン">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
   </div>
 
@@ -808,10 +756,10 @@
       </div>
       <h3 class="dl-card-title">採用Tips</h3>
       <p class="dl-card-desc">スカウトの効果的な打ち方・エージェントコントロール・面接の構造化</p>
-      <a href="docs/AlumNET_%E6%8E%A1%E7%94%A8Tips.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E6%8E%A1%E7%94%A8Tips.pdf" data-resource="採用Tips">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
     <div class="dl-card">
       <div class="dl-card-icon">
@@ -819,10 +767,10 @@
       </div>
       <h3 class="dl-card-title">AI×採用活用ガイド</h3>
       <p class="dl-card-desc">採用工程の80%をAIで自動化する実践ガイド</p>
-      <a href="docs/AlumNET_AI%E6%8E%A1%E7%94%A8%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_AI%E6%8E%A1%E7%94%A8%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" data-resource="AI×採用活用ガイド">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
     <div class="dl-card">
       <div class="dl-card-icon">
@@ -830,12 +778,49 @@
       </div>
       <h3 class="dl-card-title">Claude×HR活用ガイド</h3>
       <p class="dl-card-desc">Claudeで人事業務を変革する実践ガイド（プロンプト例付き）</p>
-      <a href="docs/AlumNET_Claude%C3%97HR%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" target="_blank" class="dl-card-btn disabled" data-dl>
+      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_Claude%C3%97HR%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" data-resource="Claude×HR活用ガイド">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         ダウンロード
-      </a>
+      </button>
     </div>
   </div>
+
+<!-- DOWNLOAD MODAL -->
+<div class="dl-modal-overlay" id="dlModalOverlay">
+  <div class="dl-modal">
+    <button class="dl-modal-close" id="dlModalClose" type="button" aria-label="閉じる">&times;</button>
+    <h2 class="dl-modal-title">資料をダウンロード</h2>
+    <p class="dl-modal-lead">以下の情報をご入力いただくと、資料をダウンロードいただけます。</p>
+    <form id="dlModalForm" class="dl-modal-form" novalidate>
+      <input type="hidden" id="modalResource" name="resource" value="">
+      <div class="dl-modal-group">
+        <label class="dl-modal-label" for="modalCompany">
+          会社名 <span class="dl-modal-required">必須</span>
+        </label>
+        <input type="text" id="modalCompany" name="company" class="dl-modal-input" placeholder="例: AlumNET株式会社" required>
+        <span class="dl-modal-error" id="modalCompanyError"></span>
+      </div>
+      <div class="dl-modal-group">
+        <label class="dl-modal-label" for="modalName">
+          お名前 <span class="dl-modal-required">必須</span>
+        </label>
+        <input type="text" id="modalName" name="name" class="dl-modal-input" placeholder="例: 山田 太郎" required>
+        <span class="dl-modal-error" id="modalNameError"></span>
+      </div>
+      <div class="dl-modal-group">
+        <label class="dl-modal-label" for="modalEmail">
+          メールアドレス <span class="dl-modal-required">必須</span>
+        </label>
+        <input type="email" id="modalEmail" name="email" class="dl-modal-input" placeholder="例: taro.yamada@example.com" required>
+        <span class="dl-modal-error" id="modalEmailError"></span>
+      </div>
+      <button type="submit" class="dl-modal-submit" id="modalSubmitBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        送信してダウンロード
+      </button>
+    </form>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -901,43 +886,119 @@
 <script>
   // Mobile menu toggle
   function toggleMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.getElementById('mobileMenu');
+    var hamburger = document.querySelector('.hamburger');
+    var mobileMenu = document.getElementById('mobileMenu');
     hamburger.classList.toggle('active');
     mobileMenu.classList.toggle('active');
     document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
   }
 
-  // Form handling
+  // Download modal logic
   (function() {
-    const form = document.getElementById('dlForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const thankyou = document.getElementById('thankyou');
-    const dlButtons = document.querySelectorAll('[data-dl]');
+    var STORAGE_KEY = 'alumnet_dl_unlocked';
+    var overlay = document.getElementById('dlModalOverlay');
+    var modal = overlay.querySelector('.dl-modal');
+    var closeBtn = document.getElementById('dlModalClose');
+    var form = document.getElementById('dlModalForm');
+    var submitBtn = document.getElementById('modalSubmitBtn');
+    var resourceInput = document.getElementById('modalResource');
+    var pendingHref = '';
 
-    // Validation helpers
+    // Check if already unlocked
+    function isUnlocked() {
+      try { return localStorage.getItem(STORAGE_KEY) === 'true'; } catch(e) { return false; }
+    }
+
+    function setUnlocked() {
+      try { localStorage.setItem(STORAGE_KEY, 'true'); } catch(e) {}
+    }
+
+    // Open modal
+    function openModal(href, resourceName) {
+      pendingHref = href;
+      resourceInput.value = resourceName;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      // Focus first input
+      setTimeout(function() {
+        document.getElementById('modalCompany').focus();
+      }, 100);
+    }
+
+    // Close modal
+    function closeModal() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      pendingHref = '';
+      // Reset form
+      form.reset();
+      clearAllErrors();
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 送信してダウンロード';
+    }
+
+    // Validation
     function isValidEmail(email) {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
     function showError(inputId, message) {
-      const input = document.getElementById(inputId);
-      const errorEl = document.getElementById(inputId + 'Error');
+      var input = document.getElementById(inputId);
+      var errorEl = document.getElementById(inputId + 'Error');
       input.classList.add('error');
       errorEl.textContent = message;
     }
 
     function clearError(inputId) {
-      const input = document.getElementById(inputId);
-      const errorEl = document.getElementById(inputId + 'Error');
+      var input = document.getElementById(inputId);
+      var errorEl = document.getElementById(inputId + 'Error');
       input.classList.remove('error');
       errorEl.textContent = '';
     }
 
+    function clearAllErrors() {
+      ['modalCompany', 'modalName', 'modalEmail'].forEach(function(id) {
+        clearError(id);
+      });
+    }
+
     // Clear errors on input
-    ['company', 'name', 'email'].forEach(function(id) {
+    ['modalCompany', 'modalName', 'modalEmail'].forEach(function(id) {
       document.getElementById(id).addEventListener('input', function() {
         clearError(id);
+      });
+    });
+
+    // Close on overlay click (outside modal)
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeModal();
+    });
+
+    // Close button
+    closeBtn.addEventListener('click', closeModal);
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeModal();
+      }
+    });
+
+    // Download button clicks
+    var dlButtons = document.querySelectorAll('[data-dl]');
+    dlButtons.forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        var href = btn.getAttribute('data-href');
+        var resourceName = btn.getAttribute('data-resource');
+
+        if (isUnlocked()) {
+          // Already submitted before, open directly
+          window.open(href, '_blank');
+        } else {
+          // Show modal
+          openModal(href, resourceName);
+        }
       });
     });
 
@@ -945,25 +1006,24 @@
     form.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Validate
       var hasError = false;
-      var company = document.getElementById('company').value.trim();
-      var name = document.getElementById('name').value.trim();
-      var email = document.getElementById('email').value.trim();
+      var company = document.getElementById('modalCompany').value.trim();
+      var name = document.getElementById('modalName').value.trim();
+      var email = document.getElementById('modalEmail').value.trim();
 
-      if (!company) { showError('company', '会社名を入力してください'); hasError = true; }
-      if (!name) { showError('name', 'お名前を入力してください'); hasError = true; }
+      if (!company) { showError('modalCompany', '会社名を入力してください'); hasError = true; }
+      if (!name) { showError('modalName', 'お名前を入力してください'); hasError = true; }
       if (!email) {
-        showError('email', 'メールアドレスを入力してください');
+        showError('modalEmail', 'メールアドレスを入力してください');
         hasError = true;
       } else if (!isValidEmail(email)) {
-        showError('email', '正しいメールアドレスを入力してください');
+        showError('modalEmail', '正しいメールアドレスを入力してください');
         hasError = true;
       }
 
       if (hasError) return;
 
-      // Disable submit button
+      // Disable submit
       submitBtn.disabled = true;
       submitBtn.textContent = '送信中...';
 
@@ -972,6 +1032,7 @@
       formData.append('company', company);
       formData.append('name', name);
       formData.append('email', email);
+      formData.append('resource', resourceInput.value);
 
       fetch('https://formspree.io/f/xrgwbvjp', {
         method: 'POST',
@@ -980,23 +1041,19 @@
       })
       .then(function(response) {
         if (response.ok) {
-          // Hide form, show thank you
-          form.style.display = 'none';
-          document.querySelector('.dl-form-title').style.display = 'none';
-          document.querySelector('.dl-form-lead').style.display = 'none';
-          thankyou.classList.add('visible');
-
-          // Enable all download buttons
-          dlButtons.forEach(function(btn) {
-            btn.classList.remove('disabled');
-          });
+          // Mark as unlocked
+          setUnlocked();
+          // Open PDF in new tab
+          var href = pendingHref;
+          closeModal();
+          window.open(href, '_blank');
         } else {
           throw new Error('送信に失敗しました');
         }
       })
       .catch(function(error) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 送信して資料をダウンロード';
+        submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 送信してダウンロード';
         alert('送信に失敗しました。しばらくしてから再度お試しください。');
       });
     });

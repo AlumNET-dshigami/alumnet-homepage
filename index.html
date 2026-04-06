@@ -186,6 +186,15 @@
     overflow: hidden;
   }
 
+  .hero-photo-overlay {
+    position: absolute;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80') center center / cover no-repeat;
+    opacity: 0.10;
+    z-index: 0;
+    pointer-events: none;
+  }
+
   .hero-grid-bg {
     position: absolute;
     inset: 0;
@@ -846,15 +855,117 @@
     line-height: 1.6;
   }
 
+  /* ========== TESTIMONIALS ========== */
+  #testimonials { background: var(--off-white); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 40px 32px 32px;
+    box-shadow: 0 4px 24px rgba(11,43,38,0.06);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(11,43,38,0.10);
+  }
+
+  .testimonial-quote-mark {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 16px;
+    font-family: 'Noto Serif JP', serif;
+  }
+
+  .testimonial-text {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 2;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-light);
+  }
+
+  .testimonial-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.5;
+  }
+
+  .testimonial-role {
+    font-size: 13px;
+    color: var(--gray-mid);
+    font-weight: 300;
+  }
+
+  @media (max-width: 1024px) {
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+
   /* ========== STRENGTHS ========== */
   #strengths { background: var(--off-white); }
+
+  .strengths-photo-banner {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    height: 240px;
+  }
+
+  .strengths-photo-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .strengths-photo-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(42,127,143,0.30) 0%, rgba(11,43,38,0.40) 100%);
+    pointer-events: none;
+  }
 
   .strengths-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: start;
-    margin-top: 72px;
+    margin-top: 0;
   }
 
   .strength-block {
@@ -1658,6 +1769,7 @@
     <li><a href="#services">サービス</a></li>
     <li><a href="#results">実績</a></li>
     <li><a href="#strengths">強み</a></li>
+    <li><a href="#testimonials">お客様の声</a></li>
     <li><a href="#contact">お問い合わせ</a></li>
     <li class="nav-social"><a href="https://x.com/AlumnetCeo" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料相談</a></li>
@@ -1674,6 +1786,7 @@
   <a href="#services" onclick="toggleMenu()">サービス</a>
   <a href="#results" onclick="toggleMenu()">実績</a>
   <a href="#strengths" onclick="toggleMenu()">強み</a>
+  <a href="#testimonials" onclick="toggleMenu()">お客様の声</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="#contact" onclick="toggleMenu()">お問い合わせ</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="btn-primary" style="margin-top:8px;">無料相談はこちら</a>
@@ -1681,6 +1794,7 @@
 
 <!-- HERO -->
 <section id="hero">
+  <div class="hero-photo-overlay" aria-hidden="true"></div>
   <div class="hero-grid-bg"></div>
   <canvas id="particle-canvas"></canvas>
   <div class="hero-gradient"></div>
@@ -2023,6 +2137,53 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="section-eyebrow">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Voice</span>
+    </div>
+    <h2 class="section-title">お客様の声</h2>
+    <div class="gold-divider"></div>
+    <div class="testimonials-grid reveal">
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">RPO導入後、採用にかかる工数が劇的に減り、人事チームが戦略的な業務に集中できるようになりました。</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="お客様" class="testimonial-avatar" loading="lazy">
+          <div>
+            <div class="testimonial-name">IT企業 人事部長 S.T様</div>
+            <div class="testimonial-role">従業員300名規模</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">CHRO代行として参画いただき、曖昧だった評価制度が3ヶ月で形になりました。経営陣の納得感も高く、社員の反応も上々です。</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="お客様" class="testimonial-avatar" loading="lazy">
+          <div>
+            <div class="testimonial-name">製造業 代表取締役 M.K様</div>
+            <div class="testimonial-role">従業員500名規模</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">HRTechツールを3つ導入しましたが、AlumNETさんのおかげで現場の定着率が95%を超えました。ツールを入れるだけでは絶対にこうはならなかった。</p>
+        <div class="testimonial-author">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="お客様" class="testimonial-avatar" loading="lazy">
+          <div>
+            <div class="testimonial-name">スタートアップ COO A.N様</div>
+            <div class="testimonial-role">従業員50名規模</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- STRENGTHS -->
 <section id="strengths">
   <div class="container">
@@ -2032,6 +2193,9 @@
     </div>
     <h2 class="section-title">大手HR出身プロ人材と、テクノロジーの力。</h2>
     <div class="gold-divider"></div>
+    <div class="strengths-photo-banner reveal">
+      <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80" alt="AlumNETチームミーティング" loading="lazy">
+    </div>
     <div class="strengths-grid">
       <div class="reveal">
         <div style="margin-bottom:48px;">
@@ -2125,27 +2289,27 @@
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">01</span></div>
         <div class="flow-name">お問い合わせ</div>
-        <div class="flow-sub">フォームから<br>お気軽に</div>
+        <div class="flow-sub">当日〜翌営業日に返信</div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">02</span></div>
         <div class="flow-name">ヒアリング</div>
-        <div class="flow-sub">課題整理・<br>要件定義</div>
+        <div class="flow-sub">30分〜1時間<br>（オンライン）</div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">03</span></div>
         <div class="flow-name">ご提案</div>
-        <div class="flow-sub">最適なプラン・<br>人材をご提案</div>
+        <div class="flow-sub">ヒアリングから<br>3〜5営業日</div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">04</span></div>
         <div class="flow-name">契約・開始</div>
-        <div class="flow-sub">合意後に契約<br>費用はここから</div>
+        <div class="flow-sub">最短1週間で<br>支援開始</div>
       </div>
       <div class="flow-step">
         <div class="flow-dot"><span class="flow-dot-num">05</span></div>
         <div class="flow-name">運用・改善</div>
-        <div class="flow-sub">定期レビューで<br>継続的に改善</div>
+        <div class="flow-sub">月次レビューで<br>継続改善</div>
       </div>
     </div>
   </div>
@@ -2168,7 +2332,7 @@
           <span class="faq-icon">+</span>
         </div>
         <div class="faq-answer">
-          <div class="faq-answer-inner">いいえ。契約成立まで一切の費用は発生しません。初回のご相談・課題整理も完全無償です。</div>
+          <div class="faq-answer-inner">いいえ。契約成立まで一切の費用は発生しません。初回のご相談・課題整理も完全無償です。参考として、RPOは月額30万円〜、CHRO代行は月額50万円〜、HRTech導入支援は月額20万円〜が目安です。ご予算に合わせた柔軟なプランをご提案します。</div>
         </div>
       </div>
       <div class="faq-item">
