@@ -526,6 +526,23 @@
   }
   .trust-logo:hover { opacity: 0.5; }
 
+  /* ========== CLIENT BAR ========== */
+  #client-bar {
+    background: var(--white);
+    padding: 48px 48px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .client-logos {
+    gap: 40px;
+  }
+  .client-logos .trust-logo {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    opacity: 0.4;
+    letter-spacing: 0.05em;
+  }
+  .client-logos .trust-logo:hover { opacity: 0.7; }
+
   /* ========== SECTION COMMONS ========== */
   section { padding: 120px 48px; }
 
@@ -1490,6 +1507,9 @@
     .footer-top { flex-direction: column; gap: 40px; }
     .footer-nav { gap: 32px; flex-wrap: wrap; }
     #trust-bar { padding: 32px 24px; }
+    #client-bar { padding: 32px 24px; }
+    .client-logos { gap: 24px; }
+    .client-logos .trust-logo { font-size: 13px; }
   }
 
   @media (max-width: 640px) {
@@ -2078,6 +2098,20 @@
       <span class="trust-logo">PERSOL</span>
       <span class="trust-logo">RECRUIT</span>
       <span class="trust-logo">JAC</span>
+    </div>
+  </div>
+</div>
+
+<div id="client-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-bar-label">導入企業・パートナー</div>
+    <div class="trust-bar-logos client-logos">
+      <span class="trust-logo">ピアズ</span>
+      <span class="trust-logo">スマートエージェンシー</span>
+      <span class="trust-logo">kick the issue</span>
+      <span class="trust-logo">KANARIA CONSULTING</span>
+      <span class="trust-logo">unlimt</span>
+      <span class="trust-logo">FRONTWORKS</span>
     </div>
   </div>
 </div>
