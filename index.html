@@ -533,15 +533,37 @@
     border-bottom: 1px solid var(--gray-light);
   }
   .client-logos {
-    gap: 40px;
+    gap: 32px;
   }
-  .client-logos .trust-logo {
+  .client-logo-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--off-white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .client-logo-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(46, 196, 182, 0.12);
+  }
+  .client-favicon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .client-name {
     font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
-    opacity: 0.4;
-    letter-spacing: 0.05em;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    letter-spacing: 0.02em;
   }
-  .client-logos .trust-logo:hover { opacity: 0.7; }
 
   /* ========== BRAND-STYLED WORDMARKS ========== */
   .brand-logo {
@@ -2204,12 +2226,29 @@
   <div class="trust-bar-inner">
     <div class="trust-bar-label">導入企業・パートナー</div>
     <div class="trust-bar-logos client-logos">
-      <span class="brand-logo brand-peers">Peers</span>
-      <span class="brand-logo brand-smart">Smart Agency</span>
-      <span class="brand-logo brand-kick">kick the issue</span>
-      <span class="brand-logo brand-kanaria">KANARIA</span>
-      <span class="brand-logo brand-unlimt">unlimt</span>
-      <span class="brand-logo brand-frontworks">FRONTWORKS</span>
+      <a href="https://peers.co.jp/" target="_blank" rel="noopener noreferrer" class="client-logo-card">
+        <img src="https://www.google.com/s2/favicons?domain=peers.co.jp&sz=64" alt="ピアズ" class="client-favicon">
+        <span class="client-name">ピアズ</span>
+      </a>
+      <a href="https://smart-agency.co.jp/" target="_blank" rel="noopener noreferrer" class="client-logo-card">
+        <img src="https://www.google.com/s2/favicons?domain=smart-agency.co.jp&sz=64" alt="スマートエージェンシー" class="client-favicon">
+        <span class="client-name">Smart Agency</span>
+      </a>
+      <a href="https://kick-za-issue.com/" target="_blank" rel="noopener noreferrer" class="client-logo-card">
+        <img src="https://i0.wp.com/kick-za-issue.com/wp-content/uploads/2022/10/kzi_Logo_04-2-e1665171378726.png?fit=300%2C150&ssl=1" alt="kick the issue" class="client-favicon" style="width:auto; height:36px;">
+      </a>
+      <a href="https://kanaria-cc.co.jp/" target="_blank" rel="noopener noreferrer" class="client-logo-card">
+        <img src="https://www.google.com/s2/favicons?domain=kanaria-cc.co.jp&sz=64" alt="KANARIA" class="client-favicon">
+        <span class="client-name">KANARIA</span>
+      </a>
+      <a href="https://un-limit.jp/" target="_blank" rel="noopener noreferrer" class="client-logo-card">
+        <img src="https://www.google.com/s2/favicons?domain=un-limit.jp&sz=64" alt="unlimt" class="client-favicon">
+        <span class="client-name">unlimt</span>
+      </a>
+      <a href="https://front-works.co.jp/" target="_blank" rel="noopener noreferrer" class="client-logo-card">
+        <img src="https://www.google.com/s2/favicons?domain=front-works.co.jp&sz=64" alt="FRONTWORKS" class="client-favicon">
+        <span class="client-name">FRONTWORKS</span>
+      </a>
     </div>
   </div>
 </div>
