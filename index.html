@@ -2111,6 +2111,174 @@
       white-space: normal;
     }
   }
+
+  /* ========== ScoutAI Feature Section ========== */
+  #scoutai-feature {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FF 100%);
+    padding: 100px 48px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .scoutai-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .scoutai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: rgba(46, 196, 182, 0.12);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 100px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .scoutai-subbadge {
+    display: inline-block;
+    padding: 8px 18px;
+    background: rgba(30, 64, 175, 0.08);
+    color: #1E40AF;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .scoutai-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+  .scoutai-title .accent { color: #1E40AF; }
+  .scoutai-subtitle {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 32px;
+  }
+  .scoutai-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .scoutai-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    background: #1E40AF;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .scoutai-btn-primary:hover {
+    background: #1E3A8A;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(30, 64, 175, 0.25);
+  }
+  .scoutai-btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    background: white;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 14px;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .scoutai-btn-secondary:hover {
+    border-color: #1E40AF;
+    color: #1E40AF;
+  }
+  .scoutai-meta {
+    font-size: 13px;
+    color: var(--text-mid);
+    margin-bottom: 32px;
+  }
+  .scoutai-meta span { color: #16A34A; margin-right: 4px; font-weight: 700; }
+
+  /* 3 steps */
+  .scoutai-steps {
+    background: white;
+    border: 1px solid var(--gray-light);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+  .scoutai-steps-label {
+    font-size: 12px;
+    color: #1E40AF;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .scoutai-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+  .scoutai-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .scoutai-step-icon { font-size: 20px; flex-shrink: 0; line-height: 1.2; }
+  .scoutai-step-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+  }
+  .scoutai-step-desc {
+    font-size: 11px;
+    color: var(--text-mid);
+    line-height: 1.4;
+  }
+  .scoutai-step-arrow {
+    color: var(--gray-mid);
+    font-size: 16px;
+  }
+
+  /* mockup */
+  .scoutai-mockup {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(11, 43, 38, 0.12);
+    overflow: hidden;
+    border: 1px solid var(--gray-light);
+  }
+
+  /* responsive */
+  @media (max-width: 1024px) {
+    .scoutai-inner { grid-template-columns: 1fr; gap: 48px; }
+    .scoutai-steps-grid { grid-template-columns: 1fr; gap: 16px; }
+    .scoutai-step-arrow { display: none; }
+  }
+  @media (max-width: 640px) {
+    #scoutai-feature { padding: 64px 16px; }
+    .scoutai-actions { flex-direction: column; }
+    .scoutai-btn-primary, .scoutai-btn-secondary { width: 100%; justify-content: center; }
+  }
 </style>
 </head>
 <body>
@@ -2216,6 +2384,105 @@
     <span class="hero-cta-label">今すぐ無料相談する</span>
   </a>
 </div>
+
+<!-- SCOUTAI FEATURE SECTION -->
+<section id="scoutai-feature" class="reveal">
+  <div class="scoutai-inner">
+
+    <!-- LEFT: TEXT -->
+    <div class="scoutai-text">
+      <div class="scoutai-badge">★ Featured Product</div>
+      <div class="scoutai-subbadge">人事・採用担当者・RAのための採用AIプラットフォーム</div>
+
+      <h2 class="scoutai-title">
+        書類選考も、面接準備も、<br>
+        <span class="accent">スカウト文面も、</span><br>
+        AIが一気通貫でサポート。
+      </h2>
+
+      <p class="scoutai-subtitle">
+        人事・採用担当者・RAのための採用AIプラットフォーム。書類選考・面接準備・スカウト生成の3機能を1つに統合し、判断する時間と書く時間をまとめてゼロに近づけます。
+      </p>
+
+      <div class="scoutai-actions">
+        <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener" class="scoutai-btn-primary">
+          無料で始める →
+        </a>
+        <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener" class="scoutai-btn-secondary">
+          Chrome拡張機能をインストール
+        </a>
+      </div>
+
+      <div class="scoutai-meta">
+        <span>✓</span>クレジットカード不要 &nbsp;&nbsp;<span>✓</span>1分でセットアップ
+      </div>
+
+      <div class="scoutai-steps">
+        <div class="scoutai-steps-label">⚡ 3ステップですぐ使える</div>
+        <div class="scoutai-steps-grid">
+          <div class="scoutai-step">
+            <div class="scoutai-step-icon">✅</div>
+            <div>
+              <div class="scoutai-step-title">30秒で登録</div>
+              <div class="scoutai-step-desc">メールアドレスだけで開始</div>
+            </div>
+          </div>
+          <div class="scoutai-step-arrow">→</div>
+          <div class="scoutai-step">
+            <div class="scoutai-step-icon">📋</div>
+            <div>
+              <div class="scoutai-step-title">書類選考を実行</div>
+              <div class="scoutai-step-desc">CVと求人票を貼るだけ</div>
+            </div>
+          </div>
+          <div class="scoutai-step-arrow">→</div>
+          <div class="scoutai-step">
+            <div class="scoutai-step-icon">🚀</div>
+            <div>
+              <div class="scoutai-step-title">スカウト文面を生成</div>
+              <div class="scoutai-step-desc">合格者にワンクリックで作成</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: MOCKUP -->
+    <div class="scoutai-mockup-wrap">
+      <div class="scoutai-mockup">
+        <div style="background:#1A1A1A; padding:10px 14px; display:flex; gap:6px; align-items:center;">
+          <span style="width:11px; height:11px; border-radius:50%; background:#FF5F57; display:inline-block;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; background:#FEBC2E; display:inline-block;"></span>
+          <span style="width:11px; height:11px; border-radius:50%; background:#28C840; display:inline-block;"></span>
+          <span style="margin-left:14px; color:#9CA3AF; font-size:11px; font-family:monospace;">alumnet-scout-ai.vercel.app</span>
+        </div>
+        <div style="background:#F9FAFB; padding:24px;">
+          <div style="display:flex; gap:16px; border-bottom:1px solid #E5E7EB; padding-bottom:12px; margin-bottom:20px;">
+            <span style="font-size:13px; font-weight:700; color:#1E40AF; border-bottom:2px solid #1E40AF; padding-bottom:8px;">📄 書類選考</span>
+            <span style="font-size:13px; color:#6B7280;">面接準備</span>
+            <span style="font-size:13px; color:#6B7280;">スカウト生成</span>
+          </div>
+          <div style="background:white; border:1px solid #E5E7EB; border-radius:8px; padding:16px; margin-bottom:12px;">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#1E40AF,#3B82F6); display:flex; align-items:center; justify-content:center; color:white; font-weight:700;">田</div>
+              <div>
+                <div style="font-weight:700; font-size:14px; color:#111;">田中 太郎</div>
+                <div style="font-size:12px; color:#6B7280;">シニアエンジニア / 経験8年</div>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; gap:6px;">
+              <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ AI判定: 合格 (95%)</div>
+              <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ 面接質問を生成済み</div>
+              <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ スカウト文面を作成済み</div>
+            </div>
+          </div>
+          <button style="width:100%; padding:10px; background:linear-gradient(135deg,#1E40AF,#3B82F6); color:white; font-weight:700; border:none; border-radius:8px; font-size:13px; cursor:pointer;">✨ Generate with AI</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <!-- TRUST BAR -->
 <div id="trust-bar">
