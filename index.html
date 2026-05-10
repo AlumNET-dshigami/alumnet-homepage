@@ -2121,6 +2121,8 @@
   .scoutai-inner {
     max-width: 1200px;
     margin: 0 auto;
+  }
+  .scoutai-hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
@@ -2211,53 +2213,8 @@
   .scoutai-meta {
     font-size: 13px;
     color: var(--text-mid);
-    margin-bottom: 32px;
   }
   .scoutai-meta span { color: #16A34A; margin-right: 4px; font-weight: 700; }
-
-  /* 3 steps */
-  .scoutai-steps {
-    background: white;
-    border: 1px solid var(--gray-light);
-    border-radius: 12px;
-    padding: 20px 24px;
-  }
-  .scoutai-steps-label {
-    font-size: 12px;
-    color: #1E40AF;
-    font-weight: 700;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .scoutai-steps-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr;
-    gap: 12px;
-    align-items: center;
-  }
-  .scoutai-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-  }
-  .scoutai-step-icon { font-size: 20px; flex-shrink: 0; line-height: 1.2; }
-  .scoutai-step-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 2px;
-  }
-  .scoutai-step-desc {
-    font-size: 11px;
-    color: var(--text-mid);
-    line-height: 1.4;
-  }
-  .scoutai-step-arrow {
-    color: var(--gray-mid);
-    font-size: 16px;
-  }
 
   /* mockup */
   .scoutai-mockup {
@@ -2267,17 +2224,222 @@
     overflow: hidden;
     border: 1px solid var(--gray-light);
   }
+  .scoutai-mockup-tabs {
+    display: flex;
+    gap: 14px;
+    border-bottom: 1px solid #E5E7EB;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .scoutai-mockup-tab {
+    font-size: 12px;
+    color: #6B7280;
+    padding-bottom: 8px;
+  }
+  .scoutai-mockup-tab.active {
+    color: #1E40AF;
+    font-weight: 700;
+    border-bottom: 2px solid #1E40AF;
+  }
+  .scoutai-mockup-powered {
+    margin-top: 14px;
+    text-align: center;
+    font-size: 11px;
+    color: #9CA3AF;
+    letter-spacing: 0.04em;
+  }
+
+  /* ========== 4 Features Grid ========== */
+  .scoutai-features-section {
+    margin-top: 96px;
+  }
+  .scoutai-section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 700;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .scoutai-section-sub {
+    text-align: center;
+    color: var(--text-mid);
+    font-size: 14px;
+    margin-bottom: 40px;
+  }
+  .scoutai-features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .scoutai-feature-card {
+    position: relative;
+    background: white;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 14px;
+    padding: 24px 22px;
+    transition: all 0.25s ease;
+  }
+  .scoutai-feature-card:hover {
+    border-color: #1E40AF;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(30, 64, 175, 0.12);
+  }
+  .scoutai-feature-num {
+    display: inline-block;
+    background: rgba(30, 64, 175, 0.1);
+    color: #1E40AF;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 100px;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+  }
+  .scoutai-feature-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+  .scoutai-feature-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+  .scoutai-feature-desc {
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+  .scoutai-feature-card.is-new {
+    border-color: rgba(220, 38, 38, 0.4);
+    background: linear-gradient(180deg, #FFF7F7 0%, #FFFFFF 60%);
+  }
+  .scoutai-feature-card.is-new:hover {
+    border-color: #DC2626;
+    box-shadow: 0 12px 28px rgba(220, 38, 38, 0.15);
+  }
+  .scoutai-feature-newbadge {
+    position: absolute;
+    top: -10px;
+    right: 16px;
+    background: #DC2626;
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+  }
+
+  /* ========== Pricing Grid ========== */
+  .scoutai-pricing-section {
+    margin-top: 80px;
+  }
+  .scoutai-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  .scoutai-price-card {
+    position: relative;
+    background: white;
+    border: 1.5px solid var(--gray-light);
+    border-radius: 14px;
+    padding: 28px 24px;
+    text-align: center;
+    transition: all 0.25s ease;
+  }
+  .scoutai-price-card:hover {
+    border-color: #1E40AF;
+    transform: translateY(-3px);
+  }
+  .scoutai-price-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+  }
+  .scoutai-price-amount {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+    line-height: 1;
+  }
+  .scoutai-price-amount .small {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-mid);
+    margin-left: 2px;
+  }
+  .scoutai-price-points {
+    font-size: 13px;
+    color: #1E40AF;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .scoutai-price-card.is-recommended {
+    border: 2px solid #F59E0B;
+    background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 50%);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(245, 158, 11, 0.15);
+  }
+  .scoutai-price-card.is-recommended:hover {
+    border-color: #F59E0B;
+    transform: translateY(-9px);
+  }
+  .scoutai-price-recobadge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #F59E0B;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 5px 14px;
+    border-radius: 100px;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    white-space: nowrap;
+  }
+  .scoutai-pricing-foot {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 12.5px;
+    color: var(--text-mid);
+    line-height: 1.9;
+  }
+  .scoutai-pricing-cta-wrap {
+    text-align: center;
+    margin-top: 24px;
+  }
 
   /* responsive */
   @media (max-width: 1024px) {
-    .scoutai-inner { grid-template-columns: 1fr; gap: 48px; }
-    .scoutai-steps-grid { grid-template-columns: 1fr; gap: 16px; }
-    .scoutai-step-arrow { display: none; }
+    .scoutai-hero { grid-template-columns: 1fr; gap: 48px; }
+    .scoutai-features-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 640px) {
     #scoutai-feature { padding: 64px 16px; }
     .scoutai-actions { flex-direction: column; }
     .scoutai-btn-primary, .scoutai-btn-secondary { width: 100%; justify-content: center; }
+    .scoutai-features-grid { grid-template-columns: 1fr; }
+    .scoutai-pricing-grid { grid-template-columns: 1fr; }
+    .scoutai-price-card.is-recommended { transform: none; }
+    .scoutai-price-card.is-recommended:hover { transform: translateY(-3px); }
+    .scoutai-features-section { margin-top: 64px; }
+    .scoutai-pricing-section { margin-top: 56px; }
   }
 </style>
 </head>
@@ -2389,95 +2551,154 @@
 <section id="scoutai-feature" class="reveal">
   <div class="scoutai-inner">
 
-    <!-- LEFT: TEXT -->
-    <div class="scoutai-text">
-      <div class="scoutai-badge">★ Featured Product</div>
-      <div class="scoutai-subbadge">人事・採用担当者・RAのための採用AIプラットフォーム</div>
+    <!-- ===== HERO ROW ===== -->
+    <div class="scoutai-hero">
+      <!-- LEFT: TEXT -->
+      <div class="scoutai-text">
+        <div class="scoutai-badge">★ Featured Product</div>
+        <div class="scoutai-subbadge">人事・採用担当者・RAのための採用AIプラットフォーム</div>
 
-      <h2 class="scoutai-title">
-        書類選考も、面接準備も、<br>
-        <span class="accent">スカウト文面も、</span><br>
-        AIが一気通貫でサポート。
-      </h2>
+        <h2 class="scoutai-title">
+          書類選考も、<br>
+          <span class="accent">面接も、</span><br>
+          <span class="accent">スカウト文面も、</span><br>
+          AIが一気通貫でサポート。
+        </h2>
 
-      <p class="scoutai-subtitle">
-        人事・採用担当者・RAのための採用AIプラットフォーム。書類選考・面接準備・スカウト生成の3機能を1つに統合し、判断する時間と書く時間をまとめてゼロに近づけます。
-      </p>
+        <p class="scoutai-subtitle">
+          書類選考・面接準備・面接実行・スカウト生成の4機能を1つに統合。<br>
+          3つのAIモデルから選択でき、Free 50ptから無料で試せます。
+        </p>
 
-      <div class="scoutai-actions">
-        <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener" class="scoutai-btn-primary">
-          無料で始める →
-        </a>
-        <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener" class="scoutai-btn-secondary">
-          Chrome拡張機能をインストール
-        </a>
+        <div class="scoutai-actions">
+          <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener" class="scoutai-btn-primary">
+            無料で始める →
+          </a>
+          <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener" class="scoutai-btn-secondary">
+            Chrome拡張機能をインストール
+          </a>
+        </div>
+
+        <div class="scoutai-meta">
+          <span>✓</span>クレジットカード不要 &nbsp;&nbsp;<span>✓</span>1分でセットアップ &nbsp;&nbsp;<span>✓</span>Free 50pt付き
+        </div>
       </div>
 
-      <div class="scoutai-meta">
-        <span>✓</span>クレジットカード不要 &nbsp;&nbsp;<span>✓</span>1分でセットアップ
-      </div>
-
-      <div class="scoutai-steps">
-        <div class="scoutai-steps-label">⚡ 3ステップですぐ使える</div>
-        <div class="scoutai-steps-grid">
-          <div class="scoutai-step">
-            <div class="scoutai-step-icon">✅</div>
-            <div>
-              <div class="scoutai-step-title">30秒で登録</div>
-              <div class="scoutai-step-desc">メールアドレスだけで開始</div>
-            </div>
+      <!-- RIGHT: MOCKUP -->
+      <div class="scoutai-mockup-wrap">
+        <div class="scoutai-mockup">
+          <div style="background:#1A1A1A; padding:10px 14px; display:flex; gap:6px; align-items:center;">
+            <span style="width:11px; height:11px; border-radius:50%; background:#FF5F57; display:inline-block;"></span>
+            <span style="width:11px; height:11px; border-radius:50%; background:#FEBC2E; display:inline-block;"></span>
+            <span style="width:11px; height:11px; border-radius:50%; background:#28C840; display:inline-block;"></span>
+            <span style="margin-left:14px; color:#9CA3AF; font-size:11px; font-family:monospace;">alumnet-scout-ai.vercel.app</span>
           </div>
-          <div class="scoutai-step-arrow">→</div>
-          <div class="scoutai-step">
-            <div class="scoutai-step-icon">📋</div>
-            <div>
-              <div class="scoutai-step-title">書類選考を実行</div>
-              <div class="scoutai-step-desc">CVと求人票を貼るだけ</div>
+          <div style="background:#F9FAFB; padding:22px;">
+            <div class="scoutai-mockup-tabs">
+              <span class="scoutai-mockup-tab active">📄 書類選考</span>
+              <span class="scoutai-mockup-tab">🎤 面接準備</span>
+              <span class="scoutai-mockup-tab">🎙️ 面接実行</span>
+              <span class="scoutai-mockup-tab">✉️ スカウト生成</span>
             </div>
-          </div>
-          <div class="scoutai-step-arrow">→</div>
-          <div class="scoutai-step">
-            <div class="scoutai-step-icon">🚀</div>
-            <div>
-              <div class="scoutai-step-title">スカウト文面を生成</div>
-              <div class="scoutai-step-desc">合格者にワンクリックで作成</div>
+            <div style="background:white; border:1px solid #E5E7EB; border-radius:8px; padding:16px; margin-bottom:12px;">
+              <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#1E40AF,#3B82F6); display:flex; align-items:center; justify-content:center; color:white; font-weight:700;">田</div>
+                <div>
+                  <div style="font-weight:700; font-size:14px; color:#111;">田中 太郎</div>
+                  <div style="font-size:12px; color:#6B7280;">シニアエンジニア / 経験8年</div>
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ AI判定: 合格 (95%) / マッチスコア 92</div>
+                <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ 推奨質問・10項目評価レポート 準備済み</div>
+                <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ スカウト文面を作成済み</div>
+              </div>
             </div>
+            <button style="width:100%; padding:10px; background:linear-gradient(135deg,#1E40AF,#3B82F6); color:white; font-weight:700; border:none; border-radius:8px; font-size:13px; cursor:pointer;">✨ Generate with AI</button>
+            <div class="scoutai-mockup-powered">Powered by Gemini / DeepSeek / Claude</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT: MOCKUP -->
-    <div class="scoutai-mockup-wrap">
-      <div class="scoutai-mockup">
-        <div style="background:#1A1A1A; padding:10px 14px; display:flex; gap:6px; align-items:center;">
-          <span style="width:11px; height:11px; border-radius:50%; background:#FF5F57; display:inline-block;"></span>
-          <span style="width:11px; height:11px; border-radius:50%; background:#FEBC2E; display:inline-block;"></span>
-          <span style="width:11px; height:11px; border-radius:50%; background:#28C840; display:inline-block;"></span>
-          <span style="margin-left:14px; color:#9CA3AF; font-size:11px; font-family:monospace;">alumnet-scout-ai.vercel.app</span>
+    <!-- ===== 4 FEATURE CARDS ===== -->
+    <div class="scoutai-features-section">
+      <h3 class="scoutai-section-title">4つのAIで採用業務を一気通貫</h3>
+      <p class="scoutai-section-sub">書類選考から面接、スカウト文面まで。すべてのフェーズをAIが伴走します。</p>
+      <div class="scoutai-features-grid">
+        <div class="scoutai-feature-card">
+          <div class="scoutai-feature-num">01</div>
+          <div class="scoutai-feature-icon">📄</div>
+          <div class="scoutai-feature-title">書類選考AI</div>
+          <p class="scoutai-feature-desc">
+            CV+求人票から合否判定。<br>
+            マッチスコアと評価コメントを自動生成。
+          </p>
         </div>
-        <div style="background:#F9FAFB; padding:24px;">
-          <div style="display:flex; gap:16px; border-bottom:1px solid #E5E7EB; padding-bottom:12px; margin-bottom:20px;">
-            <span style="font-size:13px; font-weight:700; color:#1E40AF; border-bottom:2px solid #1E40AF; padding-bottom:8px;">📄 書類選考</span>
-            <span style="font-size:13px; color:#6B7280;">面接準備</span>
-            <span style="font-size:13px; color:#6B7280;">スカウト生成</span>
-          </div>
-          <div style="background:white; border:1px solid #E5E7EB; border-radius:8px; padding:16px; margin-bottom:12px;">
-            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-              <div style="width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#1E40AF,#3B82F6); display:flex; align-items:center; justify-content:center; color:white; font-weight:700;">田</div>
-              <div>
-                <div style="font-weight:700; font-size:14px; color:#111;">田中 太郎</div>
-                <div style="font-size:12px; color:#6B7280;">シニアエンジニア / 経験8年</div>
-              </div>
-            </div>
-            <div style="display:flex; flex-direction:column; gap:6px;">
-              <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ AI判定: 合格 (95%)</div>
-              <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ 面接質問を生成済み</div>
-              <div style="font-size:12px; color:#16A34A; display:flex; align-items:center; gap:6px;">✓ スカウト文面を作成済み</div>
-            </div>
-          </div>
-          <button style="width:100%; padding:10px; background:linear-gradient(135deg,#1E40AF,#3B82F6); color:white; font-weight:700; border:none; border-radius:8px; font-size:13px; cursor:pointer;">✨ Generate with AI</button>
+        <div class="scoutai-feature-card">
+          <div class="scoutai-feature-num">02</div>
+          <div class="scoutai-feature-icon">🎤</div>
+          <div class="scoutai-feature-title">面接準備AI</div>
+          <p class="scoutai-feature-desc">
+            BIG5/DISC/モチベーション分析。<br>
+            推奨質問を自動生成（前後モード）。
+          </p>
         </div>
+        <div class="scoutai-feature-card is-new">
+          <span class="scoutai-feature-newbadge">NEW</span>
+          <div class="scoutai-feature-num">03</div>
+          <div class="scoutai-feature-icon">🎙️</div>
+          <div class="scoutai-feature-title">面接実行AI</div>
+          <p class="scoutai-feature-desc">
+            リアルタイム文字起こし＋AIライブガイド。<br>
+            10項目評価レポートをA/B/C推奨で。
+          </p>
+        </div>
+        <div class="scoutai-feature-card">
+          <div class="scoutai-feature-num">04</div>
+          <div class="scoutai-feature-icon">✉️</div>
+          <div class="scoutai-feature-title">スカウト生成AI</div>
+          <p class="scoutai-feature-desc">
+            3モデル階層でパーソナライズ。<br>
+            Chrome拡張連携でワンクリック投函。
+          </p>
+        </div>
+      </div>
+      <p class="scoutai-pricing-foot" style="margin-top:24px;">
+        ＋ おまけ機能: <strong style="color:var(--text-dark);">採用ダッシュボード</strong> — 応募〜内定までの8ステージファネルを可視化
+      </p>
+    </div>
+
+    <!-- ===== PRICING ===== -->
+    <div class="scoutai-pricing-section">
+      <h3 class="scoutai-section-title">料金プラン</h3>
+      <p class="scoutai-section-sub">Free 50ptから無料で試せます</p>
+      <div class="scoutai-pricing-grid">
+        <div class="scoutai-price-card">
+          <div class="scoutai-price-name">FREE</div>
+          <div class="scoutai-price-amount">¥0<span class="small">/月</span></div>
+          <div class="scoutai-price-points">50pt / 月</div>
+        </div>
+        <div class="scoutai-price-card is-recommended">
+          <span class="scoutai-price-recobadge">★ おすすめ</span>
+          <div class="scoutai-price-name">PRO</div>
+          <div class="scoutai-price-amount">¥14,800<span class="small">/月</span></div>
+          <div class="scoutai-price-points">3,000pt / 月</div>
+        </div>
+        <div class="scoutai-price-card">
+          <div class="scoutai-price-name">BUSINESS</div>
+          <div class="scoutai-price-amount">¥39,800<span class="small">/月</span></div>
+          <div class="scoutai-price-points">15,000pt / 月</div>
+        </div>
+      </div>
+      <p class="scoutai-pricing-foot">
+        Starter ¥3,980〜 / Enterprise カスタム対応もご用意<br>
+        3つのAIモデル（Economy / Standard / Premium）から選択可能
+      </p>
+      <div class="scoutai-pricing-cta-wrap">
+        <a href="https://alumnet-scout-ai.vercel.app/#pricing" target="_blank" rel="noopener" class="scoutai-btn-primary">
+          料金プランを詳しく見る →
+        </a>
       </div>
     </div>
 
