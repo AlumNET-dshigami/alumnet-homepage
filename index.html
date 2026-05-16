@@ -2271,15 +2271,15 @@
   }
   .scoutai-features-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
   }
   .scoutai-feature-card {
     position: relative;
     background: white;
     border: 1.5px solid var(--gray-light);
     border-radius: 14px;
-    padding: 24px 22px;
+    padding: 20px 16px;
     transition: all 0.25s ease;
   }
   .scoutai-feature-card:hover {
@@ -2291,29 +2291,29 @@
     display: inline-block;
     background: rgba(30, 64, 175, 0.1);
     color: #1E40AF;
-    font-size: 11px;
+    font-size: 10.5px;
     font-weight: 700;
-    padding: 4px 10px;
+    padding: 3px 9px;
     border-radius: 100px;
     letter-spacing: 0.08em;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
   }
   .scoutai-feature-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
+    font-size: 28px;
+    margin-bottom: 10px;
     line-height: 1;
   }
   .scoutai-feature-title {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text-dark);
-    margin-bottom: 8px;
-    line-height: 1.4;
+    margin-bottom: 7px;
+    line-height: 1.35;
   }
   .scoutai-feature-desc {
-    font-size: 12.5px;
+    font-size: 11.5px;
     color: var(--text-mid);
-    line-height: 1.7;
+    line-height: 1.65;
   }
   .scoutai-feature-card.is-new {
     border-color: rgba(220, 38, 38, 0.4);
@@ -2428,7 +2428,7 @@
   /* responsive */
   @media (max-width: 1024px) {
     .scoutai-hero { grid-template-columns: 1fr; gap: 48px; }
-    .scoutai-features-grid { grid-template-columns: repeat(2, 1fr); }
+    .scoutai-features-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media (max-width: 640px) {
     #scoutai-feature { padding: 64px 16px; }
@@ -2559,15 +2559,14 @@
         <div class="scoutai-subbadge">人事・採用担当者・RAのための採用AIプラットフォーム</div>
 
         <h2 class="scoutai-title">
-          書類選考も、<br>
-          <span class="accent">面接も、</span><br>
-          <span class="accent">スカウト文面も、</span><br>
-          AIが一気通貫でサポート。
+          スカウトから、面接、<br>
+          <span class="accent">オファーまで。</span><br>
+          採用の全工程をAIが支援。
         </h2>
 
         <p class="scoutai-subtitle">
-          書類選考・面接準備・面接実行・スカウト生成の4機能を1つに統合。<br>
-          3つのAIモデルから選択でき、Free 50ptから無料で試せます。
+          スカウト生成・書類選考・面接準備・面接実行・オファーレターの5つのAIを1つに統合。<br>
+          採用の全工程をシームレスにつなぎます。Free 50ptから無料で試せます。
         </p>
 
         <div class="scoutai-actions">
@@ -2594,11 +2593,12 @@
             <span style="margin-left:14px; color:#9CA3AF; font-size:11px; font-family:monospace;">alumnet-scout-ai.vercel.app</span>
           </div>
           <div style="background:#F9FAFB; padding:22px;">
-            <div class="scoutai-mockup-tabs">
-              <span class="scoutai-mockup-tab active">📄 書類選考</span>
-              <span class="scoutai-mockup-tab">🎤 面接準備</span>
-              <span class="scoutai-mockup-tab">🎙️ 面接実行</span>
-              <span class="scoutai-mockup-tab">✉️ スカウト生成</span>
+            <div class="scoutai-mockup-tabs" style="flex-wrap:wrap;">
+              <span class="scoutai-mockup-tab active" style="font-size:11px; padding:5px 9px;">✉️ スカウト</span>
+              <span class="scoutai-mockup-tab" style="font-size:11px; padding:5px 9px;">📄 書類選考</span>
+              <span class="scoutai-mockup-tab" style="font-size:11px; padding:5px 9px;">🎤 面接準備</span>
+              <span class="scoutai-mockup-tab" style="font-size:11px; padding:5px 9px;">🎙️ 面接実行</span>
+              <span class="scoutai-mockup-tab" style="font-size:11px; padding:5px 9px;">📝 オファー</span>
             </div>
             <div style="background:white; border:1px solid #E5E7EB; border-radius:8px; padding:16px; margin-bottom:12px;">
               <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
@@ -2621,51 +2621,60 @@
       </div>
     </div>
 
-    <!-- ===== 4 FEATURE CARDS ===== -->
+    <!-- ===== 5 FEATURE CARDS ===== -->
     <div class="scoutai-features-section">
-      <h3 class="scoutai-section-title">4つのAIで採用業務を一気通貫</h3>
-      <p class="scoutai-section-sub">書類選考から面接、スカウト文面まで。すべてのフェーズをAIが伴走します。</p>
+      <h3 class="scoutai-section-title">5つのAIで、採用の全工程を一気通貫</h3>
+      <p class="scoutai-section-sub">スカウトから書類選考、面接、オファーまで。すべてのフェーズをAIが伴走します。</p>
       <div class="scoutai-features-grid">
         <div class="scoutai-feature-card">
           <div class="scoutai-feature-num">01</div>
-          <div class="scoutai-feature-icon">📄</div>
-          <div class="scoutai-feature-title">書類選考AI</div>
+          <div class="scoutai-feature-icon">✉️</div>
+          <div class="scoutai-feature-title">スカウト生成AI</div>
           <p class="scoutai-feature-desc">
-            CV+求人票から合否判定。<br>
-            マッチスコアと評価コメントを自動生成。
+            候補者に響くパーソナライズド文面。<br>
+            3モデル階層 ＆ Chrome拡張連携。
           </p>
         </div>
         <div class="scoutai-feature-card">
           <div class="scoutai-feature-num">02</div>
+          <div class="scoutai-feature-icon">📄</div>
+          <div class="scoutai-feature-title">書類選考AI</div>
+          <p class="scoutai-feature-desc">
+            CV+求人票から合否判定。<br>
+            マッチスコア ＆ 評価コメント。
+          </p>
+        </div>
+        <div class="scoutai-feature-card">
+          <div class="scoutai-feature-num">03</div>
           <div class="scoutai-feature-icon">🎤</div>
           <div class="scoutai-feature-title">面接準備AI</div>
           <p class="scoutai-feature-desc">
-            BIG5/DISC/モチベーション分析。<br>
-            推奨質問を自動生成（前後モード）。
-          </p>
-        </div>
-        <div class="scoutai-feature-card is-new">
-          <span class="scoutai-feature-newbadge">NEW</span>
-          <div class="scoutai-feature-num">03</div>
-          <div class="scoutai-feature-icon">🎙️</div>
-          <div class="scoutai-feature-title">面接実行AI</div>
-          <p class="scoutai-feature-desc">
-            リアルタイム文字起こし＋AIライブガイド。<br>
-            10項目評価レポートをA/B/C推奨で。
+            BIG5/DISC/動機分析。<br>
+            推奨質問の自動生成。
           </p>
         </div>
         <div class="scoutai-feature-card">
           <div class="scoutai-feature-num">04</div>
-          <div class="scoutai-feature-icon">✉️</div>
-          <div class="scoutai-feature-title">スカウト生成AI</div>
+          <div class="scoutai-feature-icon">🎙️</div>
+          <div class="scoutai-feature-title">面接実行AI</div>
           <p class="scoutai-feature-desc">
-            3モデル階層でパーソナライズ。<br>
-            Chrome拡張連携でワンクリック投函。
+            リアルタイム文字起こし。<br>
+            10項目評価レポート（A/B/C）。
+          </p>
+        </div>
+        <div class="scoutai-feature-card is-new">
+          <span class="scoutai-feature-newbadge">NEW</span>
+          <div class="scoutai-feature-num">05</div>
+          <div class="scoutai-feature-icon">📝</div>
+          <div class="scoutai-feature-title">オファーレターAI</div>
+          <p class="scoutai-feature-desc">
+            動機診断ベースの魅力付け。<br>
+            オファー文/トークスクリプト/フォローメール。
           </p>
         </div>
       </div>
       <p class="scoutai-pricing-foot" style="margin-top:24px;">
-        ＋ おまけ機能: <strong style="color:var(--text-dark);">採用ダッシュボード</strong> — 応募〜内定までの8ステージファネルを可視化
+        ＋ さらに <strong style="color:var(--text-dark);">採用ダッシュボード</strong>で応募〜内定までの8ステージを可視化
       </p>
     </div>
 
