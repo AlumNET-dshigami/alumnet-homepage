@@ -790,6 +790,35 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   font-size: 0.72rem;
 }
 
+/* AI×RPO tile */
+.service-tile--ai {
+  background: linear-gradient(135deg, rgba(46,196,182,0.05) 0%, rgba(46,196,182,0.1) 100%);
+  border-top: 1px solid rgba(46,196,182,0.2);
+}
+.service-tile--ai:hover {
+  background: linear-gradient(135deg, rgba(46,196,182,0.1) 0%, rgba(46,196,182,0.18) 100%);
+}
+.service-tile-header-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.service-tile-badge--ai {
+  background: var(--teal);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+}
+.service-tile-new-badge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: #DC2626;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
 /* ========== AI TECHNOLOGY ========== */
 #ai-tech {
   background: var(--gray-50);
@@ -1732,6 +1761,22 @@ footer {
               <li>書類選考・面接代行</li>
               <li>エージェントコントロール</li>
               <li>オファー・クロージング支援</li>
+            </ul>
+          </div>
+          <!-- AI×RPOタイル -->
+          <div class="service-tile service-tile--ai">
+            <div class="service-tile-header-row">
+              <div class="service-tile-badge service-tile-badge--ai">AI × RPO</div>
+              <span class="service-tile-new-badge">NEW</span>
+            </div>
+            <div class="service-tile-name">AI×RPO（全自動採用）</div>
+            <div class="service-tile-desc">AIと人間を組み合わせ、採用業務の全自動化を目指すRPO。スカウト・選考・面接まで、AIが処理し人間が判断する設計。</div>
+            <ul class="service-tile-list">
+              <li>AIスカウト文面の自動生成・一括送信</li>
+              <li>AI書類選考（マッチスコア・合否判定）</li>
+              <li>AI面接準備・評価レポート自動生成</li>
+              <li>AIオファーレター生成</li>
+              <li>採用ファネルのリアルタイム分析</li>
             </ul>
           </div>
         </div>
