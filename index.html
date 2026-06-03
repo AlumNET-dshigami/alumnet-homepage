@@ -1079,6 +1079,231 @@ footer {
   font-weight: 300;
 }
 
+/* ========== PRICING TABLE ========== */
+.pricing-table-wrap {
+  margin-top: 56px;
+  overflow-x: auto;
+}
+.pricing-table-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 20px;
+  font-family: 'Noto Serif JP', serif;
+}
+.pricing-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  font-size: 0.88rem;
+}
+.pricing-table th {
+  background: var(--teal);
+  color: white;
+  padding: 16px 24px;
+  text-align: center;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+.pricing-table th.recommended::after {
+  content: 'おすすめ';
+  display: block;
+  font-size: 0.68rem;
+  background: white;
+  color: var(--teal);
+  padding: 2px 8px;
+  border-radius: 100px;
+  margin: 4px auto 0;
+  width: fit-content;
+}
+.pricing-table th.col-label {
+  background: var(--navy);
+  text-align: left;
+}
+.pricing-table td {
+  padding: 14px 24px;
+  text-align: center;
+  color: var(--text-dark);
+  border-bottom: 1px solid var(--gray-100);
+}
+.pricing-table td.label {
+  text-align: left;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--gray-50);
+}
+.pricing-table tr:last-child td { border-bottom: none; }
+.pricing-note {
+  font-size: 0.78rem;
+  color: var(--gray-400);
+  margin-top: 12px;
+}
+
+/* ========== PR SECTION ========== */
+.pr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  margin-bottom: 48px;
+}
+.pr-card {
+  background: white;
+  border-radius: 16px;
+  padding: 40px 36px;
+  border: 1.5px solid var(--gray-100);
+  transition: all 0.3s;
+}
+.pr-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 12px 36px rgba(46,196,182,0.1);
+}
+.pr-card-icon {
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+.pr-card-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--navy);
+  font-family: 'Noto Serif JP', serif;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pr-badge-new {
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #DC2626;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+.pr-desc {
+  font-size: 0.88rem;
+  color: var(--text-mid);
+  line-height: 1.85;
+  margin-bottom: 20px;
+}
+.pr-checklist {
+  list-style: none;
+  margin-bottom: 24px;
+}
+.pr-checklist li {
+  font-size: 0.84rem;
+  color: var(--text-dark);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pr-checklist li::before {
+  content: '✓';
+  color: var(--teal);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pr-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 32px 36px;
+}
+.pr-metric {
+  text-align: center;
+}
+.pr-metric-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.pr-metric-label {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ========== PRODUCTS SECTION ========== */
+.products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.product-card {
+  background: white;
+  border-radius: 12px;
+  padding: 32px 28px;
+  border: 1px solid var(--gray-100);
+  border-left: 4px solid var(--teal);
+  transition: all 0.3s;
+}
+.product-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 8px 28px rgba(46,196,182,0.12);
+  transform: translateY(-3px);
+}
+.product-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+  min-height: 28px;
+}
+.product-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+}
+.product-badge.flagship {
+  background: var(--teal);
+  color: white;
+}
+.product-badge.chrome {
+  background: var(--gray-100);
+  color: var(--text-mid);
+}
+.product-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+.product-desc {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+.product-link {
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--teal);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+.product-link:hover { gap: 8px; }
+.product-label {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  margin-left: 12px;
+}
+
 /* ========== REVEAL ANIMATION ========== */
 .reveal {
   opacity: 0;
@@ -1143,6 +1368,10 @@ footer {
   .footer-bottom { flex-direction: column; align-items: flex-start; }
   .clients-logos { gap: 10px; }
   .client-card { min-width: 120px; padding: 10px 14px; }
+  .pr-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .pr-metrics { grid-template-columns: 1fr; gap: 16px; }
+  .pr-card { padding: 28px 24px; }
 }
 </style>
 </head>
@@ -1167,8 +1396,9 @@ footer {
 
   <ul class="nav-links">
     <li><a href="#services">サービス</a></li>
+    <li><a href="#pr">採用広報・X自動化</a></li>
+    <li><a href="#products">プロダクト</a></li>
     <li><a href="#results">実績</a></li>
-    <li><a href="#ai-tech">AI</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料相談する</a></li>
   </ul>
@@ -1181,8 +1411,9 @@ footer {
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#services" onclick="toggleMenu()">サービス</a>
+  <a href="#pr" onclick="toggleMenu()">採用広報・X自動化</a>
+  <a href="#products" onclick="toggleMenu()">プロダクト</a>
   <a href="#results" onclick="toggleMenu()">実績</a>
-  <a href="#ai-tech" onclick="toggleMenu()">AI</a>
   <a href="#faq" onclick="toggleMenu()">FAQ</a>
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="btn-teal" onclick="toggleMenu()">無料相談する</a>
 </div>
@@ -1382,6 +1613,54 @@ footer {
         </ul>
       </div>
     </div>
+
+    <!-- 料金比較表 -->
+    <div class="pricing-table-wrap reveal">
+      <div class="pricing-table-title">フェーズ別 料金の目安</div>
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th class="col-label"></th>
+            <th>RPO</th>
+            <th class="recommended">CHRO代行</th>
+            <th>HRTech導入</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">月額料金</td>
+            <td>30万円〜</td>
+            <td>50万円〜</td>
+            <td>20万円〜</td>
+          </tr>
+          <tr>
+            <td class="label">初期費用</td>
+            <td>0円</td>
+            <td>0円</td>
+            <td>0円</td>
+          </tr>
+          <tr>
+            <td class="label">最低期間</td>
+            <td>3ヶ月〜</td>
+            <td>3ヶ月〜</td>
+            <td>2ヶ月〜</td>
+          </tr>
+          <tr>
+            <td class="label">対応フェーズ</td>
+            <td>採用実行</td>
+            <td>採用上流〜組織</td>
+            <td>ツール活用</td>
+          </tr>
+          <tr>
+            <td class="label">こんな企業に</td>
+            <td>採用担当が<br>足りない企業</td>
+            <td>人事責任者が<br>不在の企業</td>
+            <td>HRTech未活用<br>の企業</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="pricing-note">※上記は目安です。企業規模・支援範囲により変動します。詳しくはご相談ください。</p>
+    </div>
   </div>
 </section>
 
@@ -1430,6 +1709,67 @@ footer {
   </div>
 </section>
 
+<!-- RECRUITMENT PR & X AUTOMATION -->
+<section id="pr" class="section" style="background: var(--gray-50);">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Recruitment PR</span>
+    </div>
+    <h2 class="section-title reveal">採用広報・X自動化で、<br>求職者に届く採用を。</h2>
+    <p class="section-sub reveal">採用は応募を待つ時代から、発信して惹きつける時代へ。AlumNETは採用広報とX（Twitter）自動化を組み合わせ、御社の採用ブランドを継続的に発信します。</p>
+
+    <div class="pr-grid" style="margin-top:56px;">
+      <!-- 採用広報支援 -->
+      <div class="pr-card reveal">
+        <div class="pr-card-icon">📢</div>
+        <div class="pr-card-title">採用広報支援</div>
+        <p class="pr-desc">求職者に刺さるコンテンツ戦略と採用LP・SNSコンテンツ制作を支援。エンジニア採用・中途採用に強みを持つチームが設計します。</p>
+        <ul class="pr-checklist">
+          <li>採用LP・ランディングページ制作</li>
+          <li>採用コンテンツ企画・制作</li>
+          <li>採用インタビュー記事</li>
+          <li>SNS採用アカウント設計</li>
+          <li>採用ブランドガイドライン策定</li>
+        </ul>
+      </div>
+      <!-- X自動化 -->
+      <div class="pr-card reveal">
+        <div class="pr-card-icon">🤖</div>
+        <div class="pr-card-title">
+          X（Twitter）採用自動化
+          <span class="pr-badge-new">NEW</span>
+        </div>
+        <p class="pr-desc">AlumNETが自社採用アカウントで実証済みのX自動投稿システムを、御社の採用アカウントにも展開します。AIが生成したHR・採用コンテンツを自動でスケジュール投稿。採用担当の工数ゼロで採用広報を継続。</p>
+        <ul class="pr-checklist">
+          <li>AI採用コンテンツの自動生成</li>
+          <li>スケジュール投稿・キュー管理</li>
+          <li>週次レポート（エンゲージメント分析）</li>
+          <li>採用ターゲットに刺さるテーマ設計</li>
+          <li>1日3投稿・継続運用</li>
+        </ul>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="ai-cta-link">X自動化について相談する &rarr;</a>
+      </div>
+    </div>
+
+    <!-- 実績バー -->
+    <div class="pr-metrics reveal">
+      <div class="pr-metric">
+        <div class="pr-metric-number">90</div>
+        <div class="pr-metric-label">月間投稿数（自社実績）</div>
+      </div>
+      <div class="pr-metric">
+        <div class="pr-metric-number">100%</div>
+        <div class="pr-metric-label">AI生成率（担当者工数ゼロ）</div>
+      </div>
+      <div class="pr-metric">
+        <div class="pr-metric-number">3.2%</div>
+        <div class="pr-metric-label">平均エンゲージメント</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- RESULTS -->
 <section id="results" class="section">
   <div class="section-inner">
@@ -1465,6 +1805,57 @@ footer {
           <li>ツール定着率 95%</li>
           <li>スタートアップ・従業員50名</li>
         </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products" class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Our Products</span>
+    </div>
+    <h2 class="section-title reveal">こんなプロダクトも、あります。</h2>
+    <p class="section-sub reveal">コンサルティングだけでなく、自社でHRプロダクトも開発・運用しています。テクノロジーを理解したプロ集団だからこそ、実態に即した支援ができます。</p>
+
+    <div class="products-grid" style="margin-top:56px;">
+      <!-- Recruit AI Ops -->
+      <div class="product-card reveal">
+        <div class="product-card-header">
+          <span class="product-badge flagship">Flagship</span>
+        </div>
+        <div class="product-name">Recruit AI Ops</div>
+        <p class="product-desc">スカウト生成・書類選考・面接準備・面接実行・オファーレターまで5つのAIを1つに。採用全工程をAIが支援する採用プラットフォーム。</p>
+        <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">無料で試す &rarr;</a>
+        <span class="product-label">Free 50ptから</span>
+      </div>
+      <!-- HR評価制度ビルダー -->
+      <div class="product-card reveal">
+        <div class="product-card-header"></div>
+        <div class="product-name">HR評価制度ビルダー</div>
+        <p class="product-desc">評価制度をゼロから設計できるセルフビルドツール。7ステップのウィザード形式で、2時間で自社オリジナルの評価制度を設計。</p>
+        <a href="https://hr-system-builder.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る &rarr;</a>
+        <span class="product-label">Webアプリ</span>
+      </div>
+      <!-- TalentBoard -->
+      <div class="product-card reveal">
+        <div class="product-card-header"></div>
+        <div class="product-name">TalentBoard</div>
+        <p class="product-desc">社員情報・評価・スキル・組織図を一元管理するタレントマネジメントプラットフォーム。リアルタイムの組織分析ダッシュボード搭載。</p>
+        <a href="https://talentboard-tms.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る &rarr;</a>
+        <span class="product-label">Webアプリ</span>
+      </div>
+      <!-- ScoutAI -->
+      <div class="product-card reveal">
+        <div class="product-card-header">
+          <span class="product-badge chrome">Chrome拡張</span>
+        </div>
+        <div class="product-name">ScoutAI</div>
+        <p class="product-desc">ChromeブラウザでLinkedIn・Wantedlyを見ながらワンクリックでスカウト文面を自動生成。Recruit AI Opsと連携。</p>
+        <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る &rarr;</a>
+        <span class="product-label">Chrome Extension</span>
       </div>
     </div>
   </div>
