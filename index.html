@@ -46,7 +46,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #0F1929;
@@ -60,6 +60,7 @@
     --gray-700: #374151;
     --gray-900: #111827;
     --font-display: 'Syne', sans-serif;
+    --font-numbers: 'Inter', 'Noto Sans JP', sans-serif;
     --font-body: 'Noto Sans JP', sans-serif;
   }
 
@@ -303,11 +304,12 @@
   }
 
   .hero-meta-number {
-    font-family: var(--font-display);
+    font-family: var(--font-numbers);
     font-size: 1.8rem;
     font-weight: 800;
     color: var(--teal);
     line-height: 1;
+    letter-spacing: -0.02em;
   }
 
   .hero-meta-label {
@@ -457,12 +459,13 @@
   .pain-card:hover::before { transform: scaleX(1); }
 
   .pain-number {
-    font-family: var(--font-display);
+    font-family: var(--font-numbers);
     font-size: 3rem;
     font-weight: 800;
-    color: rgba(0,200,150,0.12);
+    color: rgba(0,200,150,0.18);
     line-height: 1;
     margin-bottom: 20px;
+    letter-spacing: -0.03em;
   }
 
   .pain-text {
@@ -527,7 +530,7 @@
   }
 
   .service-num {
-    font-family: var(--font-display);
+    font-family: var(--font-numbers);
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -628,12 +631,13 @@
   }
 
   .service-price {
-    font-family: var(--font-display);
-    font-size: 1rem;
+    font-family: var(--font-numbers);
+    font-size: 1.05rem;
     font-weight: 700;
     color: var(--navy);
     padding-top: 16px;
     border-top: 1px solid #f3f4f6;
+    letter-spacing: -0.01em;
   }
 
   .service-card.featured .service-price {
@@ -767,7 +771,7 @@
   }
 
   .strength-index {
-    font-family: var(--font-display);
+    font-family: var(--font-numbers);
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -833,12 +837,13 @@
   }
 
   .result-metric {
-    font-family: var(--font-display);
+    font-family: var(--font-numbers);
     font-size: 2.8rem;
     font-weight: 800;
     color: var(--navy);
     line-height: 1;
     margin-bottom: 8px;
+    letter-spacing: -0.03em;
   }
 
   .result-metric span { color: var(--teal); }
@@ -959,12 +964,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--font-display);
-    font-size: 1rem;
+    font-family: var(--font-numbers);
+    font-size: 1.05rem;
     font-weight: 800;
     color: var(--teal);
     margin-bottom: 20px;
     flex-shrink: 0;
+    letter-spacing: -0.02em;
   }
 
   .process-step:first-child .process-num {
