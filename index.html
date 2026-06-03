@@ -656,7 +656,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 56px;
 }
 
@@ -666,6 +666,13 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   border-radius: 16px;
   overflow: hidden;
   transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+.service-tiles {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-category:hover {
