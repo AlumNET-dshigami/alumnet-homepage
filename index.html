@@ -1674,7 +1674,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: start;
+  align-items: stretch;
   margin-top: 56px;
 }
 
@@ -1684,6 +1684,12 @@ footer {
   border-radius: 20px;
   padding: 40px;
   transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-new-summary-text:last-child {
+  margin-bottom: 0;
 }
 
 .team-new-card:hover {
@@ -2483,18 +2489,23 @@ footer {
         <div class="team-new-journey">
           <div class="team-new-journey-item">
             <div class="team-new-journey-company">株式会社パソナ</div>
-            <div class="team-new-journey-role-name">採用コンサルタント / aloop事業統括</div>
-            <div class="team-new-journey-desc">「人手・中堅企業の採用戦略立案から実行支援まで。タレントプール型サービス『aloop』の事業統括・営業責任者を歴任。」</div>
+            <div class="team-new-journey-role-name">採用コンサルタント</div>
+            <div class="team-new-journey-desc">「大手・中堅企業の採用支援に従事。採用戦略の立案から実行支援まで一気通貫で伴走し、人材業界でのキャリアの基盤を築いた。」</div>
+          </div>
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">aloop 事業統括</div>
+            <div class="team-new-journey-role-name">タレントプール型サービスの事業責任者</div>
+            <div class="team-new-journey-desc">「タレントプール型採用サービス『aloop』の事業統括・営業責任者を歴任。データを活かした新しい採用モデルの立ち上げと拡大を牽引した。」</div>
           </div>
           <div class="team-new-journey-item">
             <div class="team-new-journey-company">AlumNET株式会社（共同代表取締役）</div>
             <div class="team-new-journey-role-name">4領域の人材ソリューションを展開</div>
-            <div class="team-new-journey-desc">「パソナでの経験を基盤に共同設立。RPO・採用エージェンシー立ち上げ・データドリブン人事・AI活用支援の4領域を展開中。」</div>
+            <div class="team-new-journey-desc">「パソナでの経験を基盤に共同設立。RPO・採用エージェンシー立ち上げ・データドリブン人事・AI活用支援の4領域を展開。LinkedIn Japan Top 100 Leaderにも選出されている。」</div>
           </div>
         </div>
 
         <div class="team-new-summary-title">Profile Summary</div>
-        <p class="team-new-summary-text">人材業界10年以上、採用コンサルティング・RPO・AIリクルーティングを横断。『採用とは何か』を実践の中で問い続けてきた人材×AI専門家。LinkedIn Japan Top 100 Leader（HR・AI領域）選出。採用の未来は『AIが捌き、人が決める』構造への移行にあると確信し、その実装を事業・支援・発信を通じて体現し続けている。</p>
+        <p class="team-new-summary-text">人材業界10年以上、採用コンサルティング・RPO・AIリクルーティングを横断してきた人材×AIの専門家。パソナでの採用支援、タレントプール型サービス『aloop』の事業統括を経て、AlumNETを共同設立。『採用とは何か』を実践の中で問い続け、RPO・採用エージェンシー・データドリブン人事・AI活用支援の4領域でクライアントの採用課題に向き合ってきた。LinkedIn Japan Top 100 Leader（HR・AI領域）選出。採用の未来は『AIが捌き、人が決める』構造への移行にあると確信し、その実装を事業・支援・発信を通じて体現し続けている。</p>
       </div>
 
       <!-- 宅和 奈帆子 -->
