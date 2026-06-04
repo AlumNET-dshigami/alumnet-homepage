@@ -829,6 +829,186 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   letter-spacing: 0.05em;
 }
 
+/* ========== TEAM PROFILES ========== */
+#team { background: var(--gray-50); }
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.team-card {
+  background: var(--white);
+  border-radius: 20px;
+  border: 1.5px solid #e5e7eb;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+.team-card:hover { box-shadow: 0 12px 40px rgba(46,196,182,0.1); }
+.team-card-top {
+  background: linear-gradient(135deg, var(--teal-light) 0%, #d4f4ef 100%);
+  padding: 36px 36px 0;
+  display: flex;
+  align-items: flex-end;
+  gap: 28px;
+}
+.team-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid var(--teal);
+  background: #cce8e4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  overflow: hidden;
+}
+.team-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-intro { padding-bottom: 20px; }
+.team-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin-bottom: 4px;
+  font-family: 'Inter', sans-serif;
+}
+.team-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.team-name-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--text-mid);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.team-role {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: white;
+  padding: 4px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(46,196,182,0.3);
+}
+.team-card-body { padding: 28px 36px 36px; }
+.team-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.team-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  background: var(--teal-light);
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: 0.03em;
+}
+.team-career { margin-bottom: 20px; }
+.team-career-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.team-career-title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--teal);
+}
+.team-career-items { display: flex; flex-direction: column; gap: 12px; }
+.team-career-item { display: flex; gap: 12px; align-items: flex-start; }
+.team-career-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.team-career-item-co {
+  font-size: 0.72rem;
+  color: var(--teal-dark);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.team-career-item-role {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 2px;
+}
+.team-career-item-desc {
+  font-size: 0.78rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.team-summary-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.team-summary-title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--teal);
+}
+.team-summary {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.9;
+}
+.team-slide-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--teal-dark);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(46,196,182,0.4);
+  padding-bottom: 2px;
+  transition: all 0.2s;
+}
+.team-slide-link:hover { color: var(--teal); border-color: var(--teal); }
+@media (max-width: 900px) { .team-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .team-card-top { flex-direction: column; align-items: flex-start; padding-bottom: 24px; }
+}
+
 /* ========== AI TECHNOLOGY ========== */
 #ai-tech {
   background: var(--gray-50);
@@ -1487,6 +1667,188 @@ footer {
   margin-left: 12px;
 }
 
+/* ===== TEAM NEW SECTION ===== */
+#team { background: var(--white); }
+
+.team-new-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin-top: 56px;
+}
+
+.team-new-card {
+  background: var(--gray-50);
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 40px;
+  transition: box-shadow 0.3s;
+}
+
+.team-new-card:hover {
+  box-shadow: 0 12px 40px rgba(46,196,182,0.1);
+}
+
+.team-new-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.team-new-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--teal-light);
+  color: var(--teal-dark);
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(46,196,182,0.25);
+}
+
+.team-new-name-en {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--teal);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.team-new-name-ja {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.team-new-role {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.team-new-journey-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-new-journey-title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--teal);
+}
+
+.team-new-journey {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 28px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.team-new-journey::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--teal), rgba(46,196,182,0.2));
+}
+
+.team-new-journey-item {
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.team-new-journey-item:last-child {
+  padding-bottom: 0;
+}
+
+.team-new-journey-item::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--teal);
+}
+
+.team-new-journey-company {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--teal);
+  letter-spacing: 0.04em;
+  margin-bottom: 3px;
+}
+
+.team-new-journey-role-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.team-new-journey-desc {
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+
+.team-new-summary-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-new-summary-title::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--teal);
+}
+
+.team-new-summary-text {
+  font-size: 0.84rem;
+  color: var(--text-mid);
+  line-height: 1.9;
+}
+
+@media (max-width: 900px) {
+  .team-new-grid { grid-template-columns: 1fr; }
+}
+
 /* ========== REVEAL ANIMATION ========== */
 .reveal {
   opacity: 0;
@@ -1588,6 +1950,8 @@ footer {
     <li><a href="#services">サービス</a></li>
     <li><a href="#services">採用広報・X自動化</a></li>
     <li><a href="#products">プロダクト</a></li>
+    <li><a href="https://alumnet-sales-slides.vercel.app/" target="_blank" rel="noopener noreferrer">会社資料</a></li>
+    <li><a href="#team">チーム</a></li>
     <li><a href="#results">実績</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="nav-cta">無料相談する</a></li>
@@ -1623,7 +1987,7 @@ footer {
       <p class="hero-desc reveal">大手HR出身100名のプロフェッショナルとAIが一体となり、採用の設計から実行まで一気通貫で支援します。初期費用0円、最短1週間で稼働開始。</p>
       <div class="hero-actions reveal">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSdkYVMV2O1pWTqPjBVL9pc0GcRcbkJBIGVb_M2_fOVRLlQJPA/viewform" target="_blank" rel="noopener noreferrer" class="btn-teal">無料相談する &rarr;</a>
-        <a href="#" class="btn-outline">サービス資料をダウンロード</a>
+        <a href="https://alumnet-sales-slides.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-outline">会社紹介資料を見る →</a>
       </div>
       <div class="hero-metrics reveal">
         <div>
@@ -2087,6 +2451,92 @@ footer {
         <div class="why-title">支援が終わっても「仕組み」が社内に残る</div>
         <p class="why-desc">AlumNETへの依存状態ではなく、御社が自走できる採用組織になることをゴールに設計します。仕組みとノウハウが社内資産として蓄積されます。</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section" style="background: var(--white);">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">
+      <div class="section-eyebrow-line"></div>
+      <span class="section-eyebrow-text">Team</span>
+    </div>
+    <h2 class="section-title reveal">私たちについて。</h2>
+    <p class="section-sub reveal">採用・人事の現場を知り抜いたプロフェッショナルが、経営の視点で伴走します。</p>
+
+    <div class="team-new-grid">
+
+      <!-- 石神 大輔 -->
+      <div class="team-new-card reveal">
+        <div class="team-new-tags">
+          <span class="team-new-tag">RPO・採用代行</span>
+          <span class="team-new-tag">AIリクルーティング</span>
+          <span class="team-new-tag">人材コンサルティング</span>
+          <span class="team-new-tag">LinkedIn Top Voice</span>
+        </div>
+        <div class="team-new-name-en">ISHIGAMI DAISUKE</div>
+        <div class="team-new-name-ja">石神 大輔</div>
+        <div class="team-new-role">AlumNET株式会社 共同代表取締役</div>
+
+        <div class="team-new-journey-title">Career Journey</div>
+        <div class="team-new-journey">
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">株式会社パソナ</div>
+            <div class="team-new-journey-role-name">採用コンサルタント / aloop事業統括</div>
+            <div class="team-new-journey-desc">「人手・中堅企業の採用戦略立案から実行支援まで。タレントプール型サービス『aloop』の事業統括・営業責任者を歴任。」</div>
+          </div>
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">AlumNET株式会社（共同代表取締役）</div>
+            <div class="team-new-journey-role-name">4領域の人材ソリューションを展開</div>
+            <div class="team-new-journey-desc">「パソナでの経験を基盤に共同設立。RPO・採用エージェンシー立ち上げ・データドリブン人事・AI活用支援の4領域を展開中。」</div>
+          </div>
+        </div>
+
+        <div class="team-new-summary-title">Profile Summary</div>
+        <p class="team-new-summary-text">人材業界10年以上、採用コンサルティング・RPO・AIリクルーティングを横断。『採用とは何か』を実践の中で問い続けてきた人材×AI専門家。LinkedIn Japan Top 100 Leader（HR・AI領域）選出。採用の未来は『AIが捌き、人が決める』構造への移行にあると確信し、その実装を事業・支援・発信を通じて体現し続けている。</p>
+      </div>
+
+      <!-- 宅和 奈帆子 -->
+      <div class="team-new-card reveal">
+        <div class="team-new-tags">
+          <span class="team-new-tag">RPO・採用代行</span>
+          <span class="team-new-tag">組織構築・HR戦略</span>
+          <span class="team-new-tag">新規事業×採用設計</span>
+          <span class="team-new-tag">CHRO経験</span>
+        </div>
+        <div class="team-new-name-en">TAKUWA NAHOKO</div>
+        <div class="team-new-name-ja">宅和 奈帆子</div>
+        <div class="team-new-role">AlumNET株式会社 共同代表取締役</div>
+
+        <div class="team-new-journey-title">Career Journey</div>
+        <div class="team-new-journey">
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">2017〜 株式会社パソナ</div>
+            <div class="team-new-journey-role-name">外資系IT・コンサル向け採用支援</div>
+            <div class="team-new-journey-desc">「外資系IT・コンサルティング企業向けの採用支援に従事。ハイクオリティな採用を求めるクライアントに、採用戦略の立案から実行まで一気通貫で伴走。」</div>
+          </div>
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">独立後</div>
+            <div class="team-new-journey-role-name">新規事業立ち上げ支援 / 組織構築</div>
+            <div class="team-new-journey-desc">「新規事業の立ち上げと連動した採用支援・組織構築に携わる。事業フェーズに合わせた採用設計と人材獲得モデルを構築。」</div>
+          </div>
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">CHRO / STORYTELLING</div>
+            <div class="team-new-journey-role-name">インド法人 CHROを歴任</div>
+            <div class="team-new-journey-desc">「デジタルマーケティング領域のインド法人にてCHROを歴任。グローバル採用・組織設計・人事制度構築を統括し、国内外の採用・組織課題に対応できる視座を磨いた。」</div>
+          </div>
+          <div class="team-new-journey-item">
+            <div class="team-new-journey-company">現在 AlumNET株式会社</div>
+            <div class="team-new-journey-role-name">共同代表取締役</div>
+            <div class="team-new-journey-desc">「RPOの安定受託モデルを基盤に、人事戦略の立案から実行支援まで一気通貫で提供。企業の『人を活かす力』を最大化することに注力。」</div>
+          </div>
+        </div>
+
+        <div class="team-new-summary-title">Profile Summary</div>
+        <p class="team-new-summary-text">パソナで外資系IT・コンサル企業向けの採用支援に従事した後、独立。新規事業の立ち上げと連動した採用支援・組織構築を行い、インド法人でCHROを歴任するなどグローバル採用・組織設計・人事制度構築の実践経験を積み重ねてきた。RPOの安定受託モデルを基盤に、人事戦略の立案から実行支援まで一気通貫で提供し、企業の『人を活かす力』を最大化することに注力している。</p>
+      </div>
+
     </div>
   </div>
 </section>
