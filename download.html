@@ -588,7 +588,47 @@
     .dl-section-label { flex-direction: column; align-items: flex-start; gap: 8px; }
     .dl-modal { padding: 32px 20px 28px; }
     .dl-modal-title { font-size: 19px; }
+    .mobile-cta-bar { display: block; } /* モバイル(<=640px)でのみバーを描画。表示制御は.visibleクラスで行う */
   }
+
+  /* ========== MOBILE FLOATING CTA BAR ========== */
+  .mobile-cta-bar {
+    display: none; /* PCでは一切表示しない。640px以下のメディアクエリでのみdisplay:block化 */
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1003; /* nav/mobile-menuより前面 */
+    background: var(--navy);
+    padding: 10px 16px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom)); /* iPhoneホームバー対応 */
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
+    transform: translateY(110%);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .mobile-cta-bar.visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .mobile-cta-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 48px;
+    background: var(--gold);
+    color: var(--navy); /* #2EC4B6地に#0B2B26文字 = 約7.4:1 (WCAG AAA) */
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .mobile-cta-bar a:active { background: var(--teal); }
 </style>
 </head>
 <body>
@@ -616,7 +656,7 @@
     <li><a href="index.html#why">強み</a></li>
     <li><a href="download.html" class="active">資料DL</a></li>
     <li><a href="index.html#contact">お問い合わせ</a></li>
-    <li><a href="contact.html" class="nav-cta">無料相談</a></li>
+    <li><a href="contact.html" class="nav-cta">無料相談を予約 &rarr;</a></li>
   </ul>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span>
@@ -632,7 +672,7 @@
   <a href="index.html#why" onclick="toggleMenu()">強み</a>
   <a href="download.html" onclick="toggleMenu()">資料DL</a>
   <a href="index.html#contact" onclick="toggleMenu()">お問い合わせ</a>
-  <a href="contact.html" class="btn-primary" style="margin-top:8px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:2px;font-weight:700;">無料相談はこちら</a>
+  <a href="contact.html" class="btn-primary" style="margin-top:8px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:2px;font-weight:700;">30分の無料相談を予約する &rarr;</a>
 </div>
 
 <!-- PAGE HERO -->
@@ -820,6 +860,11 @@
       </button>
     </form>
   </div>
+</div>
+
+<!-- MOBILE FLOATING CTA BAR (モバイルのみ・ヒーロー通過後に表示) -->
+<div class="mobile-cta-bar" id="mobile-cta-bar">
+  <a href="contact.html">30分の無料相談を予約する &rarr;</a>
 </div>
 
 <!-- FOOTER -->
@@ -1059,6 +1104,25 @@
         alert('送信に失敗しました。しばらくしてから再度お試しください。');
       });
     });
+  })();
+
+  // Mobile floating CTA bar — ヒーロー通過後に表示（このページは末尾に相談CTAセクションが無いため常時表示）
+  (function() {
+    var bar = document.getElementById('mobile-cta-bar');
+    var hero = document.querySelector('.page-hero');
+    if (!bar || !hero) return;
+
+    // ヒーローが画面外（上方向に抜けた）ら表示、戻ったら非表示
+    var heroObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) {
+          bar.classList.add('visible');
+        } else {
+          bar.classList.remove('visible');
+        }
+      });
+    }, { threshold: 0 });
+    heroObserver.observe(hero);
   })();
 </script>
 
