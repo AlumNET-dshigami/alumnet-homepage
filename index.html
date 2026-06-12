@@ -52,6 +52,7 @@
   --teal: #2EC4B6;
   --teal-dark: #1A9E93;
   --teal-light: #E8F8F6;
+  --teal-text: #0E7A70; /* WCAG AA対応: 白地で5.2:1。ティール系の文字色専用トークン */
   --white: #FFFFFF;
   --gray-50: #F8FAFB;
   --gray-100: #F0F4F3;
@@ -405,7 +406,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   text-align: center;
   font-size: 12px;
   font-weight: 600;
-  color: var(--gray-400);
+  color: var(--text-mid);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 28px;
@@ -484,7 +485,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   font-family: 'Inter', sans-serif;
   font-size: 12px;
   font-weight: 700;
-  color: var(--teal);
+  color: var(--teal-text);
   letter-spacing: 0.14em;
   text-transform: uppercase;
 }
@@ -546,7 +547,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   gap: 6px;
   font-size: 13px;
   font-weight: 700;
-  color: var(--teal);
+  color: var(--teal-text);
 }
 .pain-resolve::before {
   content: '→';
@@ -595,7 +596,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
 }
 .service-target {
   font-size: 12px;
-  color: var(--gray-400);
+  color: var(--text-mid);
   font-weight: 500;
   margin-bottom: 12px;
   letter-spacing: 0.04em;
@@ -927,7 +928,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gray-400);
+  color: var(--text-mid);
   margin-bottom: 14px;
   display: flex;
   align-items: center;
@@ -972,7 +973,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gray-400);
+  color: var(--text-mid);
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -1091,7 +1092,7 @@ nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--teal);
+  color: var(--teal-text);
   font-weight: 700;
   font-size: 15px;
   text-decoration: none;
@@ -1445,6 +1446,7 @@ footer {
 .pricing-table-wrap {
   margin-top: 56px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 .pricing-table-title {
   font-size: 1.1rem;
@@ -1455,6 +1457,7 @@ footer {
 }
 .pricing-table {
   width: 100%;
+  min-width: 680px; /* 5列をモバイルで潰さず、wrapのoverflow-x:autoで横スワイプ可能にする */
   border-collapse: separate;
   border-spacing: 0;
   border-radius: 12px;
@@ -1501,7 +1504,7 @@ footer {
 .pricing-table tr:last-child td { border-bottom: none; }
 .pricing-note {
   font-size: 0.78rem;
-  color: var(--gray-400);
+  color: var(--text-mid);
   margin-top: 12px;
 }
 
@@ -1653,7 +1656,7 @@ footer {
 .product-link {
   font-size: 0.84rem;
   font-weight: 600;
-  color: var(--teal);
+  color: var(--teal-text);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
@@ -1663,7 +1666,7 @@ footer {
 .product-link:hover { gap: 8px; }
 .product-label {
   font-size: 0.72rem;
-  color: var(--gray-400);
+  color: var(--text-mid);
   margin-left: 12px;
 }
 
@@ -2061,8 +2064,9 @@ footer {
         <img src="https://www.google.com/s2/favicons?domain=smart-agency.co.jp&sz=32" alt="スマートエージェンシー favicon">
         <span class="client-card-name">スマートエージェンシー</span>
       </div>
-      <div class="client-card" style="background:#fff;">
-        <img src="https://i0.wp.com/kick-za-issue.com/wp-content/uploads/2022/10/kzi_Logo_05-1-e1665172881180.png?fit=500%2C250&ssl=1" alt="KICK ZA ISSUE" class="client-card-logo-img">
+      <div class="client-card">
+        <img src="https://www.google.com/s2/favicons?domain=kick-za-issue.com&sz=32" alt="KICK ZA ISSUE favicon">
+        <span class="client-card-name">KICK ZA ISSUE</span>
       </div>
       <div class="client-card">
         <img src="https://www.google.com/s2/favicons?domain=kanaria-cc.co.jp&sz=32" alt="KANARIA favicon">
@@ -2703,7 +2707,7 @@ footer {
     <p class="contact-sub reveal">初回のご相談は完全無償です。<br>課題が明確でない段階でも、お気軽にどうぞ。</p>
     <div class="contact-actions reveal">
       <a href="contact.html" class="btn-teal">無料相談フォームへ &rarr;</a>
-      <a href="#" class="btn-outline-white">資料ダウンロード</a>
+      <a href="download.html" class="btn-outline-white">資料ダウンロード</a>
     </div>
   </div>
 </section>
@@ -2749,7 +2753,6 @@ footer {
       <div>
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
-          <li><a href="#">会社情報</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
           <li><a href="https://x.com/AlumnetCeo" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a></li>
