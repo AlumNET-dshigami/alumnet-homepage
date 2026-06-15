@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>プライバシーポリシー | AlumNET株式会社</title>
+<meta name="description" content="AlumNET株式会社のプライバシーポリシー。当社ウェブサイト（alum-net.jp）における個人情報の取扱いについて定めています。">
+
+<!-- OGP -->
+<meta property="og:title" content="プライバシーポリシー | AlumNET株式会社">
+<meta property="og:description" content="AlumNET株式会社における個人情報の取扱いについて定めています。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alum-net.jp/privacy.html">
+<meta property="og:site_name" content="AlumNET株式会社">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@AlumnetCeo">
+<meta name="twitter:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/alumnet-logo-square-512.png">
+<link rel="apple-touch-icon" href="assets/alumnet-logo-square-512.png">
+
+<link rel="canonical" href="https://alum-net.jp/privacy.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B2B26;
+    --navy-mid: #123D35;
+    --navy-light: #1A5244;
+    --gold: #2EC4B6;
+    --gold-light: #4EDDD0;
+    --teal: #2A7F8F;
+    --teal-light: #3AABB9;
+    --white: #FFFFFF;
+    --off-white: #F4F9F8;
+    --gray-light: #E0EBE8;
+    --gray-mid: #8A9B97;
+    --text-dark: #0B2B26;
+    --text-mid: #3A5550;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--text-dark);
+    background: var(--off-white);
+    overflow-x: hidden;
+  }
+
+  /* ========== NAVIGATION ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(11, 43, 38, 0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(46, 196, 182, 0.2);
+    padding: 0 48px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+  }
+  .nav-logo { display: flex; align-items: center; text-decoration: none; gap: 0; }
+  .nav-logo svg { height: 32px; width: auto; }
+  .nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.78);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    font-weight: 700 !important;
+    padding: 10px 24px;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold-light) !important; }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1002; }
+  .hamburger span { width: 24px; height: 2px; background: var(--white); transition: all 0.3s; display: block; }
+  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(11,43,38,0.98);
+    z-index: 1001;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+  .mobile-menu.active { display: flex; }
+  .mobile-menu a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    padding: 16px 36px;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* ========== PAGE HERO ========== */
+  .legal-hero {
+    background: var(--navy);
+    padding: 140px 48px 64px;
+    text-align: center;
+  }
+  .legal-hero-eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .legal-hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+  .legal-hero-date {
+    margin-top: 16px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.05em;
+  }
+
+  /* ========== LEGAL BODY ========== */
+  .legal-main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 72px 48px 96px;
+  }
+  .legal-intro {
+    font-size: 15px;
+    line-height: 2.1;
+    color: var(--text-mid);
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .legal-article { margin-bottom: 44px; }
+  .legal-article-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 20px;
+    padding-left: 16px;
+    border-left: 4px solid var(--gold);
+    line-height: 1.4;
+  }
+  .legal-article p {
+    font-size: 15px;
+    line-height: 2.05;
+    color: var(--text-mid);
+    margin-bottom: 16px;
+  }
+  .legal-article p:last-child { margin-bottom: 0; }
+  .legal-list {
+    list-style: none;
+    counter-reset: legal-counter;
+    margin: 8px 0 16px;
+  }
+  .legal-list li {
+    position: relative;
+    counter-increment: legal-counter;
+    padding-left: 32px;
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 2.0;
+    color: var(--text-mid);
+  }
+  .legal-list li::before {
+    content: counter(legal-counter) ".";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+  }
+  .legal-sublist {
+    list-style: none;
+    margin: 8px 0 16px;
+  }
+  .legal-sublist li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 2.0;
+    color: var(--text-mid);
+  }
+  .legal-sublist li::before {
+    content: "・";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 700;
+  }
+  .legal-subtitle {
+    font-size: 1.0rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 24px 0 12px;
+  }
+
+  /* ========== TABLE ========== */
+  .legal-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 24px;
+    font-size: 14px;
+    background: var(--white);
+    border: 1px solid var(--gray-light);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .legal-table th, .legal-table td {
+    padding: 13px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--gray-light);
+    line-height: 1.7;
+    vertical-align: top;
+  }
+  .legal-table th {
+    background: var(--off-white);
+    color: var(--navy);
+    font-weight: 700;
+    white-space: nowrap;
+    width: 36%;
+  }
+  .legal-table td { color: var(--text-mid); }
+  .legal-table tr:last-child th, .legal-table tr:last-child td { border-bottom: none; }
+  .legal-table a { color: var(--teal); }
+
+  .legal-article a { color: var(--teal); text-decoration: underline; }
+
+  .legal-end {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--gray-light);
+    font-size: 15px;
+    line-height: 2.0;
+    color: var(--text-mid);
+  }
+  .legal-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 40px;
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  .legal-back:hover { text-decoration: underline; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: #060D1F;
+    padding: 56px 48px 32px;
+    border-top: 1px solid rgba(46,196,182,0.1);
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 56px;
+  }
+  .footer-logo { margin-bottom: 16px; }
+  .footer-logo svg { height: 36px; width: auto; }
+  .footer-tagline {
+    font-size: 14px;
+    color: rgba(255,255,255,0.35);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+  }
+  .footer-nav { display: flex; gap: 64px; }
+  .footer-nav-group-title {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .footer-nav-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav-links a {
+    font-size: 15px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-nav-links a:hover { color: rgba(255,255,255,0.8); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-copy { font-size: 15px; color: rgba(255,255,255,0.25); letter-spacing: 0.05em; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 15px; color: rgba(255,255,255,0.25); text-decoration: none; }
+  .footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 1024px) {
+    nav { padding: 0 24px; }
+    .legal-hero { padding: 120px 24px 56px; }
+    .legal-main { padding: 56px 24px 72px; }
+    footer { padding: 48px 24px 24px; }
+    .footer-top { flex-direction: column; gap: 40px; }
+    .footer-nav { gap: 32px; flex-wrap: wrap; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+  @media (max-width: 640px) {
+    .legal-hero-title { font-size: 1.8rem; }
+    .legal-article-title { font-size: 1.15rem; }
+    .legal-table th { width: 42%; font-size: 13px; }
+    .legal-table td { font-size: 13px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
+      <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
+      <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
+      <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
+      <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
+      <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
+      <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
+      <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
+      <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
+      <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+      <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+    </svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">サービス</a></li>
+    <li><a href="index.html#results">実績</a></li>
+    <li><a href="index.html#why">強み</a></li>
+    <li><a href="download.html">資料DL</a></li>
+    <li><a href="index.html#contact">お問い合わせ</a></li>
+    <li><a href="contact.html" class="nav-cta">無料相談</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#services" onclick="toggleMenu()">サービス</a>
+  <a href="index.html#results" onclick="toggleMenu()">実績</a>
+  <a href="index.html#why" onclick="toggleMenu()">強み</a>
+  <a href="download.html" onclick="toggleMenu()">資料DL</a>
+  <a href="index.html#contact" onclick="toggleMenu()">お問い合わせ</a>
+  <a href="contact.html" class="btn-primary" style="margin-top:8px;">無料相談はこちら</a>
+</div>
+
+<!-- HERO -->
+<section class="legal-hero">
+  <div class="legal-hero-eyebrow">Privacy Policy</div>
+  <h1 class="legal-hero-title">プライバシーポリシー</h1>
+  <div class="legal-hero-date">制定日: 2026年6月13日</div>
+</section>
+
+<!-- MAIN -->
+<main class="legal-main">
+  <p class="legal-intro">
+    AlumNET株式会社（以下「当社」）は、当社のウェブサイト（alum-net.jp、以下「本サイト」）をご利用いただくお客様の個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下「本ポリシー」）を定めます。当社は、個人情報の保護に関する法律（以下「個人情報保護法」）その他の関係法令を遵守し、お客様の個人情報を適切に取り扱います。
+  </p>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第1条 事業者情報</h2>
+    <table class="legal-table">
+      <tr><th>会社名</th><td>AlumNET株式会社</td></tr>
+      <tr><th>所在地</th><td>東京都港区北青山１丁目３番１号アールキューブ青山３階</td></tr>
+      <tr><th>代表取締役</th><td>石神大輔、宅和奈帆子</td></tr>
+      <tr><th>設立</th><td>2025年6月</td></tr>
+      <tr><th>個人情報保護管理者</th><td>宅和奈帆子・代表取締役</td></tr>
+      <tr><th>お問い合わせ先</th><td>info@alum-net.com または本サイトのお問い合わせフォーム（<a href="contact.html">contact.html</a>）</td></tr>
+    </table>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第2条 取得する個人情報の項目</h2>
+    <p>当社は、本サイト上の以下のフォームを通じて個人情報を取得します。</p>
+    <h3 class="legal-subtitle">1. 無料相談フォーム（contact.html）</h3>
+    <table class="legal-table">
+      <tr><th>会社名</th><td>必須</td></tr>
+      <tr><th>部署名</th><td>任意</td></tr>
+      <tr><th>氏名</th><td>必須</td></tr>
+      <tr><th>メールアドレス</th><td>必須</td></tr>
+      <tr><th>電話番号</th><td>任意</td></tr>
+      <tr><th>従業員数</th><td>任意</td></tr>
+      <tr><th>ご相談内容（選択）</th><td>任意</td></tr>
+      <tr><th>自由記述（お問い合わせ内容）</th><td>任意</td></tr>
+    </table>
+    <h3 class="legal-subtitle">2. 資料ダウンロードフォーム（download.html）</h3>
+    <table class="legal-table">
+      <tr><th>会社名</th><td>必須</td></tr>
+      <tr><th>氏名</th><td>必須</td></tr>
+      <tr><th>メールアドレス</th><td>必須</td></tr>
+      <tr><th>ダウンロード資料名</th><td>自動送信</td></tr>
+    </table>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第3条 個人情報の利用目的</h2>
+    <p>当社は、取得した個人情報を以下の目的のために利用します。</p>
+    <ol class="legal-list">
+      <li>お問い合わせ・ご相談への対応および回答の送付</li>
+      <li>資料のご提供</li>
+      <li>当社のサービス（RPO・採用代行、CHRO代行、HRTech導入支援、人材紹介立ち上げ支援、スカウト代行、その他採用・人事に関する支援サービス）のご案内・ご提案</li>
+      <li>当社とお客様との間で締結するサービス利用契約の履行</li>
+      <li>セミナー・ウェビナーのご案内</li>
+      <li>アンケートの実施その他サービス改善のための調査・分析</li>
+      <li>上記各目的に付随する業務の遂行</li>
+    </ol>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第4条 個人情報の第三者提供</h2>
+    <p>当社は、以下のいずれかに該当する場合を除き、お客様の同意なく個人情報を第三者に提供しません。</p>
+    <ol class="legal-list">
+      <li>法令に基づく場合</li>
+      <li>人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき</li>
+      <li>公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき</li>
+      <li>国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき</li>
+    </ol>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第5条 業務委託</h2>
+    <p>当社は、利用目的の達成に必要な範囲内において、個人情報の取扱いを外部事業者に委託する場合があります。委託にあたっては、当社が定める基準に従い、委託先の適切性を確認したうえで、個人情報の安全管理に必要な事項を契約で定め、適切な監督を行います。</p>
+    <p>なお、当社では本サイトのフォーム送信処理にVercel, Inc.が提供するサーバーレスプラットフォーム（alumnet-form-api.vercel.app）を利用しており、送信データは同プラットフォームを経由して処理されます。</p>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第6条 Cookie・アクセス解析ツールの利用</h2>
+    <p>本サイトでは、現時点においてCookie（クッキー）を利用したアクセス解析ツール（Google Analytics 等）を使用しておりません。将来的にこれらを導入する場合は、本ポリシーを改定したうえで、その利用目的を明示します。</p>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第7条 安全管理措置</h2>
+    <p>当社は、取得した個人情報について、不正アクセス・漏洩・滅失・毀損等を防止するため、適切な安全管理措置を講じます。具体的には、個人情報へのアクセス制限、従業者への個人情報保護に関する教育・啓発、情報処理システムの安全管理等を実施します。</p>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第8条 個人情報の開示・訂正・利用停止等の手続き</h2>
+    <p>お客様は、当社が保有するご自身の個人情報について、個人情報保護法に基づき、以下の請求を行うことができます。</p>
+    <ol class="legal-list">
+      <li>利用目的の通知</li>
+      <li>開示</li>
+      <li>内容の訂正・追加または削除</li>
+      <li>利用の停止または消去</li>
+      <li>第三者への提供の停止</li>
+    </ol>
+    <p>ご請求は、下記のお問い合わせ窓口にご連絡ください。本人確認のうえ、合理的な期間内に対応いたします。なお、手続き上必要となる実費（書面郵送費等）が生じる場合は、実費相当額をご負担いただく場合があります。</p>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第9条 個人情報に関するお問い合わせ窓口</h2>
+    <p>個人情報の取扱いに関するご意見・ご要望・ご相談は、以下の窓口にお問い合わせください。</p>
+    <ul class="legal-sublist">
+      <li>メール: info@alum-net.com</li>
+      <li>フォーム: 本サイトのお問い合わせフォーム（<a href="https://alum-net.jp/contact.html">https://alum-net.jp/contact.html</a>）</li>
+      <li>担当: 個人情報保護管理者 宅和奈帆子・代表取締役</li>
+    </ul>
+    <p>なお、開示等の請求に関するご回答には、10営業日程度を要する場合があります。</p>
+  </div>
+
+  <div class="legal-article">
+    <h2 class="legal-article-title">第10条 本ポリシーの変更</h2>
+    <p>当社は、法令の改正その他必要に応じて、本ポリシーを変更することがあります。変更後のポリシーは、本サイトに掲載した時点から効力を生じるものとします。重要な変更については、本サイト上での告知その他適切な方法によりお知らせします。</p>
+  </div>
+
+  <div class="legal-end">
+    制定: 2026年6月13日<br>
+    AlumNET株式会社
+  </div>
+
+  <a href="index.html" class="legal-back">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    トップページに戻る
+  </a>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-logo">
+          <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
+            <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
+            <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
+            <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
+            <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
+            <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
+            <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
+            <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
+            <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
+            <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
+            <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
+          </svg>
+        </div>
+        <div class="footer-tagline">HR戦略パートナー</div>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <div class="footer-nav-group-title">Services</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#services">RPO（採用代行）</a></li>
+            <li><a href="index.html#services">CHRO代行</a></li>
+            <li><a href="index.html#services">HRTech導入支援</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-nav-group-title">Company</div>
+          <ul class="footer-nav-links">
+            <li><a href="index.html#results">実績</a></li>
+            <li><a href="index.html#why">強み</a></li>
+            <li><a href="download.html">資料ダウンロード</a></li>
+            <li><a href="contact.html">無料相談</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 AlumNET株式会社. All Rights Reserved.</div>
+      <div class="footer-links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    const hamburger = document.querySelector('.hamburger');
+    menu.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
+  }
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.height = window.scrollY > 60 ? '60px' : '72px';
+  });
+</script>
+</body>
+</html>

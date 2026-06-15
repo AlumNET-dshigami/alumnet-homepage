@@ -13,12 +13,20 @@
 <meta property="og:url" content="https://alum-net.jp/">
 <meta property="og:site_name" content="AlumNET株式会社">
 <meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@AlumnetCeo">
 <meta name="twitter:title" content="AlumNET | RPO・CHRO代行・HRTech導入">
 <meta name="twitter:description" content="大手HR出身100名のプロが、採用の上流から一緒に設計する。">
+<meta name="twitter:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/alumnet-logo-square-512.png">
+<link rel="apple-touch-icon" href="assets/alumnet-logo-square-512.png">
 
 <!-- Canonical -->
 <link rel="canonical" href="https://alum-net.jp/">
@@ -1480,6 +1488,18 @@ footer {
   color: rgba(255,255,255,0.2);
   font-weight: 300;
 }
+.footer-legal-links {
+  display: flex;
+  gap: 20px;
+}
+.footer-legal-links a {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.footer-legal-links a:hover { color: var(--teal); }
 
 /* ========== PRICING TABLE ========== */
 .pricing-table-wrap {
@@ -1736,6 +1756,19 @@ footer {
 
 .team-new-card:hover {
   box-shadow: 0 12px 40px rgba(46,196,182,0.1);
+}
+
+.team-new-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 3px solid var(--white);
+  box-shadow: 0 6px 20px rgba(11,43,38,0.12);
+  margin-bottom: 24px;
+  background: var(--gray-100);
+  display: block;
 }
 
 .team-new-tags {
@@ -2519,6 +2552,7 @@ footer {
 
       <!-- 石神 大輔 -->
       <div class="team-new-card reveal">
+        <img src="assets/ishigami.jpg" alt="石神 大輔" class="team-new-photo" width="120" height="120" loading="lazy">
         <div class="team-new-tags">
           <span class="team-new-tag">IT領域の人材紹介</span>
           <span class="team-new-tag">生成AI×面接コンサル</span>
@@ -2558,6 +2592,7 @@ footer {
 
       <!-- 宅和 奈帆子 -->
       <div class="team-new-card reveal">
+        <img src="assets/takuwa.webp" alt="宅和 奈帆子" class="team-new-photo" width="120" height="120" loading="lazy">
         <div class="team-new-tags">
           <span class="team-new-tag">RPO・採用代行</span>
           <span class="team-new-tag">組織構築・HR戦略</span>
@@ -2833,6 +2868,10 @@ footer {
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2025 AlumNET株式会社. All rights reserved.</div>
+      <div class="footer-legal-links">
+        <a href="privacy.html">プライバシーポリシー</a>
+        <a href="terms.html">利用規約</a>
+      </div>
       <div class="footer-company-info">東京都港区北青山1丁目3番1号 アールキューブ青山3階 / 設立2025年6月 / 法人番号 1010401190768</div>
     </div>
   </div>

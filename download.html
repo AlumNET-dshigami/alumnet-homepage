@@ -5,6 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>資料ダウンロード | AlumNET株式会社</title>
 <meta name="description" content="AlumNETのサービス資料・導入事例集・料金プランなどをダウンロードいただけます。アルムナイ採用・RPO・CHRO代行の詳細をご覧ください。">
+
+<!-- OGP -->
+<meta property="og:title" content="資料ダウンロード | AlumNET株式会社">
+<meta property="og:description" content="サービス資料・導入事例集・料金プランなどをダウンロードいただけます。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://alum-net.jp/download.html">
+<meta property="og:site_name" content="AlumNET株式会社">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@AlumnetCeo">
+<meta name="twitter:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="assets/alumnet-logo-square-512.png">
+<link rel="apple-touch-icon" href="assets/alumnet-logo-square-512.png">
+
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -470,6 +489,18 @@
 
   .dl-modal-submit:active { transform: translateY(0); }
 
+  .dl-modal-note {
+    font-size: 12px;
+    color: var(--gray-mid);
+    text-align: center;
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+  .dl-modal-note a {
+    color: var(--teal);
+    text-decoration: underline;
+  }
+
   .dl-modal-submit:disabled {
     background: var(--gray-mid);
     cursor: not-allowed;
@@ -858,6 +889,7 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         送信してダウンロード
       </button>
+      <p class="dl-modal-note">送信をもって<a href="privacy.html">プライバシーポリシー</a>に同意したものとみなします。</p>
     </form>
   </div>
 </div>
@@ -920,12 +952,10 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-copy">&copy; 2025 AlumNET株式会社. All Rights Reserved.</div>
-      <!-- TODO: privacy.html / terms.html を用意したらリンクを復活させる（法務文書の本文起草が必要）
       <div class="footer-links">
         <a href="privacy.html">プライバシーポリシー</a>
         <a href="terms.html">利用規約</a>
       </div>
-      -->
 
     </div>
   </div>
