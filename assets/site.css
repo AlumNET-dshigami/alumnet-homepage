@@ -154,14 +154,18 @@ nav a:hover{color:var(--ink);}
 }
 
 /* ==========================================================================
-   INDEX — CLIENTS（テキストワードマークのグリッド）
-   差し替え手順: .client-cell 1社=1要素。画像ロゴに切り替える際は各セルの
-   テキストを <img src="assets/logos/◯◯.svg" alt="◯◯"> に置換するだけでよい。
+   INDEX — CLIENTS（ロゴ／テキストワードマーク混在グリッド）
+   差し替え手順: .client-cell 1社=1要素。画像ロゴが未取得の社だけテキストの
+   ままでよい（.client-cell はflex中央寄せなので画像・テキスト混在でも
+   レイアウトは崩れない）。画像ロゴは <img class="client-logo" src="assets/logos/◯◯.svg" alt="◯◯">
+   に置換する。ロゴは既定でグレースケール表示、ホバーでカラー復帰する。
    ========================================================================== */
 .clients-row{margin-top:32px;display:flex;flex-wrap:wrap;border-top:1px solid var(--gray-300);}
-.client-cell{flex:1 1 33.333%;min-width:180px;padding:24px 24px;border-left:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);font-size:15px;font-weight:500;letter-spacing:0.02em;color:var(--gray-700);}
+.client-cell{flex:1 1 33.333%;min-width:180px;min-height:88px;padding:24px 24px;display:flex;align-items:center;justify-content:center;border-left:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);font-size:15px;font-weight:500;letter-spacing:0.02em;color:var(--gray-700);text-align:center;}
 .client-cell:nth-child(3n+1){border-left:none;}
-@media(max-width:640px){.client-cell{flex:1 1 50%;font-size:13.5px;padding:20px 16px;}.client-cell:nth-child(3n+1){border-left:1px solid var(--gray-300);}.client-cell:nth-child(2n+1){border-left:none;}}
+.client-logo{height:30px;width:auto;max-width:100%;filter:grayscale(100%);opacity:0.72;transition:filter .2s ease,opacity .2s ease;}
+.client-cell:hover .client-logo{filter:grayscale(0%);opacity:1;}
+@media(max-width:640px){.client-cell{flex:1 1 50%;font-size:13.5px;padding:20px 16px;min-height:76px;}.client-cell:nth-child(3n+1){border-left:1px solid var(--gray-300);}.client-cell:nth-child(2n+1){border-left:none;}.client-logo{height:26px;}}
 
 /* ============ INDEX — PAIN（2x2 罫線グリッド。カード化しない） ============ */
 .pain-grid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
