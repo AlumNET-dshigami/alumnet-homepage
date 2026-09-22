@@ -27,839 +27,131 @@
 <!-- Canonical -->
 <link rel="canonical" href="https://alum-net.jp/download.html">
 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0B2B26;
-    --navy-mid: #123D35;
-    --navy-light: #1A5244;
-    --gold: #2EC4B6;
-    --gold-light: #4EDDD0;
-    --teal: #2A7F8F;
-    --teal-light: #3AABB9;
-    --white: #FFFFFF;
-    --off-white: #F4F9F8;
-    --gray-light: #E0EBE8;
-    --gray-mid: #8A9B97;
-    --text-dark: #0B2B26;
-    --text-mid: #3A5550;
-    --accent-blue: #2EC4B6;
-    --accent-purple: #20A89A;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Noto Sans JP', sans-serif;
-    color: var(--text-dark);
-    background: var(--white);
-    overflow-x: hidden;
-  }
-
-  /* ========== NAVIGATION ========== */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 1000;
-    background: rgba(11, 43, 38, 0.97);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(46, 196, 182, 0.2);
-    padding: 0 48px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.3s ease;
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 0;
-  }
-
-  .nav-logo svg {
-    height: 32px;
-    width: auto;
-  }
-
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 36px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: rgba(255,255,255,0.78);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--gold-light); }
-
-  .nav-links a.active {
-    color: var(--gold);
-    font-weight: 500;
-  }
-
-  .nav-cta {
-    background: var(--gold);
-    color: var(--navy) !important;
-    font-weight: 700 !important;
-    padding: 10px 24px;
-    border-radius: 2px;
-    transition: background 0.2s !important;
-  }
-
-  .nav-cta:hover { background: var(--gold-light) !important; }
-
-  /* Hamburger */
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 8px;
-    z-index: 1002;
-  }
-  .hamburger span {
-    width: 24px;
-    height: 2px;
-    background: var(--white);
-    transition: all 0.3s;
-    display: block;
-  }
-  .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-  .hamburger.active span:nth-child(2) { opacity: 0; }
-  .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(11,43,38,0.98);
-    z-index: 1001;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
-  }
-  .mobile-menu.active { display: flex; }
-  .mobile-menu a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    transition: color 0.2s;
-  }
-  .mobile-menu a:hover { color: var(--gold); }
-  .mobile-menu .btn-primary {
-    margin-top: 16px;
-  }
-
-  /* ========== PAGE HERO ========== */
-  .page-hero {
-    background: var(--navy);
-    padding: 140px 48px 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .page-hero::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(46,196,182,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 30%, rgba(78,221,208,0.06) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .page-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .page-hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(46,196,182,0.12);
-    border: 1px solid rgba(46,196,182,0.25);
-    padding: 8px 20px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-  }
-
-  .page-hero-badge-text {
-    color: var(--gold);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .page-hero-title {
-    color: var(--white);
-    font-family: 'Noto Serif JP', serif;
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 1.3;
-    margin-bottom: 20px;
-  }
-
-  .page-hero-lead {
-    color: rgba(255,255,255,0.7);
-    font-size: 16px;
-    line-height: 1.8;
-  }
-
-  /* ========== MAIN CONTENT ========== */
-  .dl-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 48px;
-  }
-
-  /* ========== RESOURCE CARDS ========== */
-  .dl-section-label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
-  }
-
-  .dl-section-label-tag {
-    background: var(--navy);
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 2px;
-    letter-spacing: 0.1em;
-  }
-
-  .dl-section-label-text {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text-dark);
-    font-family: 'Noto Serif JP', serif;
-  }
-
-  .dl-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 64px;
-  }
-
-  .dl-card {
-    background: var(--white);
-    border: 1px solid var(--gray-light);
-    border-radius: 12px;
-    padding: 32px 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  }
-
-  .dl-card:hover {
-    border-color: var(--gold);
-    box-shadow: 0 8px 32px rgba(46,196,182,0.1);
-    transform: translateY(-2px);
-  }
-
-  .dl-card-icon {
-    width: 48px;
-    height: 48px;
-    background: var(--off-white);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  .dl-card-icon svg {
-    width: 24px;
-    height: 24px;
-    color: var(--gold);
-  }
-
-  .dl-card-title {
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text-dark);
-    line-height: 1.4;
-  }
-
-  .dl-card-desc {
-    font-size: 14px;
-    color: var(--text-mid);
-    line-height: 1.7;
-    flex: 1;
-  }
-
-  .dl-card-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px 20px;
-    background: var(--navy);
-    color: var(--white);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: auto;
-  }
-
-  .dl-card-btn:hover {
-    background: var(--navy-mid);
-    transform: translateY(-1px);
-  }
-
-  .dl-card-btn svg { flex-shrink: 0; width: 16px; height: 16px; }
-
-  /* ========== MODAL OVERLAY ========== */
-  .dl-modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2000;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-  }
-
-  .dl-modal-overlay.active {
-    display: flex;
-  }
-
-  .dl-modal {
-    background: var(--white);
-    border-radius: 12px;
-    max-width: 480px;
-    width: 100%;
-    padding: 40px 36px 36px;
-    position: relative;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.3);
-    animation: modalIn 0.25s ease-out;
-  }
-
-  @keyframes modalIn {
-    from { opacity: 0; transform: translateY(16px) scale(0.97); }
-    to { opacity: 1; transform: translateY(0) scale(1); }
-  }
-
-  .dl-modal-close {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    width: 36px;
-    height: 36px;
-    border: none;
-    background: var(--off-white);
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s;
-    color: var(--text-mid);
-    font-size: 20px;
-    line-height: 1;
-  }
-
-  .dl-modal-close:hover {
-    background: var(--gray-light);
-    color: var(--text-dark);
-  }
-
-  .dl-modal-title {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-  }
-
-  .dl-modal-lead {
-    color: var(--text-mid);
-    font-size: 14px;
-    margin-bottom: 28px;
-    line-height: 1.6;
-  }
-
-  .dl-modal-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .dl-modal-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .dl-modal-label {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--text-dark);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .dl-modal-required {
-    background: #E74C3C;
-    color: var(--white);
-    font-size: 10px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 2px;
-    letter-spacing: 0.05em;
-  }
-
-  .dl-modal-input {
-    padding: 12px 16px;
-    border: 1px solid var(--gray-light);
-    border-radius: 6px;
-    font-size: 15px;
-    font-family: 'Noto Sans JP', sans-serif;
-    background: var(--white);
-    color: var(--text-dark);
-    transition: border-color 0.2s, box-shadow 0.2s;
-    outline: none;
-  }
-
-  .dl-modal-input:focus {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 3px rgba(46,196,182,0.12);
-  }
-
-  .dl-modal-input.error {
-    border-color: #E74C3C;
-    box-shadow: 0 0 0 3px rgba(231,76,60,0.1);
-  }
-
-  .dl-modal-error {
-    font-size: 12px;
-    color: #E74C3C;
-    min-height: 16px;
-  }
-
-  .dl-modal-submit {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 16px 32px;
-    background: var(--gold);
-    color: var(--navy);
-    font-family: 'Noto Sans JP', sans-serif;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.2s, transform 0.1s;
-    margin-top: 8px;
-  }
-
-  .dl-modal-submit:hover {
-    background: var(--gold-light);
-    transform: translateY(-1px);
-  }
-
-  .dl-modal-submit:active { transform: translateY(0); }
-
-  .dl-modal-note {
-    font-size: 12px;
-    color: var(--gray-mid);
-    text-align: center;
-    margin-top: 14px;
-    line-height: 1.7;
-  }
-  .dl-modal-note a {
-    color: var(--teal);
-    text-decoration: underline;
-  }
-
-  .dl-modal-submit:disabled {
-    background: var(--gray-mid);
-    cursor: not-allowed;
-    transform: none;
-  }
-
-  .dl-modal-submit svg { flex-shrink: 0; }
-
-  /* ========== FOOTER ========== */
-  footer {
-    background: var(--navy);
-    color: rgba(255,255,255,0.6);
-    padding: 64px 48px 32px;
-    font-size: 14px;
-  }
-
-  .footer-inner { max-width: 1200px; margin: 0 auto; }
-
-  .footer-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 48px;
-  }
-
-  .footer-logo {
-    margin-bottom: 12px;
-  }
-
-  .footer-logo svg {
-    height: 36px;
-    width: auto;
-  }
-
-  .footer-tagline {
-    color: rgba(255,255,255,0.4);
-    font-size: 13px;
-    letter-spacing: 0.15em;
-  }
-
-  .footer-nav {
-    display: flex;
-    gap: 56px;
-  }
-
-  .footer-nav-group-title {
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .footer-nav-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .footer-nav-links a {
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    font-size: 13px;
-    transition: color 0.2s;
-  }
-
-  .footer-nav-links a:hover { color: rgba(255,255,255,0.8); }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-copy {
-    color: rgba(255,255,255,0.3);
-    font-size: 12px;
-  }
-
-  .footer-links {
-    display: flex;
-    gap: 24px;
-  }
-
-  .footer-links a {
-    color: rgba(255,255,255,0.35);
-    text-decoration: none;
-    font-size: 12px;
-    transition: color 0.2s;
-  }
-
-  .footer-links a:hover { color: rgba(255,255,255,0.6); }
-
-  /* ========== RESPONSIVE ========== */
-  @media (max-width: 1024px) {
-    nav { padding: 0 24px; }
-    .page-hero { padding: 120px 24px 60px; }
-    .dl-main { padding: 60px 24px; }
-    .dl-cards { grid-template-columns: 1fr 1fr; }
-    footer { padding: 48px 24px 24px; }
-    .footer-top { flex-direction: column; gap: 40px; }
-    .footer-nav { gap: 32px; flex-wrap: wrap; }
-  }
-
-  @media (max-width: 640px) {
-    .nav-links { display: none; }
-    .hamburger { display: flex; }
-    .page-hero { padding: 100px 16px 48px; }
-    .page-hero-title { font-size: 28px; }
-    .page-hero-lead { font-size: 14px; }
-    .dl-main { padding: 40px 16px; }
-    .dl-cards { grid-template-columns: 1fr; }
-    .dl-section-label { flex-direction: column; align-items: flex-start; gap: 8px; }
-    .dl-modal { padding: 32px 20px 28px; }
-    .dl-modal-title { font-size: 19px; }
-    .mobile-cta-bar { display: block; } /* モバイル(<=640px)でのみバーを描画。表示制御は.visibleクラスで行う */
-  }
-
-  /* ========== MOBILE FLOATING CTA BAR ========== */
-  .mobile-cta-bar {
-    display: none; /* PCでは一切表示しない。640px以下のメディアクエリでのみdisplay:block化 */
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1003; /* nav/mobile-menuより前面 */
-    background: var(--navy);
-    padding: 10px 16px;
-    padding-bottom: calc(10px + env(safe-area-inset-bottom)); /* iPhoneホームバー対応 */
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.18);
-    transform: translateY(110%);
-    opacity: 0;
-    transition: transform 0.35s ease, opacity 0.35s ease;
-    pointer-events: none;
-  }
-  .mobile-cta-bar.visible {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-  .mobile-cta-bar a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    min-height: 48px;
-    background: var(--gold);
-    color: var(--navy); /* #2EC4B6地に#0B2B26文字 = 約7.4:1 (WCAG AAA) */
-    font-weight: 700;
-    font-size: 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-  .mobile-cta-bar a:active { background: var(--teal); }
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
 </head>
-<body>
+<body class="has-mobile-cta">
 
-<!-- NAVIGATION -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <svg viewBox="0 0 160 40" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
-      <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
-      <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
-      <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
-      <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
-      <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
-      <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
-      <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
-      <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
-      <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
-      <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
-    </svg>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html#services">サービス</a></li>
-    <li><a href="index.html#results">実績</a></li>
-    <li><a href="index.html#why">強み</a></li>
-    <li><a href="download.html" class="active">資料DL</a></li>
-    <li><a href="index.html#contact">お問い合わせ</a></li>
-    <li><a href="contact.html" class="nav-cta">無料相談を予約 &rarr;</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
+
+<header>
+  <div class="nav-inner">
+    <div class="logo">Alum<span>NET</span></div>
+    <nav><ul>
+      <li><a href="index.html#services">サービス</a></li>
+      <li><a href="index.html#alumni">アルムナイ</a></li>
+      <li><a href="index.html#results">実績</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul></nav>
+    <a href="contact.html" class="nav-cta">無料相談を予約</a>
   </div>
-</nav>
+</header>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="index.html#services" onclick="toggleMenu()">サービス</a>
-  <a href="index.html#results" onclick="toggleMenu()">実績</a>
-  <a href="index.html#why" onclick="toggleMenu()">強み</a>
-  <a href="download.html" onclick="toggleMenu()">資料DL</a>
-  <a href="index.html#contact" onclick="toggleMenu()">お問い合わせ</a>
-  <a href="contact.html" class="btn-primary" style="margin-top:8px;background:var(--gold);color:var(--navy);padding:14px 32px;border-radius:2px;font-weight:700;">30分の無料相談を予約する &rarr;</a>
-</div>
-
-<!-- PAGE HERO -->
+<!-- ============ PAGE HERO ============ -->
 <section class="page-hero">
-  <div class="page-hero-content">
-    <div class="page-hero-badge">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2EC4B6" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      <span class="page-hero-badge-text">Documents</span>
+  <div class="page-hero-eyebrow">Documents</div>
+  <h1>資料ダウンロード</h1>
+  <p class="page-hero-lead">アルムナイ採用の導入ガイドや事例集、サービス比較表など、御社の採用戦略にお役立ていただける資料をご用意しています。</p>
+</section>
+
+<!-- ============ LEAD GENERATION RESOURCES ============ -->
+<section class="section" id="lead-docs">
+  <div class="section-label">Lead</div>
+  <div class="section-title">お役立ち資料</div>
+  <div class="doc-list">
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+      <div>
+        <div class="doc-title">アルムナイ採用ガイドブック</div>
+        <p class="doc-desc">アルムナイ採用の定義・メリット・導入ステップを網羅した完全ガイド</p>
+      </div>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E3%82%A2%E3%83%AB%E3%83%A0%E3%83%8A%E3%82%A4%E6%8E%A1%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF.pdf" data-resource="アルムナイ採用ガイドブック">ダウンロード</button>
     </div>
-    <h1 class="page-hero-title">資料ダウンロード</h1>
-    <p class="page-hero-lead">アルムナイ採用の導入ガイドや事例集、サービス比較表など、<br>御社の採用戦略にお役立ていただける資料をご用意しています。</p>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+      <div>
+        <div class="doc-title">導入事例集</div>
+        <p class="doc-desc">人材紹介立ち上げ・成約実績・育成実績の具体的な事例</p>
+      </div>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E5%B0%8E%E5%85%A5%E4%BA%8B%E4%BE%8B%E9%9B%86.pdf" data-resource="導入事例集">ダウンロード</button>
+    </div>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+      <div>
+        <div class="doc-title">サービス比較表</div>
+        <p class="doc-desc">AlumNETと一般的な人材紹介・RPOとの違いを一目で比較</p>
+      </div>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%AF%94%E8%BC%83%E8%A1%A8.pdf" data-resource="サービス比較表">ダウンロード</button>
+    </div>
   </div>
 </section>
 
-<!-- MAIN -->
-<div class="dl-main">
-
-  <!-- LEAD GENERATION RESOURCES -->
-  <div class="dl-section-label">
-    <span class="dl-section-label-tag">LEAD</span>
-    <span class="dl-section-label-text">お役立ち資料</span>
-  </div>
-  <div class="dl-cards">
-    <!-- Card 1: Alumni Guide -->
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+<!-- ============ COMPANY RESOURCES ============ -->
+<section class="section" id="company-docs">
+  <div class="section-label">Company</div>
+  <div class="section-title">サービス資料</div>
+  <div class="doc-list">
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+      <div>
+        <div class="doc-title">会社案内</div>
+        <p class="doc-desc">AlumNET株式会社の概要・MVV・メンバー紹介</p>
       </div>
-      <h3 class="dl-card-title">アルムナイ採用ガイドブック</h3>
-      <p class="dl-card-desc">アルムナイ採用の定義・メリット・導入ステップを網羅した完全ガイド</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E3%82%A2%E3%83%AB%E3%83%A0%E3%83%8A%E3%82%A4%E6%8E%A1%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89%E3%83%96%E3%83%83%E3%82%AF.pdf" data-resource="アルムナイ採用ガイドブック">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E4%BC%9A%E7%A4%BE%E6%A1%88%E5%86%85.pdf" data-resource="会社案内">ダウンロード</button>
     </div>
-
-    <!-- Card 2: Case Studies -->
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg></div>
+      <div>
+        <div class="doc-title">サービス紹介</div>
+        <p class="doc-desc">7つのサービスの詳細・AI活用・実装事例</p>
       </div>
-      <h3 class="dl-card-title">導入事例集</h3>
-      <p class="dl-card-desc">人材紹介立ち上げ・成約実績・育成実績の具体的な事例</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E5%B0%8E%E5%85%A5%E4%BA%8B%E4%BE%8B%E9%9B%86.pdf" data-resource="導入事例集">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E7%B4%B9%E4%BB%8B.pdf" data-resource="サービス紹介">ダウンロード</button>
     </div>
-
-    <!-- Card 3: Service Comparison -->
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div>
+        <div class="doc-title">料金プラン</div>
+        <p class="doc-desc">RPO / CHRO代行 / HRTech導入 / アルムナイ・タレントプール運用の料金体系</p>
       </div>
-      <h3 class="dl-card-title">サービス比較表</h3>
-      <p class="dl-card-desc">AlumNETと一般的な人材紹介・RPOとの違いを一目で比較</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E6%AF%94%E8%BC%83%E8%A1%A8.pdf" data-resource="サービス比較表">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E6%96%99%E9%87%91%E3%83%97%E3%83%A9%E3%83%B3.pdf" data-resource="料金プラン">ダウンロード</button>
     </div>
   </div>
+</section>
 
-  <!-- COMPANY RESOURCES -->
-  <div class="dl-section-label">
-    <span class="dl-section-label-tag">COMPANY</span>
-    <span class="dl-section-label-text">サービス資料</span>
-  </div>
-  <div class="dl-cards">
-    <!-- Card 4: Company Profile -->
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+<!-- ============ HR TIPS & AI RESOURCES ============ -->
+<section class="section" id="tips-docs">
+  <div class="section-label">Tips</div>
+  <div class="section-title">採用ノウハウ・AI活用</div>
+  <div class="doc-list">
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div>
+        <div class="doc-title">採用Tips</div>
+        <p class="doc-desc">スカウトの効果的な打ち方・エージェントコントロール・面接の構造化</p>
       </div>
-      <h3 class="dl-card-title">会社案内</h3>
-      <p class="dl-card-desc">AlumNET株式会社の概要・MVV・メンバー紹介</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E4%BC%9A%E7%A4%BE%E6%A1%88%E5%86%85.pdf" data-resource="会社案内">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_%E6%8E%A1%E7%94%A8Tips.pdf" data-resource="採用Tips">ダウンロード</button>
     </div>
-
-    <!-- Card 5: Service Introduction -->
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div>
+        <div class="doc-title">AI×採用活用ガイド</div>
+        <p class="doc-desc">採用工程の80%をAIで自動化する実践ガイド</p>
       </div>
-      <h3 class="dl-card-title">サービス紹介</h3>
-      <p class="dl-card-desc">7つのサービスの詳細・AI活用・実装事例</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E7%B4%B9%E4%BB%8B.pdf" data-resource="サービス紹介">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_AI%E6%8E%A1%E7%94%A8%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" data-resource="AI×採用活用ガイド">ダウンロード</button>
     </div>
-
-    <!-- Card 6: Pricing -->
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+    <div class="doc-row">
+      <div class="doc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg></div>
+      <div>
+        <div class="doc-title">Claude×HR活用ガイド</div>
+        <p class="doc-desc">Claudeで人事業務を変革する実践ガイド（プロンプト例付き）</p>
       </div>
-      <h3 class="dl-card-title">料金プラン</h3>
-      <p class="dl-card-desc">RPO / CHRO代行 / HRTech導入 / アルムナイ・タレントプール運用の料金体系</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E6%96%99%E9%87%91%E3%83%97%E3%83%A9%E3%83%B3.pdf" data-resource="料金プラン">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
+      <button class="btn-secondary" data-dl data-href="docs/AlumNET_Claude%C3%97HR%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" data-resource="Claude×HR活用ガイド">ダウンロード</button>
     </div>
   </div>
+</section>
 
-</div>
-
-  <!-- HR TIPS & AI RESOURCES -->
-  <div class="dl-section-label">
-    <span class="dl-section-label-tag">TIPS</span>
-    <span class="dl-section-label-text">採用ノウハウ・AI活用</span>
-  </div>
-  <div class="dl-cards">
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-      </div>
-      <h3 class="dl-card-title">採用Tips</h3>
-      <p class="dl-card-desc">スカウトの効果的な打ち方・エージェントコントロール・面接の構造化</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_%E6%8E%A1%E7%94%A8Tips.pdf" data-resource="採用Tips">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
-    </div>
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      </div>
-      <h3 class="dl-card-title">AI×採用活用ガイド</h3>
-      <p class="dl-card-desc">採用工程の80%をAIで自動化する実践ガイド</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_AI%E6%8E%A1%E7%94%A8%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" data-resource="AI×採用活用ガイド">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
-    </div>
-    <div class="dl-card">
-      <div class="dl-card-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 6v6l4 2"/></svg>
-      </div>
-      <h3 class="dl-card-title">Claude×HR活用ガイド</h3>
-      <p class="dl-card-desc">Claudeで人事業務を変革する実践ガイド（プロンプト例付き）</p>
-      <button class="dl-card-btn" data-dl data-href="docs/AlumNET_Claude%C3%97HR%E6%B4%BB%E7%94%A8%E3%82%AC%E3%82%A4%E3%83%89.pdf" data-resource="Claude×HR活用ガイド">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        ダウンロード
-      </button>
-    </div>
-  </div>
-
-<!-- DOWNLOAD MODAL -->
+<!-- ============ DOWNLOAD MODAL ============ -->
 <div class="dl-modal-overlay" id="dlModalOverlay">
   <div class="dl-modal">
     <button class="dl-modal-close" id="dlModalClose" type="button" aria-label="閉じる">&times;</button>
@@ -868,117 +160,79 @@
     <form id="dlModalForm" class="dl-modal-form" novalidate>
       <input type="hidden" id="modalResource" name="resource" value="">
       <div class="dl-modal-group">
-        <label class="dl-modal-label" for="modalCompany">
-          会社名 <span class="dl-modal-required">必須</span>
-        </label>
+        <label class="dl-modal-label" for="modalCompany">会社名<span class="dl-modal-required">必須</span></label>
         <input type="text" id="modalCompany" name="company" class="dl-modal-input" placeholder="例: AlumNET株式会社" required>
         <span class="dl-modal-error" id="modalCompanyError"></span>
       </div>
       <div class="dl-modal-group">
-        <label class="dl-modal-label" for="modalName">
-          お名前 <span class="dl-modal-required">必須</span>
-        </label>
+        <label class="dl-modal-label" for="modalName">お名前<span class="dl-modal-required">必須</span></label>
         <input type="text" id="modalName" name="name" class="dl-modal-input" placeholder="例: 山田 太郎" required>
         <span class="dl-modal-error" id="modalNameError"></span>
       </div>
       <div class="dl-modal-group">
-        <label class="dl-modal-label" for="modalEmail">
-          メールアドレス <span class="dl-modal-required">必須</span>
-        </label>
+        <label class="dl-modal-label" for="modalEmail">メールアドレス<span class="dl-modal-required">必須</span></label>
         <input type="email" id="modalEmail" name="email" class="dl-modal-input" placeholder="例: taro.yamada@example.com" required>
         <span class="dl-modal-error" id="modalEmailError"></span>
       </div>
-      <button type="submit" class="dl-modal-submit" id="modalSubmitBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        送信してダウンロード
-      </button>
+      <button type="submit" class="btn-primary dl-modal-submit" id="modalSubmitBtn">送信してダウンロード</button>
       <p class="dl-modal-note">送信をもって<a href="privacy.html">プライバシーポリシー</a>に同意したものとみなします。</p>
     </form>
   </div>
 </div>
 
-<!-- MOBILE FLOATING CTA BAR (モバイルのみ・ヒーロー通過後に表示) -->
+<!-- ============ MOBILE FLOATING CTA BAR（モバイルのみ・ヒーロー通過後に表示） ============ -->
 <div class="mobile-cta-bar" id="mobile-cta-bar">
   <a href="contact.html">30分の無料相談を予約する &rarr;</a>
 </div>
 
-<!-- FOOTER -->
+<!-- ============ FOOTER ============ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <div class="footer-logo">
-          <svg viewBox="0 0 240 48" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="24" r="6" fill="#2EC4B6"/>
-            <circle cx="34" cy="10" r="4" fill="#4EDDD0"/>
-            <circle cx="38" cy="34" r="5" fill="#3AABB9"/>
-            <circle cx="50" cy="22" r="3" fill="#2EC4B6" opacity="0.6"/>
-            <line x1="16" y1="24" x2="34" y2="10" stroke="#2EC4B6" stroke-width="1.2" opacity="0.4"/>
-            <line x1="16" y1="24" x2="38" y2="34" stroke="#4EDDD0" stroke-width="1.2" opacity="0.4"/>
-            <line x1="34" y1="10" x2="50" y2="22" stroke="#2EC4B6" stroke-width="1.2" opacity="0.3"/>
-            <line x1="38" y1="34" x2="50" y2="22" stroke="#4EDDD0" stroke-width="1.2" opacity="0.3"/>
-            <line x1="16" y1="24" x2="50" y2="22" stroke="#3AABB9" stroke-width="0.8" opacity="0.2"/>
-            <text x="62" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">Alum</text>
-            <text x="130" y="30" font-family="'Inter', sans-serif" font-size="26" font-weight="700" fill="#2EC4B6" letter-spacing="0.02em">NET</text>
-          </svg>
-        </div>
-        <div class="footer-tagline">HR戦略パートナー</div>
+        <div class="footer-logo">Alum<span>NET</span></div>
+        <p class="footer-desc">採用を仕組みに、退職を資産にするHR戦略パートナー。大手HR出身150名のプロとAIが採用と退職後を一気通貫で支援します。</p>
       </div>
-      <div class="footer-nav">
-        <div>
-          <div class="footer-nav-group-title">Services</div>
-          <ul class="footer-nav-links">
-            <li><a href="index.html#services">RPO（採用代行）</a></li>
-            <li><a href="index.html#services">CHRO代行</a></li>
-            <li><a href="index.html#services">HRTech導入支援</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-nav-group-title">Technology</div>
-          <ul class="footer-nav-links">
-            <li><a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer">Recruit AI Ops</a></li>
-            <li><a href="https://hr-system-builder.vercel.app/" target="_blank" rel="noopener noreferrer">HR評価制度ビルダー</a></li>
-            <li><a href="https://talentboard-tms.vercel.app/" target="_blank" rel="noopener noreferrer">TalentBoard</a></li>
-            <li><a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer">ScoutAI</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="footer-nav-group-title">Company</div>
-          <ul class="footer-nav-links">
-            <li><a href="index.html#results">実績</a></li>
-            <li><a href="index.html#why">強み</a></li>
-            <li><a href="download.html">資料ダウンロード</a></li>
-            <li><a href="index.html#contact">お問い合わせ</a></li>
-          </ul>
-        </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="index.html#services">RPO（採用代行）</a></li>
+          <li><a href="index.html#alumni">アルムナイ・タレントプール運用</a></li>
+          <li><a href="index.html#services">CHRO代行</a></li>
+          <li><a href="index.html#services">HRTech導入支援</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Technology</div>
+        <ul class="footer-links">
+          <li><a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer">Recruit AI Ops</a></li>
+          <li><a href="index.html#ai-tech">スカウト生成AI</a></li>
+          <li><a href="index.html#ai-tech">書類選考AI</a></li>
+          <li><a href="index.html#ai-tech">採用ダッシュボード</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="https://x.com/AlumnetCeo" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a></li>
+        </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2025 AlumNET株式会社. All Rights Reserved.</div>
-      <div class="footer-links">
-        <a href="privacy.html">プライバシーポリシー</a>
-        <a href="terms.html">利用規約</a>
-      </div>
-
+      <div>&copy; 2025 AlumNET株式会社. All rights reserved.</div>
+      <div class="footer-legal"><a href="privacy.html">プライバシーポリシー</a><a href="terms.html">利用規約</a></div>
+      <div>東京都港区北青山1丁目3番1号 アールキューブ青山3階 / 設立2025年6月 / 法人番号 1010401190768</div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Mobile menu toggle
-  function toggleMenu() {
-    var hamburger = document.querySelector('.hamburger');
-    var mobileMenu = document.getElementById('mobileMenu');
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('active');
-    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
-  }
-
-  // Download modal logic
+  // Download modal logic（現物 download.html:977-1140 のロジックを1文字も変えずに移植。localStorage解錠・fetch先・フィールド名は不変）
   (function() {
     var STORAGE_KEY = 'alumnet_dl_unlocked';
     var overlay = document.getElementById('dlModalOverlay');
-    var modal = overlay.querySelector('.dl-modal');
     var closeBtn = document.getElementById('dlModalClose');
     var form = document.getElementById('dlModalForm');
     var submitBtn = document.getElementById('modalSubmitBtn');
@@ -1015,7 +269,7 @@
       form.reset();
       clearAllErrors();
       submitBtn.disabled = false;
-      submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 送信してダウンロード';
+      submitBtn.textContent = '送信してダウンロード';
     }
 
     // Validation
@@ -1133,7 +387,7 @@
       })
       .catch(function(error) {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> 送信してダウンロード';
+        submitBtn.textContent = '送信してダウンロード';
         alert('送信に失敗しました。しばらくしてから再度お試しください。');
       });
     });
