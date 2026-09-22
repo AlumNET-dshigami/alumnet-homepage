@@ -15,7 +15,7 @@
   --paper:#FAF9F6;      /* 背景（オフホワイト。純白は使わない） */
   --white:#FFFFFF;      /* 他セクションと差をつけたい面に限定使用（多用しない） */
   --gray-700:#4a4d4c;   /* 本文サブ・説明文 */
-  --gray-500:#7a7d7b;   /* キャプション・補足・数値ラベル */
+  --gray-500:#686b6a;   /* キャプション・補足・数値ラベル（--paper上 5.11:1／--gray-100上 4.56:1。どちらもWCAG AA適合） */
   --gray-300:#d8d8d3;   /* 罫線・区切り線（主要な区切り手段） */
   --gray-100:#eeece6;   /* テーブルヘッダ等、ごく薄い塗り面のみ */
   --teal:#2EC4B6;       /* ブランド色。CTA背景・非文字の装飾（罫線バー）専用。文字色には使わない */
@@ -40,6 +40,11 @@
 
 /* ============ RESET ============ */
 *{margin:0;padding:0;box-sizing:border-box;}
+/* 見出しタグは文書構造（スクリーンリーダーの見出しジャンプ・検索エンジンの
+   アウトライン）のためだけに使い、大きさ・太さはクラス側で決める。
+   これにより .section-title 等を div → h2/h3 に置き換えても見た目は変わらない。
+   クラスセレクタ（0,1,0）はこの要素セレクタ（0,0,1）より強いので上書きされる。 */
+h2,h3{font-size:inherit;font-weight:inherit;}
 html,body{background:var(--paper);color:var(--ink);}
 body{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;line-height:1.75;overflow-x:hidden;}
 img,svg{max-width:100%;}
@@ -103,6 +108,8 @@ nav a:hover{color:var(--ink);}
 .section-note{margin-top:14px;font-size:14.5px;color:var(--gray-700);max-width:620px;}
 
 /* ============ SECTION SHELL ============ */
+/* sticky header（実測81〜89px）の下にアンカー先が潜らないようにする */
+.section,.hero,.final{scroll-margin-top:96px;}
 .section{padding:var(--pad-minor) 40px;max-width:1120px;margin:0 auto;border-top:1px solid var(--gray-300);}
 .section.is-major{padding:var(--pad-major) 40px;}
 @media(max-width:640px){.section{padding:44px 24px;}.section.is-major{padding:64px 24px;}}
@@ -219,7 +226,6 @@ nav a:hover{color:var(--ink);}
 /* ============ INDEX — AI TECH ============ */
 .ai-grid{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
 .ai-cell{padding:26px 24px;border-right:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);}
-.ai-num{font-size:12px;font-weight:700;color:var(--gray-500);margin-bottom:10px;}
 .ai-name{font-size:15px;font-weight:700;margin-bottom:8px;}
 .ai-desc{font-size:12.5px;color:var(--gray-700);line-height:1.8;}
 .ai-cta-link{display:inline-block;margin-top:32px;font-size:13.5px;font-weight:700;color:var(--teal-ink);border-bottom:1px solid var(--teal-ink);padding-bottom:2px;}
@@ -281,7 +287,8 @@ nav a:hover{color:var(--ink);}
 .process-row{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--gray-300);}
 .process-cell{padding:22px 20px 0 0;border-left:1px solid var(--gray-300);}
 .process-cell:first-child{border-left:none;padding-left:0;}
-.process-num{font-size:26px;font-weight:700;color:var(--gray-300);}
+/* 「01〜05」は手順の順序という情報。装飾ではないので読める色にする */
+.process-num{font-size:26px;font-weight:700;color:var(--gray-500);}
 .process-name{font-size:14px;font-weight:700;margin-top:10px;}
 .process-sub{font-size:11.5px;color:var(--gray-500);margin-top:6px;line-height:1.7;}
 .process-note{margin-top:32px;font-size:13px;color:var(--gray-700);text-align:center;}
@@ -317,7 +324,8 @@ nav a:hover{color:var(--ink);}
 .form-optional{font-size:11px;color:var(--gray-500);}
 .form-input,.form-select,.form-textarea{width:100%;border:1px solid var(--gray-300);border-radius:var(--radius-sm);padding:13px 14px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--paper);}
 .form-textarea{min-height:120px;resize:vertical;line-height:1.7;}
-.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--teal-ink);}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--teal-ink);}
+.form-input:focus-visible,.form-select:focus-visible,.form-textarea:focus-visible{outline:2px solid var(--teal-ink);outline-offset:2px;}
 /* エラー表示は機能色 --error。枠線とメッセージの両方を着色して、
    どの項目が不正かを色と文言の二重で伝える（色だけに依存しない） */
 .form-input.error,.form-select.error,.form-textarea.error{border-color:var(--error);border-width:1.5px;}
@@ -345,9 +353,11 @@ nav a:hover{color:var(--ink);}
   .doc-row .btn-secondary{grid-column:1/-1;text-align:center;}
 }
 
-.dl-modal-overlay{display:none;position:fixed;inset:0;background:rgba(16,19,18,0.55);z-index:100;align-items:center;justify-content:center;padding:24px;}
+/* z-index は必ず .mobile-cta-bar（101）より大きく保つこと。
+   小さいと浮遊CTAバーがモーダル前面に来て、同意文・送信ボタンを覆う。 */
+.dl-modal-overlay{display:none;position:fixed;inset:0;background:rgba(16,19,18,0.55);z-index:200;align-items:flex-start;justify-content:center;padding:24px;overflow-y:auto;}
 .dl-modal-overlay.active{display:flex;}
-.dl-modal{background:var(--paper);border:1px solid var(--gray-300);border-radius:var(--radius-md);max-width:440px;width:100%;padding:40px 36px;position:relative;}
+.dl-modal{background:var(--paper);border:1px solid var(--gray-300);border-radius:var(--radius-md);max-width:440px;width:100%;padding:40px 36px;position:relative;margin:auto;}
 .dl-modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border:1px solid var(--gray-300);border-radius:var(--radius-sm);background:none;font-size:18px;line-height:1;color:var(--gray-700);cursor:pointer;}
 .dl-modal-close:hover{border-color:var(--ink);color:var(--ink);}
 .dl-modal-title{font-size:18px;font-weight:700;}
@@ -358,7 +368,8 @@ nav a:hover{color:var(--ink);}
 .dl-modal-label{display:block;font-size:12.5px;font-weight:700;margin-bottom:8px;}
 .dl-modal-required{font-size:10px;font-weight:700;letter-spacing:0.06em;color:var(--teal-ink);border:1px solid var(--teal-ink);border-radius:var(--radius-md);padding:2px 8px;margin-left:6px;}
 .dl-modal-input{width:100%;border:1px solid var(--gray-300);border-radius:var(--radius-sm);padding:12px 13px;font-family:inherit;font-size:13.5px;color:var(--ink);background:var(--paper);}
-.dl-modal-input:focus{outline:none;border-color:var(--teal-ink);}
+.dl-modal-input:focus{border-color:var(--teal-ink);}
+.dl-modal-input:focus-visible{outline:2px solid var(--teal-ink);outline-offset:2px;}
 .dl-modal-input.error{border-color:var(--error);border-width:1.5px;}
 .dl-modal-error{display:block;margin-top:6px;font-size:11.5px;font-weight:700;color:var(--error);min-height:1em;}
 .dl-modal-submit{width:100%;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:8px;}
@@ -444,3 +455,10 @@ footer{border-top:1px solid var(--gray-300);padding:56px 40px 28px;}
 @media(max-width:480px){.footer-top{grid-template-columns:1fr;}}
 /* download.html のみ: 浮遊CTAバーがフッター末尾に重ならないよう余白を足す */
 @media(max-width:640px){body.has-mobile-cta footer{padding-bottom:96px;}}
+
+/* ============ REDUCED MOTION ============
+   規定書の「原則アニメーションなし」に合わせ、動きを止める設定の利用者には
+   残りのトランジション（ハンバーガー・浮遊CTAバー）も無効化する。 */
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important;}
+}

@@ -55,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=20260922">
 </head>
 <body>
 
@@ -136,7 +136,7 @@
 <!-- ============ 2. CLIENTS ============ -->
 <section class="section" id="clients">
   <div class="section-label">Clients &amp; Partners</div>
-  <div class="section-title">導入企業・パートナー</div>
+  <h2 class="section-title">導入企業・パートナー</h2>
   <!-- 差し替え手順: .client-cell 1社=1要素。画像ロゴに切り替える際は各セルのテキストを <img src="assets/logos/◯◯.svg" alt="◯◯"> に置換するだけでよい（レイアウト・罫線は変更不要） -->
   <div class="clients-row">
     <div class="client-cell">ピアズ</div>
@@ -151,7 +151,7 @@
 <!-- ============ 3. PAIN ============ -->
 <section class="section" id="pain">
   <div class="section-label">Pain Points</div>
-  <div class="section-title">採用の、こんな課題ありませんか？</div>
+  <h2 class="section-title">採用の、こんな課題ありませんか？</h2>
   <div class="pain-grid">
     <div class="pain-cell">
       <div class="pain-num">01</div>
@@ -179,7 +179,7 @@
 <!-- ============ 4. SERVICES ============ -->
 <section class="section is-major" id="services">
   <div class="section-label">Services</div>
-  <div class="section-title">採用をつくる。辞めた後も、つながる。</div>
+  <h2 class="section-title">採用をつくる。辞めた後も、つながる。</h2>
   <p class="section-note">AlumNETの支援は2本柱。柱①「採用をつくる」では、採用の実行から人事戦略、新規事業立ち上げまで6つの領域で伴走します。柱②「辞めた後もつながる」（アルムナイ・タレントプール構築運用）は、次のセクションでご紹介します。</p>
 
   <div class="pillar-label"><span class="pillar-label-num">PILLAR 1</span>採用をつくる ── 6つの支援領域</div>
@@ -220,6 +220,10 @@
   <div class="pricing-wrap">
     <div class="pricing-title">フェーズ別 料金の目安</div>
 
+    <!-- ⚠ 価格改定時の注意: 以下の <table> と、その下の .pricing-mobile に
+         同じ25セルの値が二重に書かれている（760px で表示を切り替えるため）。
+         この表の値を変更するときは、下の .pricing-mobile も必ず同じ値に直すこと。
+         片方だけ直すと、画面幅によって違う価格が表示される。 -->
     <!-- デスクトップ: テーブル表示 -->
     <div class="pricing-table-desktop" style="overflow-x:auto;">
       <table class="pricing-table">
@@ -295,7 +299,7 @@
 <section class="section is-major" id="alumni">
   <div class="section-label">Alumni &amp; Talent Pool</div>
   <div class="pillar-label" style="margin-bottom:16px;"><span class="pillar-label-num">PILLAR 2</span>辞めた後も、つながる</div>
-  <div class="section-title">退職を、「資産」にする。<br>アルムナイ・タレントプール構築運用</div>
+  <h2 class="section-title">退職を、「資産」にする。<br>アルムナイ・タレントプール構築運用</h2>
   <p class="section-note">退職者・内定辞退者・リファラル候補は、「いなくなった人」ではなく「戻ってくるかもしれない人材資産」。AlumNETが、タレントプールの設計・構築から日々の運用・月次レポートまでを一括で請け負います。社名の由来である「アルムナイ（Alumni＝企業の卒業生）」との関係づくりこそ、私たちの核となるサービスです。</p>
 
   <div class="alumni-grid">
@@ -321,10 +325,10 @@
     <div>
       <div class="alumni-segments-title">Talent Pool ── 標準4層セグメント</div>
       <div class="segments">
-        <div class="segment"><div class="segment-name">カムバック層</div><div class="segment-desc">再雇用の可能性が高い層。ファストパス制度・カムバック導線で最短の再入社を設計。</div></div>
-        <div class="segment"><div class="segment-name">ビジネス連携層</div><div class="segment-desc">業務委託・協業・顧客紹介につながる層。案件ベースの関係を維持。</div></div>
-        <div class="segment"><div class="segment-name">情報取得層</div><div class="segment-desc">会社の近況・求人情報を受け取る層。ニュースレター等でゆるやかに接点を継続。</div></div>
-        <div class="segment"><div class="segment-name">アドバイス層</div><div class="segment-desc">外部の視点から知見を還元してくれる層。イベント・ヒアリングで関係を深化。</div></div>
+        <div class="segment"><h3 class="segment-name">カムバック層</h3><div class="segment-desc">再雇用の可能性が高い層。ファストパス制度・カムバック導線で最短の再入社を設計。</div></div>
+        <div class="segment"><h3 class="segment-name">ビジネス連携層</h3><div class="segment-desc">業務委託・協業・顧客紹介につながる層。案件ベースの関係を維持。</div></div>
+        <div class="segment"><h3 class="segment-name">情報取得層</h3><div class="segment-desc">会社の近況・求人情報を受け取る層。ニュースレター等でゆるやかに接点を継続。</div></div>
+        <div class="segment"><h3 class="segment-name">アドバイス層</h3><div class="segment-desc">外部の視点から知見を還元してくれる層。イベント・ヒアリングで関係を深化。</div></div>
       </div>
     </div>
   </div>
@@ -333,15 +337,15 @@
 <!-- ============ 6. AI-TECH ============ -->
 <section class="section" id="ai-tech">
   <div class="section-label">AI Technology</div>
-  <div class="section-title">採用AIで、生産性を10倍に。</div>
+  <h2 class="section-title">採用AIで、生産性を10倍に。</h2>
   <p class="section-note">AlumNETは自社開発の採用AIプラットフォーム「Recruit AI Ops」を保有・運用。AIが処理し、人間が判断する設計でスピードと精度を両立します。</p>
   <div class="ai-grid">
-    <div class="ai-cell"><div class="ai-num">01</div><div class="ai-name">スカウト生成AI</div><div class="ai-desc">候補者プロフィールを読み込み、パーソナライズされたスカウト文を自動生成。返信率を大幅に改善。</div></div>
-    <div class="ai-cell"><div class="ai-num">02</div><div class="ai-name">書類選考AI</div><div class="ai-desc">求人要件と職務経歴書を照合し、スコアリングと選考コメントを自動出力。選考工数を最大70%削減。</div></div>
-    <div class="ai-cell"><div class="ai-num">03</div><div class="ai-name">面接準備AI</div><div class="ai-desc">候補者の経歴・応募ポジションに合わせた面接質問リストと評価観点を自動生成。</div></div>
-    <div class="ai-cell"><div class="ai-num">04</div><div class="ai-name">面接実行AI</div><div class="ai-desc">面接の音声・テキストをリアルタイムで分析。評価シートへの自動転記とフィードバック生成。</div></div>
-    <div class="ai-cell"><div class="ai-num">05</div><div class="ai-name">オファーレターAI</div><div class="ai-desc">候補者ごとにパーソナライズされたオファーレターを自動作成。内定承諾率向上に貢献。</div></div>
-    <div class="ai-cell"><div class="ai-num">06</div><div class="ai-name">採用ダッシュボード</div><div class="ai-desc">採用ファネル全体を可視化。歩留まり・コスト・スピードをリアルタイムで把握・改善。</div></div>
+    <div class="ai-cell"><h3 class="ai-name">スカウト生成AI</h3><div class="ai-desc">候補者プロフィールを読み込み、パーソナライズされたスカウト文を自動生成。返信率を大幅に改善。</div></div>
+    <div class="ai-cell"><h3 class="ai-name">書類選考AI</h3><div class="ai-desc">求人要件と職務経歴書を照合し、スコアリングと選考コメントを自動出力。選考工数を最大70%削減。</div></div>
+    <div class="ai-cell"><h3 class="ai-name">面接準備AI</h3><div class="ai-desc">候補者の経歴・応募ポジションに合わせた面接質問リストと評価観点を自動生成。</div></div>
+    <div class="ai-cell"><h3 class="ai-name">面接実行AI</h3><div class="ai-desc">面接の音声・テキストをリアルタイムで分析。評価シートへの自動転記とフィードバック生成。</div></div>
+    <div class="ai-cell"><h3 class="ai-name">オファーレターAI</h3><div class="ai-desc">候補者ごとにパーソナライズされたオファーレターを自動作成。内定承諾率向上に貢献。</div></div>
+    <div class="ai-cell"><h3 class="ai-name">採用ダッシュボード</h3><div class="ai-desc">採用ファネル全体を可視化。歩留まり・コスト・スピードをリアルタイムで把握・改善。</div></div>
   </div>
   <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="ai-cta-link">Recruit AI Opsを無料で試す →</a>
 </section>
@@ -349,7 +353,7 @@
 <!-- ============ 7. RESULTS ============ -->
 <section class="section is-major" id="results">
   <div class="section-label">Results</div>
-  <div class="section-title">導入企業の成果</div>
+  <h2 class="section-title">導入企業の成果</h2>
   <div class="results-list">
     <div class="result-row">
       <div class="result-num">約60%</div>
@@ -382,28 +386,28 @@
 <!-- ============ 8. PRODUCTS ============ -->
 <section class="section" id="products">
   <div class="section-label">Our Products</div>
-  <div class="section-title">こんなプロダクトも、あります。</div>
+  <h2 class="section-title">こんなプロダクトも、あります。</h2>
   <p class="section-note">コンサルティングだけでなく、自社でHRプロダクトも開発・運用しています。テクノロジーを理解したプロ集団だからこそ、実態に即した支援ができます。</p>
   <div class="products-grid">
     <div class="product-cell">
       <div class="product-tag">Flagship</div>
-      <div class="product-name">Recruit AI Ops</div>
+      <h3 class="product-name">Recruit AI Ops</h3>
       <p class="product-desc">スカウト生成・書類選考・面接準備・面接実行・オファーレターまで5つのAIを1つに。採用全工程をAIが支援する採用プラットフォーム。</p>
       <div class="product-foot"><a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">無料で試す →</a><span class="product-label">Free 50ptから</span></div>
     </div>
     <div class="product-cell">
-      <div class="product-name" style="margin-top:34px;">HR評価制度ビルダー</div>
+      <h3 class="product-name" style="margin-top:34px;">HR評価制度ビルダー</h3>
       <p class="product-desc">評価制度をゼロから設計できるセルフビルドツール。7ステップのウィザード形式で、2時間で自社オリジナルの評価制度を設計。</p>
       <div class="product-foot"><a href="https://hr-system-builder.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る →</a><span class="product-label">Webアプリ</span></div>
     </div>
     <div class="product-cell">
-      <div class="product-name" style="margin-top:34px;">TalentBoard</div>
+      <h3 class="product-name" style="margin-top:34px;">TalentBoard</h3>
       <p class="product-desc">社員情報・評価・スキル・組織図を一元管理するタレントマネジメントプラットフォーム。リアルタイムの組織分析ダッシュボード搭載。</p>
       <div class="product-foot"><a href="https://talentboard-tms.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る →</a><span class="product-label">Webアプリ</span></div>
     </div>
     <div class="product-cell">
       <div class="product-tag">Chrome拡張</div>
-      <div class="product-name">ScoutAI</div>
+      <h3 class="product-name">ScoutAI</h3>
       <p class="product-desc">Recruit AI OpsのChrome拡張機能。ブラウザでLinkedIn・Wantedlyを見ながらワンクリックでスカウト文面を自動生成できます。</p>
       <div class="product-foot"><a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る →</a><span class="product-label">Chrome Extension</span></div>
     </div>
@@ -413,22 +417,19 @@
 <!-- ============ 9. WHY ============ -->
 <section class="section" id="why">
   <div class="section-label">Why AlumNET</div>
-  <div class="section-title">なぜAlumNETか。</div>
+  <h2 class="section-title">なぜAlumNETか。</h2>
   <p class="section-note">採用（つくる）→ 定着 → 退職 → 再接続 → 再雇用。この循環を1社で完結できることが、AlumNETの差別化です。社名の「Alum」は、アルムナイ（企業の卒業生）に由来します。</p>
   <div class="why-grid">
     <div class="why-cell">
-      <div class="why-num">01</div>
-      <div class="why-title">採用の「外側」を熟知したプロが設計する</div>
+      <h3 class="why-title">採用の「外側」を熟知したプロが設計する</h3>
       <p class="why-desc">PASONA・PERSOL・RECRUIT・JAC出身のプロフェッショナル150名が、エージェントとしての視点と採用担当者としての視点の両方を持って課題に向き合います。</p>
     </div>
     <div class="why-cell">
-      <div class="why-num">02</div>
-      <div class="why-title">AIを「使う側」ではなく「作る側」でもある</div>
+      <h3 class="why-title">AIを「使う側」ではなく「作る側」でもある</h3>
       <p class="why-desc">自社開発の採用AIプラットフォーム「Recruit AI Ops」を保有・運用。ツールを売るのではなく、自ら使いながら精度を高め続けています。</p>
     </div>
     <div class="why-cell">
-      <div class="why-num">03</div>
-      <div class="why-title">支援が終わっても「仕組み」が社内に残る</div>
+      <h3 class="why-title">支援が終わっても「仕組み」が社内に残る</h3>
       <p class="why-desc">AlumNETへの依存状態ではなく、御社が自走できる採用組織になることをゴールに設計します。仕組みとノウハウが社内資産として蓄積されます。</p>
     </div>
   </div>
@@ -437,7 +438,7 @@
 <!-- ============ 10. TEAM ============ -->
 <section class="section is-major" id="team">
   <div class="section-label">Team</div>
-  <div class="section-title">私たちについて。</div>
+  <h2 class="section-title">私たちについて。</h2>
   <p class="section-note">採用・人事の現場を知り抜いたプロフェッショナルが、経営の視点で伴走します。</p>
 
   <div class="team-grid">
@@ -447,7 +448,7 @@
         <img src="assets/ishigami.jpg" alt="石神 大輔" class="person-photo" width="96" height="96" loading="lazy">
         <div>
           <div class="person-name-en">ISHIGAMI DAISUKE</div>
-          <div class="person-name-ja">石神 大輔</div>
+          <h3 class="person-name-ja">石神 大輔</h3>
           <div class="person-role">AlumNET株式会社 共同代表取締役</div>
         </div>
       </div>
@@ -491,7 +492,7 @@
         <img src="assets/takuwa.webp" alt="宅和 奈帆子" class="person-photo" width="96" height="96" loading="lazy">
         <div>
           <div class="person-name-en">TAKUWA NAHOKO</div>
-          <div class="person-name-ja">宅和 奈帆子</div>
+          <h3 class="person-name-ja">宅和 奈帆子</h3>
           <div class="person-role">AlumNET株式会社 共同代表取締役</div>
         </div>
       </div>
@@ -535,7 +536,7 @@
 <!-- ============ 11. PROCESS ============ -->
 <section class="section" id="process">
   <div class="section-label">Process</div>
-  <div class="section-title">ご相談の流れ</div>
+  <h2 class="section-title">ご相談の流れ</h2>
   <div class="process-row">
     <div class="process-cell"><div class="process-num">01</div><div class="process-name">お問い合わせ</div><div class="process-sub">当日〜翌営業日 返信</div></div>
     <div class="process-cell"><div class="process-num">02</div><div class="process-name">ヒアリング</div><div class="process-sub">30〜60分 オンライン</div></div>
@@ -549,7 +550,7 @@
 <!-- ============ 12. FAQ ============ -->
 <section class="section" id="faq">
   <div class="section-label">FAQ</div>
-  <div class="section-title">よくあるご質問</div>
+  <h2 class="section-title">よくあるご質問</h2>
   <div class="faq-list">
     <details class="faq-item">
       <summary><span>初期費用はかかりますか？</span><span class="faq-icon">+</span></summary>
@@ -643,6 +644,7 @@
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
           <li><a href="#faq">FAQ</a></li>
+          <li><a href="download.html">資料ダウンロード</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
           <li><a href="https://x.com/AlumnetCeo" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a></li>
         </ul>
@@ -657,6 +659,6 @@
 </footer>
 
 
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=20260922"></script>
 </body>
 </html>

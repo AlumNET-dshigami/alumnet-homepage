@@ -30,7 +30,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v=20260922">
 </head>
 <body>
 
@@ -80,21 +80,21 @@
 <!-- ============ REASONS (3-col divided grid) ============ -->
 <section class="section" id="reasons">
   <div class="section-label">Before You Talk To Us</div>
-  <div class="section-title">気軽にご相談いただけます。</div>
+  <h2 class="section-title">気軽にご相談いただけます。</h2>
   <div class="why-grid">
     <div class="why-cell">
       <div class="why-num"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A70" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-      <div class="why-title">初回相談無料</div>
+      <h3 class="why-title">初回相談無料</h3>
       <p class="why-desc">課題が明確でない段階でもOK。まずは現状をお聞かせください。</p>
     </div>
     <div class="why-cell">
       <div class="why-num"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A70" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
-      <div class="why-title">最短翌営業日対応</div>
+      <h3 class="why-title">最短翌営業日対応</h3>
       <p class="why-desc">お問い合わせから迅速にご連絡。スピード感を大切にしています。</p>
     </div>
     <div class="why-cell">
       <div class="why-num"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E7A70" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <div class="why-title">押し売りなし</div>
+      <h3 class="why-title">押し売りなし</h3>
       <p class="why-desc">御社に最適な提案のみ。不要なサービスはお勧めしません。</p>
     </div>
   </div>
@@ -103,43 +103,43 @@
 <!-- ============ FORM ============ -->
 <section class="section is-major" id="form">
   <div class="section-label">Contact Form</div>
-  <div class="section-title">無料相談のお申し込み</div>
+  <h2 class="section-title">無料相談のお申し込み</h2>
   <p class="section-note">以下のフォームにご記入のうえ送信してください。1営業日以内に担当者よりご連絡いたします。</p>
 
   <form id="contactForm" novalidate style="margin-top:40px;">
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label">会社名<span class="form-required">必須</span></label>
-        <input type="text" name="company" class="form-input" placeholder="例: 株式会社ABC" required>
-        <div class="form-error-msg" data-for="company">会社名を入力してください</div>
+        <label class="form-label" for="f-company">会社名<span class="form-required">必須</span></label>
+        <input type="text" id="f-company" name="company" class="form-input" placeholder="例: 株式会社ABC" required aria-describedby="f-company-error">
+        <div class="form-error-msg" data-for="company" id="f-company-error" role="alert">会社名を入力してください</div>
       </div>
       <div class="form-group">
-        <label class="form-label">部署名<span class="form-optional">任意</span></label>
-        <input type="text" name="department" class="form-input" placeholder="例: 人事部">
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="form-group">
-        <label class="form-label">お名前<span class="form-required">必須</span></label>
-        <input type="text" name="name" class="form-input" placeholder="例: 山田 太郎" required>
-        <div class="form-error-msg" data-for="name">お名前を入力してください</div>
-      </div>
-      <div class="form-group">
-        <label class="form-label">メールアドレス<span class="form-required">必須</span></label>
-        <input type="email" name="email" class="form-input" placeholder="例: taro@example.com" required>
-        <div class="form-error-msg" data-for="email">正しいメールアドレスを入力してください</div>
+        <label class="form-label" for="f-department">部署名<span class="form-optional">任意</span></label>
+        <input type="text" id="f-department" name="department" class="form-input" placeholder="例: 人事部">
       </div>
     </div>
 
     <div class="form-row">
       <div class="form-group">
-        <label class="form-label">電話番号<span class="form-optional">任意</span></label>
-        <input type="tel" name="phone" class="form-input" placeholder="例: 03-1234-5678">
+        <label class="form-label" for="f-name">お名前<span class="form-required">必須</span></label>
+        <input type="text" id="f-name" name="name" class="form-input" placeholder="例: 山田 太郎" required aria-describedby="f-name-error">
+        <div class="form-error-msg" data-for="name" id="f-name-error" role="alert">お名前を入力してください</div>
       </div>
       <div class="form-group">
-        <label class="form-label">従業員数<span class="form-optional">任意</span></label>
-        <select name="employees" class="form-select">
+        <label class="form-label" for="f-email">メールアドレス<span class="form-required">必須</span></label>
+        <input type="email" id="f-email" name="email" class="form-input" placeholder="例: taro@example.com" required aria-describedby="f-email-error">
+        <div class="form-error-msg" data-for="email" id="f-email-error" role="alert">正しいメールアドレスを入力してください</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="f-phone">電話番号<span class="form-optional">任意</span></label>
+        <input type="tel" id="f-phone" name="phone" class="form-input" placeholder="例: 03-1234-5678">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-employees">従業員数<span class="form-optional">任意</span></label>
+        <select id="f-employees" name="employees" class="form-select">
           <option value="">選択してください</option>
           <option value="~50">~50名</option>
           <option value="51-100">51-100名</option>
@@ -151,8 +151,8 @@
     </div>
 
     <div class="form-group">
-      <label class="form-label">ご相談内容<span class="form-optional">任意</span></label>
-      <select name="service" class="form-select">
+      <label class="form-label" for="f-service">ご相談内容<span class="form-optional">任意</span></label>
+      <select id="f-service" name="service" class="form-select">
         <option value="">選択してください</option>
         <option value="RPO">RPO（採用代行）</option>
         <option value="alumni">アルムナイ・タレントプール構築運用（無料診断）</option>
@@ -166,8 +166,8 @@
     </div>
 
     <div class="form-group">
-      <label class="form-label">自由記述<span class="form-optional">任意</span></label>
-      <textarea name="message" class="form-textarea" placeholder="ご相談の背景や具体的な課題などをご自由にお書きください"></textarea>
+      <label class="form-label" for="f-message">自由記述<span class="form-optional">任意</span></label>
+      <textarea id="f-message" name="message" class="form-textarea" placeholder="ご相談の背景や具体的な課題などをご自由にお書きください"></textarea>
     </div>
 
     <div class="form-submit-area">
@@ -180,7 +180,7 @@
     </div>
   </form>
 
-  <div class="form-success" id="formSuccess">
+  <div class="form-success" id="formSuccess" role="status">
     <h3 class="form-success-title">ありがとうございます</h3>
     <p class="form-success-text">
       お問い合わせを受け付けました。<br>
@@ -193,7 +193,7 @@
 <!-- ============ EXAMPLES (rowlist流用) ============ -->
 <section class="section" id="examples">
   <div class="section-label">Common Cases</div>
-  <div class="section-title">よくあるご相談例</div>
+  <h2 class="section-title">よくあるご相談例</h2>
   <ul class="alumni-checklist">
     <li><svg class="check-icon"><use href="#icon-check"/></svg><span>採用担当が足りず、兼任で回している</span></li>
     <li><svg class="check-icon"><use href="#icon-check"/></svg><span>人事制度が属人化していて改善したい</span></li>
@@ -237,6 +237,7 @@
         <div class="footer-col-title">Company</div>
         <ul class="footer-links">
           <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="download.html">資料ダウンロード</a></li>
           <li><a href="contact.html">お問い合わせ</a></li>
           <li><a href="https://x.com/AlumnetCeo" target="_blank" rel="noopener noreferrer">X（旧Twitter）</a></li>
         </ul>
@@ -350,6 +351,6 @@
   })();
 </script>
 
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v=20260922"></script>
 </body>
 </html>
