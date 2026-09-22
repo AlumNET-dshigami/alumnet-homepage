@@ -56,8 +56,9 @@ ul,ol{list-style:none;}
 /* ============ NAV ============ */
 header{border-bottom:1px solid var(--gray-300);position:sticky;top:0;background:var(--paper);z-index:10;}
 .nav-inner{max-width:1120px;margin:0 auto;padding:22px 40px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-weight:900;font-size:19px;letter-spacing:0.02em;}
+.logo{font-weight:900;font-size:19px;letter-spacing:0.02em;display:flex;align-items:center;gap:7px;}
 .logo span{color:var(--teal-ink);}
+.logo-icon{height:1.3em;width:auto;flex-shrink:0;}
 nav ul{display:flex;gap:32px;}
 nav a{font-size:13px;font-weight:500;color:var(--gray-700);}
 nav a:hover{color:var(--ink);}
@@ -441,7 +442,7 @@ nav a:hover{color:var(--ink);}
 footer{border-top:1px solid var(--gray-300);padding:56px 40px 28px;}
 .footer-inner{max-width:1120px;margin:0 auto;}
 .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px;padding-bottom:40px;}
-.footer-logo{font-weight:900;font-size:17px;}
+.footer-logo{font-weight:900;font-size:17px;display:flex;align-items:center;gap:7px;}
 .footer-logo span{color:var(--teal-ink);}
 .footer-desc{margin-top:14px;font-size:12.5px;color:var(--gray-500);line-height:1.9;max-width:220px;}
 .footer-col-title{font-size:11px;font-weight:700;letter-spacing:0.08em;color:var(--gray-500);text-transform:uppercase;margin-bottom:14px;}
