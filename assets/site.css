@@ -58,8 +58,35 @@ nav a{font-size:13px;font-weight:500;color:var(--gray-700);}
 nav a:hover{color:var(--ink);}
 .nav-cta{border:1px solid var(--ink);padding:9px 18px;border-radius:var(--radius-sm);font-weight:700;font-size:13px;white-space:nowrap;}
 .nav-cta:hover{background:var(--ink);color:var(--paper);}
+.nav-actions{display:flex;align-items:center;gap:10px;}
 @media(max-width:768px){nav ul{display:none;}}
 @media(max-width:640px){.nav-inner{padding:18px 24px;}}
+
+/* ============ MOBILE NAV（768px未満。nav ul が消える幅の受け皿） ============
+   ハンバーガーは3本線を span で自前描画（絵文字・アイコンフォントは使わない）。
+   開いた面は --paper、項目の区切りは 1px var(--gray-300) の罫線のみ。
+   box-shadow・グラデーションは不使用。 */
+.nav-toggle{
+  display:none;                      /* 768px未満のメディアクエリでのみ表示 */
+  flex-direction:column;justify-content:center;align-items:center;gap:5px;
+  width:44px;height:44px;padding:10px;   /* タップ領域44px確保 */
+  border:none;background:none;cursor:pointer;
+}
+.nav-toggle-bar{display:block;width:24px;height:2px;background:var(--ink);transition:transform 0.25s ease,opacity 0.25s ease;}
+/* 開いている間は3本線を×に変える（状態は aria-expanded を単一の真実とする） */
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2){opacity:0;}
+.nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-toggle:focus-visible{outline:2px solid var(--teal-ink);outline-offset:-2px;}
+
+.nav-panel{display:none;border-top:1px solid var(--gray-300);background:var(--paper);}
+.nav-panel.is-open{display:block;}
+.nav-panel a{display:block;padding:16px 24px;font-size:14.5px;font-weight:500;color:var(--gray-700);border-bottom:1px solid var(--gray-300);}
+.nav-panel a:hover{color:var(--ink);}
+.nav-panel .nav-panel-cta{display:block;margin:20px 24px 24px;padding:15px 28px;text-align:center;color:var(--ink);border-bottom:none;}
+@media(max-width:768px){.nav-toggle{display:flex;}}
+/* 769px以上ではパネルを絶対に出さない（is-open が残っていても閉じた状態を保つ） */
+@media(min-width:769px){.nav-panel{display:none!important;}}
 
 /* ============ BUTTONS ============ */
 .btn-primary{display:inline-block;background:var(--teal);color:var(--ink);padding:15px 28px;border-radius:var(--radius-sm);font-weight:700;font-size:14px;border:none;cursor:pointer;font-family:inherit;}

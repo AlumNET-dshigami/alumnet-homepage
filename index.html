@@ -76,7 +76,22 @@
       <li><a href="#results">実績</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul></nav>
-    <a href="contact.html" class="nav-cta">無料相談を予約</a>
+    <div class="nav-actions">
+      <a href="contact.html" class="nav-cta">無料相談を予約</a>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="メニューを開く" aria-expanded="false" aria-controls="navPanel">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+    </div>
+  </div>
+  <!-- モバイルナビ（768px未満。nav ul が消える幅の受け皿） -->
+  <div class="nav-panel" id="navPanel">
+    <a href="#services">サービス</a>
+    <a href="#alumni">アルムナイ</a>
+    <a href="#results">実績</a>
+    <a href="#faq">FAQ</a>
+    <a href="contact.html" class="btn-primary nav-panel-cta">30分の無料相談を予約する &rarr;</a>
   </div>
 </header>
 
@@ -642,5 +657,6 @@
 </footer>
 
 
+<script src="assets/site.js"></script>
 </body>
 </html>
