@@ -167,6 +167,17 @@ nav a:hover{color:var(--ink);}
 .client-cell:hover .client-logo{opacity:1;}
 @media(max-width:640px){.client-cell{flex:1 1 50%;font-size:13.5px;padding:20px 16px;min-height:76px;}.client-cell:nth-child(3n+1){border-left:1px solid var(--gray-300);}.client-cell:nth-child(2n+1){border-left:none;}.client-logo{height:26px;}}
 
+/* ============ INDEX — TRUST BAND（CLIENTS強化: 「150名×6社」の信頼帯。一部セクションのみティール面塗りを許可する例外運用） ============
+   全幅ティール背景のため .section は使わず、素の <section> + 共通 .wrap（1120px中央寄せ）で構成する。
+   .clients-row / .client-cell はCLIENTSと共有するクラスなので値は変えず、罫線色だけteal地用に上書きする。 */
+.trust-band{background:var(--teal);padding:var(--pad-minor) 0;}
+.trust-lead{font-size:clamp(18px,2.2vw,21px);font-weight:700;line-height:1.65;max-width:700px;color:var(--ink);}
+.trust-lead strong{font-weight:900;}
+.trust-band .section-label{color:var(--ink);margin-top:40px;}
+.trust-band .clients-row{border-top-color:rgba(16,19,18,0.15);}
+.trust-band .client-cell{border-left-color:rgba(16,19,18,0.15);border-bottom-color:rgba(16,19,18,0.15);}
+@media(max-width:640px){.trust-band{padding:44px 0;}.trust-band .section-label{margin-top:32px;}}
+
 /* ============ INDEX — PAIN（2x2 罫線グリッド。カード化しない） ============ */
 .pain-grid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
 .pain-cell{padding:28px 28px;border-right:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);}
@@ -229,6 +240,8 @@ nav a:hover{color:var(--ink);}
 @media(max-width:860px){.alumni-grid{grid-template-columns:1fr;gap:40px;}}
 
 /* ============ INDEX — AI TECH ============ */
+.ai-tech-stat{margin-top:18px;font-size:14px;font-weight:500;color:var(--ink);max-width:720px;line-height:1.9;}
+.ai-tech-stat strong{color:var(--teal-ink);font-weight:900;}
 .ai-grid{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
 .ai-cell{padding:26px 24px;border-right:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);}
 .ai-name{font-size:15px;font-weight:700;margin-bottom:8px;}
@@ -256,6 +269,7 @@ nav a:hover{color:var(--ink);}
 .product-foot{margin-top:14px;display:flex;align-items:center;gap:14px;}
 .product-link{font-size:13px;font-weight:700;color:var(--teal-ink);border-bottom:1px solid var(--teal-ink);padding-bottom:1px;}
 .product-label{font-size:11.5px;color:var(--gray-500);}
+.product-price-note{margin-top:10px;font-size:11px;color:var(--gray-500);line-height:1.8;}
 @media(max-width:640px){.products-grid{grid-template-columns:1fr;}.product-cell{padding:24px 0!important;border-left:none!important;}.product-cell:nth-child(2n){border-left:none;}}
 
 /* ============ WHY（index の差別化3点 / contact の安心3点で共用） ============ */
@@ -266,6 +280,53 @@ nav a:hover{color:var(--ink);}
 .why-title{font-size:15px;font-weight:700;line-height:1.7;margin-bottom:10px;}
 .why-desc{font-size:12.5px;color:var(--gray-700);line-height:1.85;}
 @media(max-width:760px){.why-grid{grid-template-columns:1fr;}.why-cell{border-left:none;border-top:1px solid var(--gray-300);padding:24px 0 0;margin-top:0;}.why-cell:first-child{border-top:none;}}
+
+/* ============ INDEX — WHY v2（index専用の強化版。.why-grid/.why-cellはcontact.htmlと共用のため触らず、別クラスで新設） ============
+   規定書§11「順序に意味がないものに番号を使わない／.whyの3つの理由が該当例」に準拠し、
+   プロトタイプの「01/02/03」連番バッジは採用しない。teal塗りのアクセントバーのみで強調する。 */
+.why-v2-grid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);}
+.why-v2-cell{padding:32px 32px 4px 0;border-left:1px solid var(--gray-300);}
+.why-v2-cell:first-child{border-left:none;padding-left:0;}
+.why-v2-cell::before{content:"";display:block;width:32px;height:3px;background:var(--teal);margin-bottom:20px;}
+.why-v2-title{font-size:16px;font-weight:700;line-height:1.7;margin-bottom:10px;}
+.why-v2-desc{font-size:12.5px;color:var(--gray-700);line-height:1.9;}
+@media(max-width:760px){.why-v2-grid{grid-template-columns:1fr;}.why-v2-cell{border-left:none;border-top:1px solid var(--gray-300);padding:28px 0 4px;margin-top:0;}.why-v2-cell:first-child{border-top:none;padding-top:0;}}
+
+/* ============ INDEX — CHRO（クロ）パネル（Why内の目玉カード） ============ */
+.chro-panel{margin-top:48px;border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:36px 32px;background:rgba(46,196,182,0.07);}
+.chro-panel-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
+.chro-panel-badge{display:inline-block;background:var(--teal);color:var(--ink);font-weight:900;font-size:11px;letter-spacing:0.08em;padding:6px 14px;border-radius:var(--radius-md);text-transform:uppercase;}
+.chro-panel-title{font-size:22px;font-weight:900;}
+.chro-panel-lead{font-size:14px;color:var(--ink);line-height:1.9;max-width:820px;}
+.chro-panel-disclaimer{margin-top:12px;font-size:12px;color:var(--gray-500);line-height:1.8;}
+.chro-points{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gray-300);}
+.chro-point{padding:20px 20px 4px 0;border-left:1px solid var(--gray-300);}
+.chro-point:first-child{border-left:none;padding-left:0;}
+.chro-point-title{font-size:13px;font-weight:700;margin-bottom:8px;}
+.chro-point-desc{font-size:11.5px;color:var(--gray-700);line-height:1.8;}
+@media(max-width:760px){.chro-points{grid-template-columns:1fr 1fr;}.chro-point{border-top:1px solid var(--gray-300);padding-top:18px;}.chro-point:nth-child(odd){border-left:none;}.chro-point:nth-child(-n+2){border-top:none;}}
+@media(max-width:640px){.chro-panel{padding:28px 24px;}}
+@media(max-width:480px){.chro-points{grid-template-columns:1fr;}.chro-point{border-left:none!important;}.chro-point:nth-child(-n+2){border-top:1px solid var(--gray-300);}.chro-point:first-child{border-top:none;}}
+
+/* ============ INDEX — COVERAGE MAP（支援範囲1枚図・新設） ============ */
+.coverage-map{margin-top:44px;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;}
+.coverage-pillar{border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:32px 28px;}
+.coverage-pillar-head{display:flex;gap:14px;align-items:center;margin-bottom:22px;}
+.coverage-pillar-num{flex:none;width:40px;height:40px;border-radius:var(--radius-md);background:var(--teal);color:var(--ink);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;}
+.coverage-pillar-label{font-size:11px;font-weight:700;letter-spacing:0.1em;color:var(--teal-ink);text-transform:uppercase;}
+.coverage-pillar-title{font-size:18px;font-weight:700;margin-top:3px;}
+.coverage-pillar-list{margin-top:6px;border-top:1px solid var(--gray-300);}
+.coverage-pillar-list li{padding:14px 0;border-bottom:1px solid var(--gray-300);font-size:13.5px;font-weight:500;color:var(--ink);}
+.coverage-link{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 28px;gap:12px;}
+.coverage-link-text{font-size:11px;font-weight:700;color:var(--gray-500);letter-spacing:0.08em;writing-mode:vertical-rl;white-space:nowrap;}
+.coverage-arrow{flex:none;}
+.coverage-foot{margin-top:28px;font-size:13px;color:var(--gray-700);text-align:center;}
+@media(max-width:760px){
+  .coverage-map{grid-template-columns:1fr;gap:20px;}
+  .coverage-link{flex-direction:row;padding:4px 0;}
+  .coverage-link-text{writing-mode:horizontal-tb;}
+  .coverage-arrow{transform:rotate(90deg);}
+}
 
 /* ============ INDEX — TEAM ============ */
 .team-grid{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:64px;}

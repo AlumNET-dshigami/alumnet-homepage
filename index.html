@@ -55,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20260923b">
+<link rel="stylesheet" href="assets/site.css?v=20260923c">
 </head>
 <body>
 
@@ -133,22 +133,109 @@
   </div>
 </section>
 
-<!-- ============ 2. CLIENTS ============ -->
-<section class="section" id="clients">
-  <div class="section-label">Clients &amp; Partners</div>
-  <h2 class="section-title">導入企業・パートナー</h2>
-  <!-- 差し替え手順: .client-cell 1社=1要素。画像ロゴに切り替える際は各セルのテキストを <img src="assets/logos/◯◯.svg" alt="◯◯"> に置換するだけでよい（レイアウト・罫線は変更不要） -->
-  <div class="clients-row">
-    <div class="client-cell"><img class="client-logo" src="assets/logos/peers.svg?v=2" alt="ピアズ"></div>
-    <div class="client-cell"><img class="client-logo" src="assets/logos/smart-agency.png?v=2" alt="スマートエージェンシー"></div>
-    <div class="client-cell"><img class="client-logo" src="assets/logos/kick-za-issue.png?v=2" alt="KICK ZA ISSUE"></div>
-    <div class="client-cell"><img class="client-logo" src="assets/logos/kanaria.png?v=2" alt="KANARIA CONSULTING"></div>
-    <div class="client-cell"><img class="client-logo" src="assets/logos/unlimit.png?v=2" alt="UNLIMIT"></div>
-    <div class="client-cell"><img class="client-logo" src="assets/logos/frontworks.png?v=2" alt="FRONTWORKS"></div>
+<!-- ============ 2. CLIENTS（強化: 信頼バンド） ============ -->
+<section class="trust-band" id="clients">
+  <div class="wrap">
+    <p class="trust-lead">大手HR出身<strong>150名</strong>のプロフェッショナルと、<strong>6社</strong>のパートナーが選ぶ体制。</p>
+    <div class="section-label">Clients &amp; Partners</div>
+    <h2 class="section-title">導入企業・パートナー</h2>
+    <!-- 差し替え手順: .client-cell 1社=1要素。画像ロゴに切り替える際は各セルのテキストを <img src="assets/logos/◯◯.svg" alt="◯◯"> に置換するだけでよい（レイアウト・罫線は変更不要） -->
+    <div class="clients-row">
+      <div class="client-cell"><img class="client-logo" src="assets/logos/peers.svg?v=2" alt="ピアズ"></div>
+      <div class="client-cell"><img class="client-logo" src="assets/logos/smart-agency.png?v=2" alt="スマートエージェンシー"></div>
+      <div class="client-cell"><img class="client-logo" src="assets/logos/kick-za-issue.png?v=2" alt="KICK ZA ISSUE"></div>
+      <div class="client-cell"><img class="client-logo" src="assets/logos/kanaria.png?v=2" alt="KANARIA CONSULTING"></div>
+      <div class="client-cell"><img class="client-logo" src="assets/logos/unlimit.png?v=2" alt="UNLIMIT"></div>
+      <div class="client-cell"><img class="client-logo" src="assets/logos/frontworks.png?v=2" alt="FRONTWORKS"></div>
+    </div>
   </div>
 </section>
 
-<!-- ============ 3. PAIN ============ -->
+<!-- ============ 3. WHY（ヒーロー直後へ前方移動・強化＋CHROパネル） ============ -->
+<section class="section is-major" id="why">
+  <div class="section-label">Why AlumNET</div>
+  <h2 class="section-title">なぜAlumNETか。</h2>
+  <p class="section-note">採用（つくる）→ 定着 → 退職 → 再接続 → 再雇用。この循環を1社で完結できることが、AlumNETの差別化です。社名の「Alum」は、アルムナイ（企業の卒業生）に由来します。</p>
+  <div class="why-v2-grid">
+    <div class="why-v2-cell">
+      <h3 class="why-v2-title">採用の「外側」を熟知したプロが設計する</h3>
+      <p class="why-v2-desc">PASONA・PERSOL・RECRUIT・JAC出身のプロフェッショナル150名が、エージェントとしての視点と採用担当者としての視点の両方を持って課題に向き合います。</p>
+    </div>
+    <div class="why-v2-cell">
+      <h3 class="why-v2-title">AIを「使う側」ではなく「作る側」でもある</h3>
+      <p class="why-v2-desc">自社開発の採用AIプラットフォーム「Recruit AI Ops」を保有・運用。ツールを売るのではなく、自ら使いながら精度を高め続けています。</p>
+    </div>
+    <div class="why-v2-cell">
+      <h3 class="why-v2-title">支援が終わっても「仕組み」が社内に残る</h3>
+      <p class="why-v2-desc">AlumNETへの依存状態ではなく、御社が自走できる採用組織になることをゴールに設計します。仕組みとノウハウが社内資産として蓄積されます。</p>
+    </div>
+  </div>
+
+  <!-- CHRO（クロ）パネル: 公式営業資料3本（alumnet-profile/agent-net/scoutpilot）に共通して登場する文言を転記 -->
+  <div class="chro-panel">
+    <div class="chro-panel-head">
+      <span class="chro-panel-badge">HR特化型AI</span>
+      <h3 class="chro-panel-title">CHRO（クロ）</h3>
+    </div>
+    <p class="chro-panel-lead">独自のHRノウハウ×ロジックで作成したAIを活用。従来の「手作業RPO」と、AIによる「完全自動化」との中間に位置するモデルであり、「人の判断×AIのサポート」により、スピードと正確性を担保します。</p>
+    <p class="chro-panel-disclaimer">※人事戦略の代行サービス「CHRO代行」とは別の、自社開発AIモデルです。</p>
+    <div class="chro-points">
+      <div class="chro-point"><div class="chro-point-title">「人＋AI」で最適化</div><div class="chro-point-desc">完全自動化ではなく、人の判断とAIのサポートを組み合わせる設計。</div></div>
+      <div class="chro-point"><div class="chro-point-title">採用のバイアス削減</div><div class="chro-point-desc">客観的データにもとづく判断で、属人的な偏りを抑制。</div></div>
+      <div class="chro-point"><div class="chro-point-title">長期的な改善が可能</div><div class="chro-point-desc">採用データを蓄積し、継続的にロジックを磨き続ける。</div></div>
+      <div class="chro-point"><div class="chro-point-title">HRプロ×10名の叡智</div><div class="chro-point-desc">大手HR出身のプロフェッショナル10名の知見を結集して作成。</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. COVERAGE（新設: 支援範囲1枚図） ============ -->
+<section class="section" id="coverage">
+  <div class="section-label">Coverage</div>
+  <h2 class="section-title">支援範囲を、一枚で。</h2>
+  <p class="section-note">「採用をつくる」ことと、「辞めた後もつながる」こと。AlumNETは、この2本柱を1社で一気通貫に支援します。</p>
+
+  <div class="coverage-map">
+    <div class="coverage-pillar">
+      <div class="coverage-pillar-head">
+        <span class="coverage-pillar-num">1</span>
+        <div>
+          <div class="coverage-pillar-label">Pillar 1</div>
+          <h3 class="coverage-pillar-title">採用をつくる</h3>
+        </div>
+      </div>
+      <ul class="coverage-pillar-list">
+        <li>RPO（採用代行）</li>
+        <li>CHRO代行</li>
+        <li>HRTech導入支援</li>
+      </ul>
+    </div>
+
+    <div class="coverage-link" aria-hidden="true">
+      <span class="coverage-link-text">採用 → 定着 → 退職</span>
+      <svg class="coverage-arrow" width="56" height="20" viewBox="0 0 56 20" fill="none">
+        <path d="M0 10h46M40 3l8 7-8 7" stroke="#0E7A70" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="coverage-pillar">
+      <div class="coverage-pillar-head">
+        <span class="coverage-pillar-num">2</span>
+        <div>
+          <div class="coverage-pillar-label">Pillar 2</div>
+          <h3 class="coverage-pillar-title">辞めた後もつながる</h3>
+        </div>
+      </div>
+      <ul class="coverage-pillar-list">
+        <li>アルムナイ・タレントプール構築</li>
+        <li>4層セグメント運用</li>
+        <li>再接続・再雇用の導線設計</li>
+      </ul>
+    </div>
+  </div>
+  <p class="coverage-foot">1社で、採用から退職後の関係構築までを一気通貫。仕組みは支援終了後も社内に残ります。</p>
+</section>
+
+<!-- ============ 5. PAIN ============ -->
 <section class="section" id="pain">
   <div class="section-label">Pain Points</div>
   <h2 class="section-title">採用の、こんな課題ありませんか？</h2>
@@ -176,7 +263,7 @@
   </div>
 </section>
 
-<!-- ============ 4. SERVICES ============ -->
+<!-- ============ 6. SERVICES ============ -->
 <section class="section is-major" id="services">
   <div class="section-label">Services</div>
   <h2 class="section-title">採用をつくる。辞めた後も、つながる。</h2>
@@ -295,7 +382,7 @@
   </div>
 </section>
 
-<!-- ============ 5. ALUMNI ============ -->
+<!-- ============ 7. ALUMNI ============ -->
 <section class="section is-major" id="alumni">
   <div class="section-label">Alumni &amp; Talent Pool</div>
   <div class="pillar-label" style="margin-bottom:16px;"><span class="pillar-label-num">PILLAR 2</span>辞めた後も、つながる</div>
@@ -334,11 +421,12 @@
   </div>
 </section>
 
-<!-- ============ 6. AI-TECH ============ -->
+<!-- ============ 8. AI-TECH ============ -->
 <section class="section" id="ai-tech">
   <div class="section-label">AI Technology</div>
   <h2 class="section-title">採用AIで、生産性を10倍に。</h2>
   <p class="section-note">AlumNETは自社開発の採用AIプラットフォーム「Recruit AI Ops」を保有・運用。AIが処理し、人間が判断する設計でスピードと精度を両立します。</p>
+  <p class="ai-tech-stat"><strong>採用工程の約80%</strong>をAIが自動化（求人作成AI・スカウトAI・書類選考AI・日程調整AI・面接官AIの5工程）。うち書類選考AI単体では、選考工数を最大70%削減します。</p>
   <div class="ai-grid">
     <div class="ai-cell"><h3 class="ai-name">スカウト生成AI</h3><div class="ai-desc">候補者プロフィールを読み込み、パーソナライズされたスカウト文を自動生成。返信率を大幅に改善。</div></div>
     <div class="ai-cell"><h3 class="ai-name">書類選考AI</h3><div class="ai-desc">求人要件と職務経歴書を照合し、スコアリングと選考コメントを自動出力。選考工数を最大70%削減。</div></div>
@@ -350,7 +438,7 @@
   <a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="ai-cta-link">Recruit AI Opsを無料で試す →</a>
 </section>
 
-<!-- ============ 7. RESULTS ============ -->
+<!-- ============ 9. RESULTS ============ -->
 <section class="section is-major" id="results">
   <div class="section-label">Results</div>
   <h2 class="section-title">導入企業の成果</h2>
@@ -383,7 +471,7 @@
   <p class="section-note">※成果は支援内容・企業状況により異なります。詳細は導入事例集（資料ダウンロード）をご覧ください。</p>
 </section>
 
-<!-- ============ 8. PRODUCTS ============ -->
+<!-- ============ 10. PRODUCTS ============ -->
 <section class="section" id="products">
   <div class="section-label">Our Products</div>
   <h2 class="section-title">こんなプロダクトも、あります。</h2>
@@ -407,35 +495,15 @@
     </div>
     <div class="product-cell">
       <div class="product-tag">Chrome拡張</div>
-      <h3 class="product-name">ScoutAI</h3>
-      <p class="product-desc">Recruit AI OpsのChrome拡張機能。ブラウザでLinkedIn・Wantedlyを見ながらワンクリックでスカウト文面を自動生成できます。</p>
+      <h3 class="product-name">ScoutPilot ENTERPRISE</h3>
+      <p class="product-desc">"返信率"を科学したスカウトAI。IT業界採用10年以上の知見をAI化し、候補者が返したくなる「9ブロック構造」でスカウト文を生成。平均返信率15%（従来比3倍）を実現します。</p>
+      <p class="product-price-note">ライト 月額5万円（税込5万円）／スタンダード 月額10万円（税込11万円）／プロ 月額25万円（税込27.5万円）</p>
       <div class="product-foot"><a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener noreferrer" class="product-link">詳しく見る →</a><span class="product-label">Chrome Extension</span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 9. WHY ============ -->
-<section class="section" id="why">
-  <div class="section-label">Why AlumNET</div>
-  <h2 class="section-title">なぜAlumNETか。</h2>
-  <p class="section-note">採用（つくる）→ 定着 → 退職 → 再接続 → 再雇用。この循環を1社で完結できることが、AlumNETの差別化です。社名の「Alum」は、アルムナイ（企業の卒業生）に由来します。</p>
-  <div class="why-grid">
-    <div class="why-cell">
-      <h3 class="why-title">採用の「外側」を熟知したプロが設計する</h3>
-      <p class="why-desc">PASONA・PERSOL・RECRUIT・JAC出身のプロフェッショナル150名が、エージェントとしての視点と採用担当者としての視点の両方を持って課題に向き合います。</p>
-    </div>
-    <div class="why-cell">
-      <h3 class="why-title">AIを「使う側」ではなく「作る側」でもある</h3>
-      <p class="why-desc">自社開発の採用AIプラットフォーム「Recruit AI Ops」を保有・運用。ツールを売るのではなく、自ら使いながら精度を高め続けています。</p>
-    </div>
-    <div class="why-cell">
-      <h3 class="why-title">支援が終わっても「仕組み」が社内に残る</h3>
-      <p class="why-desc">AlumNETへの依存状態ではなく、御社が自走できる採用組織になることをゴールに設計します。仕組みとノウハウが社内資産として蓄積されます。</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 10. TEAM ============ -->
+<!-- ============ 11. TEAM ============ -->
 <section class="section is-major" id="team">
   <div class="section-label">Team</div>
   <h2 class="section-title">私たちについて。</h2>
@@ -533,7 +601,7 @@
   </div>
 </section>
 
-<!-- ============ 11. PROCESS ============ -->
+<!-- ============ 12. PROCESS ============ -->
 <section class="section" id="process">
   <div class="section-label">Process</div>
   <h2 class="section-title">ご相談の流れ</h2>
@@ -547,7 +615,7 @@
   <p class="process-note">初回のご相談は完全無償です。課題が明確でない段階でも歓迎します。</p>
 </section>
 
-<!-- ============ 12. FAQ ============ -->
+<!-- ============ 13. FAQ ============ -->
 <section class="section" id="faq">
   <div class="section-label">FAQ</div>
   <h2 class="section-title">よくあるご質問</h2>
@@ -603,7 +671,7 @@
   </div>
 </section>
 
-<!-- ============ 13. CONTACT (final CTA) ============ -->
+<!-- ============ 14. CONTACT (final CTA) ============ -->
 <section class="final" id="contact">
   <div class="section-label" style="display:flex;justify-content:center;">Contact</div>
   <h2>まず、話を聞かせてください。</h2>
