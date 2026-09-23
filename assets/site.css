@@ -259,18 +259,6 @@ nav a:hover{color:var(--ink);}
 .result-detail{font-size:12.5px;color:var(--gray-500);line-height:1.9;}
 @media(max-width:600px){.result-row{grid-template-columns:1fr;gap:10px;}.result-tag{margin-bottom:0;}}
 
-/* ============ INDEX — RESULTS: PLACEMENT LAUNCH CASES ============ */
-.placement-cases{margin-top:56px;}
-.placement-cases-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:28px;}
-.placement-case{border:1px solid var(--gray-300);padding:28px;}
-.placement-case-name{font-weight:700;font-size:15px;border-left:3px solid var(--teal);padding-left:14px;}
-.placement-case-rows{border-top:1px solid var(--gray-300);margin-top:18px;}
-.placement-case-row{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:14px 0;border-bottom:1px solid var(--gray-300);}
-.placement-case-salary{font-weight:700;font-size:14.5px;}
-.placement-case-fee{font-weight:700;font-size:14.5px;color:var(--teal-ink);white-space:nowrap;}
-.placement-case-note{margin-top:16px;font-size:12.5px;color:var(--gray-500);}
-@media(max-width:640px){.placement-cases-grid{grid-template-columns:1fr;gap:20px;}.placement-case-row{flex-direction:column;align-items:flex-start;gap:2px;}}
-
 /* ============ INDEX — PRODUCTS ============ */
 .products-grid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);}
 .product-cell{padding:28px 28px 28px 0;border-bottom:1px solid var(--gray-300);}
