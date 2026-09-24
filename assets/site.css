@@ -46,7 +46,8 @@
    クラスセレクタ（0,1,0）はこの要素セレクタ（0,0,1）より強いので上書きされる。 */
 h2,h3{font-size:inherit;font-weight:inherit;}
 html,body{background:var(--paper);color:var(--ink);}
-body{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;line-height:1.75;overflow-x:hidden;}
+body{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;line-height:1.75;overflow-x:hidden;line-break:strict;word-break:auto-phrase;text-wrap:pretty;}
+h1,h2,h3,.why-v2-title,.doc-title,.product-name{text-wrap:balance;}
 img,svg{max-width:100%;}
 a{color:inherit;text-decoration:none;}
 ul,ol{list-style:none;}
