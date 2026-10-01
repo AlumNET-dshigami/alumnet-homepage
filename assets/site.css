@@ -33,8 +33,8 @@
   --radius-md:4px;      /* タグ・テーブルセル相当・写真 */
 
   /* --- spacing: メリハリ用の2階層 --- */
-  --pad-major:96px;     /* services / alumni / results / team */
-  --pad-minor:56px;     /* clients / pain / ai-tech / products / why / process / faq */
+  --pad-major:68px;     /* services / alumni / results / team（2026-10-01: 96pxから約29%縮小・軽量化第2弾） */
+  --pad-minor:40px;     /* clients / pain / ai-tech / products / why / process / faq（2026-10-01: 56pxから約29%縮小） */
   --pad-final:104px;    /* contact（最終CTA） */
 }
 
@@ -114,7 +114,7 @@ nav a:hover{color:var(--ink);}
 .section,.hero,.final{scroll-margin-top:96px;}
 .section{padding:var(--pad-minor) 40px;max-width:1120px;margin:0 auto;border-top:1px solid var(--gray-300);}
 .section.is-major{padding:var(--pad-major) 40px;}
-@media(max-width:640px){.section{padding:44px 24px;}.section.is-major{padding:64px 24px;}}
+@media(max-width:640px){.section{padding:32px 24px;}.section.is-major{padding:48px 24px;}}
 
 /* ============ PAGE HERO（下層ページ共通） ============ */
 .page-hero{padding:72px 40px 8px;max-width:1120px;margin:0 auto;}
@@ -180,7 +180,7 @@ nav a:hover{color:var(--ink);}
 @media(max-width:640px){.trust-band{padding:44px 0;}.trust-band .section-label{margin-top:32px;}}
 
 /* ============ INDEX — PAIN（2x2 罫線グリッド。カード化しない） ============ */
-.pain-grid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
+.pain-grid{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
 .pain-cell{padding:28px 28px;border-right:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);}
 .pain-num{font-size:12px;font-weight:700;color:var(--gray-500);letter-spacing:0.08em;margin-bottom:10px;}
 .pain-text{font-size:14.5px;color:var(--ink);line-height:1.8;max-width:440px;}
@@ -190,7 +190,7 @@ nav a:hover{color:var(--ink);}
 /* ============ INDEX — SERVICES ============ */
 .pillar-label{margin-top:8px;font-size:13px;font-weight:700;letter-spacing:0.04em;display:flex;align-items:center;gap:10px;}
 .pillar-label-num{font-size:11px;font-weight:700;letter-spacing:0.14em;color:var(--teal-ink);border:1px solid var(--teal-ink);border-radius:var(--radius-md);padding:5px 12px;}
-.svc-category{margin-top:44px;}
+.svc-category{margin-top:36px;}
 .svc-category-head{display:flex;align-items:baseline;gap:12px;margin-bottom:4px;border-left:3px solid var(--teal);padding-left:14px;}
 .svc-category-name{font-size:16.5px;font-weight:700;}
 .svc-category-sub{font-size:12.5px;color:var(--gray-500);}
@@ -202,7 +202,7 @@ nav a:hover{color:var(--ink);}
 @media(max-width:700px){.rowlist .row{grid-template-columns:1fr;gap:6px;padding:18px 0;}.rowlist .row .price{text-align:left;color:var(--teal-ink);}}
 
 /* 料金表: 760px未満は列⇔行を転置してプラン単位で縦積み（横スクロールで逃がさない） */
-.pricing-wrap{margin-top:64px;}
+.pricing-wrap{margin-top:48px;}
 .pricing-title{font-size:16.5px;font-weight:700;margin-bottom:20px;}
 .pricing-table{width:100%;border-collapse:collapse;font-size:13px;}
 .pricing-table th,.pricing-table td{border:1px solid var(--gray-300);padding:14px 12px;text-align:left;vertical-align:top;}
@@ -222,7 +222,7 @@ nav a:hover{color:var(--ink);}
 }
 
 /* ============ INDEX — ALUMNI ============ */
-.alumni-grid{margin-top:40px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;}
+.alumni-grid{margin-top:32px;display:grid;grid-template-columns:1.1fr 1fr;gap:64px;align-items:start;}
 .alumni-checklist{border-top:1px solid var(--gray-300);}
 .alumni-checklist li{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--gray-300);font-size:13.5px;color:var(--gray-700);line-height:1.8;}
 .alumni-checklist .check-icon{flex:none;width:16px;height:16px;margin-top:3px;}
@@ -243,16 +243,16 @@ nav a:hover{color:var(--ink);}
 /* ============ INDEX — AI TECH ============ */
 .ai-tech-stat{margin-top:18px;font-size:14px;font-weight:500;color:var(--ink);max-width:720px;line-height:1.9;}
 .ai-tech-stat strong{color:var(--teal-ink);font-weight:900;}
-.ai-grid{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
+.ai-grid{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
 .ai-cell{padding:26px 24px;border-right:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);}
 .ai-name{font-size:15px;font-weight:700;margin-bottom:8px;}
 .ai-desc{font-size:12.5px;color:var(--gray-700);line-height:1.8;}
-.ai-cta-link{display:inline-block;margin-top:32px;font-size:13.5px;font-weight:700;color:var(--teal-ink);border-bottom:1px solid var(--teal-ink);padding-bottom:2px;}
+.ai-cta-link{display:inline-block;margin-top:24px;font-size:13.5px;font-weight:700;color:var(--teal-ink);border-bottom:1px solid var(--teal-ink);padding-bottom:2px;}
 @media(max-width:760px){.ai-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.ai-grid{grid-template-columns:1fr;}}
 
 /* ============ INDEX — RESULTS ============ */
-.results-list{margin-top:36px;border-top:1px solid var(--gray-300);}
+.results-list{margin-top:28px;border-top:1px solid var(--gray-300);}
 .result-row{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--gray-300);align-items:baseline;}
 .result-tag{font-size:11.5px;font-weight:700;color:var(--gray-500);margin-bottom:8px;letter-spacing:0.02em;}
 .result-num{font-size:38px;font-weight:700;color:var(--teal-ink);}
@@ -261,7 +261,7 @@ nav a:hover{color:var(--ink);}
 @media(max-width:600px){.result-row{grid-template-columns:1fr;gap:10px;}.result-tag{margin-bottom:0;}}
 
 /* ============ INDEX — PRODUCTS ============ */
-.products-grid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);}
+.products-grid{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);}
 .product-cell{padding:28px 28px 28px 0;border-bottom:1px solid var(--gray-300);}
 .product-cell:nth-child(2n){padding-left:28px;padding-right:0;border-left:1px solid var(--gray-300);}
 .product-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:0.08em;color:var(--teal-ink);border:1px solid var(--teal-ink);border-radius:var(--radius-md);padding:3px 9px;margin-bottom:12px;text-transform:uppercase;}
@@ -285,7 +285,7 @@ nav a:hover{color:var(--ink);}
 /* ============ INDEX — WHY v2（index専用の強化版。.why-grid/.why-cellはcontact.htmlと共用のため触らず、別クラスで新設） ============
    規定書§11「順序に意味がないものに番号を使わない／.whyの3つの理由が該当例」に準拠し、
    プロトタイプの「01/02/03」連番バッジは採用しない。teal塗りのアクセントバーのみで強調する。 */
-.why-v2-grid{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);}
+.why-v2-grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);}
 .why-v2-cell{padding:32px 32px 4px 0;border-left:1px solid var(--gray-300);}
 .why-v2-cell:first-child{border-left:none;padding-left:0;}
 .why-v2-cell::before{content:"";display:block;width:32px;height:3px;background:var(--teal);margin-bottom:20px;}
@@ -294,7 +294,7 @@ nav a:hover{color:var(--ink);}
 @media(max-width:760px){.why-v2-grid{grid-template-columns:1fr;}.why-v2-cell{border-left:none;border-top:1px solid var(--gray-300);padding:28px 0 4px;margin-top:0;}.why-v2-cell:first-child{border-top:none;padding-top:0;}}
 
 /* ============ INDEX — CHRO（クロ）パネル（Why内の目玉カード） ============ */
-.chro-panel{margin-top:48px;border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:36px 32px;background:rgba(46,196,182,0.07);}
+.chro-panel{margin-top:40px;border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:30px 32px;background:rgba(46,196,182,0.07);}
 .chro-panel-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap;}
 .chro-panel-badge{display:inline-block;background:var(--teal);color:var(--ink);font-weight:900;font-size:11px;letter-spacing:0.08em;padding:6px 14px;border-radius:var(--radius-md);text-transform:uppercase;}
 .chro-panel-title{font-size:22px;font-weight:900;display:flex;align-items:center;}
@@ -311,7 +311,7 @@ nav a:hover{color:var(--ink);}
 .chro-spectrum-text{font-size:12px;font-weight:700;color:var(--gray-700);line-height:1.5;}
 .chro-spectrum-item.is-center .chro-spectrum-text{font-size:14px;color:var(--teal-ink);}
 .chro-panel-disclaimer{margin-top:12px;font-size:12px;color:var(--gray-500);line-height:1.8;}
-.chro-points{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gray-300);}
+.chro-points{margin-top:22px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gray-300);}
 .chro-point{padding:20px 20px 4px 0;border-left:1px solid var(--gray-300);}
 .chro-point:first-child{border-left:none;padding-left:0;}
 .chro-point-title{font-size:13px;font-weight:700;margin-bottom:8px;}
@@ -321,7 +321,7 @@ nav a:hover{color:var(--ink);}
 @media(max-width:480px){.chro-points{grid-template-columns:1fr;}.chro-point{border-left:none!important;}.chro-point:nth-child(-n+2){border-top:1px solid var(--gray-300);}.chro-point:first-child{border-top:none;}}
 
 /* ============ INDEX — COVERAGE MAP（支援範囲1枚図・新設） ============ */
-.coverage-map{margin-top:44px;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;}
+.coverage-map{margin-top:36px;display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;}
 .coverage-pillar{border:1px solid var(--gray-300);border-radius:var(--radius-md);padding:32px 28px;}
 .coverage-pillar-head{display:flex;gap:14px;align-items:center;margin-bottom:22px;}
 .coverage-pillar-num{flex:none;width:40px;height:40px;border-radius:var(--radius-md);background:var(--teal);color:var(--ink);font-weight:900;font-size:16px;display:flex;align-items:center;justify-content:center;}
@@ -341,7 +341,7 @@ nav a:hover{color:var(--ink);}
 }
 
 /* ============ INDEX — TEAM ============ */
-.team-grid{margin-top:44px;display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+.team-grid{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:64px;}
 .person{border-top:1px solid var(--gray-300);padding-top:32px;}
 .person-head{display:flex;gap:20px;align-items:flex-start;margin-bottom:24px;}
 .person-photo{width:96px;height:96px;border-radius:var(--radius-md);object-fit:cover;background:var(--gray-100);flex:none;}
@@ -362,25 +362,37 @@ nav a:hover{color:var(--ink);}
 @media(max-width:480px){.person-head{flex-direction:column;}}
 
 /* ============ INDEX — PROCESS ============ */
-.process-row{margin-top:36px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--gray-300);}
+.process-row{margin-top:28px;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--gray-300);}
 .process-cell{padding:22px 20px 0 0;border-left:1px solid var(--gray-300);}
 .process-cell:first-child{border-left:none;padding-left:0;}
 /* 「01〜05」は手順の順序という情報。装飾ではないので読める色にする */
 .process-num{font-size:26px;font-weight:700;color:var(--gray-500);}
 .process-name{font-size:14px;font-weight:700;margin-top:10px;}
 .process-sub{font-size:11.5px;color:var(--gray-500);margin-top:6px;line-height:1.7;}
-.process-note{margin-top:32px;font-size:13px;color:var(--gray-700);text-align:center;}
+.process-note{margin-top:24px;font-size:13px;color:var(--gray-700);text-align:center;}
 @media(max-width:760px){.process-row{grid-template-columns:1fr 1fr;}.process-cell:nth-child(2n+1){border-left:none;}.process-cell{border-top:1px solid var(--gray-300);padding-top:18px;margin-top:4px;}.process-cell:nth-child(-n+2){border-top:none;margin-top:0;}}
 @media(max-width:480px){.process-row{grid-template-columns:1fr;}.process-cell{border-left:none!important;border-top:1px solid var(--gray-300);padding:18px 0 0!important;margin-top:0;}.process-cell:first-child{border-top:none;}}
 
 /* ============ INDEX — FAQ（details/summary のみ・JS不要） ============ */
-.faq-list{margin-top:32px;border-top:1px solid var(--gray-300);}
+.faq-list{margin-top:24px;border-top:1px solid var(--gray-300);}
 .faq-item{border-bottom:1px solid var(--gray-300);}
 .faq-item summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:baseline;gap:20px;font-size:14.5px;font-weight:500;}
 .faq-item summary::-webkit-details-marker{display:none;}
 .faq-item summary .faq-icon{flex:none;font-size:16px;font-weight:400;color:var(--teal-ink);}
 .faq-item[open] summary .faq-icon{transform:rotate(45deg);display:inline-block;}
 .faq-answer{padding:0 0 22px;font-size:13.5px;color:var(--gray-700);line-height:1.9;max-width:760px;}
+
+/* ============ 折りたたみ（グリッドセル内で既存の罫線と二重にならないよう調整） ============
+   .faq-item パターンをそのまま流用しつつ、既にセル自体に罫線があるai-tech/alumni/chro等では
+   border-bottomだけ外す（is-flush）。fold-descは元の説明文クラスに追加する下余白のみの付加クラス
+   （文字サイズ・色は元のクラス＝ai-desc/segment-desc/chro-point-desc側の指定を維持する）。 */
+.faq-item.is-flush{border-bottom:none;}
+/* グリッドセル内の折りたたみはトリガー自体が小さいほうが軽くなる。
+   見た目（下線なし・+アイコン回転・teal-ink色）はFAQと同じ仕組みのまま、
+   余白だけ縮小する（FAQの20px 0は見出し一覧用で、小さいセルには過大） */
+.faq-item.is-flush summary{padding:7px 0;gap:10px;font-size:12.5px;}
+.faq-item.is-flush summary .faq-icon{font-size:14px;}
+.fold-desc{padding:0 0 10px;}
 
 /* ============ INDEX — FINAL CTA ============ */
 .final{padding:var(--pad-final) 40px;text-align:center;border-top:1px solid var(--gray-300);}
