@@ -55,7 +55,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/site.css?v=20261001a">
+<link rel="stylesheet" href="assets/site.css?v=20261002a">
 </head>
 <body>
 
@@ -204,53 +204,6 @@
   </div>
 </section>
 
-<!-- ============ 4. COVERAGE（新設: 支援範囲1枚図） ============ -->
-<section class="section" id="coverage">
-  <div class="section-label">Coverage</div>
-  <h2 class="section-title">支援範囲を、一枚で。</h2>
-  <p class="section-note">「採用をつくる」と「辞めた後もつながる」。この2本柱を1社で一気通貫に支援します。</p>
-
-  <div class="coverage-map">
-    <div class="coverage-pillar">
-      <div class="coverage-pillar-head">
-        <span class="coverage-pillar-num">1</span>
-        <div>
-          <div class="coverage-pillar-label">Pillar 1</div>
-          <h3 class="coverage-pillar-title">採用をつくる</h3>
-        </div>
-      </div>
-      <ul class="coverage-pillar-list">
-        <li>RPO（採用代行）</li>
-        <li>CHRO代行</li>
-        <li>HRTech導入支援</li>
-      </ul>
-    </div>
-
-    <div class="coverage-link" aria-hidden="true">
-      <span class="coverage-link-text">採用 → 定着 → 退職</span>
-      <svg class="coverage-arrow" width="56" height="20" viewBox="0 0 56 20" fill="none">
-        <path d="M0 10h46M40 3l8 7-8 7" stroke="#0E7A70" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
-    <div class="coverage-pillar">
-      <div class="coverage-pillar-head">
-        <span class="coverage-pillar-num">2</span>
-        <div>
-          <div class="coverage-pillar-label">Pillar 2</div>
-          <h3 class="coverage-pillar-title">辞めた後もつながる</h3>
-        </div>
-      </div>
-      <ul class="coverage-pillar-list">
-        <li>アルムナイ・タレントプール構築</li>
-        <li>4層セグメント運用</li>
-        <li>再接続・再雇用の導線設計</li>
-      </ul>
-    </div>
-  </div>
-  <p class="coverage-foot">採用から退職後の関係構築まで一気通貫。仕組みは支援終了後も社内に残ります。</p>
-</section>
-
 <!-- ============ 5. PAIN ============ -->
 <section class="section" id="pain">
   <div class="section-label">Pain Points</div>
@@ -284,6 +237,53 @@
   <div class="section-label">Services</div>
   <h2 class="section-title">採用をつくる。辞めた後も、つながる。</h2>
   <p class="section-note">柱①「採用をつくる」は6つの領域で伴走。柱②は次のセクションで。</p>
+
+  <!-- 旧 #coverage セクションをコンパクト統合（2026-10-02: 軽量化第3弾） -->
+  <div class="coverage-compact">
+    <div class="section-label">Coverage</div>
+    <div class="coverage-compact-title">支援範囲を、一枚で。</div>
+    <p class="section-note">「採用をつくる」と「辞めた後もつながる」。この2本柱を1社で一気通貫に支援します。</p>
+
+    <div class="coverage-map is-compact">
+      <div class="coverage-pillar">
+        <div class="coverage-pillar-head">
+          <span class="coverage-pillar-num">1</span>
+          <div>
+            <div class="coverage-pillar-label">Pillar 1</div>
+            <h3 class="coverage-pillar-title">採用をつくる</h3>
+          </div>
+        </div>
+        <ul class="coverage-pillar-list">
+          <li>RPO（採用代行）</li>
+          <li>CHRO代行</li>
+          <li>HRTech導入支援</li>
+        </ul>
+      </div>
+
+      <div class="coverage-link" aria-hidden="true">
+        <span class="coverage-link-text">採用 → 定着 → 退職</span>
+        <svg class="coverage-arrow" width="56" height="20" viewBox="0 0 56 20" fill="none">
+          <path d="M0 10h46M40 3l8 7-8 7" stroke="#0E7A70" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="coverage-pillar">
+        <div class="coverage-pillar-head">
+          <span class="coverage-pillar-num">2</span>
+          <div>
+            <div class="coverage-pillar-label">Pillar 2</div>
+            <h3 class="coverage-pillar-title">辞めた後もつながる</h3>
+          </div>
+        </div>
+        <ul class="coverage-pillar-list">
+          <li>アルムナイ・タレントプール構築</li>
+          <li>4層セグメント運用</li>
+          <li>再接続・再雇用の導線設計</li>
+        </ul>
+      </div>
+    </div>
+    <p class="coverage-foot">採用から退職後の関係構築まで一気通貫。仕組みは支援終了後も社内に残ります。</p>
+  </div>
 
   <div class="pillar-label"><span class="pillar-label-num">PILLAR 1</span>採用をつくる ── 6つの支援領域</div>
 
@@ -329,6 +329,10 @@
 
   <div class="pricing-wrap">
     <div class="pricing-title">フェーズ別 料金の目安</div>
+
+    <details class="faq-item">
+    <summary><span>料金比較表を見る</span><span class="faq-icon">+</span></summary>
+    <div class="pricing-fold">
 
     <!-- 【注意】価格改定時: 以下の <table> と、その下の .pricing-mobile に
          同じ25セルの値が二重に書かれている（760px で表示を切り替えるため）。
@@ -402,6 +406,9 @@
     </div>
 
     <p class="pricing-note">※上記は目安です。企業規模・支援範囲により変動します。詳しくはご相談ください。<br>※初期費用0円の対象はRPO・CHRO代行・HRTech導入・人材紹介立ち上げです。アルムナイ・タレントプール運用は初期構築費（退職者規模により変動）＋月次運用費のストック型です。</p>
+
+    </div>
+    </details>
   </div>
 </section>
 
@@ -658,52 +665,59 @@
   <h2 class="section-title">よくあるご質問</h2>
   <div class="faq-list">
     <details class="faq-item">
-      <summary><span>初期費用はかかりますか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">RPO・CHRO代行・HRTech導入は初期費用0円（月額のみ）で開始できます。初回のご相談・課題整理も無償です。参考価格はRPO月額40万円〜、CHRO代行月額50万円〜、HRTech導入支援月額20万円〜。アルムナイ・タレントプール構築運用のみ、初期構築費120万円〜＋月次運用費25万円〜のストック型です。ご予算に合わせた柔軟なプランをご提案します。</div>
+      <summary><span>料金はどのように決まりますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-answer">課題と支援範囲に応じて個別にお見積もりします。料金表はあくまで目安です。無料相談で概算をお伝えします。</div>
     </details>
     <details class="faq-item">
-      <summary><span>どのような企業規模に対応していますか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">50名規模のスタートアップから500名以上の中堅企業まで幅広く対応しています。業界も問いません。</div>
+      <summary><span>初期費用はかかりますか？</span><span class="faq-icon">+</span></summary>
+      <div class="faq-answer">RPO・CHRO代行・HRTech導入は初期費用0円（月額のみ）で開始できます。初回のご相談・課題整理も無償です。参考価格はRPO月額40万円〜、CHRO代行月額50万円〜、HRTech導入支援月額20万円〜。アルムナイ・タレントプール構築運用のみ、初期構築費120万円〜＋月次運用費25万円〜のストック型です。ご予算に合わせた柔軟なプランをご提案します。</div>
     </details>
     <details class="faq-item">
       <summary><span>契約期間の縛りはありますか？</span><span class="faq-icon">+</span></summary>
       <div class="faq-answer">最低契約期間は原則3ヶ月です。短期のスポット支援から中長期の伴走型まで、無料相談時にご案内します。</div>
     </details>
     <details class="faq-item">
-      <summary><span>RPOとCHRO代行の違いは何ですか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">RPOは採用プロセスの設計・実行を代行するサービスです。CHRO代行は採用に限らず、人事制度設計・組織設計・評価制度など、人事戦略全体を経営視点で設計・推進するサービスです。</div>
-    </details>
-    <details class="faq-item">
-      <summary><span>自社にHRTechツールがすでにある場合でも相談できますか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">はい。既存ツールの活用改善や追加ツールの選定もご支援します。</div>
-    </details>
-    <details class="faq-item">
-      <summary><span>アルムナイ採用を始めるには、専用ツールの導入が必要ですか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">いいえ。公式LINE・Slack・スプレッドシートなど既存ツールで開始できます。新しいSaaSの契約は不要です（ベンダーフリー）。日々の運用はAlumNETが代行します。</div>
-    </details>
-    <details class="faq-item">
-      <summary><span>アルムナイ・タレントプール運用は、何から始めればよいですか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">まずは無料のタレントプール診断をご利用ください。退職者・内定辞退者・リファラル候補など「眠っている人材資産」がどれだけあるかを可視化し、セグメント設計の方向性と概算費用をご提案します。</div>
-    </details>
-    <details class="faq-item">
-      <summary><span>リモートでの対応は可能ですか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">はい。オンラインでの打ち合わせ・支援を基本としており、全国どこからでもご利用いただけます。</div>
-    </details>
-    <details class="faq-item">
-      <summary><span>メンバーはどのような経歴の方ですか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">PASONA・PERSOL・RECRUIT・JACなど大手人材会社出身のプロフェッショナル150名で構成されています。</div>
-    </details>
-    <details class="faq-item">
       <summary><span>相談から開始までどのくらいかかりますか？</span><span class="faq-icon">+</span></summary>
       <div class="faq-answer">最短1週間で支援を開始できます。まずはお気軽にご相談ください。</div>
     </details>
     <details class="faq-item">
-      <summary><span>料金はどのように決まりますか？</span><span class="faq-icon">+</span></summary>
-      <div class="faq-answer">課題と支援範囲に応じて個別にお見積もりします。料金表はあくまで目安です。無料相談で概算をお伝えします。</div>
-    </details>
-    <details class="faq-item">
       <summary><span>途中で解約することはできますか？</span><span class="faq-icon">+</span></summary>
       <div class="faq-answer">可能です。解約条件や予告期間はプランにより異なるため、契約前に書面でご提示します。</div>
+    </details>
+    <details class="faq-item">
+      <summary><span>その他の質問を見る（7件）</span><span class="faq-icon">+</span></summary>
+      <div class="faq-answer" style="padding-bottom:0;">
+        <div class="faq-list is-nested">
+          <details class="faq-item">
+            <summary><span>どのような企業規模に対応していますか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">50名規模のスタートアップから500名以上の中堅企業まで幅広く対応しています。業界も問いません。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>RPOとCHRO代行の違いは何ですか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">RPOは採用プロセスの設計・実行を代行するサービスです。CHRO代行は採用に限らず、人事制度設計・組織設計・評価制度など、人事戦略全体を経営視点で設計・推進するサービスです。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>自社にHRTechツールがすでにある場合でも相談できますか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">はい。既存ツールの活用改善や追加ツールの選定もご支援します。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>アルムナイ採用を始めるには、専用ツールの導入が必要ですか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">いいえ。公式LINE・Slack・スプレッドシートなど既存ツールで開始できます。新しいSaaSの契約は不要です（ベンダーフリー）。日々の運用はAlumNETが代行します。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>アルムナイ・タレントプール運用は、何から始めればよいですか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">まずは無料のタレントプール診断をご利用ください。退職者・内定辞退者・リファラル候補など「眠っている人材資産」がどれだけあるかを可視化し、セグメント設計の方向性と概算費用をご提案します。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>リモートでの対応は可能ですか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">はい。オンラインでの打ち合わせ・支援を基本としており、全国どこからでもご利用いただけます。</div>
+          </details>
+          <details class="faq-item">
+            <summary><span>メンバーはどのような経歴の方ですか？</span><span class="faq-icon">+</span></summary>
+            <div class="faq-answer">PASONA・PERSOL・RECRUIT・JACなど大手人材会社出身のプロフェッショナル150名で構成されています。</div>
+          </details>
+        </div>
+      </div>
     </details>
   </div>
 </section>
