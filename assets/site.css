@@ -202,7 +202,7 @@ nav a:hover{color:var(--ink);}
 @media(max-width:700px){.rowlist .row{grid-template-columns:1fr;gap:6px;padding:18px 0;}.rowlist .row .price{text-align:left;color:var(--teal-ink);}}
 
 /* 料金表: 760px未満は列⇔行を転置してプラン単位で縦積み（横スクロールで逃がさない） */
-.pricing-wrap{margin-top:48px;}
+.pricing-wrap{margin-top:20px;}
 .pricing-title{font-size:16.5px;font-weight:700;margin-bottom:20px;}
 .pricing-table{width:100%;border-collapse:collapse;font-size:13px;}
 .pricing-table th,.pricing-table td{border:1px solid var(--gray-300);padding:14px 12px;text-align:left;vertical-align:top;}
@@ -211,6 +211,8 @@ nav a:hover{color:var(--ink);}
 .pricing-table td.label{font-weight:700;color:var(--gray-700);background:var(--gray-100);}
 .pricing-table th.recommended{color:var(--teal-ink);}
 .pricing-note{margin-top:16px;font-size:12px;color:var(--gray-500);line-height:1.8;}
+/* 料金比較表の折りたたみ本体（summary直下の余白のみ付加。表自体の値・レイアウトは変更しない） */
+.pricing-fold{padding-top:22px;}
 .pricing-mobile{display:none;}
 @media(max-width:760px){
   .pricing-table-desktop{display:none;}
@@ -251,18 +253,24 @@ nav a:hover{color:var(--ink);}
 @media(max-width:760px){.ai-grid{grid-template-columns:1fr 1fr;}}
 @media(max-width:480px){.ai-grid{grid-template-columns:1fr;}}
 
-/* ============ INDEX — RESULTS ============ */
-.results-list{margin-top:28px;border-top:1px solid var(--gray-300);}
-.result-row{display:grid;grid-template-columns:150px 1fr;gap:32px;padding:32px 0;border-bottom:1px solid var(--gray-300);align-items:baseline;}
-.result-tag{font-size:11.5px;font-weight:700;color:var(--gray-500);margin-bottom:8px;letter-spacing:0.02em;}
-.result-num{font-size:38px;font-weight:700;color:var(--teal-ink);}
-.result-label{font-size:16px;font-weight:700;margin-bottom:8px;margin-top:14px;}
-.result-detail{font-size:12.5px;color:var(--gray-500);line-height:1.9;}
-@media(max-width:600px){.result-row{grid-template-columns:1fr;gap:10px;}.result-tag{margin-bottom:0;}}
+/* ============ INDEX — RESULTS（2026-10-02 軽量化第3弾: 縦1列→2×2カードに変更。.ai-grid/.ai-cellと同じ罫線パターンを流用） ============ */
+.results-list{margin-top:16px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);border-left:1px solid var(--gray-300);}
+.result-row{padding:15px 16px;border-right:1px solid var(--gray-300);border-bottom:1px solid var(--gray-300);min-width:0;}
+.result-num{font-size:26px;font-weight:700;color:var(--teal-ink);}
+.result-tag{font-size:11.5px;font-weight:700;color:var(--gray-500);margin-top:7px;margin-bottom:4px;letter-spacing:0.02em;}
+.result-label{font-size:14px;font-weight:700;margin-bottom:3px;}
+.result-detail{font-size:12px;color:var(--gray-500);line-height:1.6;}
+@media(max-width:600px){
+  .result-row{padding:13px 10px;}
+  .result-num{font-size:21px;}
+  .result-tag{margin-top:6px;margin-bottom:4px;}
+  .result-label{font-size:12.5px;margin-bottom:2px;}
+  .result-detail{font-size:11px;line-height:1.55;}
+}
 
 /* ============ INDEX — PRODUCTS ============ */
 .products-grid{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);}
-.product-cell{padding:28px 28px 28px 0;border-bottom:1px solid var(--gray-300);}
+.product-cell{padding:28px 28px 28px 0;border-bottom:1px solid var(--gray-300);min-width:0;}
 .product-cell:nth-child(2n){padding-left:28px;padding-right:0;border-left:1px solid var(--gray-300);}
 .product-tag{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:0.08em;color:var(--teal-ink);border:1px solid var(--teal-ink);border-radius:var(--radius-md);padding:3px 9px;margin-bottom:12px;text-transform:uppercase;}
 .product-name{font-size:16px;font-weight:700;margin-bottom:8px;}
@@ -271,7 +279,20 @@ nav a:hover{color:var(--ink);}
 .product-link{font-size:13px;font-weight:700;color:var(--teal-ink);border-bottom:1px solid var(--teal-ink);padding-bottom:1px;}
 .product-label{font-size:11.5px;color:var(--gray-500);}
 .product-price-note{margin-top:10px;font-size:11px;color:var(--gray-500);line-height:1.8;}
-@media(max-width:640px){.products-grid{grid-template-columns:1fr;}.product-cell{padding:24px 0!important;border-left:none!important;}.product-cell:nth-child(2n){border-left:none;}}
+/* 2026-10-02 軽量化第3弾: 640px未満でも1列に強制せず2列を維持。カード内の密度のみ調整 */
+@media(max-width:640px){
+  .product-cell{padding:20px 14px 20px 0;}
+  .product-cell:nth-child(2n){padding-left:14px;}
+  .product-name{font-size:14px;margin-bottom:6px;}
+  .product-desc{font-size:11.5px;line-height:1.75;}
+  .product-price-note{font-size:10px;line-height:1.7;}
+  .product-foot{margin-top:10px;flex-wrap:wrap;gap:8px;}
+  .product-label{font-size:10.5px;}
+}
+@media(max-width:420px){
+  .product-cell{padding:18px 10px 18px 0;}
+  .product-cell:nth-child(2n){padding-left:10px;}
+}
 
 /* ============ WHY（index の差別化3点 / contact の安心3点で共用） ============ */
 .why-grid{margin-top:32px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--gray-300);}
@@ -340,6 +361,19 @@ nav a:hover{color:var(--ink);}
   .coverage-arrow{transform:rotate(90deg);}
 }
 
+/* ============ INDEX — COVERAGE MAP 統合コンパクト版（2026-10-02 軽量化第3弾: 旧#coverageセクションをservices冒頭へ集約。独立セクションの余白を外し、内部パディングも縮小） ============ */
+.coverage-compact{margin:12px 0 20px;padding-bottom:16px;border-bottom:1px solid var(--gray-300);}
+.coverage-compact-title{font-size:15.5px;font-weight:700;margin-top:2px;margin-bottom:2px;}
+.coverage-map.is-compact{margin-top:10px;}
+.coverage-map.is-compact .coverage-pillar{padding:12px 16px;}
+.coverage-map.is-compact .coverage-pillar-head{margin-bottom:6px;}
+.coverage-map.is-compact .coverage-pillar-num{width:24px;height:24px;font-size:12px;}
+.coverage-map.is-compact .coverage-pillar-title{font-size:14px;margin-top:1px;}
+.coverage-map.is-compact .coverage-pillar-list li{padding:6px 0;font-size:12px;}
+.coverage-map.is-compact .coverage-link{padding:0 12px;}
+.coverage-compact .coverage-foot{margin-top:8px;font-size:11px;}
+@media(max-width:640px){.coverage-compact{margin:10px 0 16px;}}
+
 /* ============ INDEX — TEAM ============ */
 .team-grid{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:64px;}
 .person{border-top:1px solid var(--gray-300);padding-top:32px;}
@@ -387,6 +421,8 @@ nav a:hover{color:var(--ink);}
    border-bottomだけ外す（is-flush）。fold-descは元の説明文クラスに追加する下余白のみの付加クラス
    （文字サイズ・色は元のクラス＝ai-desc/segment-desc/chro-point-desc側の指定を維持する）。 */
 .faq-item.is-flush{border-bottom:none;}
+/* FAQ内のネスト折りたたみ（「その他の質問を見る」）: 親.faq-answerが既に余白を作るため上余白・上罫線は重ねない */
+.faq-list.is-nested{margin-top:0;border-top:none;}
 /* グリッドセル内の折りたたみはトリガー自体が小さいほうが軽くなる。
    見た目（下線なし・+アイコン回転・teal-ink色）はFAQと同じ仕組みのまま、
    余白だけ縮小する（FAQの20px 0は見出し一覧用で、小さいセルには過大） */
