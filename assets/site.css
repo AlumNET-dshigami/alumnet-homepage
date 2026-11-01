@@ -50,6 +50,7 @@ body{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:400;line-height:1.
 h1,h2,h3,.why-v2-title,.doc-title,.product-name{text-wrap:balance;}
 img,svg{max-width:100%;}
 a{color:inherit;text-decoration:none;}
+.nowrap{white-space:nowrap;}
 ul,ol{list-style:none;}
 .wrap{max-width:1120px;margin:0 auto;padding:0 40px;}
 @media(max-width:640px){.wrap{padding:0 24px;}}
@@ -199,7 +200,48 @@ nav a:hover{color:var(--ink);}
 .rowlist .row .svc{font-weight:700;font-size:15px;}
 .rowlist .row .desc{font-size:13.5px;color:var(--gray-700);}
 .rowlist .row .price{font-weight:700;font-size:14.5px;text-align:right;white-space:nowrap;}
-@media(max-width:700px){.rowlist .row{grid-template-columns:1fr;gap:6px;padding:18px 0;}.rowlist .row .price{text-align:left;color:var(--teal-ink);}}
+/* 料金列を出さない行（2026-11-01: 人材紹介会社向け改修。金額はサイトに書かない） */
+.rowlist.no-price .row{grid-template-columns:220px 1fr;}
+@media(max-width:700px){.rowlist .row,.rowlist.no-price .row{grid-template-columns:1fr;gap:6px;padding:18px 0;}.rowlist .row .price{text-align:left;color:var(--teal-ink);}}
+
+/* ============ INDEX — 2プラン ============ */
+.plan-grid{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--gray-300);}
+.plan-cell{padding:32px 36px 8px 0;border-left:1px solid var(--gray-300);min-width:0;}
+.plan-cell:first-child{border-left:none;padding-left:0;}
+.plan-kicker{font-size:11px;font-weight:700;letter-spacing:0.14em;color:var(--teal-ink);}
+.plan-name{font-size:22px;font-weight:700;margin:10px 0 12px;line-height:1.45;}
+.plan-lead{font-size:14px;color:var(--ink);line-height:1.85;}
+.plan-list{margin-top:18px;border-top:1px solid var(--gray-300);}
+.plan-list li{padding:12px 0;border-bottom:1px solid var(--gray-300);font-size:13.5px;color:var(--gray-700);line-height:1.7;}
+.plan-cta{margin-top:22px;}
+.plan-note{margin-top:22px;font-size:13.5px;color:var(--gray-700);line-height:1.85;}
+@media(max-width:760px){
+  .plan-grid{grid-template-columns:1fr;}
+  .plan-cell{border-left:none;border-top:1px solid var(--gray-300);padding:28px 0 8px;}
+  .plan-cell:first-child{border-top:none;padding-top:0;}
+}
+
+/* ============ INDEX — 4ステップ ============ */
+.step-row{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--gray-300);}
+.step-cell{padding:22px 20px 4px 0;border-left:1px solid var(--gray-300);min-width:0;}
+.step-cell:first-child{border-left:none;padding-left:0;}
+.step-num{font-size:26px;font-weight:700;color:var(--gray-500);}
+.step-name{font-size:15px;font-weight:700;margin-top:10px;line-height:1.5;}
+.step-desc{font-size:12.5px;color:var(--gray-700);margin-top:8px;line-height:1.8;}
+@media(max-width:860px){
+  .step-row{grid-template-columns:1fr 1fr;}
+  .step-cell:nth-child(2n+1){border-left:none;padding-left:0;}
+  .step-cell:nth-child(2n){padding-left:20px;}
+  .step-cell{border-top:1px solid var(--gray-300);padding-top:18px;margin-top:4px;}
+  .step-cell:nth-child(-n+2){border-top:none;margin-top:0;padding-top:22px;}
+}
+@media(max-width:480px){
+  .step-row{grid-template-columns:1fr;}
+  .step-cell,
+  .step-cell:nth-child(2n),
+  .step-cell:nth-child(-n+2){border-left:none;border-top:1px solid var(--gray-300);padding:18px 0 4px;margin-top:0;}
+  .step-cell:first-child{border-top:none;padding-top:22px;}
+}
 
 /* 料金表: 760px未満は列⇔行を転置してプラン単位で縦積み（横スクロールで逃がさない） */
 .pricing-wrap{margin-top:20px;}
