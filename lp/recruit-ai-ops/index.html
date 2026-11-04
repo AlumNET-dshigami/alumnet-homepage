@@ -55,7 +55,7 @@
         -webkit-font-smoothing: antialiased;
         overflow-x: hidden;
       }
-      img { max-width: 100%; display: block; }
+      img { max-width: 100%; height: auto; display: block; }
       a { color: inherit; }
       .display { font-family: "Noto Sans JP", sans-serif; font-weight: 900; letter-spacing: .01em; }
       .serif { font-family: "Noto Serif JP", serif; }
@@ -108,7 +108,7 @@
         border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow);
         background: var(--surface); overflow: hidden;
       }
-      .hero-visual img { width: 100%; }
+      .hero-visual img { width: 100%; height: auto; aspect-ratio: 1280 / 800; object-fit: cover; }
       .sticker {
         position: absolute; font-weight: 800;
         border: 1px solid var(--line); border-radius: 999px;
@@ -268,7 +268,7 @@
         font-size: .8em; font-weight: 900;
       }
       .feat-img { border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); background: var(--surface); overflow: hidden; }
-      .feat-img img { width: 100%; }
+      .feat-img img { width: 100%; height: auto; aspect-ratio: 1280 / 800; object-fit: cover; }
 
       /* ---------- mid CTA band ---------- */
       .cta-band {
