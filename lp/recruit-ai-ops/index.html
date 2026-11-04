@@ -207,6 +207,26 @@
       .market-trend p { grid-column: 2; margin: 0; color: var(--muted); font-weight: 500; font-size: .95rem; }
       .market-note { margin-top: 18px; font-size: .82rem; color: var(--muted); font-weight: 500; }
 
+      /* ---------- third-party case study (separate from survey data) ---------- */
+      .case-block {
+        margin-top: 30px;
+        border: 1.5px dashed var(--line-strong);
+        border-radius: var(--radius);
+        background: var(--surface);
+        padding: 24px 28px;
+      }
+      .case-block h3 {
+        display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+        font-weight: 900; font-size: 1.05rem; margin: 0 0 8px; line-height: 1.5;
+      }
+      .case-block h3 .case-chip {
+        font-size: .72rem; font-weight: 800; letter-spacing: .14em;
+        color: var(--muted); border: 1px solid var(--line-strong);
+        border-radius: 999px; padding: .2em .9em; white-space: nowrap;
+      }
+      .case-block p { margin: 0; color: var(--ink-2); font-weight: 500; font-size: .95rem; }
+      .case-block .case-note { margin-top: 10px; font-size: .82rem; color: var(--muted); }
+
       /* ---------- promises ---------- */
       .promises { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
       .promise {
@@ -379,6 +399,7 @@
         .char-grid { grid-template-columns: 1fr; }
         .market-grid { grid-template-columns: 1fr; }
         .market-trend { padding: 22px 20px; }
+        .case-block { padding: 22px 20px; }
         .price-grid { grid-template-columns: 1fr; }
         .promise { grid-template-columns: 1fr; }
         .promise .no { grid-row: auto; display: flex; align-items: baseline; gap: 12px; }
@@ -581,6 +602,11 @@
             <p>採用業務にAIを取り入れている企業では、計画達成の割合にプラスの傾向が見られます。道具の有無ではなく、運用の仕組みに組み込めるかが分かれ目です。</p>
           </div>
           <p class="market-note">※ 2026年の中途採用実態調査（人事・採用担当者65名）より</p>
+          <div class="case-block reveal">
+            <h3>他社の導入事例<span class="case-chip">CASE STUDY</span></h3>
+            <p>三越伊勢丹ヒューマン・ソリューションズでは、面接官2名体制を『1名＋AI』に移行し、面接工数を約40%削減しました。AIが議事録と評価ドラフト（評価の土台）を作り、最終判断は人が下す——Recruit AI Opsと同じ考え方の運用です。</p>
+            <p class="case-note">※ JAPAN AI 導入事例（2026年11月公表）より</p>
+          </div>
         </div>
       </section>
 
