@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="8つの質問で、人材紹介の立ち上げ・運用が「仕組み」になっているか分かる無料診断です（約2分）。人材紹介会社・エージェント向け。AlumNET" />
+    <link rel="canonical" href="https://alum-net.jp/shindan-agent/" />
+    <!-- OGP / Twitterカード（SNSでリンクを貼ったときの表示） -->
+    <meta property="og:title" content="無料 人材紹介 診断｜AlumNET" />
+    <meta property="og:description" content="8つの質問で、人材紹介の立ち上げ・運用が『仕組み』になっているか診断できます（約2分・無料）" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alum-net.jp/shindan-agent/" />
+    <meta property="og:image" content="https://alum-net.jp/shindan-agent/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="無料 人材紹介 診断｜AlumNET" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="無料 人材紹介 診断｜AlumNET" />
+    <meta name="twitter:description" content="8つの質問で、人材紹介の立ち上げ・運用が『仕組み』になっているか診断できます（約2分・無料）" />
+    <meta name="twitter:image" content="https://alum-net.jp/shindan-agent/og.png" />
+    <meta name="twitter:image:alt" content="無料 人材紹介 診断｜AlumNET" />
+    <link rel="icon" href="data:," />
+    <title>無料 人材紹介 診断｜AlumNET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-soft: #f4f7f9;
+        --ink: #1c2733;
+        --ink-soft: #45566a;
+        --ink-faint: #6b7d90;
+        --navy: #16324f;
+        --navy-deep: #0f2438;
+        --teal: #0e7c7b;
+        --teal-soft: #e6f3f2;
+        --line: #dde5ec;
+        --choice-hover: #eef4f8;
+        --radius: 14px;
+        --shadow: 0 10px 30px rgba(22, 50, 79, 0.08);
+      }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg-soft);
+        color: var(--ink);
+        font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+        line-height: 1.75;
+        font-size: 16px;
+      }
+      .wrap {
+        max-width: 680px;
+        margin: 0 auto;
+        padding: 20px 16px 56px;
+      }
+      .brand {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        padding: 6px 2px 18px;
+      }
+      .brand .logo {
+        font-weight: 900;
+        font-size: 20px;
+        letter-spacing: 0.04em;
+        color: var(--navy);
+      }
+      .brand .logo span { color: var(--teal); }
+      .brand .tag {
+        font-size: 12px;
+        color: var(--ink-faint);
+        letter-spacing: 0.08em;
+      }
+      .card {
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 32px 24px;
+      }
+      @media (min-width: 640px) {
+        .card { padding: 44px 44px; }
+        .wrap { padding-top: 32px; }
+      }
+      /* ---------- screens ---------- */
+      .screen { display: none; }
+      .screen.active { display: block; animation: fadeIn 0.35s ease both; }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .quiz-anim { animation: fadeIn 0.25s ease both; }
+      @media (prefers-reduced-motion: reduce) {
+        .screen.active { animation: none; }
+        .quiz-anim { animation: none; }
+        .progress-fill { transition: none !important; }
+      }
+      /* ---------- intro ---------- */
+      .intro-eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--teal);
+        border: 1px solid var(--teal);
+        border-radius: 999px;
+        padding: 3px 12px;
+        margin-bottom: 18px;
+      }
+      h1 {
+        font-size: 32px;
+        line-height: 1.35;
+        font-weight: 900;
+        color: var(--navy);
+        margin: 0 0 14px;
+      }
+      @media (min-width: 640px) { h1 { font-size: 38px; } }
+      .lead {
+        font-size: 16px;
+        color: var(--ink-soft);
+        margin: 0 0 28px;
+      }
+      .lead strong { color: var(--ink); }
+      .market {
+        background: var(--bg-soft);
+        border-radius: 10px;
+        padding: 18px 18px 14px;
+        margin-bottom: 30px;
+      }
+      .market h2 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 10px;
+        letter-spacing: 0.06em;
+      }
+      .market ul {
+        list-style: none;
+        margin: 0 0 10px;
+        padding: 0;
+      }
+      .market li {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        padding: 8px 0;
+        border-top: 1px dashed var(--line);
+        font-size: 14px;
+        color: var(--ink-soft);
+      }
+      .market li:first-child { border-top: none; }
+      .market .num {
+        font-size: 22px;
+        font-weight: 900;
+        color: var(--teal);
+        white-space: nowrap;
+      }
+      .market .num small { font-size: 13px; font-weight: 700; }
+      .market .src {
+        font-size: 11.5px;
+        color: var(--ink-faint);
+        margin: 0;
+      }
+      .btn {
+        display: block;
+        width: 100%;
+        text-align: center;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 10px;
+        padding: 16px 20px;
+        transition: background 0.15s ease, transform 0.1s ease;
+      }
+      .btn:active { transform: translateY(1px); }
+      .btn-primary { background: var(--navy); color: #fff; }
+      .btn-primary:hover { background: var(--navy-deep); }
+      .btn-teal { background: var(--teal); color: #fff; }
+      .btn-teal:hover { background: #0a6665; }
+      .btn-ghost {
+        background: transparent;
+        color: var(--navy);
+        border: 1px solid var(--line);
+      }
+      .btn-ghost:hover { background: var(--choice-hover); }
+      .note-small {
+        font-size: 12.5px;
+        color: var(--ink-faint);
+        text-align: center;
+        margin: 14px 0 0;
+      }
+      /* ---------- quiz ---------- */
+      .progress-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 13px;
+        color: var(--ink-faint);
+        margin-bottom: 8px;
+      }
+      .progress-meta .qcount { font-weight: 700; color: var(--navy); }
+      .progress {
+        height: 8px;
+        background: var(--line);
+        border-radius: 999px;
+        overflow: hidden;
+        margin-bottom: 30px;
+      }
+      .progress-fill {
+        height: 100%;
+        width: 0;
+        background: var(--teal);
+        border-radius: 999px;
+        transition: width 0.35s ease;
+      }
+      .q-theme {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: var(--teal);
+        margin: 0 0 6px;
+      }
+      .q-text {
+        font-size: 21px;
+        font-weight: 700;
+        line-height: 1.5;
+        color: var(--navy);
+        margin: 0 0 24px;
+      }
+      @media (min-width: 640px) { .q-text { font-size: 24px; } }
+      .choices { display: grid; gap: 12px; }
+      .choice {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        text-align: left;
+        font-family: inherit;
+        font-size: 15.5px;
+        line-height: 1.6;
+        color: var(--ink);
+        background: var(--bg);
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 16px 18px;
+        cursor: pointer;
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+      .choice:hover, .choice:focus-visible { border-color: var(--teal); background: var(--teal-soft); outline: none; }
+      .choice .dot {
+        flex: 0 0 auto;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 2px solid var(--line);
+        background: #fff;
+      }
+      .choice:hover .dot, .choice:focus-visible .dot { border-color: var(--teal); }
+      .choice.selected { border-color: var(--teal); background: var(--teal-soft); }
+      .choice.selected .dot { border-color: var(--teal); background: var(--teal); box-shadow: inset 0 0 0 3px #fff; }
+      .back-link {
+        display: inline-block;
+        margin-top: 22px;
+        background: none;
+        border: none;
+        font-family: inherit;
+        font-size: 14px;
+        color: var(--ink-faint);
+        cursor: pointer;
+        padding: 6px 2px;
+      }
+      .back-link:hover { color: var(--navy); text-decoration: underline; }
+      .back-link[hidden] { display: none; }
+      /* ---------- result ---------- */
+      .result-label {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--teal);
+        margin: 0 0 8px;
+      }
+      .score-line {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+      .score-line .score {
+        font-size: 44px;
+        font-weight: 900;
+        color: var(--navy);
+        line-height: 1;
+      }
+      .score-line .of { font-size: 15px; color: var(--ink-faint); font-weight: 700; }
+      .type-name {
+        font-size: 28px;
+        font-weight: 900;
+        color: var(--navy);
+        margin: 0 0 14px;
+        line-height: 1.4;
+      }
+      .type-desc { color: var(--ink-soft); margin: 0 0 28px; }
+      .result-block { margin-bottom: 28px; }
+      .result-block h3 {
+        font-size: 15px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 12px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid var(--teal-soft);
+      }
+      .growth-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+      .growth-list li {
+        background: var(--bg-soft);
+        border-radius: 10px;
+        padding: 12px 16px;
+        font-size: 15px;
+      }
+      .growth-list .g-theme { font-weight: 700; color: var(--navy); }
+      .growth-list .g-desc { color: var(--ink-soft); font-size: 14px; }
+      .action-list { margin: 0; padding-left: 1.3em; color: var(--ink-soft); }
+      .action-list li { margin-bottom: 6px; }
+      .action-list li::marker { color: var(--teal); font-weight: 700; }
+      .cta-box {
+        background: var(--navy);
+        border-radius: var(--radius);
+        padding: 26px 22px;
+        margin-top: 34px;
+        text-align: center;
+      }
+      .cta-box p {
+        color: #eaf1f7;
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0 0 18px;
+        line-height: 1.7;
+      }
+      .cta-box .btn { margin-bottom: 12px; }
+      .cta-box .btn:last-child { margin-bottom: 0; }
+      .cta-box .btn-ghost {
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.45);
+        background: transparent;
+      }
+      .cta-box .btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+      .share-box {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 20px;
+        margin-top: 22px;
+      }
+      .share-box h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--navy);
+        margin: 0 0 10px;
+      }
+      .share-text {
+        background: var(--bg-soft);
+        border-radius: 10px;
+        padding: 14px 16px;
+        font-size: 14px;
+        color: var(--ink-soft);
+        margin: 0 0 14px;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+      .restart-row { text-align: center; margin-top: 22px; }
+      footer {
+        text-align: center;
+        font-size: 12px;
+        color: var(--ink-faint);
+        padding: 22px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo">Alum<span>NET</span></div>
+        <div class="tag">人材紹介の立ち上げ・運用支援</div>
+      </div>
+
+      <!-- ======== 導入 ======== -->
+      <section class="screen active" id="screen-intro" aria-label="診断のご案内">
+        <div class="card">
+          <span class="intro-eyebrow">無料診断</span>
+          <h1>無料 人材紹介 診断</h1>
+          <p class="lead">
+            8つの質問で、人材紹介の立ち上げ・運用が<strong>「仕組み」</strong>になっているか分かります（約2分）。
+            担当者の経験や勘に頼る部分がどこに残っているか、結果ですぐに確認できます。
+          </p>
+
+          <div class="market">
+            <h2>この診断で見る8つのテーマ</h2>
+            <ul>
+              <li><span>求人開拓・候補者との接点・推薦基準・推薦文</span></li>
+              <li><span>歩留まり・数字の見え方・チャネル・運用の回し方</span></li>
+            </ul>
+            <p class="src">人材紹介会社・エージェントの方向けの内容です。</p>
+          </div>
+
+          <button type="button" class="btn btn-primary" id="btn-start">診断をはじめる</button>
+          <p class="note-small">回答はこのページの中だけで処理され、送信されることはありません。</p>
+        </div>
+      </section>
+
+      <!-- ======== 質問 ======== -->
+      <section class="screen" id="screen-quiz" aria-label="診断の質問">
+        <div class="card">
+          <div class="progress-meta">
+            <span class="qcount" id="q-count">質問 1 / 8</span>
+            <span id="q-pct">0%</span>
+          </div>
+          <div class="progress" role="progressbar" aria-label="診断の進捗" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <p class="q-theme" id="q-theme"></p>
+          <h2 class="q-text" id="q-text"></h2>
+          <div class="choices" id="choices" role="group" aria-label="選択肢"></div>
+          <button type="button" class="back-link" id="btn-back" hidden>← 前の質問にもどる</button>
+        </div>
+      </section>
+
+      <!-- ======== 結果 ======== -->
+      <section class="screen" id="screen-result" aria-label="診断結果">
+        <div class="card">
+          <p class="result-label">診断結果</p>
+          <div class="score-line">
+            <span class="score" id="r-score">0</span>
+            <span class="of">/ 16点</span>
+          </div>
+          <h2 class="type-name" id="r-type"></h2>
+          <p class="type-desc" id="r-desc"></p>
+
+          <div class="result-block" id="r-growth-block">
+            <h3>伸びしろ（まず効くテーマ）</h3>
+            <ul class="growth-list" id="r-growth"></ul>
+          </div>
+
+          <div class="result-block">
+            <h3>おすすめの進め方</h3>
+            <ol class="action-list" id="r-actions"></ol>
+          </div>
+
+          <div class="cta-box">
+            <p>この結果の活かし方を、<br />詳細レポートや無料相談で具体的にお伝えします<br /><span style="font-size:0.85em;opacity:0.85">申込フォームで「詳細レポート」「無料相談」をお選びいただけます</span></p>
+            <a class="btn btn-teal" id="cta-consult" href="#" target="_blank" rel="noopener">詳細レポート・無料相談を申し込む</a>
+            <a class="btn btn-ghost" id="cta-product" href="#" target="_blank" rel="noopener">Recruit AI Opsを見る</a>
+          </div>
+
+          <div class="share-box">
+            <h3>結果をシェアする</h3>
+            <p class="share-text" id="r-share-text"></p>
+            <a class="btn btn-ghost" id="btn-share-x" href="#" target="_blank" rel="noopener">Xで結果をシェア</a>
+          </div>
+
+          <div class="restart-row">
+            <button type="button" class="back-link" id="btn-restart">診断をやり直す</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>© AlumNET</footer>
+    </div>
+
+    <script>
+      /* ============================================================
+         リンク先（後で差し替え可能）
+         CONSULT_URL : 詳細レポート送付・無料相談の申込フォーム（Googleフォーム）。
+         FORM_ENTRY_* : フォームの事前入力用の項目ID（診断タイプ／経路）。
+         ============================================================ */
+      var CONSULT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeaHN_UYZyA2nk_xLJMPum9GD8SKXyLCy8KVdveTMd3Y43HDw/viewform";
+      var FORM_ENTRY_TYPE = "entry.1162293352";
+      var FORM_ENTRY_ROUTE = "entry.1046604882";
+      var ROUTE_BASE = "shindan-agent";
+      var PRODUCT_URL = "https://alum-net.jp/lp/recruit-ai-ops/";
+      var PAGE_URL = "https://alum-net.jp/shindan-agent/";
+
+      var QUESTIONS = [
+        {
+          theme: "求人開拓",
+          text: "新しい求人（クライアント）はどう獲得していますか？",
+          growth: "求人開拓の型づくり",
+          growthDesc: "開拓の進め方を型にすると、付き合いに頼らず安定して求人が増えます。",
+          choices: ["既存の付き合い・紹介に頼っている", "一部は自分たちから開拓している", "型があり、安定して獲得できている"]
+        },
+        {
+          theme: "候補者との接点",
+          text: "候補者との接点（登録・スカウト返信・面談）の量は？",
+          growth: "候補者との接点の量",
+          growthDesc: "接点の量が安定すると、推薦できる人数と歩留まりが読みやすくなります。",
+          choices: ["足りていない", "月によって波がある", "安定して確保できている"]
+        },
+        {
+          theme: "推薦基準",
+          text: "求職者を求人に推薦するときの判断基準は？",
+          growth: "推薦基準の明文化",
+          growthDesc: "基準を言葉にして共有すると、推薦のブレと確認の手間が減ります。",
+          choices: ["担当者ごとにバラバラ", "大まかな基準はある", "基準が明文化され共有されている"]
+        },
+        {
+          theme: "提案・推薦文",
+          text: "提案文・推薦文はどう作っていますか？",
+          growth: "推薦文の型づくり",
+          growthDesc: "型とAIを使うと、誰が書いても一定の品質で、作成の時間も短くなります。",
+          choices: ["毎回手で書いている", "テンプレートを使っている", "型とAIで安定して作れている"]
+        },
+        {
+          theme: "歩留まり",
+          text: "推薦から面接・内定までの歩留まりは？",
+          growth: "歩留まりの改善",
+          growthDesc: "どの段階で止まっているかが分かると、効く打ち手を絞り込めます。",
+          choices: ["低く、改善できていない", "たまに良いときがある", "安定している"]
+        },
+        {
+          theme: "数字の見え方",
+          text: "数字の見え方は？",
+          growth: "工数・数字の見える化",
+          growthDesc: "工数まで見えると、改善の優先順位が付けやすくなります。",
+          choices: ["数字が見えていない", "成果（決定数・売上）は見ている", "工数・コストまで可視化できている"]
+        },
+        {
+          theme: "チャネル",
+          text: "候補者・求人を集めるチャネルの構成は？",
+          growth: "自社で集める力",
+          growthDesc: "自社で集められる経路が増えると、媒体費や他社への依存を抑えられます。",
+          choices: ["ほぼ媒体・他社頼み", "媒体と自社を併用している", "自社でも集められている"]
+        },
+        {
+          theme: "運用の回し方",
+          text: "日々の運用の回し方は？",
+          growth: "運用の仕組み化",
+          growthDesc: "進め方を仕組みにすると、担当が変わっても品質が保てます。",
+          choices: ["担当者の経験次第", "一部は仕組みになっている", "誰がやっても同じ品質で回る"]
+        }
+      ];
+
+      var TYPES = [
+        {
+          max: 5,
+          name: "土台づくりフェーズ",
+          key: "dodai",
+          desc: "人材紹介の運用が、担当者の経験や付き合いに支えられている段階です。まず効くのは、推薦基準と推薦文の型づくり、そして数字の見える化です。小さな型から整えることで、立ち上げ期の負担と成果のブレを同時に減らせます。",
+          actions: [
+            "推薦の判断基準を言葉にし、誰が見ても同じ判断ができる状態にする",
+            "推薦文・提案文の「型」を作り、書く時間と品質のブレを減らす",
+            "候補者数・推薦数・面接数など、最低限の数字を毎週見る習慣をつくる"
+          ]
+        },
+        {
+          max: 11,
+          name: "型づくりフェーズ",
+          key: "katazukuri",
+          desc: "仕組みの芽はある段階です。定型の作業をAIと型で軽くすると、求職者や企業との対話といった本来の業務に時間を戻せます。残っている属人的なポイントを、一つずつ整えていく時期です。",
+          actions: [
+            "推薦文の作成や候補者への連絡など、定型作業をAIと型で軽くする",
+            "工数まで数字で把握し、成果につながっているチャネルへ時間を寄せる",
+            "推薦基準のすり合わせを定例化し、歩留まりの変化を確認する"
+          ]
+        },
+        {
+          max: 16,
+          name: "仕組み化フェーズ",
+          key: "shikumika",
+          desc: "運用の土台ができている段階です。次は数字をもとに改善を回し、工数とコストをさらに最適化していく段階です。仕組みを保ちながら、次の改善点を数字で見つける運用が効いてきます。",
+          actions: [
+            "工程ごとの数字をもとに、歩留まりと工数の改善を回し続ける",
+            "自社で集められるチャネルを広げ、媒体や他社への依存を下げる",
+            "仕組みをドキュメント化し、担当交代や増員でも同じ品質で回せる状態を保つ"
+          ]
+        }
+      ];
+
+      var answers = [];
+      var current = 0;
+
+      var screens = {
+        intro: document.getElementById("screen-intro"),
+        quiz: document.getElementById("screen-quiz"),
+        result: document.getElementById("screen-result")
+      };
+
+      function showScreen(name) {
+        Object.keys(screens).forEach(function (key) {
+          screens[key].classList.toggle("active", key === name);
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderQuestion() {
+        var q = QUESTIONS[current];
+        var pct = Math.round((current / QUESTIONS.length) * 100);
+        document.getElementById("q-count").textContent = "質問 " + (current + 1) + " / " + QUESTIONS.length;
+        document.getElementById("q-pct").textContent = pct + "%";
+        var bar = document.getElementById("progress-bar");
+        bar.setAttribute("aria-valuenow", String(pct));
+        document.getElementById("progress-fill").style.width = pct + "%";
+        document.getElementById("q-theme").textContent = q.theme;
+        document.getElementById("q-text").textContent = q.text;
+
+        var box = document.getElementById("choices");
+        box.innerHTML = "";
+        q.choices.forEach(function (label, idx) {
+          var btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "choice" + (answers[current] === idx ? " selected" : "");
+          var dot = document.createElement("span");
+          dot.className = "dot";
+          dot.setAttribute("aria-hidden", "true");
+          var text = document.createElement("span");
+          text.textContent = label;
+          btn.appendChild(dot);
+          btn.appendChild(text);
+          btn.addEventListener("click", function () { answer(idx); });
+          box.appendChild(btn);
+        });
+
+        document.getElementById("btn-back").hidden = current === 0;
+
+        var card = screens.quiz.querySelector(".card");
+        card.classList.remove("quiz-anim");
+        void card.offsetWidth;
+        card.classList.add("quiz-anim");
+      }
+
+      function answer(idx) {
+        answers[current] = idx;
+        if (current < QUESTIONS.length - 1) {
+          current++;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      }
+
+      function typeFor(score) {
+        for (var i = 0; i < TYPES.length; i++) {
+          if (score <= TYPES[i].max) return TYPES[i];
+        }
+        return TYPES[TYPES.length - 1];
+      }
+
+      /* 詳細レポート・無料相談CTAのURLを組み立てる。Googleフォームの事前入力として
+         診断タイプ名と経路(ref、なければutm_source)を付けるだけ。外部送信・保存はしない。 */
+      /* 経路は「shindan-agent」を基本とし、ref(なければutm_source)があれば
+         「shindan-agent_ref-xxx」「shindan-agent_utm-xxx」の形で後ろに付ける。
+         値は英数字・ハイフン・アンダースコアのみ・40文字まで（他は除去）。 */
+      function sanitizeRoute(v) {
+        return String(v || "").replace(/[^A-Za-z0-9_-]/g, "").slice(0, 40);
+      }
+
+      function buildRoute(search) {
+        var route = ROUTE_BASE;
+        try {
+          var q = new URLSearchParams(search);
+          var ref = sanitizeRoute(q.get("ref"));
+          var utm = sanitizeRoute(q.get("utm_source"));
+          if (ref) route += "_ref-" + ref;
+          else if (utm) route += "_utm-" + utm;
+        } catch (e) {}
+        return route;
+      }
+
+      function buildConsultUrl(type, search) {
+        var url = new URL(CONSULT_URL);
+        /* 診断タイプは実際の診断結果で確定（ページURLの値は使わない） */
+        url.searchParams.set(FORM_ENTRY_TYPE, type.name);
+        url.searchParams.set(FORM_ENTRY_ROUTE, buildRoute(search === undefined ? window.location.search : search));
+        return url.toString();
+      }
+
+      function showResult() {
+        var score = answers.reduce(function (sum, v) { return sum + v; }, 0);
+        var type = typeFor(score);
+
+        document.getElementById("progress-fill").style.width = "100%";
+        document.getElementById("r-score").textContent = String(score);
+        document.getElementById("r-type").textContent = type.name;
+        document.getElementById("r-desc").textContent = type.desc;
+
+        var growth = [];
+        answers.forEach(function (v, i) {
+          if (v === 0) growth.push(QUESTIONS[i]);
+        });
+        var growthBlock = document.getElementById("r-growth-block");
+        var growthList = document.getElementById("r-growth");
+        growthList.innerHTML = "";
+        if (growth.length === 0) {
+          growthBlock.querySelector("h3").textContent = "伸びしろ";
+          var li = document.createElement("li");
+          li.textContent = "全てのテーマで土台ができています。あとは数字で改善を回し続ける段階です。";
+          growthList.appendChild(li);
+        } else {
+          growthBlock.querySelector("h3").textContent = "伸びしろ（まず効くテーマ）";
+          growth.slice(0, 3).forEach(function (q) {
+            var item = document.createElement("li");
+            var theme = document.createElement("div");
+            theme.className = "g-theme";
+            theme.textContent = q.growth;
+            var desc = document.createElement("div");
+            desc.className = "g-desc";
+            desc.textContent = q.growthDesc;
+            item.appendChild(theme);
+            item.appendChild(desc);
+            growthList.appendChild(item);
+          });
+        }
+
+        var actionList = document.getElementById("r-actions");
+        actionList.innerHTML = "";
+        type.actions.forEach(function (a) {
+          var li = document.createElement("li");
+          li.textContent = a;
+          actionList.appendChild(li);
+        });
+
+        document.getElementById("cta-consult").href = buildConsultUrl(type);
+        document.getElementById("cta-product").href = PRODUCT_URL;
+
+        var shareText =
+          "【無料 人材紹介 診断】結果は『" + type.name + "』でした（" + score + "点／16点）。\n" +
+          "8つの質問で、人材紹介の立ち上げ・運用が『仕組み』になっているか診断できます（約2分・無料）";
+        document.getElementById("r-share-text").textContent = shareText;
+        var intent = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText);
+        if (PAGE_URL) intent += "&url=" + encodeURIComponent(PAGE_URL);
+        document.getElementById("btn-share-x").href = intent;
+
+        showScreen("result");
+      }
+      document.getElementById("btn-start").addEventListener("click", function () {
+        answers = [];
+        current = 0;
+        renderQuestion();
+        showScreen("quiz");
+      });
+
+      document.getElementById("btn-back").addEventListener("click", function () {
+        if (current > 0) {
+          current--;
+          renderQuestion();
+        }
+      });
+
+      document.getElementById("btn-restart").addEventListener("click", function () {
+        answers = [];
+        current = 0;
+        showScreen("intro");
+      });
+    </script>
+  </body>
+</html>
