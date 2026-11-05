@@ -550,6 +550,7 @@
         {
           max: 5,
           name: "属人化フェーズ",
+          key: "zokujinka",
           desc: "採用が担当者の頑張りに依存している段階です。まず効くのは、スカウト文面の型づくりと、工数・数字の見える化です。小さな仕組みから始めることで、担当者の負担と成果のブレを同時に減らせます。",
           actions: [
             "スカウト文面の「型」を作り、誰が書いても一定の品質を保てる状態にする",
@@ -560,6 +561,7 @@
         {
           max: 11,
           name: "効率化フェーズ",
+          key: "koritsuka",
           desc: "仕組みの芽はある段階です。定型業務をAIと型で軽くすると、候補者対応や現場との調整といったコア業務に時間を戻せます。残っている属人化ポイントを一つずつ潰していく時期です。",
           actions: [
             "スカウト作成や選考準備などの定型業務を、AIと型で軽くする",
@@ -570,6 +572,7 @@
         {
           max: 16,
           name: "仕組み化フェーズ",
+          key: "shikumika",
           desc: "土台ができている段階です。次はデータで改善を回し、採用コストと工数をさらに最適化する段階です。仕組みを維持しながら、数字で次の改善点を見つける運用が効いてきます。",
           actions: [
             "工程ごとのデータを基に改善を回し、採用コストと工数を最適化する",
@@ -648,6 +651,21 @@
         return TYPES[TYPES.length - 1];
       }
 
+      /* 無料相談CTAのURLを組み立てる。診断タイプ(shindan_type)と、この診断ページに
+         付いていた経路パラメータ(ref・utm_*など)をリンクに付けるだけ。
+         外部送信・保存はしない。 */
+      function buildConsultUrl(type) {
+        var url = new URL(CONSULT_URL);
+        try {
+          new URLSearchParams(window.location.search).forEach(function (v, k) {
+            if (k !== "shindan_type") url.searchParams.set(k, v);
+          });
+        } catch (e) {}
+        url.searchParams.set("shindan_type", type.key);
+        url.hash = "contact";
+        return url.toString();
+      }
+
       function showResult() {
         var score = answers.reduce(function (sum, v) { return sum + v; }, 0);
         var type = typeFor(score);
@@ -693,7 +711,7 @@
           actionList.appendChild(li);
         });
 
-        document.getElementById("cta-consult").href = CONSULT_URL;
+        document.getElementById("cta-consult").href = buildConsultUrl(type);
         document.getElementById("cta-product").href = PRODUCT_URL;
 
         var shareText =
