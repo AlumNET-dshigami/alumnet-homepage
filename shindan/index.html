@@ -455,8 +455,8 @@
           </div>
 
           <div class="cta-box">
-            <p>この結果の活かし方を、<br />無料相談で具体的にお話しします</p>
-            <a class="btn btn-teal" id="cta-consult" href="#" target="_blank" rel="noopener">無料相談はこちら</a>
+            <p>この結果の活かし方を、<br />詳細レポートや無料相談で具体的にお伝えします<br /><span style="font-size:0.85em;opacity:0.85">申込フォームで「詳細レポート」「無料相談」をお選びいただけます</span></p>
+            <a class="btn btn-teal" id="cta-consult" href="#" target="_blank" rel="noopener">詳細レポート・無料相談を申し込む</a>
             <a class="btn btn-ghost" id="cta-product" href="#" target="_blank" rel="noopener">Recruit AI Opsを見る</a>
           </div>
 
@@ -478,10 +478,13 @@
     <script>
       /* ============================================================
          リンク先（後で差し替え可能）
-         CONSULT_URL : 無料相談の受け付け先。フォームURLが決まったら
-                       ここを差し替えるだけで結果画面のCTAが切り替わる。
+         CONSULT_URL : 詳細レポート送付・無料相談の申込フォーム（Googleフォーム）。
+                       差し替えるだけで結果画面のCTAが切り替わる。
+         FORM_ENTRY_* : フォームの事前入力用の項目ID（診断タイプ／経路）。
          ============================================================ */
-      var CONSULT_URL = "https://alum-net.jp/";
+      var CONSULT_URL = "https://docs.google.com/forms/d/e/1FAIpQLSeaHN_UYZyA2nk_xLJMPum9GD8SKXyLCy8KVdveTMd3Y43HDw/viewform";
+      var FORM_ENTRY_TYPE = "entry.1162293352";
+      var FORM_ENTRY_ROUTE = "entry.1046604882";
       var PRODUCT_URL = "https://alum-net.jp/lp/recruit-ai-ops/";
       /* PAGE_URL : この診断ページ自体の公開URL。決まったらここに設定すると、
          Xシェア文面にページへのリンクが自動で付く（未設定なら文面のみ）。 */
@@ -651,18 +654,17 @@
         return TYPES[TYPES.length - 1];
       }
 
-      /* 無料相談CTAのURLを組み立てる。診断タイプ(shindan_type)と、この診断ページに
-         付いていた経路パラメータ(ref・utm_*など)をリンクに付けるだけ。
-         外部送信・保存はしない。 */
+      /* 詳細レポート・無料相談CTAのURLを組み立てる。Googleフォームの事前入力として
+         診断タイプ名と経路(ref、なければutm_source)を付けるだけ。外部送信・保存はしない。 */
       function buildConsultUrl(type) {
         var url = new URL(CONSULT_URL);
+        /* 診断タイプは実際の診断結果で確定（ページURLの値は使わない） */
+        url.searchParams.set(FORM_ENTRY_TYPE, type.name);
         try {
-          new URLSearchParams(window.location.search).forEach(function (v, k) {
-            if (k !== "shindan_type") url.searchParams.set(k, v);
-          });
+          var q = new URLSearchParams(window.location.search);
+          var route = q.get("ref") || q.get("utm_source");
+          if (route) url.searchParams.set(FORM_ENTRY_ROUTE, route);
         } catch (e) {}
-        url.searchParams.set("shindan_type", type.key);
-        url.hash = "contact";
         return url.toString();
       }
 
