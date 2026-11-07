@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="Recruit AI Ops の使い方マニュアル。登録の流れ、評価ルールの自動生成、A/B/C判定、スカウトの型とChrome拡張、面接準備AI・面接実行AI、採用ダッシュボード、オファーレターAIを、運用フローの順に画面の名称どおり説明します。AlumNET" />
+    <link rel="canonical" href="https://alum-net.jp/manual/recruit-ai-ops/" />
+    <!-- OGP / Twitterカード（SNSでリンクを貼ったときの表示） -->
+    <meta property="og:title" content="Recruit AI Ops 使い方マニュアル｜AlumNET" />
+    <meta property="og:description" content="登録から、評価ルール・A/B/C判定・スカウトの型・面接AI・採用ダッシュボード・オファーレターAIまで、運用フローの順に説明するマニュアルです。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alum-net.jp/manual/recruit-ai-ops/" />
+    <meta property="og:image" content="https://alum-net.jp/assets/ogp.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Recruit AI Ops 使い方マニュアル｜AlumNET" />
+    <meta name="twitter:description" content="登録から、評価ルール・A/B/C判定・スカウトの型・面接AI・採用ダッシュボード・オファーレターAIまで、運用フローの順に説明するマニュアルです。" />
+    <meta name="twitter:image" content="https://alum-net.jp/assets/ogp.png" />
+    <link rel="icon" href="data:," />
+    <title>Recruit AI Ops 使い方マニュアル｜AlumNET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #fdfdfc;
+        --bg-alt: #f3f5f1;
+        --surface: #ffffff;
+        --ink: #152238;
+        --ink-2: #33445e;
+        --muted: #5d6d84;
+        --line: #dde2da;
+        --line-strong: #c9d1c6;
+        --accent: #0e6b5c;
+        --accent-strong: #0a5347;
+        --accent-soft: #e3efec;
+        --gold: #b97e1e;
+        --gold-dark: #7c5410;
+        --gold-soft: #f6ecd9;
+        --violet: #5f4a92;
+        --violet-soft: #ece6f4;
+        --shadow-sm: 0 6px 20px rgba(16, 35, 60, .08);
+        --radius: 14px;
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+        font-size: 16px;
+        line-height: 1.85;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      a { color: var(--accent); text-underline-offset: 3px; }
+      a:hover { color: var(--accent-strong); }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+
+      /* ---------- top bar ---------- */
+      .topbar { position: sticky; top: 0; z-index: 20; background: rgba(253, 253, 252, .94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+      .topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 56px; }
+      .brand { font-weight: 900; letter-spacing: .12em; font-size: .95rem; color: var(--ink); text-decoration: none; white-space: nowrap; }
+      .brand small { font-weight: 700; letter-spacing: .08em; color: var(--muted); margin-left: .8em; }
+      .topbar nav { display: flex; gap: 8px; align-items: center; }
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        font-weight: 800; font-size: .9rem; line-height: 1.3; text-decoration: none; white-space: nowrap;
+        padding: .55em 1.3em; border-radius: 999px; border: 1px solid transparent;
+      }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-primary:hover { background: var(--accent-strong); color: #fff; }
+      .btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+      .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+      /* ---------- hero ---------- */
+      .hero { padding: 56px 0 36px; border-bottom: 1px solid var(--line); background: var(--bg); }
+      .tag {
+        display: inline-block; font-weight: 800; letter-spacing: .18em; font-size: .75rem;
+        color: var(--accent-strong); background: var(--accent-soft);
+        border: 1px solid rgba(14, 107, 92, .28);
+        padding: .3em 1em; border-radius: 999px; margin-bottom: 14px;
+      }
+      .hero h1 { margin: 0 0 .4em; font-size: clamp(1.8rem, 5.2vw, 2.8rem); line-height: 1.35; font-weight: 900; }
+      .hero p { margin: 0 0 .8em; max-width: 720px; color: var(--ink-2); font-weight: 500; }
+      .hero .asof { font-size: .85rem; color: var(--muted); }
+
+      /* ---------- layout ---------- */
+      .layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 48px; padding: 40px 0 72px; align-items: start; }
+      .toc { position: sticky; top: 76px; max-height: calc(100vh - 96px); overflow-y: auto; font-size: .9rem; }
+      .toc-title { font-weight: 800; font-size: .78rem; letter-spacing: .2em; color: var(--muted); margin: 0 0 8px; }
+      .toc ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
+      .toc li a { display: block; padding: .35em 0 .35em 14px; text-decoration: none; color: var(--ink-2); font-weight: 500; line-height: 1.5; }
+      .toc li a:hover { color: var(--accent); }
+      .toc li.sub a { padding-left: 28px; font-size: .85rem; color: var(--muted); }
+      .toc-mobile { display: none; }
+
+      /* ---------- content ---------- */
+      main section { padding: 8px 0 40px; border-bottom: 1px solid var(--line); margin-bottom: 40px; }
+      main section:last-of-type { border-bottom: none; margin-bottom: 0; }
+      h2 { font-size: clamp(1.45rem, 3.6vw, 1.9rem); line-height: 1.4; margin: 0 0 .6em; font-weight: 900; }
+      h2 .no { color: var(--accent); margin-right: .4em; }
+      h3 { font-size: 1.15rem; line-height: 1.5; margin: 1.8em 0 .5em; font-weight: 800; }
+      h4 { font-size: 1rem; margin: 1.4em 0 .3em; font-weight: 800; color: var(--ink-2); }
+      p { margin: 0 0 1em; }
+      ul, ol { margin: 0 0 1em; padding-left: 1.5em; }
+      li { margin-bottom: .3em; }
+      b, strong { font-weight: 700; }
+      .ui { font-weight: 700; color: var(--accent-strong); background: var(--accent-soft); padding: .05em .45em; border-radius: 6px; white-space: nowrap; }
+      code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .88em; background: var(--bg-alt); border: 1px solid var(--line); padding: .05em .4em; border-radius: 6px; word-break: break-all; }
+
+      .note, .caution, .human {
+        border-radius: var(--radius); padding: 14px 18px; margin: 1.2em 0; font-size: .95rem;
+        border: 1px solid var(--line); background: var(--bg-alt);
+      }
+      .note > :last-child, .caution > :last-child, .human > :last-child { margin-bottom: 0; }
+      .caution { background: var(--gold-soft); border-color: rgba(185, 126, 30, .35); }
+      .human { background: var(--violet-soft); border-color: rgba(95, 74, 146, .3); }
+      .note-label { display: block; font-weight: 800; font-size: .78rem; letter-spacing: .12em; margin-bottom: 4px; color: var(--muted); }
+      .caution .note-label { color: var(--gold-dark); }
+      .human .note-label { color: var(--violet); }
+
+      .steps { list-style: none; counter-reset: step; padding: 0; margin: 1em 0 1.4em; }
+      .steps > li { counter-increment: step; position: relative; padding: 0 0 0 44px; margin-bottom: 14px; }
+      .steps > li::before {
+        content: counter(step); position: absolute; left: 0; top: 2px;
+        width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff;
+        font-weight: 800; font-size: .9rem; line-height: 30px; text-align: center;
+      }
+      .steps ul { margin-top: .4em; }
+
+      .table-wrap { overflow-x: auto; margin: 1em 0 1.4em; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+      table { border-collapse: collapse; width: 100%; min-width: 620px; font-size: .92rem; }
+      th, td { text-align: left; vertical-align: top; padding: 10px 14px; border-bottom: 1px solid var(--line); line-height: 1.65; }
+      th { background: var(--bg-alt); font-weight: 800; font-size: .85rem; color: var(--ink-2); }
+      tr:last-child td { border-bottom: none; }
+
+      .flow { display: grid; gap: 8px; padding: 0; list-style: none; margin: 1em 0 1.4em; }
+      .flow li { margin: 0; border: 1px solid var(--line); border-radius: 10px; padding: 10px 16px; background: var(--surface); font-weight: 700; color: var(--ink-2); font-size: .95rem; }
+      .flow li small { display: block; font-weight: 500; color: var(--muted); font-size: .82rem; }
+      .flow li.human-step { border-color: var(--violet); }
+      .flow li.arrow { border: none; background: none; text-align: center; padding: 0; color: var(--muted); line-height: 1; }
+
+      details.faq { border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin-bottom: 10px; }
+      details.faq summary { cursor: pointer; padding: 14px 18px; font-weight: 800; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 14px; line-height: 1.6; }
+      details.faq summary::-webkit-details-marker { display: none; }
+      details.faq summary::after { content: "＋"; flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent-soft); color: var(--accent-strong); text-align: center; line-height: 28px; font-weight: 900; }
+      details.faq[open] summary::after { content: "－"; }
+      details.faq .a { padding: 0 18px 14px; color: var(--ink-2); }
+      details.faq .a p:last-child { margin-bottom: 0; }
+
+      .cta-band {
+        border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-sm); background: var(--surface);
+        padding: 32px 32px; display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between;
+      }
+      .cta-band h3 { margin: 0 0 .3em; font-size: 1.3rem; }
+      .cta-band p { margin: 0; color: var(--muted); font-size: .95rem; }
+      .cta-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+      footer { border-top: 1px solid var(--line); background: var(--surface); padding: 32px 0 40px; }
+      footer .f-brand { font-weight: 900; letter-spacing: .12em; margin: 0; }
+      footer p { color: var(--muted); font-size: .85rem; margin: .5em 0 0; }
+
+      /* ---------- responsive ---------- */
+      @media (max-width: 960px) {
+        .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 24px; }
+        .toc { display: none; }
+        .toc-mobile { display: block; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); margin-bottom: 28px; }
+        .toc-mobile summary { cursor: pointer; padding: 12px 16px; font-weight: 800; }
+        .toc-mobile ol { list-style: none; margin: 0; padding: 0 16px 12px; }
+        .toc-mobile li a { display: block; padding: .3em 0; text-decoration: none; color: var(--ink-2); }
+        .toc-mobile li.sub a { padding-left: 1.2em; font-size: .9rem; color: var(--muted); }
+      }
+      @media (max-width: 560px) {
+        .wrap { padding: 0 18px; }
+        .brand small { display: none; }
+        .topbar .btn-ghost { display: none; }
+        .hero { padding: 36px 0 28px; }
+        .cta-band { padding: 24px 20px; }
+        .steps > li { padding-left: 40px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brand" href="/lp/recruit-ai-ops/">RECRUIT AI OPS<small>使い方マニュアル</small></a>
+        <nav aria-label="サイト内リンク">
+          <a class="btn btn-ghost" href="/lp/recruit-ai-ops/">サービス紹介・料金</a>
+          <a class="btn btn-primary" href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener">管理画面を開く</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="hero">
+      <div class="wrap">
+        <span class="tag">MANUAL</span>
+        <h1>Recruit AI Ops 使い方マニュアル</h1>
+        <p>導入を検討している方と、使い始めたばかりの運用担当者のためのマニュアルです。運用フローの順に、管理画面の画面名・ボタン名のとおりに手順を説明します。</p>
+        <p class="asof">2026年11月7日時点の管理画面に合わせています。画面の文言は今後更新されることがあります。</p>
+      </div>
+    </div>
+
+    <div class="wrap layout">
+      <nav class="toc" aria-label="目次">
+        <p class="toc-title">CONTENTS</p>
+        <ol>
+          <li><a href="#intro">1. はじめに</a></li>
+          <li><a href="#start">2. 使い始める</a></li>
+          <li class="sub"><a href="#start-signup">アカウントを作る</a></li>
+          <li class="sub"><a href="#start-ai">AIの使い方（2つの経路）</a></li>
+          <li><a href="#features">3. 機能ごとの使い方</a></li>
+          <li class="sub"><a href="#f-rules">評価ルールの自動生成</a></li>
+          <li class="sub"><a href="#f-abc">A/B/C判定の基準</a></li>
+          <li class="sub"><a href="#f-scout">スカウトの型</a></li>
+          <li class="sub"><a href="#f-interview">面接準備AI／面接実行AI</a></li>
+          <li class="sub"><a href="#f-dash">採用ダッシュボード</a></li>
+          <li class="sub"><a href="#f-offer">オファーレターAI</a></li>
+          <li><a href="#faq">4. よくある質問</a></li>
+          <li><a href="#plans">5. 料金・お申し込み</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <details class="toc-mobile">
+          <summary>目次を開く</summary>
+          <ol>
+            <li><a href="#intro">1. はじめに</a></li>
+            <li><a href="#start">2. 使い始める</a></li>
+            <li class="sub"><a href="#start-signup">アカウントを作る</a></li>
+            <li class="sub"><a href="#start-ai">AIの使い方（2つの経路）</a></li>
+            <li><a href="#features">3. 機能ごとの使い方</a></li>
+            <li class="sub"><a href="#f-rules">評価ルールの自動生成</a></li>
+            <li class="sub"><a href="#f-abc">A/B/C判定の基準</a></li>
+            <li class="sub"><a href="#f-scout">スカウトの型</a></li>
+            <li class="sub"><a href="#f-interview">面接準備AI／面接実行AI</a></li>
+            <li class="sub"><a href="#f-dash">採用ダッシュボード</a></li>
+            <li class="sub"><a href="#f-offer">オファーレターAI</a></li>
+            <li><a href="#faq">4. よくある質問</a></li>
+            <li><a href="#plans">5. 料金・お申し込み</a></li>
+          </ol>
+        </details>
+
+        <!-- ============ 1. はじめに ============ -->
+        <section id="intro">
+          <h2><span class="no">1.</span>はじめに</h2>
+          <p>Recruit AI Ops は、人材紹介会社のスカウト運用を回すための基盤です。考え方の土台は「<strong>AIが処理し、人が判断する</strong>」ことです。</p>
+          <div class="human">
+            <span class="note-label">HUMAN IN THE LOOP</span>
+            <p>AIが行うのは、判定と文面案までです。スカウトを送るかどうかは、候補者ごとに人が内容を確認して決めます。管理画面の結果画面にも「AIは判定・文面案まで。送るかどうかは、必ず人が決めてください。」と表示されます。</p>
+          </div>
+
+          <h3>7つの機能と運用フロー</h3>
+          <p>7つの機能は、次の運用フローの順に使うと流れがつながります。右端の列は、管理画面の左メニューでの名称です。機能名と画面名が少し違うものがあるので、この表で対応を確認してください。</p>
+          <ol class="flow" aria-label="運用フロー">
+            <li>基準をつくる<small>評価ルールの自動生成</small></li>
+            <li class="arrow" aria-hidden="true">▼</li>
+            <li>判定する<small>A/B/C判定の基準</small></li>
+            <li class="arrow" aria-hidden="true">▼</li>
+            <li>文面をつくる<small>スカウトの型</small></li>
+            <li class="arrow" aria-hidden="true">▼</li>
+            <li class="human-step">人が確認して送る<small>送信は人が最終確認します</small></li>
+            <li class="arrow" aria-hidden="true">▼</li>
+            <li>面接する<small>面接準備AI ／ 面接実行AI</small></li>
+            <li class="arrow" aria-hidden="true">▼</li>
+            <li>オファーする<small>オファーレターAI</small></li>
+            <li class="arrow" aria-hidden="true">▼</li>
+            <li>数字で見直す<small>採用ダッシュボード</small></li>
+          </ol>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>機能</th><th>管理画面の左メニュー</th><th>この文書の説明</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>評価ルールの自動生成</td><td><span class="ui">AI選考基準の下書き</span>、<span class="ui">選考基準テンプレート</span>（書類選考のグループ）</td><td><a href="#f-rules">3-1</a></td></tr>
+                <tr><td>A/B/C判定の基準</td><td><span class="ui">書類選考</span>、<span class="ui">選考履歴</span></td><td><a href="#f-abc">3-2</a></td></tr>
+                <tr><td>スカウトの型</td><td><span class="ui">求人管理</span>、<span class="ui">スカウト文プロンプト</span>（スカウト生成のグループ）と、Chrome拡張機能</td><td><a href="#f-scout">3-3</a></td></tr>
+                <tr><td>面接準備AI</td><td><span class="ui">面接準備</span></td><td><a href="#f-interview">3-4</a></td></tr>
+                <tr><td>面接実行AI</td><td><span class="ui">面接実行AI</span></td><td><a href="#f-interview">3-4</a></td></tr>
+                <tr><td>採用ダッシュボード</td><td><span class="ui">採用ダッシュボード</span>（採用分析のグループ）、最上部の <span class="ui">ダッシュボード</span>、<span class="ui">結果と知見</span></td><td><a href="#f-dash">3-5</a></td></tr>
+                <tr><td>オファーレターAI</td><td><span class="ui">オファーレター作成</span>、<span class="ui">オファーテンプレート</span>（オファーのグループ）</td><td><a href="#f-offer">3-6</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>左メニューは、上から「ダッシュボード」「採用設計」「スカウト生成」「書類選考」「オファー」「採用分析」「設定」のグループに分かれています。</p>
+        </section>
+
+        <!-- ============ 2. 使い始める ============ -->
+        <section id="start">
+          <h2><span class="no">2.</span>使い始める</h2>
+
+          <h3 id="start-signup">アカウントを作る（Freeプラン）</h3>
+          <ol class="steps">
+            <li>管理画面（<a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener">alumnet-scout-ai.vercel.app</a>）のログイン画面で、<span class="ui">アカウントをお持ちでない方はこちら</span>を押します。「新規アカウントを作成」の画面になります。</li>
+            <li>メールアドレスとパスワード（6文字以上）を入力し、利用規約とプライバシーポリシーへの同意にチェックを入れて、<span class="ui">アカウントを作成</span>を押します。
+              <ul>
+                <li>紹介コードをお持ちの場合は「紹介コード（任意）」欄に入力できます。</li>
+                <li>「招待コード」欄が表示されている場合は、案内された招待コードを入力します。</li>
+              </ul>
+            </li>
+            <li>確認メールが届きます。メール内のリンクを開いてから、同じメールアドレスとパスワードで<span class="ui">ログイン</span>します。</li>
+          </ol>
+          <p>登録直後はFreeプランです。プランごとの保存件数や席数の違いは、<a href="/lp/recruit-ai-ops/#pricing">サービス紹介ページの料金プラン</a>で確認できます。</p>
+
+          <h4>初回の「はじめに」画面</h4>
+          <p>初めてログインすると、<span class="ui">はじめに</span>画面（「Recruit AI Ops へようこそ！」）が開き、3つのステップが表示されます。</p>
+          <ol class="steps">
+            <li><strong>Chrome拡張機能をインストール</strong>: 画面の案内に沿って拡張機能を追加します。</li>
+            <li><strong>拡張機能から自動ログイン</strong>: ブラウザ右上の Recruit AI Ops のアイコンを押すと、ログイン中のアカウントで自動的に連携されます。連携が確認できると、この画面の表示が自動で「完了」に変わります（数秒かかることがあります）。</li>
+            <li><strong>候補者ページで使ってみる</strong>: LinkedIn や Wantedly などの候補者ページを開き、拡張機能のアイコンから文面を生成してみます。終わったら<span class="ui">使ってみました（このステップを完了する）</span>を押します。</li>
+          </ol>
+          <p>急ぐ場合は、画面下の<span class="ui">スキップしてダッシュボードへ →</span>で管理画面に進めます。拡張機能は、スカウトの文面を作るときに使います（<a href="#f-scout">3-3</a>）。</p>
+
+          <h3 id="start-ai">AIの使い方（2つの経路）</h3>
+          <p>Recruit AI Ops でAIを使う経路は2つあります。ここは最初に押さえておくと迷いません。</p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th></th><th>手元の Claude / ChatGPT</th><th>管理画面・拡張機能のボタン（サーバー側の生成）</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>回数</th><td>回数の上限はありません。AIの利用は、ご自身の Claude / ChatGPT の契約に従います。AlumNET側のAPI費用はかかりません。</td><td>お試しとして、<strong>アカウントごとに20回まで</strong>です。20回で止まり、プランを上げても増えません。</td></tr>
+                <tr><th>できること</th><td>A/B/C判定とスカウト文の作成、結果の記録（<a href="#f-abc">3-2</a>、<a href="#f-scout">3-3</a>）。</td><td>評価ルールの下書き、書類選考、面接準備、面接実行AI、オファーレター作成、拡張機能の「文面生成」。</td></tr>
+                <tr><th>使い方</th><td>下の「手元のAIで使う」を参照。</td><td>各画面の実行ボタンを押します。ボタンに消費ポイントが表示されます。</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h4>手元のAIで使う</h4>
+          <ul>
+            <li><strong>キットを使う（Claude / ChatGPT / Gemini）</strong>: <a href="https://alumnet-scout-ai.vercel.app/kit" target="_blank" rel="noopener">キットのページ（/kit）</a>から、Claude なら <code>SKILL.md</code>、ChatGPT や Gemini なら <code>prompt.md</code> を入手します。求人と候補者のレジュメを貼ってA/B/Cを判定し、結果を <code>review-sheet.csv</code>（Google スプレッドシートにも取り込めるレビューシート）に転記します。候補者情報は、そのチャットの提供者に、ご自身の契約として送られます。</li>
+            <li><strong>Claude につなぐ（ベータ）</strong>: 左メニュー「設定」の<span class="ui">Claudeにつなぐ</span>に、コネクタのURLと手順があります。Claude の「Customize → Connectors」でカスタムコネクタを追加し、URLを貼り、ログインと許可の画面で組織名と許可する内容を確認して許可します。つないだあとは、求人・候補者・スカウトの型・結果の記録を、Claude に言葉で頼めます（例:「この求人でB以上だけ出して」）。接続はこの画面から失効できます。</li>
+          </ul>
+
+          <h4>サーバー側の生成について</h4>
+          <p>管理画面と拡張機能の実行ボタンは、サーバー側のAIを使います。20回を使い切ると、「サーバー側AIの無料試用を使い切りました」と表示され、それ以降は実行できません。使い切った後は、上の「手元のAIで使う」の方法で続けられます。</p>
+          <div class="note">
+            <span class="note-label">NOTE</span>
+            <p>実行ボタンに表示される「pt」は、サーバー側の生成ごとに差し引かれるポイントです。ホーム（<span class="ui">ダッシュボード</span>）の「残りポイント」で残高を確認できます。ポイントは20回の上限とは別の数え方で、サーバー側で実行するには、ポイント残高が足りていることと、20回の枠が残っていることの両方が必要です。ポイントを足しても、Claude / ChatGPT の利用回数は増えません。</p>
+          </div>
+          <p>実在の候補者の情報を入れる前に動作を試したいときは、各画面の<span class="ui">サンプルを入力</span>（画面によっては<span class="ui">サンプルから作成</span>）で、架空の候補者・求人を入れて試せます。</p>
+        </section>
+
+        <!-- ============ 3. 機能ごとの使い方 ============ -->
+        <section id="features">
+          <h2><span class="no">3.</span>機能ごとの使い方</h2>
+          <p>運用フローの順に説明します。</p>
+
+          <!-- 3-1 -->
+          <h3 id="f-rules">3-1. 評価ルールの自動生成</h3>
+          <p>過去の選考結果（前進・見送り）から、AIが評価基準の下書きを作ります。下書きは<strong>人が確認・修正して「確定」するまで、書類選考では使われません</strong>。</p>
+
+          <h4>下書きを作る前に: 選考結果を記録する</h4>
+          <p>左メニュー「採用分析」の<span class="ui">結果と知見</span>で、候補者の選考結果を記録します。「選考結果」の欄で候補者と求人を選び、段階を選んで<span class="ui">結果を保存</span>を押します。段階は、返信・面接・オファー・入社・見送り・辞退から選べます。</p>
+          <ul>
+            <li>返信・面接・オファー・入社は「前進」、見送りは「企業側の見送り」として数えます。</li>
+            <li><strong>辞退は、基準づくりの材料に使いません</strong>（企業側の評価ではないため）。</li>
+          </ul>
+
+          <h4>下書きを作る</h4>
+          <ol class="steps">
+            <li>左メニュー「書類選考」グループの<span class="ui">AI選考基準の下書き</span>を開きます。</li>
+            <li>「求人から下書きを作る」で、<span class="ui">求人を選択...</span>から対象の求人を選びます（求人は<span class="ui">求人管理</span>で登録したものです）。</li>
+            <li><span class="ui">下書きを作成</span>を押します。できあがると「選考基準の確認・修正」画面に移ります。</li>
+          </ol>
+          <div class="caution">
+            <span class="note-label">サンプルが足りないとき</span>
+            <p>前進と見送りを合わせて<strong>4件以上</strong>が必要で、前進の例と企業側の見送りの例の<strong>両方</strong>が必要です。足りない場合は画面に理由が表示され、下書きは作られません（AIも呼ばれません）。辞退は件数に数えません。</p>
+          </div>
+
+          <h4>確認・修正して「確定」する</h4>
+          <p>「選考基準の確認・修正」画面では、次の内容を確認・編集できます。</p>
+          <ul>
+            <li><strong>生成の根拠</strong>: 前進・見送りのサンプル数と、除外した辞退の件数。</li>
+            <li><strong>警告</strong>: 「保護属性の可能性」「根拠なし」「Mustが空」などが出た場合は、該当項目を修正・削除するか、内容を確認します。</li>
+            <li><strong>観点</strong>（名前・重要度 高/中/低・説明）、<strong>Must（必須）／Want（歓迎）／NG（避けたい）</strong>、<strong>A/B/C の目安</strong>。それぞれ追加・編集・削除ができ、根拠になったサンプルが付いています。</li>
+            <li><strong>AI原案との対比</strong>: 原案からの変更点（追加・変更・削除）が見えます。</li>
+          </ul>
+          <ol class="steps">
+            <li>内容を直したら<span class="ui">修正を保存</span>を押します（保存すると警告が再チェックされます）。</li>
+            <li>警告が残っている場合は、「警告◯件を確認しました。この内容のまま確定します。」にチェックを入れます。</li>
+            <li><span class="ui">この内容で確定する</span>を押し、確認のダイアログで確定します。</li>
+          </ol>
+          <div class="caution">
+            <span class="note-label">確定後は編集できません</span>
+            <p>確定すると「確定済み」になり、<span class="ui">書類選考で使う</span>から書類選考に進めます。確定した基準は編集できないため、確定前に内容をよく確認してください。内容を変えたいときは、あらためて下書きを作成するか、<span class="ui">選考基準テンプレート</span>で新規作成します。</p>
+          </div>
+
+          <h4>手で基準を作る場合</h4>
+          <p><span class="ui">選考基準テンプレート</span>では、<span class="ui">+ 新規作成</span>から「テンプレート名」と「選考基準」を入力し、<span class="ui">作成する</span>を押すと登録できます。<span class="ui">サンプルから作成</span>で入力例も使えます。登録できる件数はプランにより異なります。</p>
+
+          <!-- 3-2 -->
+          <h3 id="f-abc">3-2. A/B/C判定の基準</h3>
+          <p>確定した基準や、求人のMust / Want / NGを物差しにして、候補者を送付推奨（A）・人の確認（B）・送付非推奨（C）に揃えます。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>グレード</th><th>意味</th><th>決まり方の目安</th></tr></thead>
+              <tbody>
+                <tr><td>A</td><td>送付推奨</td><td>Must を満たし、実務も足り、年収・勤務地・希望にも重要な不一致がないとき。</td></tr>
+                <tr><td>B</td><td>人の確認</td><td>Must が不明、実務が弱い、年収・勤務地・希望がずれている、のいずれかがあるとき。履歴書にない項目は「不明」として B 側にします。</td></tr>
+                <tr><td>C</td><td>送付非推奨</td><td>Must が未達、または実務が明確に不足しているとき。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>業界が近い、経験を転用できそう、という理由だけではグレードは変わりません。また、年収・勤務地・希望の不一致だけで C にはなりません。</p>
+
+          <h4>書類選考の画面で判定する</h4>
+          <ol class="steps">
+            <li>左メニューの<span class="ui">書類選考</span>を開きます。</li>
+            <li>「候補者CV」にCV・職務経歴書のテキストを貼ります（8000文字まで）。</li>
+            <li>「求人票（JD）」は、<span class="ui">— 保存済み求人テンプレートから選択 —</span>から選ぶか、テキストを貼ります。</li>
+            <li>「選考基準（任意）」は、<span class="ui">— 保存済み選考基準テンプレートから選択 —</span>から確定した基準を選ぶか、直接入力します。省略もできます。</li>
+            <li>「使用するAIモデル」（エコノミー／スタンダード／プレミアム）を選び、<span class="ui">選考を実行する</span>を押します（サーバー側の生成です。<a href="#start-ai">2章</a>参照）。</li>
+          </ol>
+          <p>結果には、グレード、マッチスコア（100点満点）、<strong>レビューシート</strong>（優先度・グレード、観点別の強み／確認／NG）、評価コメント、マッチしている点、懸念点・不足点が出ます。結果のあとには、グレードに応じた次の導線が出ます（Aなら<span class="ui">面接準備へ</span>と<span class="ui">スカウト文を作る</span>、Bなら<span class="ui">内容を見直して再実行</span>、Cなら<span class="ui">次の候補者を選考</span>など）。</p>
+          <p>過去の判定は<span class="ui">選考履歴</span>で見られ、「すべて／合格／要検討／不合格」で絞り込めます。</p>
+
+          <h4>判定を人が変えたとき</h4>
+          <p>人の判断でグレードを変えた場合は、<span class="ui">結果と知見</span>の「判定の上書き」で、変更前・変更後のA/B/Cと「変えた理由」を入れ、<span class="ui">上書きを保存</span>を押すと記録できます。</p>
+
+          <h4>手元のAIで判定する場合</h4>
+          <p>Claude / ChatGPT で判定する場合は、<a href="#start-ai">2章</a>のキットを使います。結果は <code>review-sheet.csv</code> に転記します。Claude につないでいる場合は、保存済みのレビューシートを Claude から呼び出せます。</p>
+
+          <!-- 3-3 -->
+          <h3 id="f-scout">3-3. スカウトの型</h3>
+          <p>スカウト文は、<strong>固定部分とAIが書く部分</strong>に分けて作ります。分担は次のとおりです。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>担当</th><th>内容</th></tr></thead>
+              <tbody>
+                <tr><td>固定部分（サービス側で固定）</td><td>宛名の敬称（「様」。候補者情報に氏名がない場合は宛名行を出しません）と、結びの定型文。</td></tr>
+                <tr><td>AIが書く部分</td><td>求人から読み取れる、見落とされがちな<strong>強み候補（3つ）</strong>、<strong>冒頭1文</strong>（送り手の立場・目的・着目点を明記）、<strong>本文</strong>（強み候補を織り込み、候補者の経験と求人のマッチを書く）。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>固定部分とAI部分を合わせたものが完成文面です。AIに任せる範囲を絞ることで、文面の型がそろいます。</p>
+
+          <h4>準備: 求人とスカウト文プロンプトを登録する</h4>
+          <ol class="steps">
+            <li><span class="ui">求人管理</span>で<span class="ui">＋追加</span>を押し、「タイトル」と「求人情報」を入力します（「想定年齢」「想定年収」は任意）。<span class="ui">保存</span>を押すと登録されます。</li>
+            <li><span class="ui">スカウト文プロンプト</span>（画面名は「スカウト文プロンプト管理」）で<span class="ui">＋追加</span>を押し、「タイトル」と「プロンプト内容」（送り手の立場やトーンなど、文面の方針）を入力して<span class="ui">保存</span>します。</li>
+            <li>書き方に迷うときは、画面下の「参考スカウト文プロンプト ライブラリ」を使います。<span class="ui">コピー</span>でコピー、<span class="ui">この内容で作成</span>で空き枠に取り込めます（入力済みの枠は上書きされません。取り込んだ内容を確認して<span class="ui">保存</span>を押すと登録されます）。</li>
+          </ol>
+
+          <h4>Chrome拡張機能で文面を作る</h4>
+          <p>ブラウザのツールバーにある Recruit AI Ops のアイコンを押すと、画面の横にサイドパネルが開きます。媒体の画面を開いたまま、候補者情報と型を横に置いて作業できます。</p>
+          <ol class="steps">
+            <li>「候補者情報」に、候補者の情報を入れます。<span class="ui">ページから取得</span>で、いま開いているタブのページから取り込むこともできます。</li>
+            <li>「求人情報」「プロンプト」に、登録した内容を入れます。登録済みの求人・プロンプトはボタンとして並ぶので、押すと入力欄に反映されます（登録がない場合は、管理画面で追加するよう案内されます）。</li>
+            <li>「使用モデル」を選び、<span class="ui">文面生成</span>を押します。「残りポイント」が表示されます。</li>
+            <li>生成された文面を確認し、<span class="ui">結果をコピー</span>で取り出します。<span class="ui">クリア</span>で入力をやり直せます。</li>
+          </ol>
+          <div class="human">
+            <span class="note-label">送信は人が確認します</span>
+            <p>拡張機能が行うのは、文面案の生成とコピーまでです。生成結果は、送信前に必ず内容と事実を人が確認してください。</p>
+          </div>
+
+          <h4>送信状況と結果を記録する</h4>
+          <p><span class="ui">結果と知見</span>の「スカウト文の下書きと確定」で、下書きと確定した文面を保存できます（<span class="ui">文面を保存</span>）。「確定した文面」を入れて保存すると送信済み、空のままだと下書きとして記録されます。返信などの結果は「選考結果」に記録します（<a href="#f-rules">3-1</a>）。Claude につないでいる場合は、Claude からも同じ記録を扱えます。</p>
+
+          <!-- 3-4 -->
+          <h3 id="f-interview">3-4. 面接準備AI／面接実行AI</h3>
+
+          <h4>面接準備AI（左メニュー「面接準備」）</h4>
+          <p>2つのモードがあり、画面上部のタブで切り替えます。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>モード</th><th>入力</th><th>用意されるもの</th></tr></thead>
+              <tbody>
+                <tr><td><span class="ui">面接前準備</span></td><td>候補者情報（CV・レジュメ・紹介文など）</td><td>性格の仮説と、面接質問リスト。</td></tr>
+                <tr><td><span class="ui">面接後評価</span></td><td>候補者情報＋面接テキスト（文字起こしやメモ）</td><td>詳細分析と、合否判定（100点満点）。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ol class="steps">
+            <li>「候補者情報」を貼ります（面接後評価では「面接テキスト（文字起こし）」も貼ります）。</li>
+            <li>必要に応じて「求人テンプレート（任意）」「評価基準（任意）」を選びます。選ぶと、補足としてAIに渡されます。</li>
+            <li>「使用するAIモデル」を選び、<span class="ui">分析開始</span>を押します。</li>
+          </ol>
+          <p>結果には、次のものが表示されます。</p>
+          <ul>
+            <li>BIG5 性格特性、DISC スコア、モチベーション診断（達成動機・親和動機・自律性・成長欲求・安定志向）、性格・適性サマリー。</li>
+            <li>「面接準備」として、<strong>見極めポイント</strong>と<strong>想定質問リスト</strong>（質問ごとに「見る点」付き）。強み・懸念点。</li>
+            <li>面接後評価では、さらに<strong>総合スコア（100点満点）</strong>、評価理由、合格の場合の<strong>魅力付けポイント</strong>、不合格の場合の<strong>フィードバックコメント例</strong>（コピーできます）。</li>
+          </ul>
+          <p>結果のあとに、<span class="ui">面接実行AIでライブ面談へ</span>と<span class="ui">この候補者のオファーレターを作成</span>の導線が出ます。</p>
+
+          <h4>面接実行AI（左メニュー「面接実行AI」）</h4>
+          <p>面接中の会話を文字起こしし、その場でアドバイスを受け、終わったら評価レポートを作ります。</p>
+          <ol class="steps">
+            <li><span class="ui">+ 新しい面接を開始</span>を押します。</li>
+            <li>「候補者名」「ポジション名」を入力します（必須）。「Google Meet URL」（任意。Google Meet 以外のURLは登録できません）、「想定時間」（5〜240分）も入れられます。</li>
+            <li>「面接準備AIの結果を連携」（任意）で面接準備の結果を選ぶと、想定質問と性格分析がアドバイスAIに渡されます。</li>
+            <li><span class="ui">面接開始</span>を押すと、面接画面が開きます。</li>
+            <li>面接画面の中央で<span class="ui">● 録音開始</span>を押すと、発話が文字起こしされて表示されます（<span class="ui">■ 録音停止</span>で停止）。文字起こしにはブラウザの音声認識を使うため、Google Chrome または Microsoft Edge を使い、マイクの利用を許可してください。左側には「想定質問」が出ます。</li>
+            <li>右側の「AIアドバイス」で<span class="ui">アドバイスを求める</span>を押すと、直近の会話を踏まえたアドバイスが表示されます（連続して押すとクールダウンがあります）。</li>
+            <li>面接が終わったら<span class="ui">面接終了 → 評価へ</span>を押し、評価モデルを選んで<span class="ui">評価レポートを生成する</span>を押します（1〜2分かかります）。</li>
+          </ol>
+          <p>「面接評価レポート」には、総合スコア（10点満点）、推薦判定（A: 強く推薦／B: 要検討／C: 推薦せず）、候補者サマリー、評価項目、ポジティブな発言、懸念点、次のアクション、面接の質（メタ評価）が出ます。推薦判定が A または B のときは、<span class="ui">このまま候補者にオファーレターを作成</span>で、オファーレター作成に進めます（<a href="#f-offer">3-6</a>）。</p>
+          <p>面接の一覧では、「すべて／実施中／完了／アーカイブ」で絞り込めます。</p>
+
+          <!-- 3-5 -->
+          <h3 id="f-dash">3-5. 採用ダッシュボード</h3>
+          <p>集計の画面は2か所あります。CSVを取り込んで歩留まりを見る<span class="ui">採用ダッシュボード</span>と、毎週の状況を見るホームの<span class="ui">ダッシュボード</span>です。</p>
+
+          <h4>CSVを取り込んで8段階ファネルを見る</h4>
+          <p>左メニュー「採用分析」の<span class="ui">採用ダッシュボード</span>を開きます。上部のタブは「ダッシュボード」と「データ管理」です。</p>
+          <ol class="steps">
+            <li>「データ管理」タブを開き、CSVファイルをドラッグ&amp;ドロップするか、<span class="ui">ファイルを選択</span>で選びます（最大10MB。SJIS / UTF-8 は自動判定されます）。</li>
+            <li>「列マッピング設定」で、CSVの列を対応づけます。
+              <ul>
+                <li>「ステータス列（必須）」。ほかに「応募日列」「求人名列」「媒体列」「応募者ID列」（任意）。「ラベル（任意）」には取り込みの名前を付けられます。</li>
+                <li>「ステータス値 → ファネル段階のマッピング」で、ステータス列の値をそれぞれ8段階のどれかに対応づけます。選ばなかった値はスキップされます。</li>
+              </ul>
+            </li>
+            <li><span class="ui">保存</span>を押すと取り込まれます（取り込み件数とスキップ件数が表示されます）。</li>
+          </ol>
+          <p>手元にCSVがない場合は、<span class="ui">サンプルデータで試す</span>や<span class="ui">サンプルCSVをダウンロード</span>で試せます。サンプルで取り込まれるのは、<span class="ui">保存</span>を押したときだけです。取り込みの履歴は「アップロード履歴」にあり、<span class="ui">削除</span>で取り込みを取り消せます（関連するレコードもすべて削除されます）。</p>
+          <p>「ダッシュボード」タブでは、次の内容を見られます。</p>
+          <ul>
+            <li><strong>採用ファネル（8段階）</strong>: スカウト送信 → 返信 → カジュアル面談 → 一次面接 → 二次面接 → 最終面接 → 内定 → 入社。段階ごとの件数、送信からの移行率、前段階からの離脱率。</li>
+            <li>全体歩留まり率（送信→入社）。</li>
+            <li>「媒体」「求人名」「アップロード」での絞り込み（<span class="ui">適用</span>／<span class="ui">クリア</span>）。</li>
+            <li>月次推移（応募日の列が必要です）。</li>
+          </ul>
+
+          <h4>毎週の状況と、対応が必要なもの（ホームの「ダッシュボード」）</h4>
+          <p>左メニュー最上部の<span class="ui">ダッシュボード</span>には、次の表示があります（サービス紹介ページの「要対応キュー」「週次サマリ」にあたるものです）。</p>
+          <ul>
+            <li><strong>今週の数字</strong>（月曜はじまり・日本時間）: スカウト送信、返信、A判定、使用ポイント、求人数、書類選考の件数。</li>
+            <li><strong>要対応</strong>: 「結果が未入力の送信」「求人枠が足りません」「スカウト文の枠が足りません」のほか、「今日見る候補」（返信があり、次の段階が未記録）と「付け直しが多い求人」（基準の見直し候補）。押すと該当の画面が開きます。</li>
+            <li><strong>フィードバックの見える化</strong>（直近の週）: 週ごとの返信率と付け直し率、求人別の集計。入力済みの記録からの集計で、再学習はしていません。</li>
+          </ul>
+          <p>これらの数字は、<span class="ui">結果と知見</span>に記録した結果や、判定・送信の記録から集計されます。結果の入力が少ないと、数字も少なくなります。</p>
+
+          <!-- 3-6 -->
+          <h3 id="f-offer">3-6. オファーレターAI</h3>
+          <p>左メニュー「オファー」グループの<span class="ui">オファーレター作成</span>を開きます。画面上部のタブで、3つのモードを切り替えます。</p>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>モード</th><th>用意されるもの</th></tr></thead>
+              <tbody>
+                <tr><td><span class="ui">正式オファーレター</span></td><td>条件提示の正式文書。</td></tr>
+                <tr><td><span class="ui">オファー面談スクリプト</span></td><td>口頭で魅力付けするための話法。</td></tr>
+                <tr><td><span class="ui">フォローアップメール</span></td><td>オファー後の意向を醸成するメール。</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <ol class="steps">
+            <li>「候補者氏名」と、「経歴・志向」（経歴サマリー、面接で見えた志向、重視する点など）を入力します。どちらかが必要です。</li>
+            <li>「オファー条件」に、提示年収、役職・ポジション、想定入社日、勤務地、雇用形態を入れます。求人テンプレートから年収レンジを入れることもできます。</li>
+            <li>「自社の魅力・カルチャー」に、事業の強み・働き方・成長機会などを書きます。<span class="ui">オファーテンプレート管理</span>で保存したテンプレートからも選べます。</li>
+            <li>「トーン」（フォーマル／ウォーム／パッション）と、使用するAIモデルを選びます。</li>
+            <li><span class="ui">オファーレターを生成</span>を押します。</li>
+          </ol>
+          <p>結果には、生成された文面、主な魅力付けポイント、推奨フォローアクションが出ます。<span class="ui">本文をコピー</span>でコピーできます。画面の下には「直近の生成履歴」もあります。</p>
+          <h4>面接の結果から引き継ぐ</h4>
+          <p>面接実行AIの評価レポートの<span class="ui">このまま候補者にオファーレターを作成</span>から進むと、候補者名と経歴サマリーが入った状態で開きます。面接準備AIの動機診断のデータがある候補者は、それが生成に使われ、動機タイプに合った魅力付けになります（データがない場合は、汎用の魅力付けで生成されます）。面接準備AIの結果画面からも、候補者情報を引き継いで開けます。</p>
+          <div class="human">
+            <span class="note-label">条件の数字は人が確認します</span>
+            <p>提示年収や入社日などの条件は、入力した内容が文面に反映されます。オファーとして送る前に、条件と文面を人が確認してください。</p>
+          </div>
+        </section>
+
+        <!-- ============ 4. FAQ ============ -->
+        <section id="faq">
+          <h2><span class="no">4.</span>よくある質問</h2>
+          <p>料金やプランに関する質問は、<a href="/lp/recruit-ai-ops/#faq">サービス紹介ページのよくあるご質問</a>もご覧ください。</p>
+
+          <details class="faq">
+            <summary>Claude / ChatGPT の契約は別途必要ですか？</summary>
+            <div class="a"><p>手元のAIで判定や文面づくりを続けたい場合は、ご自身で Claude または ChatGPT を契約している必要があります。AlumNET側のAPI費用はかかりません。AIの契約がない場合は、まずサーバー側のお試し生成（アカウントごとに20回まで）で使い心地を確認できます。Claude へのコネクタ接続はベータ版で、ChatGPT や Gemini ではキットの <code>prompt.md</code> を貼って使う方法です。</p></div>
+          </details>
+          <details class="faq">
+            <summary>お試しの20回を使い切ったらどうなりますか？</summary>
+            <div class="a"><p>サーバー側の生成は止まり、「サーバー側AIの無料試用を使い切りました」と表示されます。20回はプランを上げても増えません。A/B/C判定とスカウト文は、キットまたは Claude への接続で、手元のAIから続けられます。評価ルールの下書き、面接準備AI、面接実行AI、オファーレターAIは、管理画面から実行する機能です。</p></div>
+          </details>
+          <details class="faq">
+            <summary>スカウトは自動で送信されますか？</summary>
+            <div class="a"><p>されません。AIが作るのは文面案までで、送信は候補者ごとに人が内容を確認してから行います。AIの判定結果もあくまで補助で、最終判断は人が行います。</p></div>
+          </details>
+          <details class="faq">
+            <summary>評価ルールの下書きが作られません</summary>
+            <div class="a"><p>その求人の選考結果が、前進と見送りの合計で4件に届いていないか、前進または見送りのどちらかが0件の可能性があります。辞退は件数に数えません。<span class="ui">結果と知見</span>で選考結果を記録してから、もう一度お試しください。</p></div>
+          </details>
+          <details class="faq">
+            <summary>確定した選考基準を直したいです</summary>
+            <div class="a"><p>確定した基準は編集できません。あらためて<span class="ui">AI選考基準の下書き</span>で下書きを作成するか、<span class="ui">選考基準テンプレート</span>で新規作成してください。</p></div>
+          </details>
+          <details class="faq">
+            <summary>面接実行AIで文字起こしが始まりません</summary>
+            <div class="a"><p>文字起こしにはブラウザの音声認識を使います。Google Chrome または Microsoft Edge で開き、マイクの利用を許可してください。非対応のブラウザでは、画面に案内が表示されます。</p></div>
+          </details>
+          <details class="faq">
+            <summary>実在の候補者の情報を入れずに試せますか？</summary>
+            <div class="a"><p>書類選考・面接準備・面接実行AI・オファーレター作成の画面に<span class="ui">サンプルを入力</span>、求人管理・選考基準テンプレートの画面に<span class="ui">サンプルから作成</span>があり、架空の候補者・求人で試せます。</p></div>
+          </details>
+          <details class="faq">
+            <summary>候補者の情報はどこに送られますか？</summary>
+            <div class="a"><p>手元のAI（Claude / ChatGPT など）を使う場合、候補者情報はそのチャットの提供者に、ご自身の契約として送られます。管理画面からサーバー側で生成する場合は、AlumNETのサーバーを通じてAIに送られます。詳しくは、管理画面の<a href="https://alumnet-scout-ai.vercel.app/privacy-policy" target="_blank" rel="noopener">プライバシーポリシー</a>と<a href="https://alumnet-scout-ai.vercel.app/terms-of-service" target="_blank" rel="noopener">利用規約</a>をご確認ください。</p></div>
+          </details>
+          <details class="faq">
+            <summary>困ったときの問い合わせ先は？</summary>
+            <div class="a"><p>管理画面の左メニュー「設定」にある<span class="ui">問い合わせ</span>から送れます。ログイン前のご相談は、<a href="/contact.html">お問い合わせ</a>からどうぞ。</p></div>
+          </details>
+        </section>
+
+        <!-- ============ 5. 料金・申し込み ============ -->
+        <section id="plans">
+          <h2><span class="no">5.</span>料金・お申し込み</h2>
+          <p>プランごとの料金と保存できる求人数・席数は、サービス紹介ページの料金プランに掲載しています。このマニュアルには料金を記載していません。プランの変更や解約は、管理画面の<span class="ui">サブスクリプション</span>から行えます。</p>
+          <div class="cta-band">
+            <div>
+              <h3>まずはFreeプランから</h3>
+              <p>料金プランの詳細は、サービス紹介ページをご覧ください。</p>
+            </div>
+            <div class="cta-actions">
+              <a class="btn btn-ghost" href="/lp/recruit-ai-ops/#pricing">料金プランを見る</a>
+              <a class="btn btn-primary" href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener">無料で始める →</a>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="wrap">
+        <p class="f-brand">RECRUIT AI OPS by AlumNET</p>
+        <p><a href="/lp/recruit-ai-ops/">サービス紹介</a> ／ <a href="/contact.html">お問い合わせ</a> ／ 管理画面：<a href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener">alumnet-scout-ai.vercel.app</a></p>
+        <p>© AlumNET</p>
+      </div>
+    </footer>
+  </body>
+</html>
