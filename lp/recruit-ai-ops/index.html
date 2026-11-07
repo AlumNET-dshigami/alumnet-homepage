@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light" />
-    <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。A/B/C判定の基準、スカウトの型、面接AI、採用ダッシュボード、オファーレターAI。AIは手元のClaude / ChatGPTで使い放題。Free ¥0、クレジットカード不要。" />
+    <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。評価ルールの自動生成、A/B/C判定の基準、スカウトの型、面接AI、採用ダッシュボード、オファーレターAI。AIは手元のClaude / ChatGPTで使い放題。Free ¥0、クレジットカード不要。" />
     <link rel="icon" href="data:," />
     <title>Recruit AI Ops by AlumNET｜スカウト文面は「型」とAIでつくる</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,6 +34,7 @@
         --orange: #b97e1e;
         --teal: #0e6b5c;
         --pink: #a84a63;
+        --violet: #5f4a92;
         --shadow: 0 18px 44px rgba(16,35,60,.10);
         --shadow-sm: 0 6px 20px rgba(16,35,60,.08);
         --radius: 18px;
@@ -181,6 +182,14 @@
       .c-orange .tag, .c-orange .role, .c-orange .face { color: var(--orange); } .c-orange .face { background: var(--gold-soft); }
       .c-teal .tag, .c-teal .role, .c-teal .face { color: var(--teal); } .c-teal .face { background: var(--accent-soft); }
       .c-pink .tag, .c-pink .role, .c-pink .face { color: var(--pink); } .c-pink .face { background: #f6e4ea; }
+
+      .c-violet .tag, .c-violet .role, .c-violet .face { color: var(--violet); } .c-violet .face { background: #ece6f4; }
+      .char-grid .char-card:last-child:nth-child(3n+1) { grid-column: 2; }
+      .rule-flow { display: grid; gap: 10px; padding: 28px 26px; background: var(--surface); }
+      .rule-flow .rf-step { border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px; font-weight: 700; color: var(--ink-2); font-size: .95rem; }
+      .rule-flow .rf-step small { display: block; font-weight: 500; color: var(--muted); font-size: .82rem; margin-top: 2px; }
+      .rule-flow .rf-step.human { border-color: var(--violet); }
+      .rule-flow .rf-arrow { text-align: center; color: var(--muted); line-height: 1; }
 
       /* ---------- market data ---------- */
       .market-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
@@ -383,6 +392,7 @@
       /* ---------- responsive ---------- */
       @media (max-width: 960px) {
         .char-grid { grid-template-columns: repeat(2, 1fr); }
+        .char-grid .char-card:last-child:nth-child(3n+1) { grid-column: auto; }
         .market-grid { grid-template-columns: repeat(2, 1fr); }
         .market-trend { grid-template-columns: 1fr; }
         .market-trend p { grid-column: auto; }
@@ -459,21 +469,28 @@
       </div>
       <div class="marquee-band" aria-hidden="true">
         <div class="marquee-track" id="marqueeTrack">
-          <span>A/B/C判定 <i class="dot">●</i></span><span>スカウトの型 <i class="dot">●</i></span><span>面接準備AI <i class="dot">●</i></span><span>面接実行AI <i class="dot">●</i></span><span>採用ダッシュボード <i class="dot">●</i></span><span>オファーレターAI <i class="dot">●</i></span>
+          <span>評価ルールの自動生成 <i class="dot">●</i></span><span>A/B/C判定 <i class="dot">●</i></span><span>スカウトの型 <i class="dot">●</i></span><span>面接準備AI <i class="dot">●</i></span><span>面接実行AI <i class="dot">●</i></span><span>採用ダッシュボード <i class="dot">●</i></span><span>オファーレターAI <i class="dot">●</i></span>
         </div>
       </div>
     </header>
 
     <main>
-      <!-- ============ WHAT / 6 FUNCTIONS ============ -->
+      <!-- ============ WHAT / 7 FUNCTIONS ============ -->
       <section id="about">
         <div class="wrap">
           <div class="sec-head reveal">
             <span class="sec-tag">WHO WE ARE</span>
             <h2 class="display">Recruit AI Ops<span class="accent">とは？</span></h2>
-            <p>スカウトの「効果」、選考の「精度」、面接の「質」、内定の「承諾率」。採用の歩留まりを左右する仕事を、6つの機能でまるごと支えるスカウト運用基盤です。主役はこの6人——もとい、6機能。</p>
+            <p>スカウトの「効果」、選考の「精度」、面接の「質」、内定の「承諾率」。採用の歩留まりを左右する仕事を、7つの機能でまるごと支えるスカウト運用基盤です。主役はこの7人——もとい、7機能。</p>
           </div>
           <div class="char-grid">
+            <article class="char-card c-violet reveal">
+              <span class="tag">#基準の設計士</span>
+              <div class="face" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5f4a92" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-3-3L5 17z"/><path d="M14 7l3 3"/><path d="M13 20h7"/></svg></div>
+              <h3>評価ルールの自動生成</h3>
+              <p class="role">RULE DRAFTING</p>
+              <p>過去の選考結果（通過・見送り）から、AIが評価基準の下書きを作成。人が確認・修正して「確定」したものだけが、A/B/C判定の物差しになります。</p>
+            </article>
             <article class="char-card c-red reveal">
               <span class="tag">#判定の番人</span>
               <div class="face" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#f43a1d" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4.5"/></svg></div>
@@ -507,7 +524,7 @@
               <div class="face" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#00838f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-8M22 20H2"/></svg></div>
               <h3>採用ダッシュボード</h3>
               <p class="role">ANALYTICS</p>
-              <p>媒体やATSのCSVを入れるだけで、応募〜入社の8段階ファネルを可視化。媒体別・求人別の比較と月次推移で、詰まっている場所が見えます。</p>
+              <p>媒体やATSのCSVを入れるだけで、応募〜入社の8段階ファネルを可視化。媒体別・求人別の比較と月次推移で、詰まっている場所が見えます。対応すべき候補者を並べる「要対応キュー」と、週ごとの返信・結果を集計する「週次サマリ」も備えています。</p>
             </article>
             <article class="char-card c-pink reveal">
               <span class="tag">#決め手の一通</span>
@@ -621,9 +638,31 @@
 
           <div class="feat reveal">
             <div class="feat-text">
-              <span class="fnum" style="color:var(--red)">FEATURE 01</span>
+              <span class="fnum" style="color:var(--violet)">FEATURE 01</span>
+              <h3>評価ルールの自動生成</h3>
+              <p>過去の選考結果（通過・見送りの実績）をもとに、AIが評価基準の下書きを作ります。下書きはそのままでは使われず、人が内容を確認・修正して「確定」して初めて、A/B/C判定の基準になります。</p>
+              <ul>
+                <li>注目する観点、Must / Want / NG、A・B・Cそれぞれの目安を下書き</li>
+                <li>候補者が辞退したケースは、基準づくりの材料に使いません</li>
+                <li>サンプルが不足している求人では、自動生成は行われません</li>
+              </ul>
+            </div>
+            <div class="feat-img rule-flow" role="img" aria-label="過去の選考結果からAIが基準を下書きし、人が確認・確定して、A/B/C判定の基準になる流れ">
+              <div class="rf-step">過去の選考結果<small>通過・見送りの実績（辞退は対象外）</small></div>
+              <div class="rf-arrow" aria-hidden="true">▼</div>
+              <div class="rf-step">AIが基準を下書き<small>観点、Must / Want / NG、A・B・Cの目安</small></div>
+              <div class="rf-arrow" aria-hidden="true">▼</div>
+              <div class="rf-step human">人が確認・修正して「確定」<small>確定するまで、判定には使われません</small></div>
+              <div class="rf-arrow" aria-hidden="true">▼</div>
+              <div class="rf-step">A/B/C判定の基準（物差し）<small>基準づくり → 判定、の順</small></div>
+            </div>
+          </div>
+
+          <div class="feat reveal">
+            <div class="feat-text">
+              <span class="fnum" style="color:var(--red)">FEATURE 02</span>
               <h3>A/B/C判定の基準</h3>
-              <p>求人のMust / Want / NGと候補者を照らし合わせ、送ってよいかをA/B/Cで統一判定。判定そのものは手元のClaude / ChatGPTが行い、結果と懸念点は求人ごとに残せます。</p>
+              <p>求人のMust / Want / NG（評価ルールの自動生成で作った基準を含む）と候補者を照らし合わせ、送ってよいかをA/B/Cで統一判定。判定そのものは手元のClaude / ChatGPTが行い、結果と懸念点は求人ごとに残せます。</p>
               <ul>
                 <li>A 送付推奨 ／ B 人の確認 ／ C 非推奨</li>
                 <li>Must未達はC、判断材料が不明ならB</li>
@@ -635,7 +674,7 @@
 
           <div class="feat reveal">
             <div class="feat-text">
-              <span class="fnum" style="color:var(--blue)">FEATURE 02</span>
+              <span class="fnum" style="color:var(--blue)">FEATURE 03</span>
               <h3>面接準備AI</h3>
               <p>BIG5・DISC・モチベーション診断による性格分析と、見極めポイント・想定質問の自動生成。面接前と面接後、2つのモードで面接の質を底上げします。</p>
               <ul>
@@ -649,7 +688,7 @@
 
           <div class="feat reveal">
             <div class="feat-text">
-              <span class="fnum" style="color:var(--green)">FEATURE 03</span>
+              <span class="fnum" style="color:var(--green)">FEATURE 04</span>
               <h3>面接実行AI</h3>
               <p>面接中の会話をリアルタイムで文字起こし。AIが深掘りすべき論点や懸念点を即座にアドバイスし、終了後は評価レポートを自動生成します。</p>
               <ul>
@@ -663,7 +702,7 @@
 
           <div class="feat reveal">
             <div class="feat-text">
-              <span class="fnum" style="color:var(--orange)">FEATURE 04</span>
+              <span class="fnum" style="color:var(--orange)">FEATURE 05</span>
               <h3>スカウトの型</h3>
               <p>職種とターゲットごとの文の型を保存し、手元のClaude / ChatGPTに渡して文面づくり。媒体の画面ではChrome拡張から、型と候補者情報をその場で確認できます。</p>
               <ul>
@@ -677,12 +716,14 @@
 
           <div class="feat reveal">
             <div class="feat-text">
-              <span class="fnum" style="color:var(--teal)">FEATURE 05</span>
+              <span class="fnum" style="color:var(--teal)">FEATURE 06</span>
               <h3>採用ダッシュボード</h3>
               <p>スカウト媒体やATSのCSVをアップロードするだけで、応募〜入社の歩留まりファネルを可視化。採用施策のボトルネックを、数字で発見できます。</p>
               <ul>
                 <li>スカウト〜入社の8段階ファネル</li>
                 <li>媒体別・求人別の比較</li>
+                <li>要対応キュー：対応すべき候補者やタスクが並び、次にやることが分かる</li>
+                <li>週次サマリ：週ごとの返信・結果の集計</li>
                 <li>月次推移で施策の効果を分析</li>
               </ul>
             </div>
@@ -691,7 +732,7 @@
 
           <div class="feat reveal">
             <div class="feat-text">
-              <span class="fnum" style="color:var(--pink)">FEATURE 06</span>
+              <span class="fnum" style="color:var(--pink)">FEATURE 07</span>
               <h3>オファーレターAI</h3>
               <p>候補者の動機タイプを分析し、刺さる魅力付けを織り込んだオファーレターを自動生成。面接実行AIの評価結果から、そのまま引き継いで作れます。</p>
               <ul>
@@ -764,7 +805,7 @@
               <span class="step-no">02</span>
               <div>
                 <h3>型と判定基準をセットする</h3>
-                <p>求人票からMust / Want / NGを整理し、A/B/C判定の基準とスカウトの「型」を用意。ここが御社専用の物差しになります。</p>
+                <p>過去の選考結果からAIが評価基準の下書きを作り、人が確認・修正して「確定」。求人票のMust / Want / NGも踏まえてA/B/C判定の基準とスカウトの「型」を用意します。ここが御社専用の物差しになります。</p>
               </div>
             </li>
             <li class="flow-item reveal">
