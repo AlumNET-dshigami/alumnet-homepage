@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light" />
-    <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。評価ルールの自動生成、A/B/C判定の基準、スカウトの型、面接AI、採用ダッシュボード、オファーレターAI。A/B/C判定とスカウト文面は、手元のClaude / ChatGPTで回数無制限。Free ¥0、クレジットカード不要。" />
+    <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。評価ルールの自動生成、A/B/C判定の基準、スカウトの型、面接AI、採用ダッシュボード、オファーレターAI、候補者サーチ支援、日程調整。A/B/C判定とスカウト文面は、手元のClaude / ChatGPTで回数無制限。Free ¥0、クレジットカード不要。" />
     <link rel="icon" href="/assets/alumnet-logo-square-512.png" />
     <title>Recruit AI Ops by AlumNET｜採用の現在地と、次の一手が見える</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,18 +72,20 @@
       .site-nav a:hover { color: var(--teal); }
 
       /* ---------- hero ---------- */
-      .hero { padding: 72px 0 0; background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%); text-align: center; }
+      .hero { padding: 64px 0 0; background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%); }
+      .hero-copy { max-width: 860px; }
       .eyebrow { display: inline-block; font-size: .88rem; font-weight: 700; color: var(--teal-strong); background: var(--teal-soft); padding: .35em 1.1em; border-radius: 999px; margin-bottom: 22px; }
-      .hero h1 { font-size: clamp(2.1rem, 6vw, 3.9rem); line-height: 1.28; font-weight: 900; letter-spacing: .01em; margin: 0 0 .5em; }
+      .hero h1 { font-size: clamp(2.2rem, 6.4vw, 4.2rem); line-height: 1.25; font-weight: 900; letter-spacing: .01em; margin: 0 0 .35em; }
       .hero h1 .accent { white-space: nowrap; }
-      .hero-lead { max-width: 740px; margin: 0 auto 1.8em; font-size: clamp(1rem, 2.4vw, 1.12rem); font-weight: 500; color: var(--ink-2); text-align: left; }
+      .hero-core { display: inline-block; font-size: clamp(1.15rem, 2.8vw, 1.5rem); font-weight: 900; color: var(--navy); margin: 0 0 1em; padding-left: 14px; border-left: 4px solid var(--teal); line-height: 1.5; }
+      .hero-lead { max-width: 740px; margin: 0 0 1.8em; font-size: clamp(1rem, 2.4vw, 1.12rem); font-weight: 500; color: var(--ink-2); }
       .hero-lead strong { color: var(--ink); }
-      .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 16px; }
-      .hero-notes { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: center; font-size: .9rem; font-weight: 700; color: var(--ink-2); margin: 0 0 26px; padding: 0; list-style: none; }
+      .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 16px; }
+      .hero-notes { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .9rem; font-weight: 700; color: var(--ink-2); margin: 0 0 22px; padding: 0; list-style: none; }
       .hero-notes li::before { content: "✓ "; color: var(--teal); font-weight: 900; }
-      .principles { display: flex; flex-wrap: wrap; gap: 8px 10px; justify-content: center; margin: 0 0 44px; padding: 0; list-style: none; }
+      .principles { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 48px; padding: 0; list-style: none; }
       .principles li { font-size: .84rem; font-weight: 700; color: var(--navy); background: var(--navy-soft); border-radius: 999px; padding: .3em 1em; }
-      .hero .stage { max-width: 1040px; margin: 0 auto; border-radius: 24px 24px 0 0; padding-bottom: 0; }
+      .hero .stage { border-radius: 24px 24px 0 0; padding-bottom: 0; }
 
       /* ---------- section scaffolding ---------- */
       section { padding: 88px 0; }
@@ -152,24 +154,33 @@
       .asks li::before { content: "?"; display: inline-grid; place-items: center; width: 1.3em; height: 1.3em; margin-right: .5em; border-radius: 50%; background: var(--teal); color: #fff; font-weight: 900; font-size: .8em; }
 
       /* ---------- Points ---------- */
-      .points-intro { padding-bottom: 8px; }
-      .point { padding: 72px 0; border-top: 1px solid var(--line); }
-      .point-head { display: grid; grid-template-columns: 1.25fr 1fr; gap: 12px 56px; margin-bottom: 36px; align-items: start; }
-      .point-no { display: flex; align-items: baseline; gap: 10px; color: var(--teal); font-weight: 900; margin-bottom: 6px; }
+      .points-intro { padding-bottom: 48px; }
+      .point-index { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; counter-reset: pi; }
+      .point-index a { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: .92rem; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .7em 1em; transition: border-color .2s, color .2s; }
+      .point-index a:hover { border-color: var(--teal); color: var(--teal); }
+      .point-index b { color: var(--teal); font-weight: 900; font-size: 1.05rem; letter-spacing: .04em; }
+      .point { padding: 84px 0; border-top: 1px solid var(--line); }
+      .point.alt { background: var(--bg-alt); }
+      .point-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px 56px; margin-bottom: 40px; align-items: start; }
+      .point-no { display: flex; align-items: baseline; gap: 12px; color: var(--teal); font-weight: 900; margin-bottom: 6px; }
       .point-no span { font-size: .8rem; letter-spacing: .24em; }
-      .point-no b { font-size: 2.2rem; line-height: 1; letter-spacing: .02em; }
-      .point-name { font-weight: 800; font-size: .95rem; color: var(--ink-2); margin: 0 0 4px; }
+      .point-no b { font-size: 3.2rem; line-height: 1; letter-spacing: .02em; }
+      .point-name { font-weight: 800; font-size: .95rem; color: var(--ink-2); margin: 0 0 6px; }
       .point-name em { font-style: normal; margin-left: .8em; font-size: .72rem; letter-spacing: .14em; color: var(--muted); }
-      .point h3 { font-size: clamp(1.5rem, 3.6vw, 2.2rem); line-height: 1.4; font-weight: 900; margin: 0 0 .5em; }
-      .point-body { color: var(--muted); font-weight: 500; margin: 0; max-width: 620px; }
-      .point-side { padding-top: 6px; }
+      .point h3 { font-size: clamp(1.6rem, 3.8vw, 2.4rem); line-height: 1.4; font-weight: 900; margin: 0 0 .5em; }
+      .point-body { color: var(--ink-2); font-weight: 500; margin: 0; max-width: 620px; }
+      .point-side { background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--teal); border-radius: 14px; padding: 20px 22px 18px; box-shadow: var(--shadow-sm); }
       .where { display: inline-block; font-size: .78rem; font-weight: 800; color: var(--navy); background: var(--navy-soft); border-radius: 999px; padding: .2em 1em; margin: 0 0 12px; }
+      .where-dual { display: block; border-radius: 12px; line-height: 1.6; padding: .35em 1em; }
+      .where-dual span { display: inline-block; }
       .point-list { list-style: none; margin: 0; padding: 0; font-weight: 700; color: var(--ink-2); font-size: .95rem; }
       .point-list li { padding: .25em 0 .25em 1.7em; position: relative; }
       .point-list li::before { content: "✓"; position: absolute; left: 0; top: .38em; width: 1.3em; height: 1.3em; line-height: 1.3em; text-align: center; background: var(--teal-soft); color: var(--teal-strong); border-radius: 50%; font-size: .78em; font-weight: 900; }
-      .point-extra { margin: 14px 0 0; font-size: .88rem; color: var(--muted); font-weight: 500; line-height: 1.8; }
+      .point-extra { margin: 14px 0 0; padding-top: 12px; border-top: 1px solid var(--line); font-size: .86rem; color: var(--muted); font-weight: 500; line-height: 1.8; }
+      .point .stage { background: linear-gradient(135deg, var(--navy-soft) 0%, var(--teal-soft) 100%); padding: 48px 48px 40px; }
+      .point.alt .stage { background: linear-gradient(135deg, #fff 0%, var(--teal-soft) 100%); border: 1px solid var(--line); }
 
-      .cta-band { margin-top: 24px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); border-radius: 22px; padding: 38px 44px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 32px; align-items: center; }
+      .cta-band { margin-top: 40px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-sm); border-radius: 22px; padding: 38px 44px; display: grid; grid-template-columns: 1.3fr .7fr; gap: 32px; align-items: center; }
       .cta-band h3 { font-size: clamp(1.4rem, 3.4vw, 1.9rem); line-height: 1.45; margin: 0 0 10px; font-weight: 900; }
       .cta-band p { color: var(--muted); margin: 0; font-weight: 500; }
       .cta-actions { display: flex; flex-direction: column; gap: 10px; align-items: stretch; }
@@ -190,15 +201,21 @@
       .trend h3 { font-weight: 900; font-size: clamp(1.1rem, 2.8vw, 1.35rem); margin: 0; line-height: 1.55; }
       .trend p { grid-column: 2; margin: 0; color: var(--muted); font-weight: 500; font-size: .93rem; }
 
+      .num-grid { border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; }
+      .market-note { margin: 0 0 24px; padding: 12px 22px; font-size: .85rem; color: var(--ink-2); font-weight: 700; background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 var(--radius) var(--radius); }
+      .market-flag { display: inline-block; margin-top: 14px; font-size: .8rem; font-weight: 800; color: var(--navy); background: var(--navy-soft); border-radius: 999px; padding: .2em 1em; }
+
       /* ---------- promises ---------- */
-      .promise { display: grid; grid-template-columns: 130px 1fr; gap: 6px 28px; padding: 32px 0; border-top: 1px solid var(--line); }
-      .promise:last-child { border-bottom: 1px solid var(--line); }
-      .promise .no { grid-row: span 3; line-height: 1; }
-      .promise .no .label { display: block; font-size: .72rem; font-weight: 800; letter-spacing: .28em; color: var(--muted); margin-bottom: 8px; }
-      .promise .no .num { font-size: 3.2rem; font-weight: 900; color: var(--teal); }
-      .cant { font-weight: 700; font-size: clamp(.98rem, 2.6vw, 1.12rem); color: var(--muted); margin: 0; }
-      .promise h3 { font-weight: 900; font-size: clamp(1.35rem, 3.8vw, 1.95rem); margin: .1em 0 .3em; line-height: 1.4; }
-      .promise .body { margin: 0; max-width: 740px; color: var(--muted); font-weight: 500; }
+      #promise .wrap { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+      #promise .sec-head { grid-column: 1 / -1; margin-bottom: 14px; }
+      .promise { grid-column: span 2; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px 30px; background: var(--surface); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+      .promise:nth-of-type(4), .promise:nth-of-type(5) { grid-column: span 3; }
+      .promise .no { display: flex; align-items: baseline; gap: 12px; margin-bottom: 14px; line-height: 1; }
+      .promise .no .label { font-size: .72rem; font-weight: 800; letter-spacing: .28em; color: var(--muted); }
+      .promise .no .num { font-size: 2.6rem; font-weight: 900; color: var(--teal); }
+      .cant { font-weight: 700; font-size: .92rem; color: var(--muted); margin: 0; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+      .promise h3 { font-weight: 900; font-size: clamp(1.2rem, 2.4vw, 1.45rem); margin: 14px 0 .5em; line-height: 1.45; }
+      .promise .body { margin: 0; color: var(--ink-2); font-weight: 500; font-size: .94rem; }
 
       /* ---------- case ---------- */
       .case { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -280,34 +297,35 @@
         .site-nav { display: none; }
         .site-head .wrap { justify-content: space-between; }
         .site-head .btn { margin-left: auto; }
-        .point-head { grid-template-columns: 1fr; }
+        .point-grid { grid-template-columns: 1fr; }
         .num-grid { grid-template-columns: repeat(2, 1fr); }
         .num-card:nth-child(3) { border-left: none; }
         .num-card:nth-child(n+3) { border-top: 1px solid var(--line); }
         .trend { grid-template-columns: 1fr; }
         .trend p { grid-column: auto; }
+        #promise .wrap { grid-template-columns: 1fr 1fr; }
+        .promise, .promise:nth-of-type(4), .promise:nth-of-type(5) { grid-column: span 1; }
+        .promise:nth-of-type(5) { grid-column: 1 / -1; }
         .scene-grid { grid-template-columns: 1fr; }
         .price-grid { grid-template-columns: repeat(2, 1fr); }
         .price-card.popular { transform: none; }
         .cta-band { grid-template-columns: 1fr; padding: 30px 24px; }
         .grid-2, .grid-21, .grid-12, .grid-rep, .grid-ext { grid-template-columns: 1fr; }
         .asks { grid-template-columns: repeat(2, 1fr); }
-        .stage { padding: 24px 20px; }
+        .stage, .point .stage { padding: 24px 20px; }
       }
       @media (max-width: 600px) {
         section { padding: 60px 0; }
-        .point { padding: 52px 0; }
-        .hero { padding-top: 48px; }
+        .point { padding: 56px 0; }
+        .hero { padding-top: 44px; }
         .hero-cta .btn { width: 100%; }
         .num-grid { grid-template-columns: 1fr; }
         .num-card { border-left: none; border-top: 1px solid var(--line); }
         .num-card:first-child { border-top: none; }
         .m-label { min-height: 0; }
         .price-grid { grid-template-columns: 1fr; }
-        .promise { grid-template-columns: 1fr; }
-        .promise .no { grid-row: auto; display: flex; align-items: baseline; gap: 12px; }
-        .promise .no .label { margin: 0; }
-        .promise .no .num { font-size: 2.6rem; }
+        #promise .wrap { grid-template-columns: 1fr; }
+        .promise:nth-of-type(5) { grid-column: auto; }
         .flow-item { grid-template-columns: 44px 1fr; gap: 0 14px; }
         .step-no { width: 44px; height: 44px; font-size: .95rem; }
         .flow-item::before { left: 21px; top: 44px; }
@@ -319,6 +337,7 @@
         .win-body { padding: 14px; }
         .sample { display: none; }
         .brand small { display: none; }
+        .point-index { grid-template-columns: 1fr 1fr; }
       }
     </style>
   </head>
@@ -332,6 +351,7 @@
           <a href="#points">機能</a>
           <a href="#market">数字</a>
           <a href="#promise">強み</a>
+          <a href="#case">他社事例</a>
           <a href="#flow">導入の流れ</a>
           <a href="#pricing">料金</a>
           <a href="#faq">FAQ</a>
@@ -343,26 +363,29 @@
     <!-- ============ 1. HERO ============ -->
     <header class="hero" id="top">
       <div class="wrap">
-        <span class="eyebrow">スカウト業務に悩む採用担当者・人材紹介会社の皆様へ</span>
-        <h1>採用の<span class="accent">現在地</span>と、<br /><span class="accent">次の一手</span>が見える。</h1>
-        <p class="hero-lead">
-          Recruit AI Opsは、人材紹介会社のスカウト運用を回すための基盤です。評価基準づくりから判定、スカウト文面、面接、オファーまで、<strong>AIが下地をつくり、ダッシュボードで進捗と詰まりを見える化</strong>。判定と文面づくりは<strong>手元のClaude / ChatGPT</strong>で、送信は<strong>人が確認してから</strong>行います。
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener">無料で始める <span aria-hidden="true">→</span></a>
-          <a class="btn btn-ghost" href="#pricing">料金プランを見る</a>
+        <div class="hero-copy">
+          <span class="eyebrow">スカウト業務に悩む採用担当者・人材紹介会社の皆様へ</span>
+          <h1>採用の<span class="accent">現在地</span>と、<br /><span class="accent">次の一手</span>が見える。</h1>
+          <p class="hero-core">AIが処理し、人が判断する。</p>
+          <p class="hero-lead">
+            Recruit AI Opsは、人材紹介会社のスカウト運用を回すための基盤です。評価基準づくりから判定、スカウト文面、面接、オファーまで、<strong>AIが下地をつくり、ダッシュボードで進捗と詰まりを見える化</strong>。判定と文面づくりは<strong>手元のClaude / ChatGPT</strong>で、送信は<strong>人が確認してから</strong>行います。既存のATSや媒体はそのまま使えます。
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://alumnet-scout-ai.vercel.app/" target="_blank" rel="noopener">無料で始める <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#pricing">料金プランを見る</a>
+          </div>
+          <ul class="hero-notes">
+            <li>Freeプラン ¥0</li>
+            <li>クレジットカード不要</li>
+            <li>メールアドレスで登録</li>
+          </ul>
+          <ul class="principles">
+            <li>AIが処理し、人が判断する</li>
+            <li>判定・文面・ルールづくり・面接準備・オファーは手元のAIでも実行可</li>
+            <li>送信は人が最終確認</li>
+            <li>既存の媒体・ATSを置き換えず、その上で使う</li>
+          </ul>
         </div>
-        <ul class="hero-notes">
-          <li>Freeプラン ¥0</li>
-          <li>クレジットカード不要</li>
-          <li>メールアドレスで登録</li>
-        </ul>
-        <ul class="principles">
-          <li>AIが処理し、人が判断する</li>
-          <li>判定とスカウト文面は手元のAIで無制限</li>
-          <li>送信は人が最終確認</li>
-          <li>既存の媒体・ATSを置き換えず、その上で使う</li>
-        </ul>
 
         <div class="stage">
           <div class="win" role="img" aria-label="ホーム画面のイメージ。要対応キュー、週次サマリ、応募から入社までの8段階ファネルと、止まっている段階が一目で分かる。サンプルデータ。">
@@ -416,35 +439,47 @@
     </header>
 
     <main>
-      <!-- ============ 2. POINTS 1-7 ============ -->
+      <!-- ============ 2. POINTS 1-9 ============ -->
       <section id="points" class="points-intro">
         <div class="wrap">
           <div class="sec-head">
             <span class="sec-tag">SERVICE</span>
             <h2>対応範囲は、<span class="accent">スカウトからオファーまで</span></h2>
-            <p>スカウトの「効果」、選考の「精度」、面接の「質」、内定の「承諾率」。採用の歩留まりを左右する仕事を、7つの機能でまるごと支えるスカウト運用基盤です。最初の1通から内定承諾まで、採用の各フェーズに、それぞれ専用の機能を用意しました。</p>
+            <p>スカウトの「効果」、選考の「精度」、面接の「質」、内定の「承諾率」。採用の歩留まりを左右する仕事を、9つの機能でまるごと支えるスカウト運用基盤です。最初の1通から内定承諾まで、採用の各フェーズに、それぞれ専用の機能を用意しました。</p>
           </div>
+          <ol class="point-index" aria-label="9つの機能">
+            <li><a href="#point-1"><b>01</b>評価ルールの自動生成</a></li>
+            <li><a href="#point-2"><b>02</b>A/B/C判定の基準</a></li>
+            <li><a href="#point-3"><b>03</b>面接準備AI</a></li>
+            <li><a href="#point-4"><b>04</b>面接実行AI</a></li>
+            <li><a href="#point-5"><b>05</b>スカウトの型</a></li>
+            <li><a href="#point-6"><b>06</b>採用ダッシュボード</a></li>
+            <li><a href="#point-7"><b>07</b>オファーレターAI</a></li>
+            <li><a href="#point-8"><b>08</b>候補者サーチ支援</a></li>
+            <li><a href="#point-9"><b>09</b>日程調整</a></li>
+          </ol>
         </div>
       </section>
 
       <!-- POINT 01 -->
       <section class="point" id="point-1">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>01</b></div>
               <p class="point-name">評価ルールの自動生成<em>RULE DRAFTING</em></p>
               <h3>基準づくりはAIの下書きから。<br />確定するのは人。</h3>
               <p class="point-body">過去の選考結果（通過・見送りの実績）をもとに、AIが評価基準の下書きを作ります。下書きはそのままでは使われず、人が内容を確認・修正して「確定」して初めて、A/B/C判定の基準になります。</p>
             </div>
-            <div class="point-side">
-              <p class="where">AlumNETのサーバー側AI（お試し生成20回の対象）</p>
-              <ul class="point-list">
+            <aside class="point-side">
+            <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
+            <ul class="point-list">
                 <li>注目する観点、Must / Want / NG、A・B・Cそれぞれの目安を下書き</li>
                 <li>候補者が辞退したケースは、基準づくりの材料に使いません</li>
                 <li>サンプルが不足している求人では、自動生成は行われません</li>
               </ul>
-            </div>
+            <p class="point-extra">求人の登録では、任意で『権限』（任せられている判断／提案すること／任せられていない判断）と『関与の深さ』（段階と、期待する場面）も書き込めます。書き込んだ求人では、その内容が評価ルールの下書きや判定の材料に反映され、基準が求人の実態からずれるのを防ぎます。未記入でも登録や判定は止まらず、画面にヒントが表示されます。</p>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="評価ルールの下書き画面のイメージ。過去の選考結果からAIが作った観点、Must、Want、NG、A・B・Cの目安を、人が確認して確定する。サンプルデータ。">
@@ -478,23 +513,23 @@
       </section>
 
       <!-- POINT 02 -->
-      <section class="point" id="point-2">
+      <section class="point alt" id="point-2">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>02</b></div>
               <p class="point-name">A/B/C判定の基準<em>SCREENING</em></p>
               <h3>「なんとなく合いそう」を、<br />チーム共通の物差しに。</h3>
               <p class="point-body">求人のMust / Want / NG（評価ルールの自動生成で作った基準を含む）と候補者を照らし合わせ、送ってよいかをA/B/Cで統一判定。判定そのものは手元のClaude / ChatGPTが行い、結果と懸念点は求人ごとに残せます。</p>
             </div>
-            <div class="point-side">
-              <p class="where">手元のClaude / ChatGPTで回数無制限</p>
-              <ul class="point-list">
+            <aside class="point-side">
+            <p class="where">手元のClaude / ChatGPTで回数無制限</p>
+            <ul class="point-list">
                 <li>A 送付推奨 ／ B 人の確認 ／ C 非推奨</li>
                 <li>Must未達はC、判断材料が不明ならB</li>
                 <li>レビューシートをチームで共有</li>
               </ul>
-            </div>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="レビューシートのイメージ。候補者ごとにA/B/Cの判定、根拠、懸念点が並ぶ。サンプルデータ。">
@@ -529,21 +564,21 @@
       <!-- POINT 03 -->
       <section class="point" id="point-3">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>03</b></div>
               <p class="point-name">面接準備AI<em>INTERVIEW PREP</em></p>
               <h3>面接の前に、<br />見極めポイントが揃う。</h3>
               <p class="point-body">BIG5・DISC・モチベーション診断による性格分析と、見極めポイント・想定質問の自動生成。面接前と面接後、2つのモードで面接の質を底上げします。</p>
             </div>
-            <div class="point-side">
-              <p class="where">AlumNETのサーバー側AI（お試し生成20回の対象）</p>
-              <ul class="point-list">
+            <aside class="point-side">
+            <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
+            <ul class="point-list">
                 <li>BIG5 / DISC / モチベーション診断</li>
                 <li>想定質問リストを自動生成</li>
                 <li>面接後モードで合否判定と魅力付けコメント</li>
               </ul>
-            </div>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="面接準備AIの画面イメージ。BIG5・DISC・モチベーションの分析、見極めポイントと想定質問。面接前と面接後の2モード。サンプルデータ。">
@@ -585,23 +620,23 @@
       </section>
 
       <!-- POINT 04 -->
-      <section class="point" id="point-4">
+      <section class="point alt" id="point-4">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>04</b></div>
               <p class="point-name">面接実行AI<em>INTERVIEW LIVE</em></p>
               <h3>面接中に論点を助言。<br />終われば評価レポートに。</h3>
               <p class="point-body">面接中の会話をリアルタイムで文字起こし。AIが深掘りすべき論点や懸念点を即座にアドバイスし、終了後は評価レポートを自動生成します。</p>
             </div>
-            <div class="point-side">
-              <p class="where">AlumNETのサーバー側AI（お試し生成20回の対象）</p>
-              <ul class="point-list">
+            <aside class="point-side">
+            <p class="where">AlumNETのサーバー側AI（お試し生成20回の対象）</p>
+            <ul class="point-list">
                 <li>リアルタイム文字起こし ＋ AIアドバイス</li>
                 <li>10点満点の評価レポートを自動生成</li>
                 <li>A/B/C推薦判定と次のアクション提案</li>
               </ul>
-            </div>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="面接実行AIの画面イメージ。リアルタイム文字起こしとAIのアドバイス、終了後の10点満点の評価レポートと推薦判定。サンプルデータ。">
@@ -642,21 +677,21 @@
       <!-- POINT 05 -->
       <section class="point" id="point-5">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>05</b></div>
               <p class="point-name">スカウトの型<em>SCOUT TEMPLATES</em></p>
               <h3>スカウト文面は、<br />「型」とAIでつくる。</h3>
               <p class="point-body">職種とターゲットごとの文の型を保存し、手元のClaude / ChatGPTに渡して文面づくり。媒体の画面ではChrome拡張から、型と候補者情報をその場で確認できます。</p>
             </div>
-            <div class="point-side">
-              <p class="where">手元のClaude / ChatGPTで回数無制限</p>
-              <ul class="point-list">
+            <aside class="point-side">
+            <p class="where">手元のClaude / ChatGPTで回数無制限</p>
+            <ul class="point-list">
                 <li>職種 × ターゲット別の文の型</li>
                 <li>候補者ごとに人が確認して送る</li>
                 <li>Chrome拡張で媒体の横に置ける</li>
               </ul>
-            </div>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="スカウト媒体の候補者ページの横に、Chrome拡張で型と候補者情報を並べ、文面の下書きを人が確認する画面のイメージ。サンプルデータ。">
@@ -687,23 +722,23 @@
       </section>
 
       <!-- POINT 06 -->
-      <section class="point" id="point-6">
+      <section class="point alt" id="point-6">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>06</b></div>
               <p class="point-name">採用ダッシュボード<em>ANALYTICS</em></p>
               <h3>詰まっている段階が、<br />数字で見える。</h3>
               <p class="point-body">スカウト媒体やATSのCSVをアップロードするだけで、応募〜入社の歩留まりファネルを可視化。採用施策のボトルネックを、数字で発見できます。</p>
             </div>
-            <div class="point-side">
-              <ul class="point-list">
+            <aside class="point-side">
+            <ul class="point-list">
                 <li>スカウト〜入社の8段階ファネル</li>
                 <li>媒体別・求人別の比較</li>
                 <li>月次推移で施策の効果を分析</li>
               </ul>
-              <p class="point-extra">ホーム画面（ダッシュボード）には、対応すべき候補者やタスクが並ぶ「要対応キュー」と、週ごとの返信・結果を集計する「週次サマリ」もあり、次にやることをひと目で確認できます。これらはCSV分析機能とは別に、ホーム画面で見られます。</p>
-            </div>
+            <p class="point-extra">ホーム画面（ダッシュボード）には、対応すべき候補者やタスクが並ぶ「要対応キュー」と、週ごとの返信・結果を集計する「週次サマリ」もあり、次にやることをひと目で確認できます。これらはCSV分析機能とは別に、ホーム画面で見られます。</p>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="採用ダッシュボードのイメージ。スカウトから入社までの8段階ファネルと段階ごとの通過率、媒体別の比較、月次推移。サンプルデータ。">
@@ -752,22 +787,22 @@
       <!-- POINT 07 -->
       <section class="point" id="point-7">
         <div class="wrap">
-          <div class="point-head">
+          <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>07</b></div>
               <p class="point-name">オファーレターAI<em>OFFER LETTER</em></p>
               <h3>面接の結果から、<br />決め手の一通へ。</h3>
               <p class="point-body">候補者の動機タイプを分析し、刺さる魅力付けを織り込んだオファーレターを自動生成。面接実行AIの評価結果から、そのまま引き継いで作れます。</p>
             </div>
-            <div class="point-side">
-              <p class="where">AlumNETのサーバー側AI（お試し生成20回の対象）</p>
-              <ul class="point-list">
+            <aside class="point-side">
+            <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
+            <ul class="point-list">
                 <li>動機診断ベースの魅力付け</li>
                 <li>レター / スクリプト / メールの3モード</li>
                 <li>面接結果からワンクリックで引き継ぎ</li>
               </ul>
-              <p class="point-extra">3モードは、正式レター・面談スクリプト・フォローメールです。承諾まで伴走します。</p>
-            </div>
+            <p class="point-extra">3モードは、正式レター・面談スクリプト・フォローメールです。承諾まで伴走します。</p>
+            </aside>
           </div>
           <div class="stage">
             <div class="win" role="img" aria-label="オファーレターAIの画面イメージ。面接実行AIの評価結果と動機タイプを引き継ぎ、レター・スクリプト・メールの3モードで文面を生成する。サンプルデータ。">
@@ -796,7 +831,119 @@
             </div>
             <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
           </div>
+        </div>
+      </section>
 
+      <!-- POINT 08 -->
+      <section class="point alt" id="point-8">
+        <div class="wrap">
+          <div class="point-grid">
+            <div>
+              <div class="point-no"><span>POINT</span><b>08</b></div>
+              <p class="point-name">候補者サーチ支援<em>SEARCH SUPPORT</em></p>
+              <h3>探す条件づくりから、<br />送る候補の確定まで。</h3>
+              <p class="point-body">確定した評価基準から、媒体で使う検索条件をAIが組み立てます。媒体の検索結果から取り込んだ候補者は、同じ基準でA/B/Cの事前判定を行い、根拠と一緒に一覧に残ります。送る候補が決まったら、スカウト文面の下書きをまとめて用意するところまでが製品の仕事で、送信そのものは人が媒体の画面で行います。</p>
+            </div>
+            <aside class="point-side">
+            <p class="where where-dual"><span>手元のClaude / ChatGPTで回数無制限（検索条件の生成・事前判定）</span> ／ <span>AlumNETのサーバー側AIでも実行可（事前判定は1回10件まで、ポイント消費）</span></p>
+            <ul class="point-list">
+                <li>確定した評価基準から検索条件を生成（標準／広め／絞り込みの3パターン）</li>
+                <li>候補者の取り込みとA/B/C事前判定。判定は人が上書きでき、上書きが優先されます</li>
+                <li>送信候補は実効A・Bのみ。直近30日に送った候補には警告を表示し、文面の下書きを候補に紐付けます</li>
+              </ul>
+            <p class="point-extra">媒体の画面の変化は拡張機能が検知して知らせます（監視は任意で、既定ではオフ）。媒体の利用条件の確認は利用者の判断と責任で行い、製品は候補者の出所を記録して注意を表示します。AIが設定できない媒体項目は「媒体側で直接設定」と案内します。</p>
+            </aside>
+          </div>
+          <div class="stage">
+            <div class="win" role="img" aria-label="候補者サーチ支援の画面イメージ。確定した評価基準から生成した検索条件（標準・広め・絞り込みの3パターン）、取り込んだ候補者のA/B/C事前判定と人の上書き、送信候補リストと文面の下書き。送信は人が媒体の画面で行う。サンプルデータ。">
+              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">候補者サーチ支援 ｜ カスタマーサクセスマネージャー（サンプル求人）</span><span class="sample">SAMPLE DATA</span></div>
+              <div class="win-body" aria-hidden="true">
+                <div class="grid-12">
+                  <div class="card">
+                    <h4>検索条件 <small>確定した評価基準から生成</small></h4>
+                    <div class="tabs" style="margin-bottom:12px"><span class="on">標準</span><span>広め</span><span>絞り込み</span></div>
+                    <dl class="kv">
+                      <dt>職種</dt><dd>カスタマーサクセス ／ オンボーディング</dd>
+                      <dt>経験</dt><dd>BtoB SaaSでの顧客支援 3年以上</dd>
+                      <dt>スキル</dt><dd><span class="chips"><span class="pill">導入支援</span><span class="pill">定着化の施策設計</span><span class="pill">チームリード</span></span></dd>
+                      <dt>勤務地</dt><dd>東京都 ／ リモート可</dd>
+                      <dt>媒体の独自項目</dt><dd><span class="pill pill-o">媒体側で直接設定</span></dd>
+                    </dl>
+                    <p class="note-line">この条件を媒体の検索画面に入力して、候補者を取り込みます。</p>
+                  </div>
+                  <div class="card">
+                    <h4>事前判定リード <small>同じ基準でA/B/C ／ 人の上書きが優先</small></h4>
+                    <div class="row"><span class="g g-a">A</span><div class="grow"><b>候補者 A.K.</b><small>Must 3/3 充足 ／ 顧客数の多い環境での支援経験</small></div><span class="pill pill-t">判定どおり</span></div>
+                    <div class="row"><span class="g g-b">B</span><div class="grow"><b>候補者 S.M.</b><small>Must 2/3 充足 ／ リード経験が読み取れない</small></div><span class="pill">人が確認中</span></div>
+                    <div class="row"><span class="g g-a">A</span><div class="grow"><b>候補者 Y.T.</b><small>事前判定 B → 人が <b>A</b> に上書き</small></div><span class="pill pill-t">上書き済み</span></div>
+                    <div class="row"><span class="g g-c">C</span><div class="grow"><b>候補者 H.O.</b><small>Must 1/3 ／ 必須の経験年数に届いていない</small></div><span class="pill pill-o">対象外</span></div>
+                  </div>
+                </div>
+                <div class="card">
+                  <h4>送信候補リスト <small>実効A・Bのみ ／ 送信は人が媒体の画面で行います</small></h4>
+                  <div class="row"><span class="pill pill-t">優先 1</span><div class="grow"><b>候補者 A.K.</b>（実効A）<small>文面の下書き：あり</small></div><span class="pill pill-o">下書きを紐付け済み</span></div>
+                  <div class="row"><span class="pill pill-t">優先 2</span><div class="grow"><b>候補者 Y.T.</b>（実効A）<small>文面の下書き：あり</small></div><span class="pill pill-o">下書きを紐付け済み</span></div>
+                  <div class="row"><span class="pill">優先 3</span><div class="grow"><b>候補者 S.M.</b>（実効B）<small><b style="color:var(--navy)">！ 直近30日に送信済み（18日前）</b> ／ 文面の下書き：なし</small></div><span class="mbtn">下書きを用意する</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- POINT 09 -->
+      <section class="point" id="point-9">
+        <div class="wrap">
+          <div class="point-grid">
+            <div>
+              <div class="point-no"><span>POINT</span><b>09</b></div>
+              <p class="point-name">日程調整<em>SCHEDULING</em></p>
+              <h3>日程の往復を、<br />予約リンク1本に。</h3>
+              <p class="point-body">候補者ごとに識別子つきの予約案内を作り、組織が使っているGoogleカレンダーの予約スケジュールやCal.comの予約ページへ案内します。予約ページは製品の中には作らず、今使っているカレンダーの仕組みをそのまま使います。決まった面接は面接レコードとして製品に残り、一覧で確認できます。</p>
+            </div>
+            <aside class="point-side">
+            <p class="where where-dual"><span>製品内機能（AI生成の対象外）。案内文の下書きにAIを使う場合のみ、各経路の扱いに従う</span></p>
+            <ul class="point-list">
+                <li>予約リンクと案内文を候補者ごとに発行。リンク先URLに氏名やメールアドレスは入れません</li>
+                <li>案内文はテンプレートで用意し、段階（カジュアル面談／一次／二次／最終）ごとに切り替えられます</li>
+                <li>面接レコードは選考ステータスに連動し、ステータスは後戻りしません</li>
+              </ul>
+            </aside>
+          </div>
+          <div class="stage">
+            <div class="win" role="img" aria-label="日程調整の画面イメージ。段階ごとの案内文テンプレートに予約リンクを差し込み、候補者ごとの発行済みリンクの状態を確認し、決まった面接を面接一覧で見る。サンプルデータ。">
+              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">日程調整 ｜ カスタマーサクセスマネージャー（サンプル求人）</span><span class="sample">SAMPLE DATA</span></div>
+              <div class="win-body" aria-hidden="true">
+                <div class="grid-2">
+                  <div class="card">
+                    <h4>案内文の作成 <small>テンプレートに予約リンクを差し込み</small></h4>
+                    <div class="tabs" style="margin-bottom:12px"><span>カジュアル面談</span><span class="on">一次</span><span>二次</span><span>最終</span></div>
+                    <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfc">
+                      <p style="margin:0 0 6px">A.K.様</p>
+                      <p style="margin:0 0 6px">一次面接の日程調整です。下のリンクから、ご都合のよい日時をお選びください。</p>
+                      <p style="margin:0"><mark style="background:var(--teal-soft);color:var(--teal-strong);padding:0 .2em;border-radius:3px">https://example.com/book/k7f2…</mark></p>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center"><span class="chips"><span class="pill">Googleカレンダーの予約スケジュール</span><span class="pill">Cal.com</span></span><span class="mbtn mbtn-p">案内文を発行する</span></div>
+                  </div>
+                  <div class="card">
+                    <h4>発行済みの予約リンク <small>候補者ごと</small></h4>
+                    <div class="row"><div class="grow"><b>候補者 A.K.</b><small>一次面接</small></div><span class="pill pill-t">予約済み</span></div>
+                    <div class="row"><div class="grow"><b>候補者 Y.T.</b><small>一次面接</small></div><span class="pill">発行済み</span></div>
+                    <div class="row"><div class="grow"><b>候補者 S.M.</b><small>カジュアル面談</small></div><span class="pill">発行済み</span></div>
+                    <p class="note-line">リンク先URLに、氏名やメールアドレスは入りません。</p>
+                  </div>
+                </div>
+                <div class="card">
+                  <h4>面接一覧 <small>決まった面接は面接レコードとして残ります</small></h4>
+                  <div class="row"><b style="width:8.5em;flex:none">11/18 14:00</b><div class="grow"><b>候補者 A.K.</b></div><span class="pill pill-o">一次</span><span class="pill pill-t">日程確定</span></div>
+                  <div class="row"><b style="width:8.5em;flex:none">11/14 11:00</b><div class="grow"><b>候補者 N.I.</b></div><span class="pill pill-o">二次</span><span class="pill pill-t">日程確定</span></div>
+                  <div class="row"><b style="width:8.5em;flex:none">11/07 16:30</b><div class="grow"><b>候補者 T.W.</b></div><span class="pill pill-o">カジュアル面談</span><span class="pill">実施済み</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
+          </div>
           <div class="cta-band">
             <div>
               <h3>まずはFreeプランで、<br />型と判定基準を試せます</h3>
@@ -817,6 +964,7 @@
             <span class="sec-tag">MARKET DATA</span>
             <h2>数字で見る、<span class="accent">中途採用のいま</span></h2>
             <p>採用の現場は、接点づくりと工数に追われています。市場データが示す課題の多くは、日々のスカウト運用の「仕組み」で解けるものです。</p>
+            <span class="market-flag">市場データです（Recruit AI Opsの実績ではありません）</span>
           </div>
           <div class="num-grid">
             <article class="num-card">
@@ -1100,11 +1248,15 @@
             <p class="faq-group">AIの料金と使い方</p>
             <details class="faq-item">
               <summary>Claude / ChatGPTの契約は別途必要ですか？</summary>
-              <div class="faq-a"><p>A/B/C判定とスカウト文面づくりは、利用者が契約しているClaudeまたはChatGPT（手元のサブスク）で行う設計で、この2つにAlumNET側のAPI費用はかかりません。AIの契約がない場合は、サーバー側のお試し生成（20回）で使い心地を確認できます。</p></div>
+              <div class="faq-a"><p>評価ルールの下書き、書類選考（A/B/C判定）、スカウト文面づくり、面接準備、オファーレター、そして候補者サーチ支援の検索条件の生成と事前判定は、利用者が契約しているClaudeまたはChatGPT（手元のサブスク）で実行する設計で、手元のAIで行う分にはAlumNET側のAPI費用はかからず、回数の上限もありません。面接実行AI（面接中のリアルタイム助言）だけはサーバー側AIのみの提供です。AIの契約がない場合は、サーバー側のお試し生成（20回）で使い心地を確認できます。</p></div>
             </details>
             <details class="faq-item">
               <summary>サーバー側の「お試し生成20回」とは何ですか？</summary>
-              <div class="faq-a"><p>AlumNETのサーバー側AIで動く機能を試せる回数で、アカウントごとに20回までです。対象は、書類選考の実行、面接準備AI、面接実行AI、オファーレターAI、評価ルールの下書き生成、Chrome拡張の文面生成です。20回で止まり、プランを上げても増えることはありません。一方、A/B/C判定とスカウト文面は、手元のClaude / ChatGPTに「型」と判定基準を渡す形で、回数の上限なく使えます。</p></div>
+              <div class="faq-a"><p>AlumNETのサーバー側AIで動く機能を試せる回数で、アカウントごとに20回までです。対象は、書類選考の実行、面接準備AI、面接実行AI、オファーレターAI、評価ルールの下書き生成、Chrome拡張の文面生成です。いっぽう、評価ルールの下書き、書類選考、スカウト文面、面接準備、オファーレターは、手元のClaude / ChatGPTに材料を渡して実行することもでき、その場合は回数の上限なく使えます。面接実行AI（面接中のリアルタイム助言）だけはサーバー側AIのみの提供です。</p><p>20回で止まり、プランを上げても増えることはありません。</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>候補者の検索や事前判定もできますか？</summary>
+              <div class="faq-a"><p>はい。候補者サーチ支援（POINT 08）で、確定した評価基準から媒体で使う検索条件（標準／広め／絞り込みの3パターン）を生成し、媒体の検索結果から取り込んだ候補者にA/B/Cの事前判定を行えます。判定は人が上書きでき、上書きが優先されます。送る候補（実効A・Bのみ）が決まったら、スカウト文面の下書きをまとめて用意するところまでが製品の役割で、送信そのものは人が媒体の画面で行います。媒体の利用条件の確認は利用者の判断と責任で行い、製品は候補者の出所を記録して注意を表示します。</p></div>
             </details>
             <details class="faq-item">
               <summary>スカウトは自動で送信されますか？</summary>
