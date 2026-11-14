@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="color-scheme" content="light" />
-    <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。評価ルールの自動生成、A/B/C判定の基準、スカウトの型、面接AI、採用ダッシュボード、オファーレターAI、候補者サーチ支援、日程調整。A/B/C判定とスカウト文面は、手元のClaude / ChatGPTで回数無制限。Free ¥0、クレジットカード不要。" />
+    <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。求人票AI、スカウトAI、書類選考AI、日程調整AI、面談・面接AI、レポートAIの流れで、作業はAI、判断は人。A/B/C判定とスカウト文面は、手元のClaude / ChatGPTで回数無制限。Free ¥0、クレジットカード不要。" />
     <link rel="icon" href="/assets/alumnet-logo-square-512.png" />
     <title>Recruit AI Ops by AlumNET｜採用の現在地と、次の一手が見える</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -159,6 +159,20 @@
       .point-index a { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 800; font-size: .92rem; color: var(--ink-2); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: .7em 1em; transition: border-color .2s, color .2s; }
       .point-index a:hover { border-color: var(--teal); color: var(--teal); }
       .point-index b { color: var(--teal); font-weight: 900; font-size: 1.05rem; letter-spacing: .04em; }
+      .point-index li.none { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: .92rem; color: var(--muted); background: var(--bg-alt); border: 1px dashed var(--line); border-radius: 12px; padding: .7em 1em; }
+      .point-index li.none small { font-weight: 700; font-size: .76rem; }
+      .point-index li.mod { grid-column: 1 / -1; background: none; border: 0; padding: 14px 0 0; font-size: .8rem; font-weight: 900; letter-spacing: .08em; color: var(--ink-2); }
+      .point-index li.mod em { font-style: normal; margin-left: .8em; font-size: .72rem; letter-spacing: .14em; color: var(--muted); }
+      .module-head { padding: 64px 0 0; border-top: 1px solid var(--line); }
+      .module-head .wrap { border-left: 4px solid var(--teal); padding-left: 18px; }
+      .module-no { margin: 0 0 4px; color: var(--teal); font-weight: 900; font-size: .8rem; letter-spacing: .24em; }
+      .module-no em { font-style: normal; margin-left: 1em; font-size: .72rem; letter-spacing: .14em; color: var(--muted); }
+      .module-head h2 { margin: 0 0 .3em; font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.4; font-weight: 900; }
+      .module-head p:last-child { margin: 0; color: var(--ink-2); font-weight: 500; }
+      .module-head + .point { border-top: 0; }
+      .module-none { padding-bottom: 64px; background: var(--bg-alt); }
+      .module-none .wrap { border-left-color: var(--line); }
+      .module-none h2, .module-none .module-no { color: var(--muted); }
       .point { padding: 84px 0; border-top: 1px solid var(--line); }
       .point.alt { background: var(--bg-alt); }
       .point-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px 56px; margin-bottom: 40px; align-items: start; }
@@ -445,21 +459,38 @@
           <div class="sec-head">
             <span class="sec-tag">SERVICE</span>
             <h2>対応範囲は、<span class="accent">スカウトからオファーまで</span></h2>
-            <p>スカウトの「効果」、選考の「精度」、面接の「質」、内定の「承諾率」。採用の歩留まりを左右する仕事を、9つの機能でまるごと支えるスカウト運用基盤です。最初の1通から内定承諾まで、採用の各フェーズに、それぞれ専用の機能を用意しました。</p>
+            <p>スカウトの「効果」、選考の「精度」、面接の「質」、内定の「承諾率」。採用フェーズごとに7つのAIモジュールを置き、作業はAI、判断は人が担います。</p>
           </div>
-          <ol class="point-index" aria-label="9つの機能">
+          <ol class="point-index" aria-label="7つのAIモジュールと機能">
+            <li class="mod">求人票AI<em>JOB POST</em></li>
             <li><a href="#point-1"><b>01</b>評価ルールの自動生成</a></li>
-            <li><a href="#point-2"><b>02</b>A/B/C判定の基準</a></li>
-            <li><a href="#point-3"><b>03</b>面接準備AI</a></li>
-            <li><a href="#point-4"><b>04</b>面接実行AI</a></li>
-            <li><a href="#point-5"><b>05</b>スカウトの型</a></li>
-            <li><a href="#point-6"><b>06</b>採用ダッシュボード</a></li>
-            <li><a href="#point-7"><b>07</b>オファーレターAI</a></li>
-            <li><a href="#point-8"><b>08</b>候補者サーチ支援</a></li>
-            <li><a href="#point-9"><b>09</b>日程調整</a></li>
+            <li class="mod">スカウトAI<em>SCOUT</em></li>
+            <li><a href="#point-2"><b>02</b>候補者サーチ支援</a></li>
+            <li><a href="#point-3"><b>03</b>スカウトの型</a></li>
+            <li class="mod">書類選考AI<em>SCREENING</em></li>
+            <li><a href="#point-4"><b>04</b>A/B/C判定の基準</a></li>
+            <li class="mod">日程調整AI<em>SCHEDULING</em></li>
+            <li><a href="#point-5"><b>05</b>日程調整</a></li>
+            <li class="mod">面談・面接AI<em>INTERVIEW</em></li>
+            <li><a href="#point-6"><b>06</b>面接準備AI</a></li>
+            <li><a href="#point-7"><b>07</b>面接実行AI</a></li>
+            <li><a href="#point-8"><b>08</b>オファーレターAI</a></li>
+            <li class="mod">エージェント対応AI<em>AGENTS</em></li>
+            <li class="none">提供していません</li>
+            <li class="mod">レポートAI<em>REPORT</em></li>
+            <li><a href="#point-9"><b>09</b>採用ダッシュボード</a></li>
           </ol>
         </div>
       </section>
+
+      <!-- MODULE 1 -->
+      <div class="module-head" id="module-1">
+        <div class="wrap">
+          <p class="module-no">MODULE 01<em>JOB POST</em></p>
+          <h2>求人票AI</h2>
+          <p>求める人物像と評価の基準を、求人ごとに固めます。</p>
+        </div>
+      </div>
 
       <!-- POINT 01 -->
       <section class="point" id="point-1">
@@ -469,7 +500,7 @@
               <div class="point-no"><span>POINT</span><b>01</b></div>
               <p class="point-name">評価ルールの自動生成<em>RULE DRAFTING</em></p>
               <h3>基準づくりはAIの下書きから。<br />確定するのは人。</h3>
-              <p class="point-body">過去の選考結果（通過・見送りの実績）をもとに、AIが評価基準の下書きを作ります。下書きはそのままでは使われず、人が内容を確認・修正して「確定」して初めて、A/B/C判定の基準になります。</p>
+              <p class="point-body">過去の選考結果をもとに、AIが評価基準を下書きします。人が確認・修正して「確定」するまで、判定には使われません。</p>
             </div>
             <aside class="point-side">
             <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
@@ -478,7 +509,7 @@
                 <li>候補者が辞退したケースは、基準づくりの材料に使いません</li>
                 <li>サンプルが不足している求人では、自動生成は行われません</li>
               </ul>
-            <p class="point-extra">求人の登録では、任意で『権限』（任せられている判断／提案すること／任せられていない判断）と『関与の深さ』（段階と、期待する場面）も書き込めます。書き込んだ求人では、その内容が評価ルールの下書きや判定の材料に反映され、基準が求人の実態からずれるのを防ぎます。未記入でも登録や判定は止まらず、画面にヒントが表示されます。</p>
+            <p class="point-extra">求人の登録では、任意で『権限』と『関与の深さ』も書き込めます。書き込んだ内容は評価ルールの下書きや判定に反映されます。未記入でも登録や判定は止まりません。</p>
             </aside>
           </div>
           <div class="stage">
@@ -512,15 +543,138 @@
         </div>
       </section>
 
+      <!-- MODULE 2 -->
+      <div class="module-head" id="module-2">
+        <div class="wrap">
+          <p class="module-no">MODULE 02<em>SCOUT</em></p>
+          <h2>スカウトAI</h2>
+          <p>探す条件づくりから、送る候補と文面の用意まで。</p>
+        </div>
+      </div>
+
       <!-- POINT 02 -->
       <section class="point alt" id="point-2">
         <div class="wrap">
           <div class="point-grid">
             <div>
               <div class="point-no"><span>POINT</span><b>02</b></div>
+              <p class="point-name">候補者サーチ支援<em>SEARCH SUPPORT</em></p>
+              <h3>探す条件づくりから、<br />送る候補の確定まで。</h3>
+              <p class="point-body">確定した評価基準から、媒体で使う検索条件をAIが組み立てます。取り込んだ候補者には同じ基準でA/B/Cの事前判定を行い、根拠と一緒に残します。文面の下書きまでが製品の役割で、送信は人が媒体の画面で行います。</p>
+            </div>
+            <aside class="point-side">
+            <p class="where where-dual"><span>手元のClaude / ChatGPTで回数無制限（検索条件の生成・事前判定）</span> ／ <span>AlumNETのサーバー側AIでも実行可（事前判定は1回10件まで、ポイント消費）</span></p>
+            <ul class="point-list">
+                <li>確定した評価基準から検索条件を生成（標準／広め／絞り込みの3パターン）</li>
+                <li>候補者の取り込みとA/B/C事前判定。判定は人が上書きでき、上書きが優先されます</li>
+                <li>送信候補は実効A・Bのみ。直近30日に送った候補には警告を表示し、文面の下書きを候補に紐付けます</li>
+              </ul>
+            <p class="point-extra">媒体の画面の変化は拡張機能が知らせます（監視は任意で、既定ではオフ）。媒体の利用条件の確認は利用者の判断と責任で行い、製品は候補者の出所を記録して注意を表示します。AIが設定できない媒体項目は「媒体側で直接設定」と案内します。</p>
+            </aside>
+          </div>
+          <div class="stage">
+            <div class="win" role="img" aria-label="候補者サーチ支援の画面イメージ。確定した評価基準から生成した検索条件（標準・広め・絞り込みの3パターン）、取り込んだ候補者のA/B/C事前判定と人の上書き、送信候補リストと文面の下書き。送信は人が媒体の画面で行う。サンプルデータ。">
+              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">候補者サーチ支援 ｜ カスタマーサクセスマネージャー（サンプル求人）</span><span class="sample">SAMPLE DATA</span></div>
+              <div class="win-body" aria-hidden="true">
+                <div class="grid-12">
+                  <div class="card">
+                    <h4>検索条件 <small>確定した評価基準から生成</small></h4>
+                    <div class="tabs" style="margin-bottom:12px"><span class="on">標準</span><span>広め</span><span>絞り込み</span></div>
+                    <dl class="kv">
+                      <dt>職種</dt><dd>カスタマーサクセス ／ オンボーディング</dd>
+                      <dt>経験</dt><dd>BtoB SaaSでの顧客支援 3年以上</dd>
+                      <dt>スキル</dt><dd><span class="chips"><span class="pill">導入支援</span><span class="pill">定着化の施策設計</span><span class="pill">チームリード</span></span></dd>
+                      <dt>勤務地</dt><dd>東京都 ／ リモート可</dd>
+                      <dt>媒体の独自項目</dt><dd><span class="pill pill-o">媒体側で直接設定</span></dd>
+                    </dl>
+                    <p class="note-line">この条件を媒体の検索画面に入力して、候補者を取り込みます。</p>
+                  </div>
+                  <div class="card">
+                    <h4>事前判定リード <small>同じ基準でA/B/C ／ 人の上書きが優先</small></h4>
+                    <div class="row"><span class="g g-a">A</span><div class="grow"><b>候補者 A.K.</b><small>Must 3/3 充足 ／ 顧客数の多い環境での支援経験</small></div><span class="pill pill-t">判定どおり</span></div>
+                    <div class="row"><span class="g g-b">B</span><div class="grow"><b>候補者 S.M.</b><small>Must 2/3 充足 ／ リード経験が読み取れない</small></div><span class="pill">人が確認中</span></div>
+                    <div class="row"><span class="g g-a">A</span><div class="grow"><b>候補者 Y.T.</b><small>事前判定 B → 人が <b>A</b> に上書き</small></div><span class="pill pill-t">上書き済み</span></div>
+                    <div class="row"><span class="g g-c">C</span><div class="grow"><b>候補者 H.O.</b><small>Must 1/3 ／ 必須の経験年数に届いていない</small></div><span class="pill pill-o">対象外</span></div>
+                  </div>
+                </div>
+                <div class="card">
+                  <h4>送信候補リスト <small>実効A・Bのみ ／ 送信は人が媒体の画面で行います</small></h4>
+                  <div class="row"><span class="pill pill-t">優先 1</span><div class="grow"><b>候補者 A.K.</b>（実効A）<small>文面の下書き：あり</small></div><span class="pill pill-o">下書きを紐付け済み</span></div>
+                  <div class="row"><span class="pill pill-t">優先 2</span><div class="grow"><b>候補者 Y.T.</b>（実効A）<small>文面の下書き：あり</small></div><span class="pill pill-o">下書きを紐付け済み</span></div>
+                  <div class="row"><span class="pill">優先 3</span><div class="grow"><b>候補者 S.M.</b>（実効B）<small><b style="color:var(--navy)">！ 直近30日に送信済み（18日前）</b> ／ 文面の下書き：なし</small></div><span class="mbtn">下書きを用意する</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- POINT 03 -->
+      <section class="point" id="point-3">
+        <div class="wrap">
+          <div class="point-grid">
+            <div>
+              <div class="point-no"><span>POINT</span><b>03</b></div>
+              <p class="point-name">スカウトの型<em>SCOUT TEMPLATES</em></p>
+              <h3>スカウト文面は、<br />「型」とAIでつくる。</h3>
+              <p class="point-body">職種とターゲットごとの文の型を保存し、手元のClaude / ChatGPTに渡して文面をつくります。媒体の画面では、Chrome拡張で型と候補者情報を確認できます。</p>
+            </div>
+            <aside class="point-side">
+            <p class="where">手元のClaude / ChatGPTで回数無制限</p>
+            <ul class="point-list">
+                <li>職種 × ターゲット別の文の型</li>
+                <li>候補者ごとに人が確認して送る</li>
+                <li>Chrome拡張で媒体の横に置ける</li>
+              </ul>
+            </aside>
+          </div>
+          <div class="stage">
+            <div class="win" role="img" aria-label="スカウト媒体の候補者ページの横に、Chrome拡張で型と候補者情報を並べ、文面の下書きを人が確認する画面のイメージ。サンプルデータ。">
+              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title" style="font-weight:500;color:var(--muted)">媒体の候補者ページ（サンプル）</span><span class="sample">SAMPLE DATA</span></div>
+              <div class="win-body grid-ext" aria-hidden="true">
+                <div class="card" style="background:#f7f9fa">
+                  <div style="display:flex;gap:12px;align-items:center;margin-bottom:6px"><span style="width:44px;height:44px;border-radius:50%;background:var(--line);display:block"></span><div><b>候補者 K.S.</b><small style="display:block;color:var(--muted)">シニアエンジニア ／ 経験9年</small></div></div>
+                  <div class="skel m"></div><div class="skel"></div><div class="skel s"></div><div class="skel m"></div><div class="skel"></div><div class="skel s"></div>
+                </div>
+                <div class="card" style="border-color:var(--teal);box-shadow:var(--shadow-sm)">
+                  <h4>Recruit AI Ops <small>Chrome拡張</small></h4>
+                  <dl class="kv" style="margin-bottom:12px">
+                    <dt>候補者情報</dt><dd>K.S. ／ 現職：Webアプリ開発リード</dd>
+                    <dt>求人</dt><dd>外資系SaaS ／ カスタマーサクセスマネージャー</dd>
+                    <dt>文の型</dt><dd><span class="pill pill-t">職種 × ターゲット：CSM × リード経験者</span></dd>
+                  </dl>
+                  <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfc">
+                    <b>下書き</b><small style="color:var(--muted)">（手元のAIで作成）</small>
+                    <p style="margin:6px 0 0">K.S.様、突然のご連絡失礼いたします。チームリードとしてのご経験を拝見し、顧客の成功を支えるポジションをご紹介したくご連絡しました。</p>
+                  </div>
+                  <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center"><span class="pill">送信は人が確認してから</span><span class="mbtn mbtn-p">内容を確認する</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 3 -->
+      <div class="module-head" id="module-3">
+        <div class="wrap">
+          <p class="module-no">MODULE 03<em>SCREENING</em></p>
+          <h2>書類選考AI</h2>
+          <p>確定した基準で、候補者をA/B/Cで判定します。</p>
+        </div>
+      </div>
+
+      <!-- POINT 04 -->
+      <section class="point alt" id="point-4">
+        <div class="wrap">
+          <div class="point-grid">
+            <div>
+              <div class="point-no"><span>POINT</span><b>04</b></div>
               <p class="point-name">A/B/C判定の基準<em>SCREENING</em></p>
               <h3>「なんとなく合いそう」を、<br />チーム共通の物差しに。</h3>
-              <p class="point-body">求人のMust / Want / NG（評価ルールの自動生成で作った基準を含む）と候補者を照らし合わせ、送ってよいかをA/B/Cで統一判定。判定そのものは手元のClaude / ChatGPTが行い、結果と懸念点は求人ごとに残せます。</p>
+              <p class="point-body">求人のMust / Want / NGと候補者を照らし合わせ、A/B/Cで統一判定。判定は手元のClaude / ChatGPTが行い、結果と懸念点は求人ごとに残せます。</p>
             </div>
             <aside class="point-side">
             <p class="where">手元のClaude / ChatGPTで回数無制限</p>
@@ -561,15 +715,88 @@
         </div>
       </section>
 
-      <!-- POINT 03 -->
-      <section class="point" id="point-3">
+      <!-- MODULE 4 -->
+      <div class="module-head" id="module-4">
+        <div class="wrap">
+          <p class="module-no">MODULE 04<em>SCHEDULING</em></p>
+          <h2>日程調整AI</h2>
+          <p>面接の日程調整を、予約リンクにまとめます。</p>
+        </div>
+      </div>
+
+      <!-- POINT 05 -->
+      <section class="point" id="point-5">
         <div class="wrap">
           <div class="point-grid">
             <div>
-              <div class="point-no"><span>POINT</span><b>03</b></div>
+              <div class="point-no"><span>POINT</span><b>05</b></div>
+              <p class="point-name">日程調整<em>SCHEDULING</em></p>
+              <h3>日程の往復を、<br />予約リンク1本に。</h3>
+              <p class="point-body">候補者ごとの予約案内を作り、組織が使っているGoogleカレンダーの予約スケジュールやCal.comの予約ページへ案内します。予約ページは製品内には作りません。決まった面接は面接レコードとして残り、一覧で確認できます。</p>
+            </div>
+            <aside class="point-side">
+            <p class="where where-dual"><span>製品内機能（AI生成の対象外）。案内文の下書きにAIを使う場合のみ、各経路の扱いに従う</span></p>
+            <ul class="point-list">
+                <li>予約リンクと案内文を候補者ごとに発行。リンク先URLに氏名やメールアドレスは入れません</li>
+                <li>案内文はテンプレートで用意し、段階（カジュアル面談／一次／二次／最終）ごとに切り替えられます</li>
+                <li>面接レコードは選考ステータスに連動し、ステータスは後戻りしません</li>
+              </ul>
+            </aside>
+          </div>
+          <div class="stage">
+            <div class="win" role="img" aria-label="日程調整の画面イメージ。段階ごとの案内文テンプレートに予約リンクを差し込み、候補者ごとの発行済みリンクの状態を確認し、決まった面接を面接一覧で見る。サンプルデータ。">
+              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">日程調整 ｜ カスタマーサクセスマネージャー（サンプル求人）</span><span class="sample">SAMPLE DATA</span></div>
+              <div class="win-body" aria-hidden="true">
+                <div class="grid-2">
+                  <div class="card">
+                    <h4>案内文の作成 <small>テンプレートに予約リンクを差し込み</small></h4>
+                    <div class="tabs" style="margin-bottom:12px"><span>カジュアル面談</span><span class="on">一次</span><span>二次</span><span>最終</span></div>
+                    <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfc">
+                      <p style="margin:0 0 6px">A.K.様</p>
+                      <p style="margin:0 0 6px">一次面接の日程調整です。下のリンクから、ご都合のよい日時をお選びください。</p>
+                      <p style="margin:0"><mark style="background:var(--teal-soft);color:var(--teal-strong);padding:0 .2em;border-radius:3px">https://example.com/book/k7f2…</mark></p>
+                    </div>
+                    <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center"><span class="chips"><span class="pill">Googleカレンダーの予約スケジュール</span><span class="pill">Cal.com</span></span><span class="mbtn mbtn-p">案内文を発行する</span></div>
+                  </div>
+                  <div class="card">
+                    <h4>発行済みの予約リンク <small>候補者ごと</small></h4>
+                    <div class="row"><div class="grow"><b>候補者 A.K.</b><small>一次面接</small></div><span class="pill pill-t">予約済み</span></div>
+                    <div class="row"><div class="grow"><b>候補者 Y.T.</b><small>一次面接</small></div><span class="pill">発行済み</span></div>
+                    <div class="row"><div class="grow"><b>候補者 S.M.</b><small>カジュアル面談</small></div><span class="pill">発行済み</span></div>
+                    <p class="note-line">リンク先URLに、氏名やメールアドレスは入りません。</p>
+                  </div>
+                </div>
+                <div class="card">
+                  <h4>面接一覧 <small>決まった面接は面接レコードとして残ります</small></h4>
+                  <div class="row"><b style="width:8.5em;flex:none">11/18 14:00</b><div class="grow"><b>候補者 A.K.</b></div><span class="pill pill-o">一次</span><span class="pill pill-t">日程確定</span></div>
+                  <div class="row"><b style="width:8.5em;flex:none">11/14 11:00</b><div class="grow"><b>候補者 N.I.</b></div><span class="pill pill-o">二次</span><span class="pill pill-t">日程確定</span></div>
+                  <div class="row"><b style="width:8.5em;flex:none">11/07 16:30</b><div class="grow"><b>候補者 T.W.</b></div><span class="pill pill-o">カジュアル面談</span><span class="pill">実施済み</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- MODULE 5 -->
+      <div class="module-head" id="module-5">
+        <div class="wrap">
+          <p class="module-no">MODULE 05<em>INTERVIEW</em></p>
+          <h2>面談・面接AI</h2>
+          <p>面接の準備・実行から、オファーレターまで。</p>
+        </div>
+      </div>
+
+      <!-- POINT 06 -->
+      <section class="point alt" id="point-6">
+        <div class="wrap">
+          <div class="point-grid">
+            <div>
+              <div class="point-no"><span>POINT</span><b>06</b></div>
               <p class="point-name">面接準備AI<em>INTERVIEW PREP</em></p>
               <h3>面接の前に、<br />見極めポイントが揃う。</h3>
-              <p class="point-body">BIG5・DISC・モチベーション診断による性格分析と、見極めポイント・想定質問の自動生成。面接前と面接後、2つのモードで面接の質を底上げします。</p>
+              <p class="point-body">BIG5・DISC・モチベーション診断の分析と、見極めポイント・想定質問を自動生成。面接前と面接後の2モードで使えます。</p>
             </div>
             <aside class="point-side">
             <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
@@ -619,15 +846,15 @@
         </div>
       </section>
 
-      <!-- POINT 04 -->
-      <section class="point alt" id="point-4">
+      <!-- POINT 07 -->
+      <section class="point" id="point-7">
         <div class="wrap">
           <div class="point-grid">
             <div>
-              <div class="point-no"><span>POINT</span><b>04</b></div>
+              <div class="point-no"><span>POINT</span><b>07</b></div>
               <p class="point-name">面接実行AI<em>INTERVIEW LIVE</em></p>
               <h3>面接中に論点を助言。<br />終われば評価レポートに。</h3>
-              <p class="point-body">面接中の会話をリアルタイムで文字起こし。AIが深掘りすべき論点や懸念点を即座にアドバイスし、終了後は評価レポートを自動生成します。</p>
+              <p class="point-body">面接中の会話を文字起こしし、深掘りすべき論点や懸念点をAIが助言。終了後は評価レポートを自動生成します。</p>
             </div>
             <aside class="point-side">
             <p class="where">AlumNETのサーバー側AI（お試し生成20回の対象）</p>
@@ -674,45 +901,48 @@
         </div>
       </section>
 
-      <!-- POINT 05 -->
-      <section class="point" id="point-5">
+      <!-- POINT 08 -->
+      <section class="point alt" id="point-8">
         <div class="wrap">
           <div class="point-grid">
             <div>
-              <div class="point-no"><span>POINT</span><b>05</b></div>
-              <p class="point-name">スカウトの型<em>SCOUT TEMPLATES</em></p>
-              <h3>スカウト文面は、<br />「型」とAIでつくる。</h3>
-              <p class="point-body">職種とターゲットごとの文の型を保存し、手元のClaude / ChatGPTに渡して文面づくり。媒体の画面ではChrome拡張から、型と候補者情報をその場で確認できます。</p>
+              <div class="point-no"><span>POINT</span><b>08</b></div>
+              <p class="point-name">オファーレターAI<em>OFFER LETTER</em></p>
+              <h3>面接の結果から、<br />決め手の一通へ。</h3>
+              <p class="point-body">候補者の動機タイプを分析し、魅力付けを織り込んだオファーレターを自動生成。面接実行AIの評価結果を引き継いで作れます。</p>
             </div>
             <aside class="point-side">
-            <p class="where">手元のClaude / ChatGPTで回数無制限</p>
+            <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
             <ul class="point-list">
-                <li>職種 × ターゲット別の文の型</li>
-                <li>候補者ごとに人が確認して送る</li>
-                <li>Chrome拡張で媒体の横に置ける</li>
+                <li>動機診断ベースの魅力付け</li>
+                <li>レター / スクリプト / メールの3モード</li>
+                <li>面接結果からワンクリックで引き継ぎ</li>
               </ul>
+            <p class="point-extra">3モードは、正式レター・面談スクリプト・フォローメールです。</p>
             </aside>
           </div>
           <div class="stage">
-            <div class="win" role="img" aria-label="スカウト媒体の候補者ページの横に、Chrome拡張で型と候補者情報を並べ、文面の下書きを人が確認する画面のイメージ。サンプルデータ。">
-              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title" style="font-weight:500;color:var(--muted)">媒体の候補者ページ（サンプル）</span><span class="sample">SAMPLE DATA</span></div>
-              <div class="win-body grid-ext" aria-hidden="true">
-                <div class="card" style="background:#f7f9fa">
-                  <div style="display:flex;gap:12px;align-items:center;margin-bottom:6px"><span style="width:44px;height:44px;border-radius:50%;background:var(--line);display:block"></span><div><b>候補者 K.S.</b><small style="display:block;color:var(--muted)">シニアエンジニア ／ 経験9年</small></div></div>
-                  <div class="skel m"></div><div class="skel"></div><div class="skel s"></div><div class="skel m"></div><div class="skel"></div><div class="skel s"></div>
-                </div>
-                <div class="card" style="border-color:var(--teal);box-shadow:var(--shadow-sm)">
-                  <h4>Recruit AI Ops <small>Chrome拡張</small></h4>
-                  <dl class="kv" style="margin-bottom:12px">
-                    <dt>候補者情報</dt><dd>K.S. ／ 現職：Webアプリ開発リード</dd>
-                    <dt>求人</dt><dd>外資系SaaS ／ カスタマーサクセスマネージャー</dd>
-                    <dt>文の型</dt><dd><span class="pill pill-t">職種 × ターゲット：CSM × リード経験者</span></dd>
-                  </dl>
-                  <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfc">
-                    <b>下書き</b><small style="color:var(--muted)">（手元のAIで作成）</small>
-                    <p style="margin:6px 0 0">K.S.様、突然のご連絡失礼いたします。チームリードとしてのご経験を拝見し、顧客の成功を支えるポジションをご紹介したくご連絡しました。</p>
+            <div class="win" role="img" aria-label="オファーレターAIの画面イメージ。面接実行AIの評価結果と動機タイプを引き継ぎ、レター・スクリプト・メールの3モードで文面を生成する。サンプルデータ。">
+              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">オファーレターAI ｜ 候補者 K.S.（サンプル）</span><span class="sample">SAMPLE DATA</span></div>
+              <div class="win-body" aria-hidden="true">
+                <div class="tabs"><span class="on">レター（正式）</span><span>スクリプト（面談）</span><span>メール（フォロー）</span></div>
+                <div class="grid-12">
+                  <div class="card">
+                    <h4>面接実行AIから引き継ぎ <span class="pill pill-t">自動</span></h4>
+                    <dl class="kv">
+                      <dt>候補者</dt><dd>K.S.</dd>
+                      <dt>動機タイプ</dt><dd><span class="pill pill-t">成長・挑戦</span></dd>
+                      <dt>評価</dt><dd>総合 7.5 / 10 ／ 推薦判定 B</dd>
+                      <dt>魅力付けの軸</dt><dd>裁量のある役割 ／ チームの拡大フェーズ</dd>
+                    </dl>
+                    <p class="note-line">自社の魅力・カルチャーは、テンプレートに保存して選べます。</p>
                   </div>
-                  <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center"><span class="pill">送信は人が確認してから</span><span class="mbtn mbtn-p">内容を確認する</span></div>
+                  <div class="card">
+                    <h4>生成されたレター（下書き）<small>人が確認・修正して使用</small></h4>
+                    <p style="margin:0 0 8px">K.S.様</p>
+                    <p style="margin:0 0 8px">このたびは面接にお時間をいただき、ありがとうございました。お話を伺い、<mark style="background:var(--teal-soft);color:var(--teal-strong);padding:0 .2em;border-radius:3px">チームの拡大フェーズで、裁量を持って役割を広げていただけること</mark>が、K.S.様のご志向に合うと考えております。</p>
+                    <div class="skel m"></div><div class="skel"></div><div class="skel s"></div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -721,15 +951,33 @@
         </div>
       </section>
 
-      <!-- POINT 06 -->
-      <section class="point alt" id="point-6">
+      <!-- MODULE 6 -->
+      <div class="module-head module-none" id="module-6">
+        <div class="wrap">
+          <p class="module-no">MODULE 06<em>AGENTS</em></p>
+          <h2>エージェント対応AI</h2>
+          <p>現時点では、この機能は提供していません。</p>
+        </div>
+      </div>
+
+      <!-- MODULE 7 -->
+      <div class="module-head" id="module-7">
+        <div class="wrap">
+          <p class="module-no">MODULE 07<em>REPORT</em></p>
+          <h2>レポートAI</h2>
+          <p>採用の数字を、ひと目で確認できます。</p>
+        </div>
+      </div>
+
+      <!-- POINT 09 -->
+      <section class="point" id="point-9">
         <div class="wrap">
           <div class="point-grid">
             <div>
-              <div class="point-no"><span>POINT</span><b>06</b></div>
+              <div class="point-no"><span>POINT</span><b>09</b></div>
               <p class="point-name">採用ダッシュボード<em>ANALYTICS</em></p>
               <h3>詰まっている段階が、<br />数字で見える。</h3>
-              <p class="point-body">スカウト媒体やATSのCSVをアップロードするだけで、応募〜入社の歩留まりファネルを可視化。採用施策のボトルネックを、数字で発見できます。</p>
+              <p class="point-body">スカウト媒体やATSのCSVをアップロードすると、応募〜入社の歩留まりファネルを可視化します。</p>
             </div>
             <aside class="point-side">
             <ul class="point-list">
@@ -737,7 +985,7 @@
                 <li>媒体別・求人別の比較</li>
                 <li>月次推移で施策の効果を分析</li>
               </ul>
-            <p class="point-extra">ホーム画面（ダッシュボード）には、対応すべき候補者やタスクが並ぶ「要対応キュー」と、週ごとの返信・結果を集計する「週次サマリ」もあり、次にやることをひと目で確認できます。これらはCSV分析機能とは別に、ホーム画面で見られます。</p>
+            <p class="point-extra">ホーム画面には、対応すべき候補者を並べる「要対応キュー」と、週ごとの返信・結果の「週次サマリ」もあります。CSV分析とは別の機能です。</p>
             </aside>
           </div>
           <div class="stage">
@@ -781,169 +1029,6 @@
             </div>
             <p class="stage-cap">画面は架空のサンプルデータによるイメージです（実績の数字ではありません）</p>
           </div>
-        </div>
-      </section>
-
-      <!-- POINT 07 -->
-      <section class="point" id="point-7">
-        <div class="wrap">
-          <div class="point-grid">
-            <div>
-              <div class="point-no"><span>POINT</span><b>07</b></div>
-              <p class="point-name">オファーレターAI<em>OFFER LETTER</em></p>
-              <h3>面接の結果から、<br />決め手の一通へ。</h3>
-              <p class="point-body">候補者の動機タイプを分析し、刺さる魅力付けを織り込んだオファーレターを自動生成。面接実行AIの評価結果から、そのまま引き継いで作れます。</p>
-            </div>
-            <aside class="point-side">
-            <p class="where where-dual"><span>手元のClaudeでも実行可（回数無制限）</span> ／ <span>AlumNETのサーバー側AIでも実行可（お試し生成20回の対象）</span></p>
-            <ul class="point-list">
-                <li>動機診断ベースの魅力付け</li>
-                <li>レター / スクリプト / メールの3モード</li>
-                <li>面接結果からワンクリックで引き継ぎ</li>
-              </ul>
-            <p class="point-extra">3モードは、正式レター・面談スクリプト・フォローメールです。承諾まで伴走します。</p>
-            </aside>
-          </div>
-          <div class="stage">
-            <div class="win" role="img" aria-label="オファーレターAIの画面イメージ。面接実行AIの評価結果と動機タイプを引き継ぎ、レター・スクリプト・メールの3モードで文面を生成する。サンプルデータ。">
-              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">オファーレターAI ｜ 候補者 K.S.（サンプル）</span><span class="sample">SAMPLE DATA</span></div>
-              <div class="win-body" aria-hidden="true">
-                <div class="tabs"><span class="on">レター（正式）</span><span>スクリプト（面談）</span><span>メール（フォロー）</span></div>
-                <div class="grid-12">
-                  <div class="card">
-                    <h4>面接実行AIから引き継ぎ <span class="pill pill-t">自動</span></h4>
-                    <dl class="kv">
-                      <dt>候補者</dt><dd>K.S.</dd>
-                      <dt>動機タイプ</dt><dd><span class="pill pill-t">成長・挑戦</span></dd>
-                      <dt>評価</dt><dd>総合 7.5 / 10 ／ 推薦判定 B</dd>
-                      <dt>魅力付けの軸</dt><dd>裁量のある役割 ／ チームの拡大フェーズ</dd>
-                    </dl>
-                    <p class="note-line">自社の魅力・カルチャーは、テンプレートに保存して選べます。</p>
-                  </div>
-                  <div class="card">
-                    <h4>生成されたレター（下書き）<small>人が確認・修正して使用</small></h4>
-                    <p style="margin:0 0 8px">K.S.様</p>
-                    <p style="margin:0 0 8px">このたびは面接にお時間をいただき、ありがとうございました。お話を伺い、<mark style="background:var(--teal-soft);color:var(--teal-strong);padding:0 .2em;border-radius:3px">チームの拡大フェーズで、裁量を持って役割を広げていただけること</mark>が、K.S.様のご志向に合うと考えております。</p>
-                    <div class="skel m"></div><div class="skel"></div><div class="skel s"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- POINT 08 -->
-      <section class="point alt" id="point-8">
-        <div class="wrap">
-          <div class="point-grid">
-            <div>
-              <div class="point-no"><span>POINT</span><b>08</b></div>
-              <p class="point-name">候補者サーチ支援<em>SEARCH SUPPORT</em></p>
-              <h3>探す条件づくりから、<br />送る候補の確定まで。</h3>
-              <p class="point-body">確定した評価基準から、媒体で使う検索条件をAIが組み立てます。媒体の検索結果から取り込んだ候補者は、同じ基準でA/B/Cの事前判定を行い、根拠と一緒に一覧に残ります。送る候補が決まったら、スカウト文面の下書きをまとめて用意するところまでが製品の仕事で、送信そのものは人が媒体の画面で行います。</p>
-            </div>
-            <aside class="point-side">
-            <p class="where where-dual"><span>手元のClaude / ChatGPTで回数無制限（検索条件の生成・事前判定）</span> ／ <span>AlumNETのサーバー側AIでも実行可（事前判定は1回10件まで、ポイント消費）</span></p>
-            <ul class="point-list">
-                <li>確定した評価基準から検索条件を生成（標準／広め／絞り込みの3パターン）</li>
-                <li>候補者の取り込みとA/B/C事前判定。判定は人が上書きでき、上書きが優先されます</li>
-                <li>送信候補は実効A・Bのみ。直近30日に送った候補には警告を表示し、文面の下書きを候補に紐付けます</li>
-              </ul>
-            <p class="point-extra">媒体の画面の変化は拡張機能が検知して知らせます（監視は任意で、既定ではオフ）。媒体の利用条件の確認は利用者の判断と責任で行い、製品は候補者の出所を記録して注意を表示します。AIが設定できない媒体項目は「媒体側で直接設定」と案内します。</p>
-            </aside>
-          </div>
-          <div class="stage">
-            <div class="win" role="img" aria-label="候補者サーチ支援の画面イメージ。確定した評価基準から生成した検索条件（標準・広め・絞り込みの3パターン）、取り込んだ候補者のA/B/C事前判定と人の上書き、送信候補リストと文面の下書き。送信は人が媒体の画面で行う。サンプルデータ。">
-              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">候補者サーチ支援 ｜ カスタマーサクセスマネージャー（サンプル求人）</span><span class="sample">SAMPLE DATA</span></div>
-              <div class="win-body" aria-hidden="true">
-                <div class="grid-12">
-                  <div class="card">
-                    <h4>検索条件 <small>確定した評価基準から生成</small></h4>
-                    <div class="tabs" style="margin-bottom:12px"><span class="on">標準</span><span>広め</span><span>絞り込み</span></div>
-                    <dl class="kv">
-                      <dt>職種</dt><dd>カスタマーサクセス ／ オンボーディング</dd>
-                      <dt>経験</dt><dd>BtoB SaaSでの顧客支援 3年以上</dd>
-                      <dt>スキル</dt><dd><span class="chips"><span class="pill">導入支援</span><span class="pill">定着化の施策設計</span><span class="pill">チームリード</span></span></dd>
-                      <dt>勤務地</dt><dd>東京都 ／ リモート可</dd>
-                      <dt>媒体の独自項目</dt><dd><span class="pill pill-o">媒体側で直接設定</span></dd>
-                    </dl>
-                    <p class="note-line">この条件を媒体の検索画面に入力して、候補者を取り込みます。</p>
-                  </div>
-                  <div class="card">
-                    <h4>事前判定リード <small>同じ基準でA/B/C ／ 人の上書きが優先</small></h4>
-                    <div class="row"><span class="g g-a">A</span><div class="grow"><b>候補者 A.K.</b><small>Must 3/3 充足 ／ 顧客数の多い環境での支援経験</small></div><span class="pill pill-t">判定どおり</span></div>
-                    <div class="row"><span class="g g-b">B</span><div class="grow"><b>候補者 S.M.</b><small>Must 2/3 充足 ／ リード経験が読み取れない</small></div><span class="pill">人が確認中</span></div>
-                    <div class="row"><span class="g g-a">A</span><div class="grow"><b>候補者 Y.T.</b><small>事前判定 B → 人が <b>A</b> に上書き</small></div><span class="pill pill-t">上書き済み</span></div>
-                    <div class="row"><span class="g g-c">C</span><div class="grow"><b>候補者 H.O.</b><small>Must 1/3 ／ 必須の経験年数に届いていない</small></div><span class="pill pill-o">対象外</span></div>
-                  </div>
-                </div>
-                <div class="card">
-                  <h4>送信候補リスト <small>実効A・Bのみ ／ 送信は人が媒体の画面で行います</small></h4>
-                  <div class="row"><span class="pill pill-t">優先 1</span><div class="grow"><b>候補者 A.K.</b>（実効A）<small>文面の下書き：あり</small></div><span class="pill pill-o">下書きを紐付け済み</span></div>
-                  <div class="row"><span class="pill pill-t">優先 2</span><div class="grow"><b>候補者 Y.T.</b>（実効A）<small>文面の下書き：あり</small></div><span class="pill pill-o">下書きを紐付け済み</span></div>
-                  <div class="row"><span class="pill">優先 3</span><div class="grow"><b>候補者 S.M.</b>（実効B）<small><b style="color:var(--navy)">！ 直近30日に送信済み（18日前）</b> ／ 文面の下書き：なし</small></div><span class="mbtn">下書きを用意する</span></div>
-                </div>
-              </div>
-            </div>
-            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- POINT 09 -->
-      <section class="point" id="point-9">
-        <div class="wrap">
-          <div class="point-grid">
-            <div>
-              <div class="point-no"><span>POINT</span><b>09</b></div>
-              <p class="point-name">日程調整<em>SCHEDULING</em></p>
-              <h3>日程の往復を、<br />予約リンク1本に。</h3>
-              <p class="point-body">候補者ごとに識別子つきの予約案内を作り、組織が使っているGoogleカレンダーの予約スケジュールやCal.comの予約ページへ案内します。予約ページは製品の中には作らず、今使っているカレンダーの仕組みをそのまま使います。決まった面接は面接レコードとして製品に残り、一覧で確認できます。</p>
-            </div>
-            <aside class="point-side">
-            <p class="where where-dual"><span>製品内機能（AI生成の対象外）。案内文の下書きにAIを使う場合のみ、各経路の扱いに従う</span></p>
-            <ul class="point-list">
-                <li>予約リンクと案内文を候補者ごとに発行。リンク先URLに氏名やメールアドレスは入れません</li>
-                <li>案内文はテンプレートで用意し、段階（カジュアル面談／一次／二次／最終）ごとに切り替えられます</li>
-                <li>面接レコードは選考ステータスに連動し、ステータスは後戻りしません</li>
-              </ul>
-            </aside>
-          </div>
-          <div class="stage">
-            <div class="win" role="img" aria-label="日程調整の画面イメージ。段階ごとの案内文テンプレートに予約リンクを差し込み、候補者ごとの発行済みリンクの状態を確認し、決まった面接を面接一覧で見る。サンプルデータ。">
-              <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title">日程調整 ｜ カスタマーサクセスマネージャー（サンプル求人）</span><span class="sample">SAMPLE DATA</span></div>
-              <div class="win-body" aria-hidden="true">
-                <div class="grid-2">
-                  <div class="card">
-                    <h4>案内文の作成 <small>テンプレートに予約リンクを差し込み</small></h4>
-                    <div class="tabs" style="margin-bottom:12px"><span>カジュアル面談</span><span class="on">一次</span><span>二次</span><span>最終</span></div>
-                    <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfc">
-                      <p style="margin:0 0 6px">A.K.様</p>
-                      <p style="margin:0 0 6px">一次面接の日程調整です。下のリンクから、ご都合のよい日時をお選びください。</p>
-                      <p style="margin:0"><mark style="background:var(--teal-soft);color:var(--teal-strong);padding:0 .2em;border-radius:3px">https://example.com/book/k7f2…</mark></p>
-                    </div>
-                    <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center"><span class="chips"><span class="pill">Googleカレンダーの予約スケジュール</span><span class="pill">Cal.com</span></span><span class="mbtn mbtn-p">案内文を発行する</span></div>
-                  </div>
-                  <div class="card">
-                    <h4>発行済みの予約リンク <small>候補者ごと</small></h4>
-                    <div class="row"><div class="grow"><b>候補者 A.K.</b><small>一次面接</small></div><span class="pill pill-t">予約済み</span></div>
-                    <div class="row"><div class="grow"><b>候補者 Y.T.</b><small>一次面接</small></div><span class="pill">発行済み</span></div>
-                    <div class="row"><div class="grow"><b>候補者 S.M.</b><small>カジュアル面談</small></div><span class="pill">発行済み</span></div>
-                    <p class="note-line">リンク先URLに、氏名やメールアドレスは入りません。</p>
-                  </div>
-                </div>
-                <div class="card">
-                  <h4>面接一覧 <small>決まった面接は面接レコードとして残ります</small></h4>
-                  <div class="row"><b style="width:8.5em;flex:none">11/18 14:00</b><div class="grow"><b>候補者 A.K.</b></div><span class="pill pill-o">一次</span><span class="pill pill-t">日程確定</span></div>
-                  <div class="row"><b style="width:8.5em;flex:none">11/14 11:00</b><div class="grow"><b>候補者 N.I.</b></div><span class="pill pill-o">二次</span><span class="pill pill-t">日程確定</span></div>
-                  <div class="row"><b style="width:8.5em;flex:none">11/07 16:30</b><div class="grow"><b>候補者 T.W.</b></div><span class="pill pill-o">カジュアル面談</span><span class="pill">実施済み</span></div>
-                </div>
-              </div>
-            </div>
-            <p class="stage-cap">画面は架空のサンプルデータによるイメージです</p>
-          </div>
           <div class="cta-band">
             <div>
               <h3>まずはFreeプランで、<br />型と判定基準を試せます</h3>
@@ -956,6 +1041,7 @@
           </div>
         </div>
       </section>
+
 
       <!-- ============ 3. NUMBERS ============ -->
       <section class="numbers" id="market">
@@ -1256,7 +1342,7 @@
             </details>
             <details class="faq-item">
               <summary>候補者の検索や事前判定もできますか？</summary>
-              <div class="faq-a"><p>はい。候補者サーチ支援（POINT 08）で、確定した評価基準から媒体で使う検索条件（標準／広め／絞り込みの3パターン）を生成し、媒体の検索結果から取り込んだ候補者にA/B/Cの事前判定を行えます。判定は人が上書きでき、上書きが優先されます。送る候補（実効A・Bのみ）が決まったら、スカウト文面の下書きをまとめて用意するところまでが製品の役割で、送信そのものは人が媒体の画面で行います。媒体の利用条件の確認は利用者の判断と責任で行い、製品は候補者の出所を記録して注意を表示します。</p></div>
+              <div class="faq-a"><p>はい。候補者サーチ支援（POINT 02）で、確定した評価基準から媒体で使う検索条件（標準／広め／絞り込みの3パターン）を生成し、媒体の検索結果から取り込んだ候補者にA/B/Cの事前判定を行えます。判定は人が上書きでき、上書きが優先されます。送る候補（実効A・Bのみ）が決まったら、スカウト文面の下書きをまとめて用意するところまでが製品の役割で、送信そのものは人が媒体の画面で行います。媒体の利用条件の確認は利用者の判断と責任で行い、製品は候補者の出所を記録して注意を表示します。</p></div>
             </details>
             <details class="faq-item">
               <summary>スカウトは自動で送信されますか？</summary>
