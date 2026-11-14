@@ -352,6 +352,13 @@
         .sample { display: none; }
         .brand small { display: none; }
         .point-index { grid-template-columns: 1fr 1fr; }
+        /* モック内の横はみ出し・潰れ対策（SP幅ではモック内レイアウトを縦積みに） */
+        .win .kv { grid-template-columns: 1fr; gap: 2px 0; }
+        .win .pill, .win .mbtn { white-space: normal; }
+        .win .tabs { flex-wrap: wrap; }
+        .win .row { flex-wrap: wrap; }
+        .win .row .grow { flex: 1 1 100%; }
+        .win .card > div { flex-wrap: wrap; }
       }
     </style>
   </head>
@@ -618,10 +625,10 @@
               <div class="point-no"><span>POINT</span><b>03</b></div>
               <p class="point-name">スカウトの型<em>SCOUT TEMPLATES</em></p>
               <h3>スカウト文面は、<br />「型」とAIでつくる。</h3>
-              <p class="point-body">職種とターゲットごとの文の型を保存し、手元のClaude / ChatGPTに渡して文面をつくります。媒体の画面では、Chrome拡張で型と候補者情報を確認できます。</p>
+              <p class="point-body">職種とターゲットごとの文の型を保存し、媒体の画面ではChrome拡張が型と候補者情報をもとに文面を生成します。生成はAlumNETのサーバー側AIで行い、Webダッシュボードでは手元のClaude / ChatGPTに渡してつくることもできます。</p>
             </div>
             <aside class="point-side">
-            <p class="where">手元のClaude / ChatGPTで回数無制限</p>
+            <p class="where">Chrome拡張で生成（サーバー側AI）</p>
             <ul class="point-list">
                 <li>職種 × ターゲット別の文の型</li>
                 <li>候補者ごとに人が確認して送る</li>
@@ -630,7 +637,7 @@
             </aside>
           </div>
           <div class="stage">
-            <div class="win" role="img" aria-label="スカウト媒体の候補者ページの横に、Chrome拡張で型と候補者情報を並べ、文面の下書きを人が確認する画面のイメージ。サンプルデータ。">
+            <div class="win" role="img" aria-label="スカウト媒体の候補者ページの横に、Chrome拡張で型と候補者情報をもとに文面の下書きをつくり、人が確認する画面のイメージ。サンプルデータ。">
               <div class="win-bar" aria-hidden="true"><i></i><i></i><i></i><span class="win-title" style="font-weight:500;color:var(--muted)">媒体の候補者ページ（サンプル）</span><span class="sample">SAMPLE DATA</span></div>
               <div class="win-body grid-ext" aria-hidden="true">
                 <div class="card" style="background:#f7f9fa">
@@ -645,7 +652,7 @@
                     <dt>文の型</dt><dd><span class="pill pill-t">職種 × ターゲット：CSM × リード経験者</span></dd>
                   </dl>
                   <div style="border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fbfcfc">
-                    <b>下書き</b><small style="color:var(--muted)">（手元のAIで作成）</small>
+                    <b>下書き</b><small style="color:var(--muted)">（サーバー側AIで生成）</small>
                     <p style="margin:6px 0 0">K.S.様、突然のご連絡失礼いたします。チームリードとしてのご経験を拝見し、顧客の成功を支えるポジションをご紹介したくご連絡しました。</p>
                   </div>
                   <div style="display:flex;gap:8px;margin-top:12px;justify-content:space-between;align-items:center"><span class="pill">送信は人が確認してから</span><span class="mbtn mbtn-p">内容を確認する</span></div>
