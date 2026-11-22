@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <title>アルムナイ採用支援ライトプラン｜AlumNET株式会社</title>
+    <meta name="description" content="退職者を「資産」に変えるカムバック採用の仕組み化。月額5万円（税別）から、成果報酬なし。名簿の棚卸しから再接触の設計、面談設定までを型で支援します。" />
+    <link rel="canonical" href="https://alum-net.jp/lp/alumni/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AlumNET株式会社" />
+    <meta property="og:title" content="アルムナイ採用支援ライトプラン｜AlumNET株式会社" />
+    <meta property="og:description" content="退職者を「資産」に変えるカムバック採用の仕組み化。月額5万円（税別）から、成果報酬なし。名簿の棚卸しから再接触の設計、面談設定までを型で支援します。" />
+    <meta property="og:url" content="https://alum-net.jp/lp/alumni/" />
+    <meta property="og:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/assets/alumnet-logo-square-512.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-alt: #f4f7f8;
+        --surface: #ffffff;
+        --ink: #10233c;
+        --ink-2: #33445e;
+        --muted: #56677d;
+        --line: #dfe5ea;
+        --line-strong: #c6d0d8;
+        --navy: #10233c;
+        --navy-soft: #e9eef5;
+        --teal: #0e6b5c;
+        --teal-strong: #0a5347;
+        --teal-soft: #e4f1ee;
+        --shadow-sm: 0 6px 20px rgba(16,35,60,.07);
+        --radius: 16px;
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+      }
+      body {
+        margin: 0; background: var(--bg); color: var(--ink);
+        font-family: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+        font-size: 16px; line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      a { color: inherit; }
+      h1, h2, h3, h4, p, ul, ol { margin-top: 0; }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+      .accent { color: var(--teal); }
+
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        font-weight: 800; font-size: 1rem; line-height: 1.3; text-decoration: none;
+        padding: .85em 1.7em; border-radius: 999px; border: 1px solid transparent;
+        transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      }
+      .btn:active { transform: scale(.98); }
+      .btn-primary { background: var(--teal); color: #fff; }
+      .btn-primary:hover { background: var(--teal-strong); }
+      .btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+      .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+      .btn-sm { padding: .5em 1.2em; font-size: .9rem; white-space: nowrap; }
+
+      .site-head { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+      .site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 28px; height: 60px; }
+      .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; letter-spacing: .08em; font-size: .95rem; white-space: nowrap; }
+      .brand img { width: 28px; height: 28px; border-radius: 6px; display: block; }
+
+      .hero { padding: 72px 0 80px; background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%); }
+      .hero-copy { max-width: 860px; }
+      .eyebrow { display: inline-block; font-size: .8rem; font-weight: 800; letter-spacing: .12em; color: var(--teal-strong); background: var(--teal-soft); padding: .35em 1.1em; border-radius: 999px; margin-bottom: 22px; }
+      .hero h1 { font-size: clamp(2.2rem, 6.4vw, 4.2rem); line-height: 1.25; font-weight: 900; margin: 0 0 .5em; }
+      .hero-lead { max-width: 740px; margin: 0 0 1.8em; font-size: clamp(1rem, 2.4vw, 1.12rem); font-weight: 500; color: var(--ink-2); }
+      .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+      .hero-notes { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .9rem; font-weight: 700; color: var(--ink-2); margin: 0; padding: 0; list-style: none; }
+      .hero-notes li::before { content: "✓ "; color: var(--teal); font-weight: 900; }
+
+      section { padding: 88px 0; }
+      .alt { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .sec-head { margin-bottom: 44px; }
+      .sec-tag { display: inline-block; font-weight: 800; letter-spacing: .2em; font-size: .75rem; color: var(--teal-strong); background: var(--teal-soft); padding: .3em 1em; border-radius: 999px; margin-bottom: 16px; }
+      .sec-head h2 { font-size: clamp(1.8rem, 4.6vw, 2.7rem); line-height: 1.35; font-weight: 900; margin: 0 0 .4em; }
+      .sec-head p { color: var(--muted); max-width: 720px; margin: 0; font-weight: 500; }
+
+      .check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 860px; }
+      .check-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px 16px 52px; position: relative; font-weight: 700; color: var(--ink-2); }
+      .check-list li::before { content: "!"; position: absolute; left: 18px; top: 16px; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; background: var(--navy-soft); color: var(--navy); font-weight: 900; font-size: .8rem; }
+
+      .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .card-grid.two { grid-template-columns: repeat(2, 1fr); }
+      .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; background: var(--surface); box-shadow: var(--shadow-sm); }
+      .card .no { display: block; font-size: 2.2rem; font-weight: 900; color: var(--teal); line-height: 1; margin-bottom: 12px; }
+      .card h3 { font-weight: 900; font-size: 1.25rem; line-height: 1.45; margin: 0 0 .5em; }
+      .card p { margin: 0; color: var(--ink-2); font-size: .95rem; font-weight: 500; }
+      .card ul { margin: 0; padding-left: 1.2em; color: var(--ink-2); font-size: .95rem; font-weight: 500; }
+
+      .flow-list { list-style: none; margin: 0; padding: 0; max-width: 860px; }
+      .flow-item { display: grid; grid-template-columns: 56px 1fr; gap: 0 22px; padding: 0 0 28px; position: relative; }
+      .flow-item:last-child { padding-bottom: 0; }
+      .flow-item::before { content: ""; position: absolute; left: 27px; top: 56px; bottom: 0; width: 2px; background: var(--line); }
+      .flow-item:last-child::before { display: none; }
+      .step-no { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--teal-soft); color: var(--teal-strong); font-weight: 900; font-size: 1.1rem; }
+      .flow-item h3 { font-weight: 900; font-size: 1.2rem; margin: .5em 0 .2em; }
+      .flow-item p { margin: 0; color: var(--muted); font-weight: 500; }
+
+      .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; margin-bottom: 18px; }
+      .price-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 26px 22px; display: flex; flex-direction: column; }
+      .price-card.main { border: 2px solid var(--teal); box-shadow: var(--shadow-sm); }
+      .price-card h3 { font-weight: 900; font-size: 1.2rem; margin: 0 0 12px; }
+      .price-card .amount { font-weight: 900; font-size: 1.6rem; line-height: 1.3; margin: 0 0 12px; }
+      .price-card .amount small { font-size: .82rem; font-weight: 700; color: var(--muted); }
+      .price-card ul { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--line); font-size: .9rem; font-weight: 500; color: var(--ink-2); }
+      .price-card ul li { padding: .2em 0 .2em 1.4em; position: relative; }
+      .price-card ul li::before { content: "✓"; position: absolute; left: 0; font-weight: 900; color: var(--teal); }
+      .price-card p { margin: 0; font-size: .9rem; color: var(--ink-2); font-weight: 500; }
+      .note-box { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 24px 26px; margin-top: 18px; }
+      .note-box h3 { font-weight: 900; font-size: 1.1rem; margin: 0 0 .5em; }
+      .note-box ul { margin: 0; padding-left: 1.2em; color: var(--ink-2); font-weight: 500; font-size: .95rem; }
+
+      .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .fit { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 26px 26px; }
+      .fit.ng { background: var(--bg-alt); }
+      .fit h3 { font-weight: 900; font-size: 1.15rem; margin: 0 0 .6em; }
+      .fit ul { margin: 0; padding-left: 1.2em; color: var(--ink-2); font-weight: 500; font-size: .95rem; }
+
+      .faq-list { max-width: 860px; }
+      .faq-item { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); margin-bottom: 12px; overflow: hidden; }
+      .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 800; font-size: 1rem; padding: 18px 20px; line-height: 1.55; }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { content: "＋"; flex: none; width: 30px; height: 30px; display: grid; place-items: center; background: var(--teal-soft); color: var(--teal-strong); border-radius: 50%; font-size: 1.05rem; line-height: 1; transition: transform .2s ease; }
+      .faq-item[open] summary::after { transform: rotate(45deg); }
+      .faq-item summary:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+      .faq-a { padding: 0 20px 20px; color: var(--muted); font-weight: 500; }
+      .faq-a p { margin: 0; }
+
+      .final-cta { padding: 88px 0; }
+      .final-cta .wrap > div { background: var(--navy); color: #fff; border-radius: 26px; padding: 60px 48px; text-align: center; }
+      .final-cta h2 { font-size: clamp(1.8rem, 5vw, 2.9rem); line-height: 1.4; font-weight: 900; margin: 0 0 .5em; }
+      .final-cta p { margin: 0 auto 2em; max-width: 640px; font-weight: 500; color: #cbd6e4; }
+      .final-cta .btn-primary { background: #fff; color: var(--navy); font-size: 1.1rem; padding: .9em 2.2em; }
+      .final-cta .btn-primary:hover { background: var(--teal-soft); }
+
+      footer { border-top: 1px solid var(--line); padding: 40px 0 48px; }
+      footer .f-brand { font-weight: 900; letter-spacing: .12em; font-size: 1.02rem; margin: 0; }
+      footer p { color: var(--muted); font-size: .85rem; margin: .6em 0 0; }
+      footer a { color: var(--teal); }
+
+      @media (max-width: 980px) {
+        .card-grid, .card-grid.two, .price-grid, .fit-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 600px) {
+        section { padding: 60px 0; }
+        .hero { padding: 44px 0 56px; }
+        .hero-cta .btn { width: 100%; }
+        .flow-item { grid-template-columns: 44px 1fr; gap: 0 14px; }
+        .step-no { width: 44px; height: 44px; font-size: .95rem; }
+        .flow-item::before { left: 21px; top: 44px; }
+        .final-cta { padding: 56px 0; }
+        .final-cta .wrap > div { padding: 40px 22px; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ============ SITE HEADER ============ -->
+    <div class="site-head">
+      <div class="wrap">
+        <a class="brand" href="/"><img src="/assets/alumnet-logo-square-512.png" alt="" width="28" height="28" />AlumNET</a>
+        <a class="btn btn-primary btn-sm" href="https://docs.google.com/forms/d/e/1FAIpQLScFIHCpSUwW9EbqPbryuMRxY0Pc5Lsfc5-yn0AO8VSmFAM0IQ/viewform" target="_blank" rel="noopener">無料相談</a>
+      </div>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">ALUMNI RECRUITING SUPPORT — LIGHT PLAN</span>
+          <h1>退職者を、<span class="accent">資産</span>に変える。</h1>
+          <p class="hero-lead">辞めた人の名簿は、眠っている採用資産です。アルムナイ採用支援ライトプランは、カムバック採用の再接触を「型」にして回す月額5万円からの支援プラン。決まっても追加料金はかかりません。</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScFIHCpSUwW9EbqPbryuMRxY0Pc5Lsfc5-yn0AO8VSmFAM0IQ/viewform" target="_blank" rel="noopener">無料相談を申し込む <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#pricing">料金を見る</a>
+          </div>
+          <ul class="hero-notes">
+            <li>オンライン対応</li>
+            <li>最低契約期間3か月</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ============ PROBLEMS ============ -->
+      <section id="problems">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">PROBLEMS</span>
+            <h2>こんな状態になっていませんか</h2>
+          </div>
+          <ul class="check-list">
+            <li>退職者の名簿はあるが、個人情報の扱いが不安で触れていない</li>
+            <li>カムバック採用は「たまたま戻ってきた人」頼みで、仕組みになっていない</li>
+            <li>エージェント経由の採用単価が上がり続けている</li>
+            <li>採用担当が通常採用だけで手一杯で、退職者活用まで手が回らない</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ VALUE ============ -->
+      <section class="alt" id="value">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">VALUE</span>
+            <h2>提供価値の3本柱</h2>
+          </div>
+          <div class="card-grid">
+            <article class="card">
+              <span class="no">1</span>
+              <h3>採用コストの構造を変える</h3>
+              <p>エージェント経由は理論年収の30%前後が相場。本プランは既にある退職者資産の再活用で、料金は月額のみ。カムバックが決まっても追加料金は発生しません（成果報酬は設けていません）。</p>
+            </article>
+            <article class="card">
+              <span class="no">2</span>
+              <h3>ミスマッチのない即戦力</h3>
+              <p>人となり・仕事ぶり・社風との相性が分かった上での採用。ただし誰でも戻せばよいわけではないため、在籍時の所見を確認する「見極め」を型に入れています。</p>
+            </article>
+            <article class="card">
+              <span class="no">3</span>
+              <h3>退職者という資産の保全</h3>
+              <p>接点を保つことは、採用だけでなく紹介・協業・顧客化の入口にもなります。放置すれば名簿は陳腐化し、二度と使えなくなります。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PLAN ============ -->
+      <section id="plan">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">PLAN</span>
+            <h2>基本プランに含まれるもの</h2>
+          </div>
+          <div class="card-grid two">
+            <article class="card">
+              <h3>隔週MTG（30分）</h3>
+              <p>進捗確認と次のアクションの整理</p>
+            </article>
+            <article class="card">
+              <h3>再接触の設計</h3>
+              <p>年2回のタッチ（近況連絡＋求人案内）のシナリオと文面の作成</p>
+            </article>
+            <article class="card">
+              <h3>プロセス管理</h3>
+              <p>再接触数・返信数・面談化数を月次簡易レポート（1枚）で共有</p>
+            </article>
+            <article class="card">
+              <h3>面談設定の支援</h3>
+              <p>反応があった人へのカムバック面談の設定サポート</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FLOW ============ -->
+      <section class="alt" id="flow">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">FLOW</span>
+            <h2>進め方（固定4ステップ）</h2>
+          </div>
+          <ol class="flow-list">
+            <li class="flow-item"><span class="step-no">01</span><div><h3>名簿の棚卸し</h3><p>退職者リストの状態と、同意範囲内で接触できる人数を確認（オプションで代行可）</p></div></li>
+            <li class="flow-item"><span class="step-no">02</span><div><h3>再接触の設計</h3><p>年2回のタッチのシナリオと文面を作成</p></div></li>
+            <li class="flow-item"><span class="step-no">03</span><div><h3>再接触の実施</h3><p>先方での実施が基本（オプションで代行可）</p></div></li>
+            <li class="flow-item"><span class="step-no">04</span><div><h3>面談設定と決定フォロー</h3><p>反応があった人の面談設定を支援</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ PRICING ============ -->
+      <section id="pricing">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">PRICING</span>
+            <h2>料金</h2>
+            <p>公開料金です。金額はすべて税別です。</p>
+          </div>
+          <div class="price-grid">
+            <article class="price-card main">
+              <h3>ライトプラン</h3>
+              <p class="amount">月額 50,000円<small>（税別）</small></p>
+              <ul>
+                <li>最低契約期間 3か月</li>
+                <li>成果報酬なし：決まっても追加料金は発生しません</li>
+              </ul>
+            </article>
+            <article class="price-card">
+              <h3>オプション：名簿作成・整備</h3>
+              <p class="amount">一括 100,000円<small>（税別）</small></p>
+              <p>退職者リストの整備と再接触の同意範囲の確認まで</p>
+            </article>
+            <article class="price-card">
+              <h3>オプション：連絡代行</h3>
+              <p class="amount">1キャンペーン 50,000円<small>（税別）</small></p>
+              <p>文面送信・返信の一次対応・面談調整</p>
+            </article>
+          </div>
+          <div class="note-box">
+            <h3>本格運用版（併記）</h3>
+            <p style="margin:0 0 .5em"><strong>構築パッケージ 一括 400,000円（税別）＋ 運用 月額 50,000円（税別）</strong></p>
+            <p style="margin:0;color:var(--ink-2);font-weight:500;font-size:.95rem">コミュニティ構築から運用までを一体で支援する本格版。ライトプランからの移行も可能です。</p>
+          </div>
+          <div class="note-box">
+            <h3>目標の置き方</h3>
+            <ul>
+              <li>カムバック決定の目標は、接触できる退職者の人数に応じて個別に設定します（例：150名超で年間2名、50〜150名で年間1名、50名未満は決定目標を置かず関係維持と名簿の資産化から）</li>
+              <li>目標は保証ではありません。無料相談で自社の母集団をもとに試算します</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FIT ============ -->
+      <section class="alt" id="fit">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">FIT</span>
+            <h2>向いている会社／向いていない会社</h2>
+          </div>
+          <div class="fit-grid">
+            <div class="fit">
+              <h3>向いている</h3>
+              <ul>
+                <li>従業員50〜500名規模で、退職者が継続的に出ている</li>
+                <li>カムバックの成功体験が「偶然」ある（戻ってきた人が活躍している）</li>
+                <li>エージェント手数料の高い職種を毎年採用している</li>
+              </ul>
+            </div>
+            <div class="fit ng">
+              <h3>向いていない</h3>
+              <ul>
+                <li>創業が浅く、退職者の蓄積がほぼない</li>
+                <li>退職者との関係が悪化している</li>
+                <li>決定の保証を求める（本プランはプロセスの型を提供する商品です）</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section id="faq">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">FAQ</span>
+            <h2>よくあるご質問</h2>
+          </div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>成果報酬はありますか？</summary>
+              <div class="faq-a"><p>ありません。料金は月額とオプションのみで、決まっても追加料金は発生しません。決定に連動する報酬は、有料職業紹介事業の許可に触れるおそれがあるため設けていません。</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>退職者の名簿が整理できていなくても始められますか？</summary>
+              <div class="faq-a"><p>始められます。まず棚卸しから入り、必要に応じて名簿作成・整備オプションで整えます。</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>連絡は誰が行いますか？</summary>
+              <div class="faq-a"><p>先方での実施が基本です。文面とシナリオはこちらで用意します。実施まで任せたい場合は連絡代行オプションがあります。</p></div>
+            </details>
+            <details class="faq-item">
+              <summary>途中で本格運用版に移れますか？</summary>
+              <div class="faq-a"><p>移れます。ライトプランで型と反応を見てから、本格版の構築に進む進め方も可能です。</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FINAL CTA ============ -->
+      <section class="final-cta">
+        <div class="wrap">
+          <div>
+            <h2>まずは無料相談で、<br />現状と優先順位の整理から</h2>
+            <p>退職者を資産にできているか、30分の無料相談で現状を整理します。</p>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScFIHCpSUwW9EbqPbryuMRxY0Pc5Lsfc5-yn0AO8VSmFAM0IQ/viewform" target="_blank" rel="noopener">無料相談を申し込む <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p class="f-brand">AlumNET株式会社</p>
+        <p>AI × 採用のHRプラットフォーム支援</p>
+        <p><a href="/">トップページ</a> ／ <a href="/privacy.html">プライバシーポリシー</a> ／ <a href="/terms.html">利用規約</a></p>
+        <p>© AlumNET</p>
+      </div>
+    </footer>
+  </body>
+</html>
