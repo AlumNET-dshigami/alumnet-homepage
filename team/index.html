@@ -108,6 +108,7 @@
       }
       .avatar.navy{background:var(--navy)}
       .avatar.accent{background:var(--accent)}
+      .member-photo{width:72px;height:auto;flex:none;border-radius:16px;display:block}
       .member .role{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.05em;margin:0 0 2px}
       .member h3{font-size:22px;font-weight:900;margin:0;line-height:1.4}
       .member .sub{font-size:13px;font-weight:700;color:var(--muted);margin:2px 0 0}
@@ -118,7 +119,7 @@
         background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);
         padding:36px;display:grid;grid-template-columns:250px 1fr;gap:36px;margin-bottom:56px;
       }
-      .sato-photo img{width:100%;border-radius:16px}
+      .sato-photo img{width:100%;height:auto;border-radius:16px}
       .sato-photo .note{font-size:12px;color:var(--muted);margin:10px 0 0;text-align:center}
       .ai-tag{
         display:inline-flex;align-items:center;font-size:12px;font-weight:900;letter-spacing:.08em;
@@ -227,7 +228,7 @@
           <div class="member-grid">
             <article class="member">
               <div class="member-top">
-                <div class="avatar navy" aria-hidden="true">石</div>
+                <img class="member-photo" src="ishigami.jpg" alt="石神大輔（代表取締役・共同代表）の写真" width="640" height="640" />
                 <div>
                   <p class="role">代表取締役・共同代表</p>
                   <h3>石神大輔</h3>
@@ -238,7 +239,7 @@
             </article>
             <article class="member">
               <div class="member-top">
-                <div class="avatar accent" aria-hidden="true">宅</div>
+                <img class="member-photo" src="takuwa.jpg" alt="宅和奈帆子（代表取締役・共同代表）の写真" width="640" height="640" />
                 <div>
                   <p class="role">代表取締役・共同代表</p>
                   <h3>宅和奈帆子</h3>
