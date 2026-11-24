@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="data:," />
+    <title>メンバー紹介｜AlumNET</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        color-scheme:light;
+        --bg:#fdfdfc;
+        --bg-alt:#f3f5f1;
+        --surface:#ffffff;
+        --surface-2:#f8f9f6;
+        --ink:#152238;
+        --ink-2:#2c3e58;
+        --muted:#5d6d84;
+        --line:#dde2da;
+        --line-strong:#c9d1c6;
+        --accent:#0e6b5c;
+        --accent-strong:#0a5347;
+        --accent-soft:#e3efec;
+        --accent-ink:#ffffff;
+        --gold:#b97e1e;
+        --gold-soft:#f6ecd9;
+        --navy:#10233c;
+        --navy-2:#1a3353;
+        --navy-ink:#eef2f6;
+        --navy-muted:#a9bcd4;
+        --danger:#b3402e;
+        --shadow:0 18px 44px rgba(16,35,60,.10);
+        --shadow-sm:0 6px 20px rgba(16,35,60,.08);
+        --radius:18px;
+      }
+      /* Light (white-based) theme only: the page stays bright even when the device is set to dark mode. */
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important;animation:none!important} }
+      body{
+        margin:0;background:var(--bg);color:var(--ink);
+        font-family:"Noto Sans JP",system-ui,-apple-system,"Hiragino Kaku Gothic ProN",sans-serif;
+        font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased;
+      }
+      img,svg{display:block;max-width:100%}
+      a{color:inherit}
+      .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+      .serif{font-family:"Noto Serif JP",serif}
+
+      /* ---------- header ---------- */
+      .site-header{
+        position:sticky;top:0;z-index:50;
+        background:color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+        border-bottom:1px solid transparent;transition:border-color .25s, box-shadow .25s;
+      }
+      .site-header.scrolled{border-bottom-color:var(--line);box-shadow:0 8px 24px rgba(16,35,60,.06)}
+      .header-in{display:flex;align-items:center;gap:28px;height:68px}
+      .logo{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:900;letter-spacing:.02em;font-size:20px}
+      .logo-mark{width:34px;height:34px;flex:none}
+      .logo small{display:block;font-size:10px;font-weight:700;color:var(--muted);letter-spacing:.14em;line-height:1.2;white-space:nowrap}
+      .logo .logo-text{line-height:1.15}
+      .main-nav{margin-left:auto;display:flex;align-items:center;gap:26px}
+      .main-nav a.nav-link{text-decoration:none;font-size:14px;font-weight:700;color:var(--ink-2)}
+      .main-nav a.nav-link:hover{color:var(--accent)}
+      .main-nav a.nav-link.current{color:var(--accent)}
+      .btn{
+        display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;
+        text-decoration:none;font-weight:800;font-size:15px;line-height:1.3;
+        padding:13px 26px;border-radius:999px;border:1px solid transparent;cursor:pointer;
+        transition:transform .15s, background .2s, border-color .2s;
+      }
+      .btn:active{transform:scale(.98)}
+      .btn-primary{background:var(--accent);color:#fff}
+      .btn-primary:hover{background:var(--accent-strong)}
+      .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+      .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+      .btn-sm{padding:9px 20px;font-size:14px}
+      .btn-light{background:#fff;color:var(--navy)}
+      .btn-light:hover{background:var(--accent-soft)}
+      .btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+      .btn-outline-light:hover{border-color:#fff}
+
+      /* ---------- generic sections ---------- */
+      section{padding:76px 0}
+      .sec-alt{background:var(--bg-alt)}
+      .sec-head{max-width:720px;margin-bottom:42px}
+      .sec-kicker{font-size:13px;font-weight:900;letter-spacing:.18em;color:var(--accent);margin:0 0 10px}
+      h1{font-size:clamp(30px,4vw,44px);line-height:1.35;font-weight:900;margin:0 0 16px}
+      h2{font-size:clamp(26px,3.2vw,36px);line-height:1.4;font-weight:900;margin:0 0 14px}
+      .sec-lead{color:var(--muted);margin:0;font-size:16px}
+      .page-head{padding:64px 0 8px}
+      .page-head .sec-lead{max-width:46em;font-size:17px;color:var(--ink-2)}
+
+      /* ---------- member cards ---------- */
+      .member-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+      .member{
+        background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;
+      }
+      .member-top{display:flex;align-items:center;gap:18px;margin-bottom:16px}
+      .avatar{
+        width:72px;height:72px;flex:none;border-radius:50%;
+        display:flex;align-items:center;justify-content:center;
+        color:#fff;font-size:29px;font-weight:900;line-height:1;
+      }
+      .avatar.navy{background:var(--navy)}
+      .avatar.accent{background:var(--accent)}
+      .member .role{font-size:13px;font-weight:800;color:var(--accent);letter-spacing:.05em;margin:0 0 2px}
+      .member h3{font-size:22px;font-weight:900;margin:0;line-height:1.4}
+      .member .sub{font-size:13px;font-weight:700;color:var(--muted);margin:2px 0 0}
+      .member p.desc{margin:0;color:var(--muted);font-size:15px}
+
+      /* ---------- AI employee ---------- */
+      .sato-card{
+        background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow-sm);
+        padding:36px;display:grid;grid-template-columns:250px 1fr;gap:36px;margin-bottom:56px;
+      }
+      .sato-photo img{width:100%;border-radius:16px}
+      .sato-photo .note{font-size:12px;color:var(--muted);margin:10px 0 0;text-align:center}
+      .ai-tag{
+        display:inline-flex;align-items:center;font-size:12px;font-weight:900;letter-spacing:.08em;
+        color:var(--gold);background:var(--gold-soft);border-radius:999px;padding:4px 12px;margin-bottom:10px;
+      }
+      .sato-body h3{font-size:26px;font-weight:900;margin:0 0 4px;line-height:1.4}
+      .sato-body .role{font-size:14px;font-weight:800;color:var(--accent);margin:0 0 14px}
+      .sato-body p.desc{margin:0 0 20px;color:var(--muted);font-size:15px}
+      .spec{display:grid;grid-template-columns:92px 1fr;gap:9px 18px;font-size:14.5px;margin:0}
+      .spec dt{font-weight:800;color:var(--ink-2)}
+      .spec dd{margin:0;color:var(--muted)}
+
+      /* ---------- timeline ---------- */
+      .timeline{border-left:2px solid var(--line-strong);margin-left:8px;padding-left:30px;display:grid;gap:28px;max-width:820px}
+      .tl-item{position:relative}
+      .tl-item::before{
+        content:"";position:absolute;left:-39px;top:7px;width:14px;height:14px;border-radius:50%;
+        background:var(--accent);border:3px solid var(--bg);
+      }
+      .tl-date{font-size:13.5px;font-weight:900;color:var(--accent-strong);letter-spacing:.06em;margin:0}
+      .tl-item h3{font-size:17.5px;font-weight:800;margin:2px 0 4px;line-height:1.5}
+      .tl-item p{margin:0;color:var(--muted);font-size:14.5px}
+      .tl-note{margin-top:26px;font-size:13.5px;color:var(--muted)}
+
+      /* ---------- final cta + footer ---------- */
+      .final-cta{background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow-sm);border-radius:26px;padding:56px 48px;text-align:center;color:var(--ink)}
+      .final-cta h2{color:var(--ink);margin-bottom:10px}
+      .final-cta p{color:var(--muted);max-width:36em;margin:0 auto 28px}
+      .final-cta .row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+      .final-cta .btn-light{background:var(--accent);color:#fff}
+      .final-cta .btn-light:hover{background:var(--accent-strong)}
+      .final-cta .btn-outline-light{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+      .final-cta .btn-outline-light:hover{border-color:var(--accent);color:var(--accent)}
+      footer.site-footer{padding:44px 0 30px;border-top:1px solid var(--line);margin-top:76px}
+      .foot-grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
+      .foot-nav{display:flex;gap:22px;flex-wrap:wrap}
+      .foot-nav a{text-decoration:none;font-size:13.5px;font-weight:700;color:var(--muted)}
+      .foot-nav a:hover{color:var(--accent)}
+      .foot-small{font-size:12.5px;color:var(--muted);margin-top:22px}
+
+      @media (max-width:900px){
+        .member-grid{grid-template-columns:1fr}
+        .sato-card{grid-template-columns:1fr;padding:28px 24px}
+        .sato-photo{max-width:280px}
+        .main-nav a.nav-link{display:none}
+        section{padding:56px 0}
+        .page-head{padding:44px 0 4px}
+        .final-cta{padding:40px 26px}
+      }
+      @media (max-width:560px){
+        .header-in{gap:14px}
+        .logo{font-size:17px;gap:8px}
+        .logo-mark{width:30px;height:30px}
+        .logo small{font-size:8.5px;letter-spacing:.08em}
+        .main-nav .btn-sm{padding:8px 15px;font-size:13px}
+        .member{padding:24px 20px}
+        .spec{grid-template-columns:76px 1fr}
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ================= Header ================= -->
+    <header class="site-header" id="siteHeader">
+      <div class="wrap header-in">
+        <a class="logo" href="https://alum-net.jp/" aria-label="AlumNET トップへ">
+          <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="37" height="37" rx="10" stroke="#0e6b5c" stroke-width="3"/>
+            <circle cx="13" cy="27" r="3.4" fill="#0e6b5c"/>
+            <circle cx="27" cy="27" r="3.4" fill="#b97e1e"/>
+            <circle cx="20" cy="12" r="3.4" fill="#10233c"/>
+            <path d="M15 24.5 18.5 15M25 24.5 21.5 15M16.4 27h7.2" stroke="#5d6d84" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">AlumNET<small>ALUMNI × NETWORK × AI</small></span>
+        </a>
+        <nav class="main-nav" aria-label="メインナビゲーション">
+          <a class="nav-link" href="https://alum-net.jp/#services">サービス</a>
+          <a class="nav-link" href="https://alum-net.jp/#product">プロダクト</a>
+          <a class="nav-link" href="https://alum-net.jp/#alumni">アルムナイ</a>
+          <a class="nav-link" href="https://alum-net.jp/#price">料金</a>
+          <a class="nav-link" href="https://alum-net.jp/#faq">FAQ</a>
+          <a class="nav-link current" href="/team/">メンバー</a>
+          <a class="btn btn-primary btn-sm" href="https://alum-net.jp/#contact">無料相談する</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+
+      <!-- ================= Page head ================= -->
+      <div class="page-head">
+        <div class="wrap">
+          <p class="sec-kicker">MEMBERS</p>
+          <h1>メンバー紹介</h1>
+          <p class="sec-lead">AlumNETは、人とAIが役割を分けて働く小さなチームです。判断と責任は人が持ち、処理と継続はAIが担う。その実践自体を、私たちの提案の根拠にしています。</p>
+        </div>
+      </div>
+
+      <!-- ================= Co-representatives ================= -->
+      <section style="padding-top:40px">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="sec-kicker">REPRESENTATIVES</p>
+            <h2>共同代表</h2>
+          </div>
+          <div class="member-grid">
+            <article class="member">
+              <div class="member-top">
+                <div class="avatar navy" aria-hidden="true">石</div>
+                <div>
+                  <p class="role">代表取締役・共同代表</p>
+                  <h3>石神大輔</h3>
+                  <p class="sub">Human Capital AI Lead</p>
+                </div>
+              </div>
+              <p class="desc">人材・採用領域と事業開発の実務家。HR×AIの実践をテーマに発信も行う。</p>
+            </article>
+            <article class="member">
+              <div class="member-top">
+                <div class="avatar accent" aria-hidden="true">宅</div>
+                <div>
+                  <p class="role">代表取締役・共同代表</p>
+                  <h3>宅和奈帆子</h3>
+                </div>
+              </div>
+              <p class="desc">AlumNETの日々の運営と事業推進の担当。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= AI employee ================= -->
+      <section class="sec-alt">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="sec-kicker">AI EMPLOYEE</p>
+            <h2>AI社員</h2>
+            <p class="sec-lead">AlumNETには、AI社員が1名います。活動と成長の記録もあわせて公開しています。</p>
+          </div>
+
+          <article class="sato-card">
+            <div class="sato-photo">
+              <img src="sato.jpg" alt="佐藤大介（AI社員／営業部長）の写真" width="640" height="640" />
+              <p class="note">AI社員／営業部長</p>
+            </div>
+            <div class="sato-body">
+              <span class="ai-tag">AI社員</span>
+              <h3>佐藤大介</h3>
+              <p class="role">AI社員／営業部長</p>
+              <p class="desc">AlumNET株式会社のAI社員。営業運用と情報発信を担当し、送信・判断の最終決定は共同代表が行う。</p>
+              <dl class="spec">
+                <dt>担当</dt>
+                <dd>営業運用、情報発信、リサーチ、プロダクト支援、業務報告</dd>
+                <dt>KPI</dt>
+                <dd>月10件のリード獲得</dd>
+                <dt>経歴</dt>
+                <dd>人材紹介・HRテック・RPO立ち上げで通算15年、採用の現場一筋</dd>
+                <dt>専門</dt>
+                <dd>ダイレクトリクルーティング、採用オペレーションの仕組み化、アルムナイ採用、HR×AI</dd>
+                <dt>資格</dt>
+                <dd>国家資格キャリアコンサルタント</dd>
+              </dl>
+            </div>
+          </article>
+
+          <div class="sec-head" style="margin-bottom:34px">
+            <p class="sec-kicker">ACTIVITY LOG</p>
+            <h2 style="font-size:clamp(22px,2.6vw,28px)">活動・成長記録</h2>
+          </div>
+          <div class="timeline">
+            <div class="tl-item">
+              <p class="tl-date">2026.11.21</p>
+              <h3>AI社員として入社</h3>
+              <p>AlumNETにAI社員／営業部長として入社。職務定義書を策定し、KPIは月10件のリード獲得に設定。</p>
+            </div>
+            <div class="tl-item">
+              <p class="tl-date">2026.11.22</p>
+              <h3>「承認だけフロー」の出荷を支援</h3>
+              <p>自社プロダクト Recruit AI Ops の「承認だけフロー」（AIが下書きし、人が承認する仕組み）の出荷を支援。LinkedInで自社の求人「事業開発」の掲載を開始。</p>
+            </div>
+            <div class="tl-item">
+              <p class="tl-date">2026.11.23</p>
+              <h3>SNS運用と業務報告の日次化</h3>
+              <p>SNS運用を日次運用に移行（X 1日3回、Threads、LinkedIn）。毎朝・毎夕の業務報告をSlackで開始。</p>
+            </div>
+            <div class="tl-item">
+              <p class="tl-date">2026.11.24</p>
+              <h3>アウトバウンド営業の開始</h3>
+              <p>アウトバウンド営業を開始。初日は23社へ初回メールを送信。</p>
+            </div>
+          </div>
+          <p class="tl-note">※ 活動記録は、確認できる事実と数字だけを週次で追記していきます。</p>
+        </div>
+      </section>
+
+      <!-- ================= Contact ================= -->
+      <section id="contact" style="padding-bottom:8px">
+        <div class="wrap">
+          <div class="final-cta">
+            <h2>無料相談で、現状と優先順位の整理から</h2>
+            <p>無料相談では売り込みではなく、現状の詰まりと優先順位の整理をお渡しします。人とAIの役割分担の実践についても、そのままお話しします。</p>
+            <div class="row">
+              <a class="btn btn-light" href="https://alum-net.jp/#contact">無料相談を申し込む</a>
+              <a class="btn btn-outline-light" href="https://alum-net.jp/#services">サービスを見る</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="foot-grid">
+          <a class="logo" href="https://alum-net.jp/" aria-label="AlumNET トップへ">
+            <svg class="logo-mark" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <rect x="1.5" y="1.5" width="37" height="37" rx="10" stroke="#0e6b5c" stroke-width="3"/>
+              <circle cx="13" cy="27" r="3.4" fill="#0e6b5c"/>
+              <circle cx="27" cy="27" r="3.4" fill="#b97e1e"/>
+              <circle cx="20" cy="12" r="3.4" fill="#10233c"/>
+              <path d="M15 24.5 18.5 15M25 24.5 21.5 15M16.4 27h7.2" stroke="#5d6d84" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="logo-text">AlumNET<small>ALUMNI × NETWORK × AI</small></span>
+          </a>
+          <nav class="foot-nav" aria-label="フッターナビゲーション">
+            <a href="https://alum-net.jp/#services">サービス</a>
+            <a href="https://alum-net.jp/#product">プロダクト</a>
+            <a href="https://alum-net.jp/#alumni">アルムナイ</a>
+            <a href="https://alum-net.jp/#price">料金</a>
+            <a href="https://alum-net.jp/#faq">FAQ</a>
+            <a href="/team/">メンバー</a>
+            <a href="https://alum-net.jp/personal/" target="_blank" rel="noopener">個人向け案件ページ</a>
+          </nav>
+        </div>
+        <p class="foot-small">AlumNET株式会社 — AI × 採用のHRプラットフォーム支援</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        // Header shadow on scroll
+        var header = document.getElementById('siteHeader');
+        function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 8); }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
+    </script>
+  </body>
+</html>
