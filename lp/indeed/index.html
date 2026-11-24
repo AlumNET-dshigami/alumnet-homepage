@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <title>Indeed運用支援｜AlumNET株式会社</title>
+    <meta name="description" content="求人票の設計から予算運用、スカウト、効果測定まで。Indeed運用支援は初期設計100,000円（税別）＋運用代行 月額100,000円〜（税別）。先着3社は初期設計無料のモニター枠あり。" />
+    <link rel="canonical" href="https://alum-net.jp/lp/indeed/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AlumNET株式会社" />
+    <meta property="og:title" content="Indeed運用支援｜AlumNET株式会社" />
+    <meta property="og:description" content="求人票の設計から予算運用、スカウト、効果測定まで。Indeed運用支援は初期設計100,000円（税別）＋運用代行 月額100,000円〜（税別）。先着3社は初期設計無料のモニター枠あり。" />
+    <meta property="og:url" content="https://alum-net.jp/lp/indeed/" />
+    <meta property="og:image" content="https://alum-net.jp/assets/alumnet-logo-square-512.png" />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="/assets/alumnet-logo-square-512.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #ffffff;
+        --bg-alt: #f4f7f8;
+        --surface: #ffffff;
+        --ink: #10233c;
+        --ink-2: #33445e;
+        --muted: #56677d;
+        --line: #dfe5ea;
+        --line-strong: #c6d0d8;
+        --navy: #10233c;
+        --navy-soft: #e9eef5;
+        --teal: #0e6b5c;
+        --teal-strong: #0a5347;
+        --teal-soft: #e4f1ee;
+        --shadow-sm: 0 6px 20px rgba(16,35,60,.07);
+        --radius: 16px;
+        color-scheme: light;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: .001s !important; transition-duration: .001s !important; }
+      }
+      body {
+        margin: 0; background: var(--bg); color: var(--ink);
+        font-family: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", sans-serif;
+        font-size: 16px; line-height: 1.8; -webkit-font-smoothing: antialiased; overflow-x: hidden;
+      }
+      a { color: inherit; }
+      h1, h2, h3, h4, p, ul, ol { margin-top: 0; }
+      .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+      .accent { color: var(--teal); }
+
+      .btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        font-weight: 800; font-size: 1rem; line-height: 1.3; text-decoration: none;
+        padding: .85em 1.7em; border-radius: 999px; border: 1px solid transparent;
+        transition: transform .15s ease, background .2s ease, border-color .2s ease, color .2s ease;
+      }
+      .btn:active { transform: scale(.98); }
+      .btn-primary { background: var(--teal); color: #fff; }
+      .btn-primary:hover { background: var(--teal-strong); }
+      .btn-ghost { background: var(--surface); color: var(--ink); border-color: var(--line-strong); }
+      .btn-ghost:hover { border-color: var(--teal); color: var(--teal); }
+      .btn-sm { padding: .5em 1.2em; font-size: .9rem; white-space: nowrap; }
+
+      .site-head { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+      .site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 28px; height: 60px; }
+      .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; letter-spacing: .08em; font-size: .95rem; white-space: nowrap; }
+      .brand img { width: 28px; height: 28px; border-radius: 6px; display: block; }
+
+      .hero { padding: 72px 0 80px; background: linear-gradient(180deg, #fff 0%, var(--bg-alt) 100%); }
+      .hero-copy { max-width: 860px; }
+      .eyebrow { display: inline-block; font-size: .8rem; font-weight: 800; letter-spacing: .12em; color: var(--teal-strong); background: var(--teal-soft); padding: .35em 1.1em; border-radius: 999px; margin-bottom: 22px; }
+      .hero h1 { font-size: clamp(2.2rem, 6.4vw, 4.2rem); line-height: 1.25; font-weight: 900; margin: 0 0 .5em; }
+      .hero-lead { max-width: 740px; margin: 0 0 1.8em; font-size: clamp(1rem, 2.4vw, 1.12rem); font-weight: 500; color: var(--ink-2); }
+      .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 18px; }
+      .hero-notes { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: .9rem; font-weight: 700; color: var(--ink-2); margin: 0; padding: 0; list-style: none; }
+      .hero-notes li::before { content: "✓ "; color: var(--teal); font-weight: 900; }
+
+      section { padding: 88px 0; }
+      .alt { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+      .sec-head { margin-bottom: 44px; }
+      .sec-tag { display: inline-block; font-weight: 800; letter-spacing: .2em; font-size: .75rem; color: var(--teal-strong); background: var(--teal-soft); padding: .3em 1em; border-radius: 999px; margin-bottom: 16px; }
+      .sec-head h2 { font-size: clamp(1.8rem, 4.6vw, 2.7rem); line-height: 1.35; font-weight: 900; margin: 0 0 .4em; }
+      .sec-head p { color: var(--muted); max-width: 720px; margin: 0; font-weight: 500; }
+
+      .check-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; max-width: 860px; }
+      .check-list li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px 16px 52px; position: relative; font-weight: 700; color: var(--ink-2); }
+      .check-list li::before { content: "!"; position: absolute; left: 18px; top: 16px; width: 22px; height: 22px; line-height: 22px; text-align: center; border-radius: 50%; background: var(--navy-soft); color: var(--navy); font-weight: 900; font-size: .8rem; }
+
+      .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+      .card-grid.two { grid-template-columns: repeat(2, 1fr); }
+      .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px; background: var(--surface); box-shadow: var(--shadow-sm); }
+      .card .no { display: block; font-size: 2.2rem; font-weight: 900; color: var(--teal); line-height: 1; margin-bottom: 12px; }
+      .card h3 { font-weight: 900; font-size: 1.25rem; line-height: 1.45; margin: 0 0 .5em; }
+      .card p { margin: 0; color: var(--ink-2); font-size: .95rem; font-weight: 500; }
+      .card ul { margin: 0; padding-left: 1.2em; color: var(--ink-2); font-size: .95rem; font-weight: 500; }
+
+      .flow-list { list-style: none; margin: 0; padding: 0; max-width: 860px; }
+      .flow-item { display: grid; grid-template-columns: 56px 1fr; gap: 0 22px; padding: 0 0 28px; position: relative; }
+      .flow-item:last-child { padding-bottom: 0; }
+      .flow-item::before { content: ""; position: absolute; left: 27px; top: 56px; bottom: 0; width: 2px; background: var(--line); }
+      .flow-item:last-child::before { display: none; }
+      .step-no { width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; background: var(--teal-soft); color: var(--teal-strong); font-weight: 900; font-size: 1.1rem; }
+      .flow-item h3 { font-weight: 900; font-size: 1.2rem; margin: .5em 0 .2em; }
+      .flow-item p { margin: 0; color: var(--muted); font-weight: 500; }
+
+      .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; margin-bottom: 18px; }
+      .price-card { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 26px 22px; display: flex; flex-direction: column; }
+      .price-card.main { border: 2px solid var(--teal); box-shadow: var(--shadow-sm); }
+      .price-card h3 { font-weight: 900; font-size: 1.2rem; margin: 0 0 12px; }
+      .price-card .amount { font-weight: 900; font-size: 1.6rem; line-height: 1.3; margin: 0 0 12px; }
+      .price-card .amount small { font-size: .82rem; font-weight: 700; color: var(--muted); }
+      .price-card ul { list-style: none; margin: 0; padding: 12px 0 0; border-top: 1px solid var(--line); font-size: .9rem; font-weight: 500; color: var(--ink-2); }
+      .price-card ul li { padding: .2em 0 .2em 1.4em; position: relative; }
+      .price-card ul li::before { content: "✓"; position: absolute; left: 0; font-weight: 900; color: var(--teal); }
+      .price-card p { margin: 0; font-size: .9rem; color: var(--ink-2); font-weight: 500; }
+      .note-box { border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); padding: 24px 26px; margin-top: 18px; }
+      .note-box h3 { font-weight: 900; font-size: 1.1rem; margin: 0 0 .5em; }
+      .note-box ul { margin: 0; padding-left: 1.2em; color: var(--ink-2); font-weight: 500; font-size: .95rem; }
+
+      .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .fit { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); padding: 26px 26px; }
+      .fit.ng { background: var(--bg-alt); }
+      .fit h3 { font-weight: 900; font-size: 1.15rem; margin: 0 0 .6em; }
+      .fit ul { margin: 0; padding-left: 1.2em; color: var(--ink-2); font-weight: 500; font-size: .95rem; }
+
+      .faq-list { max-width: 860px; }
+      .faq-item { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); margin-bottom: 12px; overflow: hidden; }
+      .faq-item summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-weight: 800; font-size: 1rem; padding: 18px 20px; line-height: 1.55; }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after { content: "＋"; flex: none; width: 30px; height: 30px; display: grid; place-items: center; background: var(--teal-soft); color: var(--teal-strong); border-radius: 50%; font-size: 1.05rem; line-height: 1; transition: transform .2s ease; }
+      .faq-item[open] summary::after { transform: rotate(45deg); }
+      .faq-item summary:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
+      .faq-a { padding: 0 20px 20px; color: var(--muted); font-weight: 500; }
+      .faq-a p { margin: 0; }
+
+      .final-cta { padding: 88px 0; }
+      .final-cta .wrap > div { background: var(--navy); color: #fff; border-radius: 26px; padding: 60px 48px; text-align: center; }
+      .final-cta h2 { font-size: clamp(1.8rem, 5vw, 2.9rem); line-height: 1.4; font-weight: 900; margin: 0 0 .5em; }
+      .final-cta p { margin: 0 auto 2em; max-width: 640px; font-weight: 500; color: #cbd6e4; }
+      .final-cta .btn-primary { background: #fff; color: var(--navy); font-size: 1.1rem; padding: .9em 2.2em; }
+      .final-cta .btn-primary:hover { background: var(--teal-soft); }
+
+      footer { border-top: 1px solid var(--line); padding: 40px 0 48px; }
+      footer .f-brand { font-weight: 900; letter-spacing: .12em; font-size: 1.02rem; margin: 0; }
+      footer p { color: var(--muted); font-size: .85rem; margin: .6em 0 0; }
+      footer a { color: var(--teal); }
+
+      @media (max-width: 980px) {
+        .card-grid, .card-grid.two, .price-grid, .fit-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 600px) {
+        section { padding: 60px 0; }
+        .hero { padding: 44px 0 56px; }
+        .hero-cta .btn { width: 100%; }
+        .flow-item { grid-template-columns: 44px 1fr; gap: 0 14px; }
+        .step-no { width: 44px; height: 44px; font-size: .95rem; }
+        .flow-item::before { left: 21px; top: 44px; }
+        .final-cta { padding: 56px 0; }
+        .final-cta .wrap > div { padding: 40px 22px; }
+      }
+        </style>
+  </head>
+  <body>
+
+    <!-- ============ SITE HEADER ============ -->
+    <div class="site-head">
+      <div class="wrap">
+        <a class="brand" href="/"><img src="/assets/alumnet-logo-square-512.png" alt="" width="28" height="28" />AlumNET</a>
+        <a class="btn btn-primary btn-sm" href="https://docs.google.com/forms/d/e/1FAIpQLScFIHCpSUwW9EbqPbryuMRxY0Pc5Lsfc5-yn0AO8VSmFAM0IQ/viewform" target="_blank" rel="noopener">無料相談</a>
+      </div>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <header class="hero" id="top">
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="eyebrow">INDEED OPERATIONS</span>
+          <h1>応募が来ない理由は、<br /><span class="accent">原稿</span>と<span class="accent">運用の設計</span>。</h1>
+          <p class="hero-lead">求人票の設計から予算運用、スカウト、効果測定まで。Indeedで「集める」工程を仕組み化し、応募後の選考運営までつなぐ支援です。</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScFIHCpSUwW9EbqPbryuMRxY0Pc5Lsfc5-yn0AO8VSmFAM0IQ/viewform" target="_blank" rel="noopener">無料相談を申し込む <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost" href="#pricing">料金を見る</a>
+          </div>
+          <ul class="hero-notes">
+            <li>初期設計 100,000円（税別）＋運用代行 月額100,000円〜（税別）</li>
+            <li>先着3社は初期設計無料のモニター枠あり</li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <main>
+
+      <!-- ============ PROBLEMS ============ -->
+      <section id="problems">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">PROBLEMS</span>
+            <h2>こんな課題にお応えします</h2>
+          </div>
+          <ul class="check-list">
+            <li>求人票の作りっぱなしで、応募が集まらない</li>
+            <li>予算のかけ方が手探りで、費用対効果が見えない</li>
+            <li>数字の見方と直す順番が分からず、改善が回らない</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ OFFER ============ -->
+      <section class="alt" id="offer">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">OFFER</span>
+            <h2>支援内容</h2>
+          </div>
+          <div class="card-grid two">
+            <article class="card">
+              <h3>初期設計</h3>
+              <ul>
+              <li>採用要件の整理と求人票の設計</li>
+              <li>タイトル、仕事内容、待遇表記の作り替え</li>
+              <li>無料枠と有料掲載（Indeed PLUS）の使い分けと予算配分の設計</li>
+              </ul>
+            </article>
+            <article class="card">
+              <h3>運用代行</h3>
+              <ul>
+              <li>予算配分と入札の調整</li>
+              <li>原稿の継続改善（2週間単位で効果を測定）</li>
+              <li>スカウト文面の設計と送信運用（承認制）</li>
+              <li>月次レポートと改善提案（数字と打ち手の明示）</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PRICING ============ -->
+      <section id="pricing">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">PRICING</span>
+            <h2>料金</h2>
+            <p>金額はすべて税別です。</p>
+          </div>
+          <div class="price-grid">
+            <article class="price-card">
+              <h3>初期設計</h3>
+              <p class="amount">100,000円<small>（税別・一括）</small></p>
+              <ul>
+                <li>求人票の設計・立て直し</li>
+                <li>アカウントと有料掲載（Indeed PLUS）の初期設定</li>
+              </ul>
+            </article>
+            <article class="price-card main">
+              <h3>運用代行</h3>
+              <p class="amount">月額 100,000円〜<small>（税別）</small></p>
+              <ul>
+                <li>予算・入札調整、原稿改善</li>
+                <li>スカウト設計と送信運用</li>
+                <li>週次レポート（広告費は実費）</li>
+              </ul>
+            </article>
+          </div>
+          <div class="note-box">
+            <h3>モニター枠と条件</h3>
+            <ul>
+              <li>先着3社に限り、初期設計（100,000円）を無料で提供（匿名事例への協力と月次数字の開示が条件）</li>
+              <li>定額制で、月の総額が先に読める料金設計（広告費は実費、Indeedへの直接支払い）</li>
+              <li>成果報酬なし、最低契約期間 3か月</li>
+              <li>応募数と採用の成立保証なし。数字と改善の過程の開示で判断いただく形です</li>
+              <li>Indeed運用支援は新規の支援メニューのため、支援実績はこれからです</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ FLOW ============ -->
+      <section class="alt" id="flow">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">FLOW</span>
+            <h2>進め方</h2>
+          </div>
+          <ol class="flow-list">
+            <li class="flow-item"><span class="step-no">01</span><div><h3>無料相談（30分）</h3><p>現状の掲載状況と課題、優先順位の整理</p></div></li>
+            <li class="flow-item"><span class="step-no">02</span><div><h3>初期設計</h3><p>求人票の設計・立て直しと予算配分の設計（目安：2〜3週間）</p></div></li>
+            <li class="flow-item"><span class="step-no">03</span><div><h3>運用代行の開始</h3><p>週次の数字確認と、月次の原稿改善・レポートで運用を回す</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ============ FINAL CTA ============ -->
+      <section class="final-cta">
+        <div class="wrap">
+          <div>
+            <h2>無料相談で、現状と優先順位の整理から</h2>
+            <p>30分の無料相談（オンライン）で、現状の課題と優先順位を整理します。売り込みはしません。</p>
+            <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScFIHCpSUwW9EbqPbryuMRxY0Pc5Lsfc5-yn0AO8VSmFAM0IQ/viewform" target="_blank" rel="noopener">無料相談を申し込む <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p class="f-brand">AlumNET株式会社</p>
+        <p>AI × 採用のHRプラットフォーム支援</p>
+        <p><a href="/">トップページ</a> ／ <a href="/privacy.html">プライバシーポリシー</a> ／ <a href="/terms.html">利用規約</a></p>
+        <p><a href="https://x.com/AlumnetCeo" target="_blank" rel="noopener">X（@AlumnetCeo）</a> ／ <a href="https://www.threads.com/@aiworkhacklab_jp" target="_blank" rel="noopener">Threads</a> ／ <a href="https://www.instagram.com/aiworkhacklab_jp/" target="_blank" rel="noopener">Instagram</a> ／ <a href="https://www.youtube.com/@AIWorkHackLab" target="_blank" rel="noopener">YouTube</a> ／ <a href="https://www.linkedin.com/company/alu%EF%BD%8Dnet%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p>© AlumNET</p>
+      </div>
+    </footer>
+  </body>
+</html>
