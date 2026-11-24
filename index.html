@@ -250,6 +250,16 @@
       h2{font-size:clamp(26px,3.2vw,36px);line-height:1.4;font-weight:900;margin:0 0 14px}
       .sec-lead{color:var(--muted);margin:0;font-size:16px}
 
+      /* news */
+      .news-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+      .news-item{display:flex;align-items:baseline;gap:14px;padding:17px 2px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+      .news-date{font-size:14px;font-weight:700;color:var(--muted);letter-spacing:.05em;white-space:nowrap}
+      .news-tag{font-size:12px;font-weight:800;color:var(--accent-strong);background:var(--accent-soft);border-radius:999px;padding:2px 12px;white-space:nowrap}
+      .news-title{font-weight:700;text-decoration:none}
+      .news-title:hover{color:var(--accent-strong);text-decoration:underline}
+      .news-more{margin:26px 0 0;text-align:right;font-weight:700}
+      .news-more a{color:var(--accent-strong);text-decoration:none}
+      .news-more a:hover{text-decoration:underline}
       /* pains */
       .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
       .pain{
@@ -503,6 +513,7 @@
           <a class="nav-link" href="#price">料金</a>
           <a class="nav-link" href="#faq">FAQ</a>
           <a class="nav-link" href="/team/">メンバー</a>
+          <a class="nav-link" href="/news/">お知らせ</a>
           <a class="btn btn-primary btn-sm" href="#contact">無料相談する</a>
         </nav>
       </div>
@@ -831,6 +842,45 @@
               <div class="pd-step"><div class="pd-no">PHASE 4</div><h4>CA育成・内製化</h4><p>週次レビューで型と運用を社内担当者（CA）へ移し、自社で回せる状態に仕上げます。</p></div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- ================= News ================= -->
+      <section id="news">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="sec-kicker">NEWS</p>
+            <h2>お知らせ</h2>
+            <p class="sec-lead">サービス開始や提携など、AlumNETの大きな更新をお知らせします。</p>
+          </div>
+          <ul class="news-list">
+            <li class="news-item">
+              <span class="news-date">2026.11.24</span>
+              <span class="news-tag">サービス</span>
+              <a class="news-title" href="/lp/lp-web/">新サービス「LP・Web制作支援」を開始しました</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2026.11.24</span>
+              <span class="news-tag">お知らせ</span>
+              <a class="news-title" href="/team/">社員紹介ページを公開しました</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2026.11.24</span>
+              <span class="news-tag">コラム</span>
+              <a class="news-title" href="https://www.linkedin.com/newsletters/%E6%8E%A1%E7%94%A8ai%E3%81%AE%E7%8F%BE%E5%A0%B4%E3%81%8B%E3%82%89-7521877650492137472" target="_blank" rel="noopener">LinkedInニュースレター「採用AIの現場から」で『AIに任せる前に決める「承認と検証の設計」』を公開しています</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2026.11.22</span>
+              <span class="news-tag">サービス</span>
+              <a class="news-title" href="/lp/newgrad/">新卒採用支援（OfferBox運用）を開始しました</a>
+            </li>
+            <li class="news-item">
+              <span class="news-date">2026.11.22</span>
+              <span class="news-tag">サービス</span>
+              <a class="news-title" href="/lp/indeed/">Indeed運用支援を開始しました</a>
+            </li>
+          </ul>
+          <p class="news-more"><a href="/news/">お知らせ一覧を見る →</a></p>
         </div>
       </section>
 
@@ -1213,6 +1263,7 @@
             <a href="#price">料金</a>
             <a href="#faq">FAQ</a>
             <a href="/team/">メンバー</a>
+            <a href="/news/">お知らせ</a>
             <a href="https://alum-net.jp/personal/" target="_blank" rel="noopener">個人向け案件ページ</a>
           </nav>
         </div>
