@@ -164,7 +164,30 @@
         .final-cta { padding: 56px 0; }
         .final-cta .wrap > div { padding: 40px 22px; }
       }
-        </style>
+    
+      /* strengths + persona deck */
+      .strength-rows { display: grid; gap: 10px; margin-top: 8px; }
+      .strength-row { display: flex; justify-content: space-between; align-items: baseline; background: var(--navy-soft); border-radius: 10px; padding: 16px 22px; }
+      .strength-row .co { font-weight: 800; letter-spacing: .04em; color: var(--ink); }
+      .strength-row .num { font-weight: 900; font-size: 1.35rem; color: var(--navy); }
+      .strength-row .num small { font-size: .8rem; font-weight: 700; margin-left: 2px; }
+      .explorer { margin-top: 36px; }
+      .explorer h3 { font-size: 1.15rem; font-weight: 900; color: var(--navy); margin: 0 0 6px; }
+      .explorer p.lead { color: var(--muted); margin: 0 0 14px; font-weight: 500; }
+      .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+      .chip { border: 1.5px solid var(--line-strong); background: #fff; color: var(--ink-2); border-radius: 999px; padding: .55em 1.2em; font-weight: 700; font-size: .95rem; cursor: pointer; transition: all .15s ease; font-family: inherit; }
+      .chip:hover { border-color: var(--teal); color: var(--teal-strong); }
+      .chip.active { background: var(--teal); border-color: var(--teal); color: #fff; }
+      .deck { margin-top: 20px; background: #fff; border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow-sm); padding: 30px 32px; }
+      .deck .tag { display: inline-block; font-size: .8rem; font-weight: 800; color: var(--teal-strong); background: var(--teal-soft); border-radius: 6px; padding: 3px 12px; }
+      .deck h4 { margin: 12px 0 6px; font-size: 1.35rem; font-weight: 900; color: var(--navy); line-height: 1.45; }
+      .deck .meta { color: var(--muted); font-weight: 700; margin: 0 0 14px; }
+      .deck p.body { color: var(--ink-2); font-weight: 500; line-height: 1.85; margin: 0 0 10px; }
+      .deck-nav { display: flex; align-items: center; gap: 16px; margin-top: 18px; }
+      .deck-btn { border: 1.5px solid var(--line-strong); background: #fff; border-radius: 999px; padding: .5em 1.4em; font-weight: 800; color: var(--ink); cursor: pointer; font-family: inherit; }
+      .deck-btn:hover { border-color: var(--teal); color: var(--teal-strong); }
+      .deck-count { font-weight: 800; color: var(--muted); }
+    </style>
   </head>
   <body>
 
@@ -217,8 +240,47 @@
         </div>
       </section>
 
+
+      <!-- ============ STRENGTHS ============ -->
+      <section class="alt" id="strengths">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">STRENGTHS</span>
+            <h2>AlumNETの強みは、人のネットワーク</h2>
+            <p>大手HR各社の卒業生で構成されるアルムナイのコミュニティが、AlumNETの資産です。貴社の課題に合わせて、適切な人材をチームでアサインします。</p>
+          </div>
+          <div class="strength-rows">
+            <div class="strength-row"><span class="co">PASONA</span><span class="num">200<small>名</small></span></div>
+            <div class="strength-row"><span class="co">PERSOL</span><span class="num">100<small>名</small></span></div>
+            <div class="strength-row"><span class="co">RECRUIT</span><span class="num">50<small>名</small></span></div>
+            <div class="strength-row"><span class="co">JAC Recruitment</span><span class="num">30<small>名</small></span></div>
+          </div>
+          <p style="color:var(--muted);font-weight:500;margin:14px 0 0">※全員が大手HRアルムナイで構成。戦略から実行支援まで対応します。</p>
+
+          <div class="explorer">
+            <h3>どんな人がいるか、人材像で見る</h3>
+            <p class="lead">個人名は出さず、匿名の人材像（カード）でご紹介します。領域を選ぶと、その領域の人材像だけを表示します。</p>
+            <div class="chips">
+              <button class="chip active" data-cat="all" type="button">すべて</button>
+              <button class="chip" data-cat="recruit" type="button">採用・スカウト運用</button>
+              <button class="chip" data-cat="system" type="button">人事制度・組織開発</button>
+              <button class="chip" data-cat="labor" type="button">労務・コンプライアンス</button>
+              <button class="chip" data-cat="sales" type="button">営業・事業開発</button>
+              <button class="chip" data-cat="career" type="button">キャリア支援・研修</button>
+            </div>
+            <div class="deck" id="deck"></div>
+            <div class="deck-nav">
+              <button class="deck-btn" id="deckPrev" type="button">← 前の人材像</button>
+              <span class="deck-count" id="deckCount"></span>
+              <button class="deck-btn" id="deckNext" type="button">次の人材像 →</button>
+            </div>
+            <p style="color:var(--muted);font-weight:500;margin:14px 0 0;font-size:.92rem">※人材像は、コミュニティに在籍する人材の代表例を匿名化して表示しています。具体的なアサインは、課題をお聞きしたうえでご提案します。</p>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ TYPES ============ -->
-      <section class="alt" id="types">
+      <section id="types">
         <div class="wrap">
           <div class="sec-head">
             <span class="sec-tag">PARTNER TYPES</span>
@@ -299,5 +361,40 @@
         <p>© AlumNET</p>
       </div>
     </footer>
+
+    <script>
+      const PEOPLE = [
+        { cat: "recruit", tag: "採用・スカウト運用", title: "人材紹介の現場を熟知する、採用コンサルタント", meta: "大手人材サービス出身 ／ 人材紹介の実務 10年以上", body: "求人票の言語化からスカウト文面、面接の接続までを一通り回せる実務家。母集団の作り方と、書類通過から面接までの歩留まりを改善する型を持っています。", use: "アサイン例：RPO・スカウト代行の運用メンバー" },
+        { cat: "recruit", tag: "採用・スカウト運用", title: "RPOの運用を型にする、運用リーダー", meta: "大手HR出身 ／ 採用支援プロジェクトの運営経験", body: "複数ポジションの進捗管理、定例レポーティング、先方との調整までを担う運営型。属人化しがちな採用運用を、再現できる型に落とし込みます。", use: "アサイン例：RPOのプロジェクトリーダー" },
+        { cat: "system", tag: "人事制度・組織開発", title: "制度を運用まで落とす、人事制度コンサルタント", meta: "大手HR出身 ／ 等級・評価・報酬制度の設計と運用", body: "制度を作って終わりにせず、現場の評価会議や運用ルールまで設計できるのが強み。制度刷新と現場の納得感を両立させます。", use: "アサイン例：CHRO代行、人事制度の刷新支援" },
+        { cat: "system", tag: "人事制度・組織開発", title: "経営の隣で人事を動かす、人事責任者クラス", meta: "事業会社の人事責任者経験 ／ 組織開発の推進", body: "経営課題から人事の優先順位を組み立て、採用・育成・制度を横断して動かせる人材。週次の伴走で意思決定を前に進めます。", use: "アサイン例：CHRO代行（経営伴走）" },
+        { cat: "labor", tag: "労務・コンプライアンス", title: "現場の実態に即す、労務スペシャリスト", meta: "大手人材サービスの労務部門出身 ／ 法改正対応の実務", body: "就業規則や規程の整備、法改正への対応を、現場が回る形に落とし込む実務家。ルールと現場の間をつなぎます。", use: "アサイン例：労務まわりの運用整備の伴走" },
+        { cat: "sales", tag: "営業・事業開発", title: "HR商材の提案を担う、営業マネージャー", meta: "大手HR出身 ／ 法人営業・カスタマーサクセス", body: "顧客の採用課題を言語化し、提案から導入後の伴走までを担える人材。現場の温度感を掴む速さが強みです。", use: "アサイン例：新規開拓の伴走、導入支援" },
+        { cat: "career", tag: "キャリア支援・研修", title: "個人と組織をつなぐ、キャリア支援の実務家", meta: "大手人材サービス出身 ／ キャリア面談・転職支援の実務", body: "一人ひとりのキャリアの棚卸しと、組織側の期待をつなぐ対話の設計が得意。卒業生との接点づくりにも力を発揮します。", use: "アサイン例：アルムナイとの接点づくり、面談支援" },
+        { cat: "career", tag: "キャリア支援・研修", title: "場をつくる、研修・イベント運営の担い手", meta: "大手HR出身 ／ 研修・コミュニティイベントの運営", body: "研修や交流イベントの企画から当日の運営までを担える人材。人が集まる場の設計と、継続する仕掛けづくりが強みです。", use: "アサイン例：アルムナイイベント、研修の運営" }
+      ];
+      let curCat = "all", curIdx = 0;
+      const deck = document.getElementById('deck');
+      const count = document.getElementById('deckCount');
+      function filtered() { return PEOPLE.filter(function (x) { return curCat === "all" || x.cat === curCat; }); }
+      function renderDeck() {
+        const list = filtered();
+        if (!list.length) { deck.innerHTML = '<p class="body">該当する人材像がありません。</p>'; count.textContent = ''; return; }
+        if (curIdx >= list.length) curIdx = 0;
+        const d = list[curIdx];
+        deck.innerHTML = '<span class="tag">' + d.tag + '</span><h4>' + d.title + '</h4><p class="meta">' + d.meta + '</p><p class="body">' + d.body + '</p><p class="body">' + d.use + '</p>';
+        count.textContent = (curIdx + 1) + ' / ' + list.length + ' 件';
+      }
+      document.querySelectorAll('.chip').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('.chip').forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active');
+          curCat = b.dataset.cat; curIdx = 0; renderDeck();
+        });
+      });
+      document.getElementById('deckPrev').addEventListener('click', function () { const n = filtered().length; if (n) { curIdx = (curIdx - 1 + n) % n; renderDeck(); } });
+      document.getElementById('deckNext').addEventListener('click', function () { const n = filtered().length; if (n) { curIdx = (curIdx + 1) % n; renderDeck(); } });
+      renderDeck();
+    </script>
   </body>
 </html>
