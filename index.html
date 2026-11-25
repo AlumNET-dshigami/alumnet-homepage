@@ -489,6 +489,19 @@
         .funnel-row{grid-template-columns:max-content 1fr 34px;font-size:12px;gap:9px}
         .check-box{padding:24px 20px}
       }
+    
+      /* strengths (alumni network) */
+      .strength-rows{display:grid;gap:10px;max-width:820px}
+      .strength-row{display:flex;justify-content:space-between;align-items:baseline;background:var(--bg-alt);border-radius:10px;padding:15px 22px}
+      .strength-row .co{font-weight:800;letter-spacing:.04em}
+      .strength-row .num{font-weight:900;font-size:22px}
+      .strength-row .num small{font-size:13px;font-weight:700;margin-left:2px}
+      .strength-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px;max-width:1000px}
+      .strength-stat{border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:#fff}
+      .strength-stat .n{font-size:32px;font-weight:900;line-height:1.1}
+      .strength-stat .n small{font-size:15px;font-weight:800;margin-left:2px}
+      .strength-stat .l{color:var(--muted);font-weight:700;font-size:13.5px;margin-top:8px;line-height:1.6}
+      @media (max-width:760px){.strength-stats{grid-template-columns:1fr}}
     </style>
   </head>
   <body>
@@ -580,6 +593,30 @@
           </div>
         </div>
       </div>
+
+
+      <!-- ================= Strengths ================= -->
+      <section id="strengths" style="padding-bottom:8px">
+        <div class="wrap">
+          <div class="sec-head">
+            <p class="sec-kicker">STRENGTHS — 私たちの強み</p>
+            <h2>AlumNET = Alumni × Network</h2>
+            <p class="sec-lead">社名は「アルムナイ（卒業生）」と「ネットワーク」の造語です。大手HRの卒業生ネットワークそのものが、私たちの事業の土台であり、いちばんの強みです。</p>
+          </div>
+          <div class="strength-rows">
+            <div class="strength-row"><span class="co">PASONA</span><span class="num">200<small>名</small></span></div>
+            <div class="strength-row"><span class="co">PERSOL</span><span class="num">100<small>名</small></span></div>
+            <div class="strength-row"><span class="co">RECRUIT</span><span class="num">50<small>名</small></span></div>
+            <div class="strength-row"><span class="co">JAC Recruitment</span><span class="num">30<small>名</small></span></div>
+          </div>
+          <div class="strength-stats">
+            <div class="strength-stat"><div class="n">380<small>名</small></div><div class="l">大手HRアルムナイのネットワーク（全員が大手HRの卒業生で構成）</div></div>
+            <div class="strength-stat"><div class="n">262<small>名</small></div><div class="l">自社で運営する卒業生コミュニティ「パソナキャリアアルムナイ」の登録メンバー</div></div>
+            <div class="strength-stat"><div class="n">88<small>社</small></div><div class="l">アルムナイのつながりで人事に接点のある企業（うち元パソナ人事経由が45社）</div></div>
+          </div>
+          <p style="margin:26px 0 0;font-weight:700">どんな人材がいるかは、<a href="/lp/partner/#strengths" style="color:var(--accent-strong)">パートナーページの人材像</a>でご紹介しています。</p>
+        </div>
+      </section>
 
       <!-- ================= Partners ================= -->
       <div class="wrap" style="padding-bottom:8px">
