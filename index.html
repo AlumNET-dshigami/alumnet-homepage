@@ -502,6 +502,27 @@
       .strength-stat .n small{font-size:15px;font-weight:800;margin-left:2px}
       .strength-stat .l{color:var(--muted);font-weight:700;font-size:13.5px;margin-top:8px;line-height:1.6}
       @media (max-width:760px){.strength-stats{grid-template-columns:1fr}}
+    
+      /* talent search */
+      .tsearch{margin-top:38px;border:1px solid var(--line);border-radius:20px;background:#fff;box-shadow:0 10px 34px rgba(16,35,60,.07);padding:30px 32px;max-width:1000px}
+      .tsearch h3{margin:0 0 6px;font-size:20px;font-weight:900}
+      .tsearch .sub{color:var(--muted);font-weight:500;margin:0 0 18px;line-height:1.7}
+      .tsearch .bar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+      .tsearch input[type="search"]{flex:1;min-width:220px;border:1.5px solid var(--line);border-radius:999px;padding:.65em 1.2em;font-size:15px;font-family:inherit}
+      .tsearch input[type="search"]:focus{outline:none;border-color:var(--accent)}
+      .tchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+      .tchip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.45em 1.1em;font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit;color:inherit}
+      .tchip.active{background:var(--accent);border-color:var(--accent);color:#fff}
+      .tcount{font-weight:800;color:var(--muted);margin:14px 0 12px}
+      .tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+      @media (max-width:900px){.tgrid{grid-template-columns:repeat(2,1fr)}}
+      @media (max-width:600px){.tgrid{grid-template-columns:1fr}}
+      .tcard{border:1px solid var(--line);border-radius:14px;padding:18px 20px;background:var(--bg-alt)}
+      .tcard .role{font-weight:900;font-size:16.5px;margin:0 0 6px}
+      .tcard .ind{color:var(--muted);font-weight:700;font-size:13px;margin:0 0 8px}
+      .tcard .str{font-size:13.5px;font-weight:500;line-height:1.65;margin:0;color:inherit}
+      .tmore{margin-top:18px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:.55em 1.6em;font-weight:800;cursor:pointer;font-family:inherit}
+      .tmore:hover{border-color:var(--accent);color:var(--accent-strong)}
     </style>
   </head>
   <body>
@@ -614,7 +635,29 @@
             <div class="strength-stat"><div class="n">262<small>名</small></div><div class="l">自社で運営する卒業生コミュニティ「パソナキャリアアルムナイ」の登録メンバー</div></div>
             <div class="strength-stat"><div class="n">88<small>社</small></div><div class="l">アルムナイのつながりで人事に接点のある企業（うち元パソナ人事経由が45社）</div></div>
           </div>
-          <p style="margin:26px 0 0;font-weight:700">どんな人材がいるかは、<a href="/lp/partner/#strengths" style="color:var(--accent-strong)">パートナーページの人材像</a>でご紹介しています。</p>
+
+          <div class="tsearch" id="tsearch">
+            <h3>人材検索 — こんなプロフェッショナルがいます</h3>
+            <p class="sub">パソナキャリアアルムナイの名簿（177名・在籍企業132社）をもとに、個人が特定されない形で表示しています。役職や領域で探せます。</p>
+            <div class="bar">
+              <input type="search" id="tq" placeholder="キーワードで探す（例：人事、RPO、CEO、営業）" aria-label="人材検索キーワード">
+            </div>
+            <div class="tchips" id="tchips">
+              <button class="tchip active" data-cat="all" type="button">すべて</button>
+              <button class="tchip" data-cat="人事・採用" type="button">人事・採用</button>
+              <button class="tchip" data-cat="人材コンサル・RPO" type="button">人材コンサル・RPO</button>
+              <button class="tchip" data-cat="営業・事業開発" type="button">営業・事業開発</button>
+              <button class="tchip" data-cat="経営・役員" type="button">経営・役員</button>
+              <button class="tchip" data-cat="マーケ・広報" type="button">マーケ・広報</button>
+              <button class="tchip" data-cat="その他専門職" type="button">その他専門職</button>
+            </div>
+            <p class="tcount" id="tcount"></p>
+            <div class="tgrid" id="tgrid"></div>
+            <button class="tmore" id="tmore" type="button">もっと見る</button>
+            <p style="margin:22px 0 0;font-weight:800;font-size:16.5px">このプロフェッショナルたちが、貴社の課題解決をサポートします。</p>
+            <p style="margin:8px 0 0"><a href="#contact" style="color:var(--accent-strong);font-weight:700">無料相談で、現状と優先順位の整理から</a></p>
+          </div>
+
         </div>
       </section>
 
@@ -1422,6 +1465,44 @@
           });
         });
       })();
+    </script>
+
+    <script>
+      const TALENT = [{"r": "営業担当", "rc": "営業・事業開発", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "公共・非営利"}, {"r": "専門職", "rc": "その他専門職", "ic": "公共・非営利"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "メーカー・大手事業会社"}, {"r": "農家", "rc": "その他専門職", "ic": "フリーランス・自営"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "人事担当", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "営業責任者", "rc": "営業・事業開発", "ic": "金融"}, {"r": "人事担当", "rc": "人事・採用", "ic": "金融"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "金融"}, {"r": "人事担当", "rc": "人事・採用", "ic": "金融"}, {"r": "人事マネージャー", "rc": "人事・採用", "ic": "金融"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "人材・HR"}, {"r": "人事責任者", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "人材・HR"}, {"r": "営業マネージャー", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材研修事業責任者", "rc": "その他専門職", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "営業企画部", "rc": "営業・事業開発", "ic": "メーカー・大手事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "執行役員", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "広報", "rc": "マーケ・広報", "ic": "人材・HR"}, {"r": "営業責任者", "rc": "営業・事業開発", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "事業開発本部 本部長", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "マーケティング", "rc": "マーケ・広報", "ic": "人材・HR"}, {"r": "RPO責任者（部長）", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "ビジネスデベロップメント", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "インサイドセールス", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "メーカー・大手事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "広報", "rc": "マーケ・広報", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "取締役COO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業責任者", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人事責任者", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "RPO", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "CEO", "rc": "経営・役員", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "コンサルタント", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "専門職", "rc": "その他専門職", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事マネージャー", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "カウンセラー", "rc": "その他専門職", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "インサイドセールス", "rc": "営業・事業開発", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "カメラマン", "rc": "その他専門職", "ic": "SaaS・IT・事業会社"}, {"r": "広報", "rc": "マーケ・広報", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "専務理事", "rc": "経営・役員", "ic": "公共・非営利"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "営業マネージャー", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "研修講師", "rc": "その他専門職", "ic": "フリーランス・自営"}, {"r": "マーケティング", "rc": "マーケ・広報", "ic": "フリーランス・自営"}, {"r": "マーケティング", "rc": "マーケ・広報", "ic": "フリーランス・自営"}, {"r": "コーチング", "rc": "その他専門職", "ic": "フリーランス・自営"}, {"r": "コーチング", "rc": "その他専門職", "ic": "フリーランス・自営"}, {"r": "RPO", "rc": "人材コンサル・RPO", "ic": "フリーランス・自営"}, {"r": "RPO", "rc": "人材コンサル・RPO", "ic": "フリーランス・自営"}, {"r": "RPO", "rc": "人材コンサル・RPO", "ic": "フリーランス・自営"}, {"r": "RPO", "rc": "人材コンサル・RPO", "ic": "フリーランス・自営"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "人材・HR"}, {"r": "BizDev", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "代表", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "営業責任者", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "RPO", "rc": "人材コンサル・RPO", "ic": "コンサルティング"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "人材・HR"}, {"r": "リクルーター", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "金融"}, {"r": "人事コンサルタント", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "人事コンサルタント", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "副編集長", "rc": "マーケ・広報", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "AIコンサルタント", "rc": "その他専門職", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "営業担当", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人事責任者", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "コンサルタント", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "人材コンサルタント", "rc": "人材コンサル・RPO", "ic": "人材・HR"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事マネージャー", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "CS部 GB CSMs", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "コーディネーター", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "コーディネーター", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "コーディネーター", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "コーディネーター", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "人事担当", "rc": "人事・採用", "ic": "金融"}, {"r": "シニアコンサルタント", "rc": "その他専門職", "ic": "コンサルティング"}, {"r": "人事コンサルタント", "rc": "人事・採用", "ic": "コンサルティング"}, {"r": "マーケティング", "rc": "マーケ・広報", "ic": "SaaS・IT・事業会社"}, {"r": "リクルーター", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "SaaS・IT・事業会社"}, {"r": "事業企画", "rc": "営業・事業開発", "ic": "SaaS・IT・事業会社"}, {"r": "CEO", "rc": "経営・役員", "ic": "SaaS・IT・事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "メーカー・大手事業会社"}, {"r": "人事担当", "rc": "人事・採用", "ic": "その他"}, {"r": "人事責任者", "rc": "人事・採用", "ic": "その他"}, {"r": "専門職", "rc": "その他専門職", "ic": "その他"}, {"r": "専門職", "rc": "その他専門職", "ic": "その他"}, {"r": "専門職", "rc": "その他専門職", "ic": "その他"}];
+      const TSTR = {
+        "人事・採用": "各社の人事の現場にいる卒業生。人事の内側から、採用の相談に乗れる存在です。",
+        "人材コンサル・RPO": "人材紹介とRPOの実務家。スカウトから面接運用まで、現場を回せます。",
+        "営業・事業開発": "HR商材やSaaSの営業・事業開発の担い手。顧客の課題把握が速い人材です。",
+        "経営・役員": "CEOや役員クラスの経営者。経営の目線で課題を捉えられます。",
+        "マーケ・広報": "マーケティングと広報の実務家。発信と集客の設計ができます。",
+        "その他専門職": "コンサルタント、コーディネーター、研修講師など、多様な専門人材です。"
+      };
+      let tCat = "all", tShown = 9;
+      const tq = document.getElementById('tq'), tgrid = document.getElementById('tgrid'),
+            tcount = document.getElementById('tcount'), tmore = document.getElementById('tmore');
+      function tFiltered() {
+        const q = (tq.value || "").trim();
+        return TALENT.filter(function (d) {
+          return (tCat === "all" || d.rc === tCat) && (!q || d.r.indexOf(q) >= 0 || d.ic.indexOf(q) >= 0);
+        });
+      }
+      function tRender() {
+        const list = tFiltered();
+        tcount.textContent = list.length + " 名のプロフェッショナル";
+        tgrid.innerHTML = list.slice(0, tShown).map(function (d) {
+          return '<article class="tcard"><p class="role">' + d.r + '</p><p class="ind">在籍先：' + d.ic + '</p><p class="str">' + TSTR[d.rc] + '</p></article>';
+        }).join("") || '<p>該当する人材が見つかりませんでした。</p>';
+        tmore.style.display = list.length > tShown ? "" : "none";
+      }
+      document.querySelectorAll('.tchip').forEach(function (b) {
+        b.addEventListener('click', function () {
+          document.querySelectorAll('.tchip').forEach(function (x) { x.classList.remove('active'); });
+          b.classList.add('active'); tCat = b.dataset.cat; tShown = 9; tRender();
+        });
+      });
+      tq.addEventListener('input', function () { tShown = 9; tRender(); });
+      tmore.addEventListener('click', function () { tShown += 9; tRender(); });
+      tRender();
     </script>
   </body>
 </html>
