@@ -18,6 +18,7 @@
 - [Indeed運用支援](https://alum-net.jp/lp/indeed/)：初期設計10万円・運用代行 月額10万円〜（税別）
 - [新卒採用支援（OfferBox運用）](https://alum-net.jp/lp/newgrad/)
 - [LP・Web制作支援](https://alum-net.jp/lp/lp-web/)：LP制作15万円〜（税別）
+- [AI研修プログラム](https://alum-net.jp/lp/ai-training/)：人事・採用部門向け生成AI活用研修（半日15万円〜・税別）と個人向けAI×キャリア講座（単発9,800円・税別）
 - [パートナープログラム](https://alum-net.jp/lp/partner/)：紹介・販売・協業の3階建て
 - [HR業界向けAIキャリア相談・転職支援](https://alum-net.jp/lp/career/)：個人（求職者）向け。HR業界（人材紹介・人事・人事コンサル・RPO）で働く人が、AIに無料で相談でき、応募後は人のエージェントが条件交渉・入社まで伴走する。求職者は無料（企業側の成功報酬で運営）
 
