@@ -322,6 +322,7 @@
 
       /* services */
       .svc-list{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.svc-cat{font-size:19px;font-weight:900;margin:32px 0 14px;padding-left:12px;border-left:4px solid var(--accent)}
       .svc{
         background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
         padding:30px 28px;display:flex;flex-direction:column;gap:0;transition:border-color .2s, box-shadow .2s;
@@ -882,9 +883,10 @@
         <div class="wrap">
           <div class="sec-head">
             <p class="sec-kicker">SERVICES</p>
-            <h2>9つの支援領域</h2>
-            <p class="sec-lead">単発の代行ではなく、会社の採用力を底上げするための9領域。必要なところから始められ、組み合わせも自由です。</p>
+            <h2>8つの支援領域</h2>
+            <p class="sec-lead">単発の代行ではなく、会社の採用力を底上げするための8領域を、実行・仕組み・AIの3カテゴリで提供します。必要なところから始められ、組み合わせも自由です。</p>
           </div>
+          <h3 class="svc-cat">採用を実行する</h3>
           <div class="svc-list">
             <article class="svc">
               <div class="svc-top"><span class="svc-no">01</span><span class="svc-badge teal">実行部隊</span></div>
@@ -913,7 +915,23 @@
               <a class="svc-link" href="/lp/chro/">詳しく見る →</a>
             </article>
             <article class="svc">
-              <div class="svc-top"><span class="svc-no">03</span><span class="svc-badge">資産をつくる</span></div>
+              <div class="svc-top"><span class="svc-no">03</span><span class="svc-badge">母集団形成</span></div>
+              <h3>Indeed運用支援</h3>
+              <div class="svc-en">INDEED OPERATIONS</div>
+              <p>求人票の設計から予算運用、スカウト、効果測定まで。Indeedで「集める」工程を仕組み化し、応募後の選考運営までつなぐ支援です。</p>
+              <ul>
+                <li>求人票の設計・立て直し（初期設計）</li>
+                <li>予算配分・入札調整、原稿改善とスカウト運用</li>
+                <li>週次レポートと月次改善ミーティング</li>
+              </ul>
+              <div class="svc-price">初期設計 <strong>100,000円</strong>（税別） ＋ 運用代行 月額<strong>100,000円〜</strong>（税別）</div>
+              <a class="svc-link" href="/lp/indeed/">詳しく見る →</a>
+            </article>
+          </div>
+          <h3 class="svc-cat">採用の仕組みと資産をつくる</h3>
+          <div class="svc-list">
+            <article class="svc">
+              <div class="svc-top"><span class="svc-no">04</span><span class="svc-badge">資産をつくる</span></div>
               <h3>アルムナイ構築・運用</h3>
               <div class="svc-en">ALUMNI RELATIONS</div>
               <p>退職者との関係を「資産」に変える、AlumNETの看板領域。コミュニティの初期構築から月額運用、カムバック・リファラル採用への接続まで。月額のみで始めるライトプランも用意しています。</p>
@@ -925,19 +943,6 @@
               </ul>
               <div class="svc-price">構築 <strong>40万円</strong>（税別） ＋ 運用 月額<strong>5万円</strong>（税別）／ライトプラン 月額<strong>5万円</strong>から</div>
               <a class="svc-link" href="/lp/alumni/">ライトプランの詳細 →</a>
-            </article>
-            <article class="svc">
-              <div class="svc-top"><span class="svc-no">04</span><span class="svc-badge">AI × 採用</span></div>
-              <h3>AIプロダクト</h3>
-              <div class="svc-en">RECRUIT AI OPS / SCOUTPILOT</div>
-              <p>現場の支援から生まれたプロダクト群。AIが定型業務を引き受け、人は候補者と向き合う仕事に集中できる状態をつくります。</p>
-              <ul>
-                <li>Recruit AI Ops：採用オペレーションの自動化</li>
-                <li>ScoutPilot ENTERPRISE：スカウト業務支援</li>
-                <li>導入は運用支援とセットで伴走</li>
-              </ul>
-              <div class="svc-price">月額 <strong>10万円〜</strong>（プランにより変動）</div>
-              <a class="svc-link" href="/lp/recruit-ai-ops/">詳しく見る →</a>
             </article>
             <article class="svc">
               <div class="svc-top"><span class="svc-no">05</span><span class="svc-badge">独立・新規事業</span></div>
@@ -953,33 +958,7 @@
               <a class="svc-link" href="/lp/agent-launch/">詳しく見る →</a>
             </article>
             <article class="svc">
-              <div class="svc-top"><span class="svc-no">06</span><span class="svc-badge">母集団形成</span></div>
-              <h3>Indeed運用支援</h3>
-              <div class="svc-en">INDEED OPERATIONS</div>
-              <p>求人票の設計から予算運用、スカウト、効果測定まで。Indeedで「集める」工程を仕組み化し、応募後の選考運営までつなぐ支援です。</p>
-              <ul>
-                <li>求人票の設計・立て直し（初期設計）</li>
-                <li>予算配分・入札調整、原稿改善とスカウト運用</li>
-                <li>週次レポートと月次改善ミーティング</li>
-              </ul>
-              <div class="svc-price">初期設計 <strong>100,000円</strong>（税別） ＋ 運用代行 月額<strong>100,000円〜</strong>（税別）</div>
-              <a class="svc-link" href="/lp/indeed/">詳しく見る →</a>
-            </article>
-            <article class="svc">
-              <div class="svc-top"><span class="svc-no">07</span><span class="svc-badge">新卒採用</span></div>
-              <h3>新卒採用支援</h3>
-              <div class="svc-en">NEW GRADUATE — OFFERBOX</div>
-              <p>OfferBoxのスカウト運用を、ターゲット設計から送信・改善まで代行。新卒の母集団形成を仕組み化し、選考運営までつなぐ支援です。</p>
-              <ul>
-                <li>採用ターゲットの設計とスカウト文面の型（初期設計）</li>
-                <li>学生の選定・個別文面・送信運用（承認制）</li>
-                <li>承認率の測定と月次レポート</li>
-              </ul>
-              <div class="svc-price">初期設計 <strong>100,000円</strong>（税別） ＋ 運用代行 月額<strong>100,000円〜</strong>（税別）</div>
-              <a class="svc-link" href="/lp/newgrad/">詳しく見る →</a>
-            </article>
-            <article class="svc">
-              <div class="svc-top"><span class="svc-no">08</span><span class="svc-badge">AI活用で短納期</span></div>
+              <div class="svc-top"><span class="svc-no">06</span><span class="svc-badge">AI活用で短納期</span></div>
               <h3>LP・Web制作支援</h3>
               <div class="svc-en">LP / WEB PRODUCTION</div>
               <p>AI活用で、構成・文案からデザイン・公開までを短納期で進めるLP制作。自社サイト alum-net.jp と同じ制作体制で、採用LPやサービスLPを1ページから制作します。</p>
@@ -991,8 +970,24 @@
               <div class="svc-price">LP制作 <strong>150,000円〜</strong>（税別）／モニター枠 先着3社 <strong>100,000円</strong>（税別）</div>
               <a class="svc-link" href="/lp/lp-web/">詳しく見る →</a>
             </article>
+          </div>
+          <h3 class="svc-cat">AIで加速する</h3>
+          <div class="svc-list">
             <article class="svc">
-              <div class="svc-top"><span class="svc-no">09</span><span class="svc-badge">ToB・ToC両対応</span></div>
+              <div class="svc-top"><span class="svc-no">07</span><span class="svc-badge">AI × 採用</span></div>
+              <h3>AIプロダクト</h3>
+              <div class="svc-en">RECRUIT AI OPS / SCOUTPILOT</div>
+              <p>現場の支援から生まれたプロダクト群。AIが定型業務を引き受け、人は候補者と向き合う仕事に集中できる状態をつくります。</p>
+              <ul>
+                <li>Recruit AI Ops：採用オペレーションの自動化</li>
+                <li>ScoutPilot ENTERPRISE：スカウト業務支援</li>
+                <li>導入は運用支援とセットで伴走</li>
+              </ul>
+              <div class="svc-price">月額 <strong>10万円〜</strong>（プランにより変動）</div>
+              <a class="svc-link" href="/lp/recruit-ai-ops/">詳しく見る →</a>
+            </article>
+            <article class="svc">
+              <div class="svc-top"><span class="svc-no">08</span><span class="svc-badge">ToB・ToC両対応</span></div>
               <h3>AI研修プログラム</h3>
               <div class="svc-en">AI TRAINING</div>
               <p>人事・採用の実務で生成AIを使うための研修。自社の求人と業務を題材にしたワーク形式で、使える手順を持ち帰ります。個人向けのAI×キャリア講座も用意しています。</p>
