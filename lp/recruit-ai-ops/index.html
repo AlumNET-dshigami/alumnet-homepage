@@ -231,6 +231,18 @@
       .promise h3 { font-weight: 900; font-size: clamp(1.2rem, 2.4vw, 1.45rem); margin: 14px 0 .5em; line-height: 1.45; }
       .promise .body { margin: 0; color: var(--ink-2); font-weight: 500; font-size: .94rem; }
 
+      /* ---------- division (AI / human) + home ---------- */
+      .division-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); }
+      .division-table th, .division-table td { padding: 16px 20px; text-align: left; border-bottom: 1px solid var(--line); font-size: .96rem; vertical-align: top; }
+      .division-table thead th { background: var(--navy-soft); font-weight: 800; font-size: .85rem; color: var(--navy); }
+      .division-table tbody th { font-weight: 800; white-space: nowrap; }
+      .division-table tbody tr:last-child th, .division-table tbody tr:last-child td { border-bottom: none; }
+      .division-close { margin: 24px 0 0; font-size: clamp(1.15rem, 2.8vw, 1.5rem); font-weight: 900; color: var(--navy); padding-left: 14px; border-left: 4px solid var(--teal); line-height: 1.5; }
+      .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+      .home-card { border: 1px solid var(--line); border-radius: var(--radius); padding: 28px 26px 30px; background: var(--surface); box-shadow: var(--shadow-sm); }
+      .home-card h3 { font-weight: 900; font-size: clamp(1.2rem, 2.4vw, 1.45rem); margin: 0 0 .6em; line-height: 1.45; }
+      .home-card p { margin: 0; color: var(--ink-2); font-weight: 500; font-size: .96rem; }
+
       /* ---------- case ---------- */
       .case { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
       .case-block { border: 1.5px dashed var(--line-strong); border-radius: var(--radius); background: var(--surface); padding: 28px 32px; max-width: 860px; }
@@ -325,6 +337,9 @@
         .price-card.popular { transform: none; }
         .cta-band { grid-template-columns: 1fr; padding: 30px 24px; }
         .grid-2, .grid-21, .grid-12, .grid-rep, .grid-ext { grid-template-columns: 1fr; }
+        .home-grid { grid-template-columns: 1fr; }
+        .division-table th, .division-table td { padding: 12px 12px; font-size: .88rem; }
+        .division-table tbody th { white-space: normal; }
         .asks { grid-template-columns: repeat(2, 1fr); }
         .stage, .point .stage { padding: 24px 20px; }
       }
@@ -386,8 +401,11 @@
       <div class="wrap">
         <div class="hero-copy">
           <span class="eyebrow">スカウト業務に悩む採用担当者・人材紹介会社の皆様へ</span>
-          <h1>採用の<span class="accent">現在地</span>と、<br /><span class="accent">次の一手</span>が見える。</h1>
+          <h1>応募が届いたら、<br /><span class="accent">AIが先に動く</span></h1>
           <p class="hero-core">AIが処理し、人が判断する。</p>
+          <p class="hero-lead">
+            新規の応募・候補者登録を検知すると、AIが書類選考の下書きを用意して承認キューに入れます。<strong>人が画面を開く前に、選考は一歩進んでいます。</strong>
+          </p>
           <p class="hero-lead">
             Recruit AI Opsは、人材紹介会社のスカウト運用を回すための基盤です。評価基準づくりから判定、スカウト文面、面接、オファーまで、<strong>AIが下地をつくり、ダッシュボードで進捗と詰まりを見える化</strong>。判定と文面づくりは<strong>手元のClaude / ChatGPT</strong>で、送信は<strong>人が確認してから</strong>行います。既存のATSや媒体はそのまま使えます。
           </p>
@@ -460,6 +478,44 @@
     </header>
 
     <main>
+      <!-- ============ 1b. DIVISION OF WORK ============ -->
+      <section id="division">
+        <div class="wrap">
+          <div class="sec-head">
+            <span class="sec-tag">AI × HUMAN</span>
+            <h2>AIに任せる仕事、<span class="accent">人が判断する仕事</span></h2>
+          </div>
+          <table class="division-table">
+            <thead>
+              <tr><th scope="col">工程</th><th scope="col">AIがやること</th><th scope="col">人がやること</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">求人・スカウト文</th><td>下書きの作成</td><td>確認と承認</td></tr>
+              <tr><th scope="row">書類選考</th><td>要件ごとの充足・未充足と根拠の提示</td><td>通過・見送りの判断</td></tr>
+              <tr><th scope="row">面接</th><td>申し送りとワンページャーの下書き</td><td>面接の実施と評価</td></tr>
+              <tr><th scope="row">停滞の検知</th><td>承認待ち・返信待ちの集約とアラート</td><td>対応の判断</td></tr>
+            </tbody>
+          </table>
+          <p class="division-close">残るのは、承認と判断だけです。</p>
+        </div>
+      </section>
+
+      <!-- ============ 1c. HOME + COMPANY KNOWLEDGE ============ -->
+      <section id="home" style="padding-top:0">
+        <div class="wrap">
+          <div class="home-grid">
+            <div class="home-card">
+              <h3>ホームを開くと、今日やることが並んでいる</h3>
+              <p>未送信のリード、判定待ちの書類選考、返信待ちの候補者。パイプラインの状態からAIがタスクを集約し、優先度順に並べます。各タスクには「次の一手」と対象が示され、承認画面へそのまま進めます。AI相談ボックスでは、状況を聞くと件数と根拠つきで回答します。</p>
+            </div>
+            <div class="home-card">
+              <h3>使うほど、自社の採用に詳しくなる</h3>
+              <p>会社プロフィールと面談履歴、「AIが学んだこと」をAIの判断材料にします。自社の基準を覚えたAIが下書きを作るので、確認の手間が減っていきます。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- ============ 2. POINTS 1-9 ============ -->
       <section id="points" class="points-intro">
         <div class="wrap">
