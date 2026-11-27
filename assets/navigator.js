@@ -85,7 +85,9 @@
     var fabText = el('span', 'aoi-fab-text');
     fabText.appendChild(el('span', 'aoi-fab-main', 'アルムに相談'));
     fabText.appendChild(el('span', 'aoi-fab-sub', 'AIナビゲーター'));
-    fab.appendChild(fabImg);
+    var fabAvatar = el('span', 'aoi-avatar');
+    fabAvatar.appendChild(fabImg);
+    fab.appendChild(fabAvatar);
     fab.appendChild(fabText);
 
     var panel = el('section', 'aoi-panel');
@@ -104,7 +106,9 @@
     var close = el('button', 'aoi-close', '×');
     close.type = 'button';
     close.setAttribute('aria-label', '閉じる');
-    head.appendChild(headImg);
+    var headAvatar = el('span', 'aoi-avatar');
+    headAvatar.appendChild(headImg);
+    head.appendChild(headAvatar);
     head.appendChild(headText);
     head.appendChild(close);
 

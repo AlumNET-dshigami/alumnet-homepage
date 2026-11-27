@@ -28,7 +28,8 @@
 .aoi-fab:active{transform:scale(.98)}
 .aoi-fab:focus-visible,.aoi-close:focus-visible,.aoi-chip:focus-visible,.aoi-send:focus-visible,.aoi-input:focus-visible,.aoi-msg a:focus-visible{outline:3px solid #8fb8ff;outline-offset:2px}
 /* アバターは正方形の円枠に固定。ページ側の img{max-width:100%;height:auto} 等に潰されないよう寸法を全て明示する */
-.aoi-fab img{display:block;width:44px;height:44px;min-width:44px;max-width:none;min-height:44px;max-height:none;aspect-ratio:1/1;flex:0 0 44px;border-radius:50%;object-fit:cover;object-position:center;background:#fff;border:2px solid #fff}
+.aoi-avatar{display:block;position:relative;width:44px;height:44px;min-width:44px;max-width:44px;min-height:44px;max-height:44px;aspect-ratio:1/1;flex:none;align-self:center;overflow:hidden;border-radius:50%;border:2px solid #fff;background:#fff}
+.aoi-avatar img{display:block;width:100%;height:100%;min-width:0;max-width:none;min-height:0;max-height:none;object-fit:cover;object-position:center;border:0;border-radius:0}
 .aoi-fab-text{display:flex;flex-direction:column;justify-content:center;min-width:0;line-height:1.25;white-space:nowrap}
 .aoi-fab-main{font-size:15px;font-weight:800}
 .aoi-fab-sub{font-size:10.5px;font-weight:700;letter-spacing:.06em;color:#a9bcd4}
@@ -46,7 +47,8 @@
 .aoi-nav.is-open .aoi-panel{display:flex}
 
 .aoi-head{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--aoi-navy);color:#fff;flex:none}
-.aoi-head img{display:block;width:48px;height:48px;min-width:48px;max-width:none;min-height:48px;max-height:none;aspect-ratio:1/1;flex:0 0 48px;border-radius:50%;object-fit:cover;object-position:center top;border:2px solid #fff;background:#fff}
+.aoi-head .aoi-avatar{width:48px;height:48px;min-width:48px;max-width:48px;min-height:48px;max-height:48px}
+.aoi-head .aoi-avatar img{object-position:center top}
 .aoi-head-text{flex:1;min-width:0;line-height:1.35}
 .aoi-name{display:block;font-size:16px;font-weight:800}
 .aoi-role{display:block;font-size:11.5px;font-weight:700;color:#a9bcd4;letter-spacing:.04em}
