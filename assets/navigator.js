@@ -78,15 +78,12 @@
     fab.setAttribute('aria-haspopup', 'dialog');
     fab.setAttribute('aria-expanded', 'false');
     fab.setAttribute('aria-controls', 'aoi-panel');
-    var fabImg = el('img');
-    fabImg.src = '/assets/aoi-avatar.jpg';
-    fabImg.alt = '';
-    fabImg.width = 44; fabImg.height = 44;
     var fabText = el('span', 'aoi-fab-text');
     fabText.appendChild(el('span', 'aoi-fab-main', 'アルムに相談'));
     fabText.appendChild(el('span', 'aoi-fab-sub', 'AIナビゲーター'));
     var fabAvatar = el('span', 'aoi-avatar');
-    fabAvatar.appendChild(fabImg);
+    fabAvatar.setAttribute('aria-hidden', 'true');
+    fabAvatar.textContent = 'A';
     fab.appendChild(fabAvatar);
     fab.appendChild(fabText);
 
@@ -96,10 +93,6 @@
     panel.setAttribute('aria-label', 'AIナビゲーター アルム');
 
     var head = el('div', 'aoi-head');
-    var headImg = el('img');
-    headImg.src = '/assets/aoi-panel.jpg';
-    headImg.alt = 'AIナビゲーター アルムのポートレート';
-    headImg.width = 48; headImg.height = 48;
     var headText = el('div', 'aoi-head-text');
     headText.appendChild(el('span', 'aoi-name', 'アルム'));
     headText.appendChild(el('span', 'aoi-role', 'AIナビゲーター'));
@@ -107,7 +100,8 @@
     close.type = 'button';
     close.setAttribute('aria-label', '閉じる');
     var headAvatar = el('span', 'aoi-avatar');
-    headAvatar.appendChild(headImg);
+    headAvatar.setAttribute('aria-hidden', 'true');
+    headAvatar.textContent = 'A';
     head.appendChild(headAvatar);
     head.appendChild(headText);
     head.appendChild(close);
