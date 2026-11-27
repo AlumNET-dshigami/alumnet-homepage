@@ -7,6 +7,13 @@
     <meta name="description" content="Recruit AI Ops by AlumNET — 人材紹介会社のためのスカウト運用基盤。求人票AI、スカウトAI、書類選考AI、日程調整AI、面談・面接AI、レポートAIの流れで、作業はAI、判断は人。A/B/C判定とスカウト文面は、手元のClaude / ChatGPTで回数無制限。お試し ¥0（クレジットカード不要）、有料プランは ¥3,980 / 月。" />
     <link rel="icon" href="/assets/alumnet-logo-square-512.png" />
     <title>Recruit AI Ops by AlumNET｜採用の現在地と、次の一手が見える</title>
+    <script>
+      /* スクロール演出はJS有効かつモーション許可のときだけ有効化（無効環境では全内容が通常表示） */
+      (function () {
+        var r = document.documentElement;
+        if ("IntersectionObserver" in window && !(window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) r.classList.add("js");
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
@@ -375,6 +382,48 @@
         .win .row .grow { flex: 1 1 100%; }
         .win .card > div { flex-wrap: wrap; }
       }
+
+      /* ---------- motion (transform / opacity only) ---------- */
+      /* hero: 読み込み時に時間差で下からせり上がる（CSSのみ。最終状態は常に表示） */
+      @keyframes hero-in {
+        from { opacity: 0; transform: translate3d(0, var(--y, 28px), 0); }
+        to { opacity: 1; transform: none; }
+      }
+      .hero .eyebrow, .hero h1 .hl, .hero-core, .hero-lead, .hero-cta, .hero-notes, .principles, .hero .stage {
+        animation: hero-in .9s cubic-bezier(.22, .8, .3, 1) both;
+        animation-delay: var(--d, 0s);
+      }
+      .hero h1 .hl { display: block; --y: 44px; }
+      .hero .eyebrow { --d: .05s; }
+      .hero h1 .hl:nth-child(1) { --d: .2s; }
+      .hero h1 .hl:nth-child(2) { --d: .38s; }
+      .hero-core { --d: .62s; }
+      .hero-lead { --d: .76s; }
+      .hero-lead + .hero-lead { --d: .88s; }
+      .hero-cta { --d: 1s; }
+      .hero-notes { --d: 1.1s; }
+      .principles { --d: 1.2s; }
+      .hero .stage { --d: 1.3s; --y: 36px; }
+
+      /* scroll reveal: JS有効時のみ初期非表示（.js は head のスクリプトが付与） */
+      .js .rv { transition: opacity .7s ease, transform .8s cubic-bezier(.22, .8, .3, 1); transition-delay: var(--d, 0s); }
+      .js .rv:not(.in) { opacity: 0; transform: translate3d(0, 24px, 0); }
+      .js .rvr > * { transition: opacity .7s ease, transform .85s cubic-bezier(.22, .8, .3, 1); transition-delay: var(--d, 0s); }
+      /* 対比セクション: AI列は左から、人の列は右から。AI→人の順に時間差で入る */
+      .js .rvr:not(.in) > * { opacity: 0; }
+      .js .rvr:not(.in) > :nth-child(2) { transform: translate3d(-36px, 0, 0); }
+      .js .rvr:not(.in) > :nth-child(3) { transform: translate3d(36px, 0, 0); }
+      .js .rvr > :nth-child(3) { transition-delay: calc(var(--d, 0s) + .18s); }
+      @media (min-width: 981px) {
+        .js .price-card.popular.rv:not(.in) { transform: translate3d(0, 14px, 0); }
+      }
+      @media print {
+        .js .rv, .js .rvr > * { opacity: 1 !important; transform: none !important; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero .eyebrow, .hero h1 .hl, .hero-core, .hero-lead, .hero-cta, .hero-notes, .principles, .hero .stage { animation: none; }
+        .js .rv, .js .rvr > * { opacity: 1 !important; transform: none !important; transition: none !important; }
+      }
     </style>
   </head>
   <body>
@@ -401,7 +450,7 @@
       <div class="wrap">
         <div class="hero-copy">
           <span class="eyebrow">スカウト業務に悩む採用担当者・人材紹介会社の皆様へ</span>
-          <h1>応募が届いたら、<br /><span class="accent">AIが先に動く</span></h1>
+          <h1><span class="hl">応募が届いたら、</span><span class="hl accent">AIが先に動く</span></h1>
           <p class="hero-core">AIが処理し、人が判断する。</p>
           <p class="hero-lead">
             新規の応募・候補者登録を検知すると、AIが書類選考の下書きを用意して承認キューに入れます。<strong>人が画面を開く前に、選考は一歩進んでいます。</strong>
@@ -1460,5 +1509,63 @@
         <p>© AlumNET</p>
       </div>
     </footer>
+
+    <script>
+      /* スクロール連動の出現演出。一度表示したら戻さない。失敗時は .js を外して全表示に戻す */
+      (function () {
+        var root = document.documentElement;
+        if (!root.classList.contains("js")) return;
+        try {
+          // [セレクタ, 方向（"row"=表の行を左右に分けて入れる）, 兄弟間の時間差(秒), 基本遅延(秒)]
+          var targets = [
+            [".sec-head"],
+            [".module-head .wrap"],
+            [".point-index"],
+            [".point-grid > div:first-child"],
+            [".point-side", "", 0, 0.12],
+            [".point .stage"],
+            [".home-card", "", 0.1],
+            [".division-table tr", "row", 0.09],
+            [".division-close", "", 0, 0.2],
+            [".num-card", "", 0.1],
+            [".market-note"],
+            [".trend"],
+            [".promise", "", 0.09],
+            [".case-block"],
+            [".sub-head"],
+            [".sub-lead"],
+            [".scene-card", "", 0.1],
+            [".flow-item"],
+            [".price-card", "", 0.1],
+            [".price-note"],
+            [".faq-group"],
+            [".faq-item"],
+            [".cta-band"],
+            [".final-cta .wrap > div"]
+          ];
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (!e.isIntersecting) return;
+              e.target.classList.add("in");
+              io.unobserve(e.target);
+            });
+          }, { rootMargin: "0px 0px -6% 0px", threshold: 0.1 });
+
+          targets.forEach(function (t) {
+            var counts = new Map();
+            document.querySelectorAll(t[0]).forEach(function (el) {
+              var n = counts.get(el.parentNode) || 0;
+              counts.set(el.parentNode, n + 1);
+              var delay = (t[3] || 0) + Math.min(n, 5) * (t[2] || 0);
+              if (delay) el.style.setProperty("--d", delay.toFixed(2) + "s");
+              el.classList.add(t[1] === "row" ? "rvr" : "rv");
+              io.observe(el);
+            });
+          });
+        } catch (err) {
+          root.classList.remove("js");
+        }
+      })();
+    </script>
   </body>
 </html>
