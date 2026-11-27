@@ -1,4 +1,4 @@
-/* AIナビゲーター「高橋 葵」 — 第1段（用意された案内文の表示のみ。API接続なし） */
+/* AIナビゲーター アルム — 第1段（用意された案内文の表示のみ。API接続なし） */
 (function () {
   'use strict';
   if (window.__aoiNavigator) return;
@@ -12,7 +12,7 @@
     whitepaper: { label: 'ホワイトペーパーのページを見る', href: 'https://alum-net.jp/lp/whitepaper/' }
   };
 
-  var GREETING = 'こんにちは。AlumNETのAIナビゲーター、高橋葵です。サービスや研修について、気になっていることをお聞かせください。下から選んでいただいても構いません。';
+  var GREETING = 'こんにちは。AlumNETのAIナビゲーターのアルムです。サービスや研修について、気になっていることをお聞かせください。下から選んでいただいても構いません。';
   var FALLBACK = 'ご質問ありがとうございます。その内容は選択肢にないため、無料相談フォームからお問い合わせください。担当者が回答します。';
   var NOTE = 'このナビゲーターはAIです。表示される回答は、あらかじめ用意された案内文です。金額・条件の確定は担当者が行います。';
 
@@ -83,7 +83,7 @@
     fabImg.alt = '';
     fabImg.width = 44; fabImg.height = 44;
     var fabText = el('span', 'aoi-fab-text');
-    fabText.appendChild(el('span', 'aoi-fab-main', '葵に相談'));
+    fabText.appendChild(el('span', 'aoi-fab-main', 'アルムに相談'));
     fabText.appendChild(el('span', 'aoi-fab-sub', 'AIナビゲーター'));
     fab.appendChild(fabImg);
     fab.appendChild(fabText);
@@ -91,15 +91,15 @@
     var panel = el('section', 'aoi-panel');
     panel.id = 'aoi-panel';
     panel.setAttribute('role', 'dialog');
-    panel.setAttribute('aria-label', 'AIナビゲーター 高橋 葵');
+    panel.setAttribute('aria-label', 'AIナビゲーター アルム');
 
     var head = el('div', 'aoi-head');
     var headImg = el('img');
     headImg.src = '/assets/aoi-panel.jpg';
-    headImg.alt = '高橋 葵（AIナビゲーター）のポートレート';
+    headImg.alt = 'AIナビゲーター アルムのポートレート';
     headImg.width = 48; headImg.height = 48;
     var headText = el('div', 'aoi-head-text');
-    headText.appendChild(el('span', 'aoi-name', '高橋 葵'));
+    headText.appendChild(el('span', 'aoi-name', 'アルム'));
     headText.appendChild(el('span', 'aoi-role', 'AIナビゲーター'));
     var close = el('button', 'aoi-close', '×');
     close.type = 'button';
